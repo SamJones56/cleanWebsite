@@ -67,8 +67,8 @@ CREATE TABLE IF NOT EXISTS `HotelTallafornia`.`RestaurantTables` (
 -- Table `HotelTallafornia`.`Customer`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `HotelTallafornia`.`Customer` (
-                                                             `user_id` INT NOT NULL AUTO_INCREMENT,
-                                                             `customer_id` INT NOT NULL,
+                                                             `customer_id` INT NOT NULL AUTO_INCREMENT,
+                                                             `user_id` INT NOT NULL,
                                                              `passport_no` INT NULL,
                                                              PRIMARY KEY (`customer_id`),
     INDEX `fk_Customer_Person1_idx` (`user_id` ASC) VISIBLE,

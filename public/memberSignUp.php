@@ -1,7 +1,7 @@
 <?php
-include "../src/Functions/newEmployeeFunctions.php";
+include "../src/Functions/newMemberFunctions.php";
 include "templates/header.php";
-makeNewEmployee();
+makeNewMember();
 ?>
 
 
