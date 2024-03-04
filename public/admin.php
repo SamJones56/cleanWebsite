@@ -11,7 +11,7 @@ include "templates/header.php";
 </div>
 <br>
  <div>
-    <form action="createDiningTable.php" method="post">
+    <form action="createRestaurantTable.php" method="post">
         <button type="submit">Create Table</button>
     </form>
 </div>
