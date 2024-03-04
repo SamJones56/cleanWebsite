@@ -66,6 +66,7 @@ CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`login` (
                                                           `Login_id` INT NOT NULL AUTO_INCREMENT,
                                                           `email` VARCHAR(45) NULL DEFAULT NULL,
     `password` VARCHAR(45) NULL DEFAULT NULL,
+    `permissionlvl` INT NULL,
     PRIMARY KEY (`Login_id`))
     ENGINE = InnoDB
     DEFAULT CHARACTER SET = utf8mb3;
@@ -80,7 +81,6 @@ CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`employee` (
                                                              `dept_id` INT NOT NULL,
                                                              `login_id` INT NOT NULL,
                                                              `job` VARCHAR(45) NULL DEFAULT NULL,
-    `permissionlvl` INT NULL DEFAULT NULL,
     PRIMARY KEY (`employee_id`, `login_id`),
     INDEX `fk_Staff_Person_idx` (`user_id` ASC) VISIBLE,
     INDEX `fk_Staff_Departments1_idx` (`dept_id` ASC) VISIBLE,

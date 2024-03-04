@@ -10,7 +10,7 @@ require_once '../src/hotel/Department.php';
 
 class Employee extends User
 {
-    protected $employee_id, $login_id, $dept_id, $job, $permissionlvl;
+    protected $employee_id, $login_id, $dept_id, $job;
     // login and departments object
     private $login, $department;
 
@@ -26,13 +26,13 @@ class Employee extends User
             'login_id' => $this->login->getLoginId(),
             'dept_id' => $this->department->getDeptId(),
             'job' => $this->job,
-            'permissionlvl' => $this->permissionlvl
         );
     }
 
-    public function setLoginDetails($email, $password) {
+    public function setLoginDetails($email, $password,$permissionlvl) {
         $this->login->setEmail($email);
         $this->login->setPassword($password);
+        $this->login->setPermissionlvl($permissionlvl);
     }
 
     public function toLoginArray() {
@@ -71,11 +71,11 @@ class Employee extends User
 
     public function getPermissionlvl()
     {
-        return $this->permissionlvl;
+        return $this->login->getPermissionlvl();
     }
 
     public function setPermissionlvl($permissionlvl)
     {
-        $this->permissionlvl = $permissionlvl;
+        $this->login->setPermissionlvl($permissionlvl);
     }
 }

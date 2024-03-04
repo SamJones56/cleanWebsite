@@ -4,14 +4,15 @@ namespace person;
 
 class Login
 {
-    protected $login_id, $email, $password;
+    protected $login_id, $email, $password, $permissionlvl;
 
     public function toLoginArray()
     {
         return array(
             'login_id' => $this->login_id,
             'email' => $this->email,
-            'password' => $this->password
+            'password' => $this->password,
+            'permissionlvl' => $this->permissionlvl
         );
     }
 
@@ -43,6 +44,16 @@ class Login
     public function setPassword($password)
     {
         $this->password = $password;
+    }
+
+    public function getPermissionlvl()
+    {
+        return $this->permissionlvl;
+    }
+
+    public function setPermissionlvl($permissionlvl): void
+    {
+        $this->permissionlvl = $permissionlvl;
     }
 
 
