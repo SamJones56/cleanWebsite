@@ -4,15 +4,11 @@ use person\Employee;
 function makeNewEmployee()
 {
     if (isset($_POST['submit'])) {
-        require "../common.php";
-        include "../src/functions/dataBaseFunctions.php";
-        require_once '../src/DBconnect.php';
         require_once '../src/person/Employee.php';
 
 
         $employee = new Employee();
 
-        // Set user attributes
         // Set user attributes
         $employee->setName(escape($_POST['name']));
         $employee->setAddress(escape($_POST['address']));

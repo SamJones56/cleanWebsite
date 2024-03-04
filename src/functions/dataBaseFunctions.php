@@ -1,8 +1,8 @@
 <?php
+function addToTable($inputArray, $tableName){
 
-function addToTable($connection, $inputArray, $tableName){
 //    require "../common.php";
-//    require_once '../src/DBconnect.php';
+    require_once '../src/DBconnect.php';
     try {
     $sql = sprintf(
         "INSERT INTO %s (%s) values (%s)",
@@ -18,9 +18,9 @@ function addToTable($connection, $inputArray, $tableName){
 }
 
 // https://www.php.net/manual/en/pdostatement.fetchobject.php
-function getKey($connection, $tableName, $primaryKey){
-    require_once '../src/DBconnect.php';;
+function getKey($tableName, $primaryKey){
     try {
+        require_once '../src/DBconnect.php';
         $sql = "SELECT MAX(" . $primaryKey . ") FROM " . $tableName;
         $statement = $connection->prepare($sql);
         $statement->execute();
