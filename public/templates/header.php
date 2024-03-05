@@ -30,7 +30,7 @@
 <!--        Begin checks for logged in                  -->
         <?php if($_SESSION['Active'] == false){ ?>
         <div class="col-md-3 text-end">
-            <a href="./login.php" class="btn btn-outline-primary me-2">Login</a>
+            <a href="./memberLogin.php" class="btn btn-outline-primary me-2">Login</a>
             <a href="./memberSignUp.php"  class="btn btn-primary">Sign-up</a>
         </div>
         <?php }
