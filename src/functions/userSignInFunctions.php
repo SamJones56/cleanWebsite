@@ -6,7 +6,7 @@ function userLogIn()
         try {
             require_once('../config.php');
             $connection = new PDO($dsn, $username, $password, $options);
-            $sql = "SELECT login_id, email, password from login where email = :USER";
+            $sql = "SELECT login_id, email, password, permissionlvl from login where email = :USER";
             $statement = $connection->prepare($sql);
             $tmpUser = $_POST['Email'];
             $statement->bindParam(':USER', $tmpUser, PDO::PARAM_STR);
@@ -17,10 +17,12 @@ function userLogIn()
                 $login_id_db = $rows['login_id'];
                 $email_db = $rows['email'];
                 $pwd_db = $rows['password'];
+                $permissionlvl = $rows['permissionlvl'];
                 if (($_POST['Email'] == $email_db) && ($_POST['Password'] == $pwd_db))
                 {
                     $_SESSION['login_id'] = $login_id_db;
                     $_SESSION['Email'] = $email_db;
+                    $_SESSION['permissionlvl'] = $permissionlvl;
                     $_SESSION['Active'] = true;
 
                     header("location:index.php");
@@ -35,3 +37,4 @@ function userLogIn()
         }
     }
 }
+
