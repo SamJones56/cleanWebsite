@@ -78,4 +78,14 @@ class Employee extends User
     {
         $this->login->setPermissionlvl($permissionlvl);
     }
+
+    public function getEmployeeId()
+    {
+        return $this->employee_id;
+    }
+
+    public function setEmployeeId($employee_id): void
+    {
+        $this->employee_id = $employee_id;
+    }
 }
