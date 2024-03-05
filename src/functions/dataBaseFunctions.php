@@ -34,15 +34,10 @@ function getKey($connection, $tableName, $primaryKey){
 function searchDB($connection, $tableName, $searchKey, $searchValue)
 {
     try {
-        // SQL Injection prevention: Using placeholders
         $sql = "SELECT * FROM " . $tableName . " WHERE " . $searchKey . " = :searchValue";
-        // Preparing SQL statement
         $statement = $connection->prepare($sql);
-        // Binding the value securely
         $statement->bindParam(':searchValue', $searchValue);
-        // Execute the statement
         $statement->execute();
-        // Fetching the results
         $result_array = $statement->fetch(PDO::FETCH_ASSOC);
         return $result_array;
     } catch(PDOException $error) {

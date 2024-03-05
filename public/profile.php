@@ -9,7 +9,7 @@ $user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee']);
 <table>
     <thead>
     <tr>
-        <th>#</th>
+        <th>User id</th>
         <th>Name</th>
         <th>Address</th>
         <th>Phone</th>

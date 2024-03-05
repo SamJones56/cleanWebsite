@@ -17,7 +17,7 @@ function newProfileDisplay($login_id,$isEmployee)
         $temp_array = searchDB($connection, "user", "user_id", $user_id);
 
         // Search employee table for data
-        $temp_array + searchDB($connection, "employee", "employee_id", $employee_id);
+        $temp_array = $temp_array + searchDB($connection, "employee", "employee_id", $employee_id);
 
         // Search login table for data
         $temp_array = $temp_array + searchDB($connection, "login", "login_id", $login_id);
@@ -42,7 +42,4 @@ function newProfileDisplay($login_id,$isEmployee)
 
         return $temp_array;
     }
-
-
-
 }
