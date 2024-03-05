@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bff6bf8-3b2e-4929-89ff-2e5813ecbff7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/memberLogin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/userLogout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/memberLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/userLogin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/templates/header.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +46,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\laragon\www\cleanWebsite\public" />
+      <recent name="D:\laragon\www\cleanWebsite\src\functions" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -63,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1709634192305</updated>
       <workItem from="1709634193415" duration="741000" />
-      <workItem from="1709634967929" duration="293000" />
+      <workItem from="1709634967929" duration="706000" />
     </task>
     <servers />
   </component>
