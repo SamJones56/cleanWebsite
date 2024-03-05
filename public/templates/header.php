@@ -4,9 +4,16 @@
 $user_is_logged_in = isset($_SESSION['login_id']);
 if ($user_is_logged_in) {
     $_SESSION['Active'] = true;
+    if ($_SESSION['permissionlvl'] > 1)
+    {
+        $_SESSION['isEmployee'] = true;
+    }
+    else
+        $_SESSION['isEmployee'] = false;
 } else {
     $_SESSION['Active'] = false;
     $_SESSION['permissionlvl'] = 0;
+
 }
 ?>
 
