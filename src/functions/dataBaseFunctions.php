@@ -2,8 +2,6 @@
 
 
 function addToTable($connection, $inputArray, $tableName){
-//    require "../common.php";
-//    require_once '../src/DBconnect.php';
     try {
     $sql = sprintf(
         "INSERT INTO %s (%s) values (%s)",
