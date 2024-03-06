@@ -45,9 +45,9 @@ function searchDB($connection, $tableName, $searchKey, $searchValue)
     }
 }
 
-function getAssociationKey($connection, $tableName, $keyToSearch, $keyToFind){
+function getAssociationKey($connection, $tableName, $keyToSearch, $columnToSearch ,$keyToFind){
     try{
-        $sql = "SELECT " . $keyToFind . " FROM " . $tableName . " WHERE " . $keyToSearch . " = " . $keyToSearch;
+        $sql = "SELECT " . $keyToFind . " FROM " . $tableName . " WHERE " . $columnToSearch . " = " . $keyToSearch;
         $statement = $connection->prepare($sql);
         $statement->execute();
         $keyResult = $statement->fetch(PDO::FETCH_ASSOC);
