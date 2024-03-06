@@ -37,6 +37,8 @@ $user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee']);
             <?php }else{?>
             <td><?php echo $user_array["passport_no"]; ?></td>
             <?php }?>
+            <td><a href="test.php?user_id=<?php echo $user_array["user_id"];
+                ?>">Edit</a></td>
         </tr>
     </tbody>
 </table>
