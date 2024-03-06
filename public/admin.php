@@ -1,6 +1,12 @@
 <?php
-// Include header template.
 include "templates/header.php";
+
+if($_SESSION['permissionlvl'] < 3 )
+{
+    header("location:index.php");
+}
+// Include header template.
+
 
 ?>
 <title>Admin Page</title>

@@ -23,6 +23,7 @@ function newProfileDisplay($login_id,$isEmployee)
         // Search login table for data
         $temp_array = $temp_array + searchDB($connection, "login", "login_id", $login_id);
 
+//        var_dump($temp_array);
         return $temp_array;
     }
     else {

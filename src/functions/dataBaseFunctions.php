@@ -1,6 +1,4 @@
 <?php
-
-
 function addToTable($connection, $inputArray, $tableName){
     try {
     $sql = sprintf(
@@ -13,6 +11,19 @@ function addToTable($connection, $inputArray, $tableName){
     $statement->execute($inputArray);
     } catch(PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
+    }
+}
+
+function updateTable($connection, $inputArray, $tableName, $keyName, $givenKey)
+{
+    try{
+        foreach ($inputArray as $key => $value) {
+            $sql = "UPDATE " . $tableName . " SET " . $key . " = " . $value . " WHERE " . $keyName . " = " . $givenKey;
+            $statement = $connection->prepare($sql);
+            $statement->execute($inputArray);
+        }
+    } catch(PDOException $error) {
+    echo $sql . "<br>" . $error->getMessage();
     }
 }
 
