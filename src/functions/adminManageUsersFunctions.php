@@ -26,18 +26,23 @@ function buildUserList($connection)
                 $login_id = $login['Login_id'];
                 $isEmployee = false;
                 $tempArray = newProfileDisplay($login_id, $isEmployee, $connection);
-                buildDisplayList($tempArray, $isEmployee);
+                buildMemberDisplay($tempArray);
             } else {
                 $login_id = $login['Login_id'];
                 $isEmployee = true;
                 $tempArray = newProfileDisplay($login_id, $isEmployee, $connection);
-                buildDisplayList($tempArray, $isEmployee);
+                buildEmployeeDisplay($tempArray);
             }
         }
     }
 }
 
-function buildDisplayList($userArray, $isEmployee)
+function buildDisplayListHeaders()
+{
+
+}
+
+function buildEmployeeDisplay($userArray)
 { ?>
 
     <tr>
@@ -45,4 +50,16 @@ function buildDisplayList($userArray, $isEmployee)
 
         <td> <?php echo $value; } ?> <td>
     </tr>
-<?php } ?>
+<?php }
+
+
+function buildMemberDisplay($userArray)
+{ ?>
+
+    <tr>
+        <?php foreach ($userArray as $key => $value) { ?>
+
+        <td> <?php echo $value; } ?> <td>
+    </tr>
+<?php }
+
