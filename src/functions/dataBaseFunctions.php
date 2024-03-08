@@ -18,10 +18,21 @@ function updateTable($connection, $inputArray, $tableName, $keyName, $givenKey)
 {
     try{
         foreach ($inputArray as $key => $value) {
-            $sql = "UPDATE " . $tableName . " SET " . $key . " = " . $value . " WHERE " . $keyName . " = " . $givenKey;
-            $statement = $connection->prepare($sql);
-            $statement->execute($inputArray);
+            // For each key-value pair in the input array, add a set clause using placeholders
+            // and add the value to the parameters array
+            $bindKey[] = "$key = :$key";
+            $params[":$key"] = $value;
         }
+        // Combine all set clauses into a single string separated by commas
+        $boundKeyString = implode(', ', $bindKey);
+        // Create the SQL statement using the table name, set clause string, and key name
+        $sql = "UPDATE $tableName SET $boundKeyString WHERE $keyName = :givenKey";
+        // Add the given key to the parameters array
+        $params[':givenKey'] = $givenKey;
+        // Prepare and execute the SQL statement with the parameters
+        $statement = $connection->prepare($sql);
+        $statement->execute($params);
+        echo "Table updated";
     } catch(PDOException $error) {
     echo $sql . "<br>" . $error->getMessage();
     }

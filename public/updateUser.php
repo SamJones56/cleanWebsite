@@ -1,12 +1,16 @@
 <?php
-include "../src/Functions/profileDisplayFunctions.php";
-include "../src/Functions/profileUpdateFunctions.php";
-include "../src/Functions/newMemberFunctions.php";
-include "../src/Functions/newEmployeeFunctions.php";
+include "../src/Functions/profileDisplayAndUpdateFunctions.php";
 include "templates/header.php";
+require_once '../src/DBconnect.php';
 
-$user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee']);
 
-buildTable($user_array, $_SESSION['isEmployee']);
+$user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee'], $connection);
+var_dump($user_array);
+buildProfileDisplay($user_array, $_SESSION['isEmployee']);
+
+if(isset($_POST['submit']))
+{
+    buildUser($user_array, $_SESSION['isEmployee'],$connection);
+}
 
 ?>

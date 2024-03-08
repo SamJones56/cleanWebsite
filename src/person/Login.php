@@ -9,7 +9,7 @@ class Login
     public function toLoginArray()
     {
         return array(
-            'login_id' => $this->login_id,
+            'Login_id' => $this->login_id,
             'email' => $this->email,
             'password' => $this->password,
             'permissionlvl' => $this->permissionlvl

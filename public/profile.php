@@ -1,8 +1,12 @@
 <?php
-include "../src/Functions/profileDisplayFunctions.php";
+include_once "../src/Functions/profileDisplayAndUpdateFunctions.php";
+//include_once "../src/Functions/profileUpdateFunctions.php";
 include "templates/header.php";
+require_once '../src/DBconnect.php';
 
-$user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee']);
+
+$user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee'],$connection);
+var_dump($user_array);
 ?>
 
 <h2>Results</h2>

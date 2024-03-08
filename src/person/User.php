@@ -16,6 +16,17 @@ class User
             'dob' => $this->dob,
         );
     }
+
+    public function toUserFullArray()
+    {
+        return array(
+            'user_id'=>$this->user_id,
+            'name' => $this->name,
+            'address' => $this->address,
+            'ph_no' => $this->ph_no,
+            'dob' => $this->dob,
+        );
+    }
     public function getUserId()
     {
         return $this->user_id;
