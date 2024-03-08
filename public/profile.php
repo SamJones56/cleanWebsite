@@ -6,7 +6,7 @@ require_once '../src/DBconnect.php';
 
 
 $user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee'],$connection);
-var_dump($user_array);
+
 ?>
 
 <h2>Results</h2>

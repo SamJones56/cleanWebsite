@@ -21,24 +21,24 @@ function buildTable($userArray, $isEmployee)
 <a href="index.php">Back to home</a>
 <?php }
 
-function buildUser($userArray, $isEmployee)
-{
-    require_once "../common.php";
-    include "../src/functions/dataBaseFunctions.php";
-    require_once '../src/DBconnect.php';
-    require_once '../src/person/Member.php';
-    require_once '../src/person/Employee.php';
-
-    if(!$isEmployee)
-    {
-        $member = new Member();
-        $member->setFilledMember($userArray);
-
-        updateTable($connection, $member->toUserFullArray(), "user", "user_id", $userArray['user_id']);
-        updateTable($connection, $member->toLoginArray(), "login", "login_id", $userArray['login_id']);
-        updateTable($connection, $member->toCustomerFullArray(), "customer", "customer_id", $userArray['customer_id']);
-        updateTable($connection, $member->toMemberFullArray(), "member", "member_id", $userArray['member_id']);
-    }
+//function buildUser($userArray, $isEmployee)
+//{
+//    require_once "../common.php";
+//    include "../src/functions/dataBaseFunctions.php";
+//    require_once '../src/DBconnect.php';
+//    require_once '../src/person/Member.php';
+//    require_once '../src/person/Employee.php';
+//
+//    if(!$isEmployee)
+//    {
+//        $member = new Member();
+//        $member->setFilledMember($userArray);
+//
+//        updateTable($connection, $member->toUserFullArray(), "user", "user_id", $userArray['user_id']);
+//        updateTable($connection, $member->toLoginArray(), "login", "login_id", $userArray['login_id']);
+//        updateTable($connection, $member->toCustomerFullArray(), "customer", "customer_id", $userArray['customer_id']);
+//        updateTable($connection, $member->toMemberFullArray(), "member", "member_id", $userArray['member_id']);
+//    }
 //    else
 //    {
 //
@@ -63,6 +63,6 @@ function buildUser($userArray, $isEmployee)
 //        // Customer attributes
 //        $member->setMemberId(escape($userArray['member_id']));
 //        $member->setCustomerId(escape($userArray['customer_id']));
-}
+//}
 
 

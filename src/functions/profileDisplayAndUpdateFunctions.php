@@ -22,7 +22,6 @@ function newProfileDisplay($login_id,$isEmployee, $connection)
         // Search login table for data
         $temp_array = $temp_array + searchDB($connection, "login", "login_id", $login_id);
 
-
         // Add employee_id
         $temp_array['employee_id'] = $employee_id;
 
@@ -59,11 +58,17 @@ function buildProfileDisplay($userArray, $isEmployee)
 { ?>
     <h2>Edit a user</h2>
     <form method="post">
-        <?php if(!$isEmployee){ ?>
-            <!--https://www.w3schools.com/php/php_arrays_remove.asp#:~:text=To%20remove%20items%20from%20an,item%20you%20want%20to%20delete.-->
-            <!-- Takes away user details -->
-            <?php unset($userArray["user_id"], $userArray["customer_id"], $userArray["Login_id"], $userArray["permissionlvl"]); }?>
-        <?php foreach ($userArray as $key => $value) : ?>
+        <!--https://www.w3schools.com/php/php_arrays_remove.asp#:~:text=To%20remove%20items%20from%20an,item%20you%20want%20to%20delete.-->
+        <!-- Takes away user details -->
+        <?php
+        unset($userArray["user_id"], $userArray["Login_id"]);
+            if(!$isEmployee){
+                unset($userArray["customer_id"], $userArray["permissionlvl"]); }
+            else
+            {
+                unset($userArray["employee_id"], $userArray["dept_id"]);
+            }
+            foreach ($userArray as $key => $value) : ?>
             <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
             <input type="text" name="<?php echo $key; ?>" id="<?php echo $key;
             ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ?
@@ -101,6 +106,7 @@ function buildUser($userArray, $isEmployee, $connection)
         updateTable($connection, $member->toCustomerArray(), "customer", "customer_id", $userArray['customer_id']);
         updateTable($connection, $member->toMemberArray(), "member", "member_id", $userArray['member_id']);
     }
+    // Check for employee
     else
     {
         $employee = new Employee();
@@ -120,4 +126,6 @@ function buildUser($userArray, $isEmployee, $connection)
         updateTable($connection, $employee->toLoginArray(), "login", "Login_id", $userArray['Login_id']);
         updateTable($connection, $employee->toEmployeeArray(), "employee", "employee_id", $userArray['employee_id']);
     }
+
+    header("Refresh:0");
 }

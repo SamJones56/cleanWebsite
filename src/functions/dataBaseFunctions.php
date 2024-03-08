@@ -32,7 +32,6 @@ function updateTable($connection, $inputArray, $tableName, $keyName, $givenKey)
         // Prepare and execute the SQL statement with the parameters
         $statement = $connection->prepare($sql);
         $statement->execute($params);
-        echo "Table updated";
     } catch(PDOException $error) {
     echo $sql . "<br>" . $error->getMessage();
     }
