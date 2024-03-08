@@ -22,7 +22,7 @@ function newProfileDisplay($login_id,$isEmployee, $connection)
         // Search login table for data
         $temp_array = $temp_array + searchDB($connection, "login", "login_id", $login_id);
 
-//        var_dump("Employee Array : " . $temp_array);
+
         // Add employee_id
         $temp_array['employee_id'] = $employee_id;
 
@@ -94,7 +94,6 @@ function buildUser($userArray, $isEmployee, $connection)
             }
         }
 
-//        $userArray['name'] = $_POST['name'];
         $member->setFilledMember($userArray);
 
         updateTable($connection, $member->toUserArray(), "user", "user_id", $userArray['user_id']);
@@ -116,8 +115,6 @@ function buildUser($userArray, $isEmployee, $connection)
         }
         // Set the data into employee
         $employee->setFilledEmployee($userArray);
-
-        var_dump($employee->getFilledEmployee());
 
         updateTable($connection, $employee->toUserArray(), "user", "user_id", $userArray['user_id']);
         updateTable($connection, $employee->toLoginArray(), "login", "Login_id", $userArray['Login_id']);

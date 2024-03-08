@@ -5,7 +5,6 @@ require_once '../src/DBconnect.php';
 
 
 $user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee'], $connection);
-var_dump($user_array);
 buildProfileDisplay($user_array, $_SESSION['isEmployee']);
 
 if(isset($_POST['submit']))
