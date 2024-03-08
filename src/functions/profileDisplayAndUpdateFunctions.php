@@ -3,7 +3,7 @@
 function newProfileDisplay($login_id,$isEmployee, $connection)
 {
     require_once "../common.php";
-    include "dataBaseFunctions.php";
+    include_once "dataBaseFunctions.php";
 
     if($isEmployee) {
 
@@ -126,6 +126,7 @@ function buildUser($userArray, $isEmployee, $connection)
         updateTable($connection, $employee->toLoginArray(), "login", "Login_id", $userArray['Login_id']);
         updateTable($connection, $employee->toEmployeeArray(), "employee", "employee_id", $userArray['employee_id']);
     }
-
+//https://stackoverflow.com/questions/12383371/refresh-a-page-using-php
+    // Refresh page
     header("Refresh:0");
 }

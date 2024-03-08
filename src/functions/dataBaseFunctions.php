@@ -52,6 +52,19 @@ function getKey($connection, $tableName, $primaryKey){
     }
 }
 
+function getCount($connection, $tableName)
+{
+    try{
+        $sql = "SELECT COUNT(*) FROM " . $tableName;
+        $statement = $connection->prepare($sql);
+        $statement->execute();
+        $result_array = $statement->fetch(PDO::FETCH_ASSOC);
+        return $result_array;
+    }catch(PDOException $error) {
+     echo $sql . "<br>" . $error->getMessage();
+    }
+}
+
 function searchDB($connection, $tableName, $searchKey, $searchValue)
 {
     try {

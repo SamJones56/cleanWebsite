@@ -12,4 +12,3 @@ if(isset($_POST['submit']))
     buildUser($user_array, $_SESSION['isEmployee'],$connection);
 }
 
-?>

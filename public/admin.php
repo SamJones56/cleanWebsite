@@ -34,6 +34,12 @@ if($_SESSION['permissionlvl'] < 3 )
         </form>
     </div>
     <br>
+    <div>
+        <form action="adminManageUsers.php" method="post">
+            <button type="submit">Manage users</button>
+        </form>
+    </div>
+    <br>
 
 
 <?php
