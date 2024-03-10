@@ -1,10 +1,12 @@
 <?php
 
+namespace hotel;
+
 use person\Customer;
 use person\Employee;
 
-require_once '../person/employee.php';
-require_once '../person/customer.php';
+require_once '../src/person/Employee.php';
+require_once '../src/person/Customer.php';
 
 class Reservations
 {
@@ -12,7 +14,7 @@ class Reservations
     // Staff and customer objects
     private $employee, $customer;
 
-    public function __construct($staff, $customer)
+    public function __construct()
     {
         $this->employee = new Employee();
         $this->customer = new Customer();
@@ -27,15 +29,17 @@ class Reservations
         );
     }
 
-   public function getEmployeeId()
-   {
-       return $this->employee->getEmployeeId();
-   }
+    public function getEmployeeId()
+    {
+        return $this->employee->getEmployeeId();
+    }
 
+    //
     public function setEmployeeId($employee_id): void
     {
         $this->employee->setEmployeeId($employee_id);
     }
+
 
     public function getCustomerId()
     {

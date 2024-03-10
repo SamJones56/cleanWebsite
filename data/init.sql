@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`login` (
                                                           `Login_id` INT NOT NULL AUTO_INCREMENT,
                                                           `email` VARCHAR(45) NULL DEFAULT NULL,
     `password` VARCHAR(45) NULL DEFAULT NULL,
-    `permissionlvl` INT NULL,
+    `permissionlvl` INT NULL DEFAULT NULL,
     PRIMARY KEY (`Login_id`))
     ENGINE = InnoDB
     DEFAULT CHARACTER SET = utf8mb3;
@@ -138,19 +138,17 @@ CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`member` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`reservations` (
                                                                  `reservations_id` INT NOT NULL AUTO_INCREMENT,
-                                                                 `staff_id` INT NOT NULL,
+                                                                 `employee_id` INT NOT NULL,
                                                                  `customer_id` INT NOT NULL,
                                                                  PRIMARY KEY (`reservations_id`, `customer_id`),
-    INDEX `fk_Reservations_Staff1_idx` (`staff_id` ASC) VISIBLE,
+    INDEX `fk_Reservations_Staff1_idx` (`employee_id` ASC) VISIBLE,
     INDEX `fk_reservations_customer1_idx` (`customer_id` ASC) VISIBLE,
-    CONSTRAINT `fk_Reservations_Staff1`
-    FOREIGN KEY (`staff_id`)
-    REFERENCES `hoteltallafornia`.`employee` (`employee_id`),
     CONSTRAINT `fk_reservations_customer1`
     FOREIGN KEY (`customer_id`)
-    REFERENCES `hoteltallafornia`.`customer` (`customer_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `hoteltallafornia`.`customer` (`customer_id`),
+    CONSTRAINT `fk_Reservations_Staff1`
+    FOREIGN KEY (`employee_id`)
+    REFERENCES `hoteltallafornia`.`employee` (`employee_id`))
     ENGINE = InnoDB
     DEFAULT CHARACTER SET = utf8mb3;
 
@@ -198,9 +196,7 @@ CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`roomreservations` (
     REFERENCES `hoteltallafornia`.`reservations` (`reservations_id`),
     CONSTRAINT `fk_roomreservations_rooms1`
     FOREIGN KEY (`room_id`)
-    REFERENCES `hoteltallafornia`.`rooms` (`room_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `hoteltallafornia`.`rooms` (`room_id`))
     ENGINE = InnoDB
     DEFAULT CHARACTER SET = utf8mb3;
 
@@ -222,57 +218,9 @@ CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`tablereservations` (
     REFERENCES `hoteltallafornia`.`reservations` (`reservations_id`),
     CONSTRAINT `fk_tablereservations_restauranttables1`
     FOREIGN KEY (`table_id`)
-    REFERENCES `hoteltallafornia`.`restauranttables` (`table_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `hoteltallafornia`.`restauranttables` (`table_id`))
     ENGINE = InnoDB
     DEFAULT CHARACTER SET = utf8mb3;
-
-
-INSERT INTO `hoteltallafornia`.`departments` (`dept_name`, `address`)
-VALUES ('Department 1', 'Address 1');
-
-INSERT INTO `hoteltallafornia`.`departments` (`dept_name`, `address`)
-VALUES ('Department 2', 'Address 2');
-
--- Insert data for Employees
-INSERT INTO `hoteltallafornia`.`user` (`name`, `address`, `ph_no`, `dob`)
-VALUES ('emp1', 'Emp1 Address', '1234567890', '1990-01-01');
-
-INSERT INTO `hoteltallafornia`.`login` (`email`, `password`, `permissionlvl`)
-VALUES ('emp1@email.com', 'pass', 2);
-
-INSERT INTO `hoteltallafornia`.`employee` (`user_id`, `dept_id`, `login_id`, `job`)
-VALUES (LAST_INSERT_ID(), 1, LAST_INSERT_ID(), 'Job for emp1');
-
-INSERT INTO `hoteltallafornia`.`user` (`name`, `address`, `ph_no`, `dob`)
-VALUES ('emp2', 'Emp2 Address', '0987654321', '1995-05-05');
-
-INSERT INTO `hoteltallafornia`.`login` (`email`, `password`, `permissionlvl`)
-VALUES ('emp2@email.com', 'pass', 2);
-
-INSERT INTO `hoteltallafornia`.`employee` (`user_id`, `dept_id`, `login_id`, `job`)
-VALUES (LAST_INSERT_ID(), 2, LAST_INSERT_ID(), 'Job for emp2');
-
--- Insert data for Customers
-INSERT INTO `hoteltallafornia`.`user` (`name`, `address`, `ph_no`, `dob`)
-VALUES ('cust1', 'Cust1 Address', '1112223333', '1985-03-10');
-
-INSERT INTO `hoteltallafornia`.`login` (`email`, `password`, `permissionlvl`)
-VALUES ('cust1@email.com', 'pass', 1);
-
-INSERT INTO `hoteltallafornia`.`customer` (`user_id`, `passport_no`)
-VALUES (LAST_INSERT_ID(), 123456789);
-
-INSERT INTO `hoteltallafornia`.`user` (`name`, `address`, `ph_no`, `dob`)
-VALUES ('cust2', 'Cust2 Address', '4445556666', '1992-12-20');
-
-INSERT INTO `hoteltallafornia`.`login` (`email`, `password`, `permissionlvl`)
-VALUES ('cust2@email.com', 'pass', 1);
-
-INSERT INTO `hoteltallafornia`.`customer` (`user_id`, `passport_no`)
-VALUES (LAST_INSERT_ID(), 987654321);
-
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

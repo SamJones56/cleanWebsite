@@ -12,17 +12,17 @@ error_reporting(E_ALL);
     <div id="dataForm">
         <form method="post">
 
-        <label for="reservations_id">reservations_id</label>
-            <input type="number" name="reservations_id" id="reservations_id">
+<!--        <label for="reservations_id">reservations_id</label>-->
+<!--            <input type="text" name="reservations_id" id="reservations_id">-->
 
-            <label for="staff_id">staff_id</label>
-            <input type="number" name="staff_id" id="staff_id">
+            <label for="employee_id">employee_id</label>
+            <input type="text" name="employee_id" id="employee_id">
 
             <label for="customer_id">customer_id</label>
-            <input type="number" name="customer_id" id="customer_id">
+            <input type="text" name="customer_id" id="customer_id">
 
             <label for="room_id">room_id</label>
-            <input type="number" name="room_id" id="room_id">
+            <input type="text" name="room_id" id="room_id">
 
             <label for="date">date</label>
             <input type="date" name="date" id="date">

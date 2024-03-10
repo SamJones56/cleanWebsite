@@ -3,9 +3,7 @@
 namespace person;
 
 require_once 'User.php';
-require_once '../functions/dataBaseFunctions.php';
-require_once '../../common.php';
-require_once '../DBconnect.php';
+
 use person\Login;
 
 class Customer extends User
@@ -20,23 +18,6 @@ class Customer extends User
             'passport_no' => $this->passport_no
             );
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public function toCustomerFullArray()
     {

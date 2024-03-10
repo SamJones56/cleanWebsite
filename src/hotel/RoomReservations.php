@@ -1,17 +1,24 @@
 <?php
 
+namespace hotel;
 
 use hotel\Reservations;
 use hotel\Room;
 
+require_once 'Reservations.php';
+require_once 'Room.php';
+
 class RoomReservations extends Reservations
 {
-    protected $date, $check_id, $check_out, $total_price, $payment;
+    protected $date, $check_in, $check_out, $total_price, $payment;
     // Create room object
     protected $room_id;
+    // room object
+    private $room;
 
     public function __construct()
     {
+        parent::__construct();
          $this->room = new Room();
     }
 
@@ -19,9 +26,9 @@ class RoomReservations extends Reservations
     {
         return array
         (
-            //'reservations_id' => $this->reservations_id,
+            'reservations_id' => $this->reservations_id,
             'date' => $this->date,
-            'check_in' => $this->check_id,
+            'check_in' => $this->check_in,
             'check_out' => $this->check_out,
             'total_price' => $this->total_price,
             'payment' => $this->payment,
@@ -50,14 +57,14 @@ class RoomReservations extends Reservations
         $this->date = $date;
     }
 
-    public function getCheckId()
+    public function getCheckIn()
     {
-        return $this->check_id;
+        return $this->check_in;
     }
 
-    public function setCheckId($check_id): void
+    public function setCheckIn($check_in): void
     {
-        $this->check_id = $check_id;
+        $this->check_in = $check_in;
     }
 
     public function getCheckOut()
