@@ -14,6 +14,9 @@ function addToTable($connection, $inputArray, $tableName){
     }
 }
 
+
+
+
 function updateTable($connection, $inputArray, $tableName, $keyName, $givenKey)
 {
     try{

@@ -5,6 +5,7 @@ use hotel\Room;
 function makeNewRoom()
 {
     if (isset($_POST['submit'])) {
+
         require "../common.php";
         include "../src/functions/dataBaseFunctions.php";
         require_once '../src/DBconnect.php';

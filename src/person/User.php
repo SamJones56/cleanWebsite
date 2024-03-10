@@ -17,6 +17,7 @@ class User
         );
     }
 
+
     public function toUserFullArray()
     {
         return array(
@@ -27,6 +28,9 @@ class User
             'dob' => $this->dob,
         );
     }
+
+
+
     public function getUserId()
     {
         return $this->user_id;

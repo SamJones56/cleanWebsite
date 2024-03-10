@@ -229,6 +229,52 @@ CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`tablereservations` (
     DEFAULT CHARACTER SET = utf8mb3;
 
 
+INSERT INTO `hoteltallafornia`.`departments` (`dept_name`, `address`)
+VALUES ('Department 1', 'Address 1');
+
+INSERT INTO `hoteltallafornia`.`departments` (`dept_name`, `address`)
+VALUES ('Department 2', 'Address 2');
+
+-- Insert data for Employees
+INSERT INTO `hoteltallafornia`.`user` (`name`, `address`, `ph_no`, `dob`)
+VALUES ('emp1', 'Emp1 Address', '1234567890', '1990-01-01');
+
+INSERT INTO `hoteltallafornia`.`login` (`email`, `password`, `permissionlvl`)
+VALUES ('emp1@email.com', 'pass', 2);
+
+INSERT INTO `hoteltallafornia`.`employee` (`user_id`, `dept_id`, `login_id`, `job`)
+VALUES (LAST_INSERT_ID(), 1, LAST_INSERT_ID(), 'Job for emp1');
+
+INSERT INTO `hoteltallafornia`.`user` (`name`, `address`, `ph_no`, `dob`)
+VALUES ('emp2', 'Emp2 Address', '0987654321', '1995-05-05');
+
+INSERT INTO `hoteltallafornia`.`login` (`email`, `password`, `permissionlvl`)
+VALUES ('emp2@email.com', 'pass', 2);
+
+INSERT INTO `hoteltallafornia`.`employee` (`user_id`, `dept_id`, `login_id`, `job`)
+VALUES (LAST_INSERT_ID(), 2, LAST_INSERT_ID(), 'Job for emp2');
+
+-- Insert data for Customers
+INSERT INTO `hoteltallafornia`.`user` (`name`, `address`, `ph_no`, `dob`)
+VALUES ('cust1', 'Cust1 Address', '1112223333', '1985-03-10');
+
+INSERT INTO `hoteltallafornia`.`login` (`email`, `password`, `permissionlvl`)
+VALUES ('cust1@email.com', 'pass', 1);
+
+INSERT INTO `hoteltallafornia`.`customer` (`user_id`, `passport_no`)
+VALUES (LAST_INSERT_ID(), 123456789);
+
+INSERT INTO `hoteltallafornia`.`user` (`name`, `address`, `ph_no`, `dob`)
+VALUES ('cust2', 'Cust2 Address', '4445556666', '1992-12-20');
+
+INSERT INTO `hoteltallafornia`.`login` (`email`, `password`, `permissionlvl`)
+VALUES ('cust2@email.com', 'pass', 1);
+
+INSERT INTO `hoteltallafornia`.`customer` (`user_id`, `passport_no`)
+VALUES (LAST_INSERT_ID(), 987654321);
+
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
