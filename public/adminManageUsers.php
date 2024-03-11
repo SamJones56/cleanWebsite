@@ -15,6 +15,7 @@ require_once '../src/DBconnect.php';
     <table>
         <thead>
         <tr>
+            <th>Login id</th>
             <th>User id</th>
             <th>Name</th>
             <th>Address</th>

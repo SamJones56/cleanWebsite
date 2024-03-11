@@ -38,26 +38,46 @@ function buildMemberList($connection) {
 
 function buildEmployeeDisplay($userArray)
 {
+
+    if(isset($_POST['submit'])){
+        $temp_login = $_POST['user_id']; // Get the unique identifier from the submitted form
+        $_SESSION['temp_login'] = $temp_login;
+        header("Location: updateUser.php");
+        exit();
+    }
+
     // Keys that match headers
-    $keys = ['user_id', 'name', 'address', 'ph_no', 'email', 'dob', 'dept_id', 'job'];
+
+    $keys = ['Login_id','user_id', 'name', 'address', 'ph_no', 'email', 'dob', 'dept_id', 'job'];
 
     echo "<tr>";
     foreach ($keys as $key) {
 //        https://www.w3schools.com/php/func_array_key_exists.asp
         // Check if the key exists in the userArray
         if (array_key_exists($key, $userArray)) {
-            echo "<td>" . $userArray[$key] . "</td>";
+            echo "<td>" . $userArray[$key]  . "</td>";
         } else {
             // Doesn't match
             echo "<td></td>";
         }
     }
-    echo "</tr>";
-}
 
+    echo '<td><form action="" method="post">';
+    echo '<input type="hidden" name="user_id" value="' . ($userArray['Login_id']) . '">';
+    echo '<input type="submit" name="submit" value="Edit">';
+    echo '</form></td>';
+    echo "</tr>";
+
+}
 
 function buildMemberDisplay($userArray)
 {
+    if(isset($_POST['submit'])){
+        $temp_login = $_POST['user_id']; // Get the unique identifier from the submitted form
+        $_SESSION['temp_login'] = $temp_login;
+        header("Location: updateUser.php");
+        exit();
+    }
     // Keys that match headers
     $keys = ['user_id', 'name', 'address', 'ph_no', 'email', 'dob', 'passport_no' ];
 
@@ -71,6 +91,10 @@ function buildMemberDisplay($userArray)
             echo "<td></td>";
         }
     }
+    echo '<td><form action="" method="post">';
+    echo '<input type="hidden" name="user_id" value="' . ($userArray['Login_id']) . '">';
+    echo '<input type="submit" name="submit" value="Edit">';
+    echo '</form></td>';
     echo "</tr>";
 }
 

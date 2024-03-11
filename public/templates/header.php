@@ -41,8 +41,8 @@ if ($user_is_logged_in) {
             <li class="nav-item"><a href="stays.php" class="nav-link">Stay</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Dine</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Gallery</a></li>
-            <?php if($_SESSION['permissionlvl'] == 3){?>
-			    <li class="nav-item"><a href="admin.php" class="nav-link">Admin</a></li>
+            <?php if($_SESSION['permissionlvl'] > 1){?>
+			    <li class="nav-item"><a href="admin.php" class="nav-link">Staff</a></li>
             <?php } ?>
         </ul>
 <!--        Begin checks for logged in                  -->

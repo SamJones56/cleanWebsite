@@ -9,7 +9,9 @@ if($_SESSION['permissionlvl'] < 3 )
 
 
 ?>
+
 <title>Admin Page</title>
+<?php if($_SESSION['permissionlvl'] > 2){?>
   <div>
     <form action="createRoom.php" method="post">
         <button type="submit">Create Room</button>
@@ -40,7 +42,13 @@ if($_SESSION['permissionlvl'] < 3 )
         </form>
     </div>
     <br>
-
+<?php } ?>
+    <div>
+        <form action="manageBookings.php" method="post">
+            <button type="submit">Manage Bookings</button>
+        </form>
+    </div>
+    <br>
 
 <?php
 
