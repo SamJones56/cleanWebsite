@@ -8,7 +8,7 @@ require_once '../src/DBconnect.php';
 //buildUserList($connection);
 
 ?>
-    <h2>Employees</h2>
+    <h2>Room Bookings</h2>
     <table>
         <thead>
         <tr>
@@ -28,7 +28,7 @@ require_once '../src/DBconnect.php';
         </tbody>
     </table>
 
-    <h2>Members</h2>
+    <h2>Restaurant Bookings</h2>
     <table>
         <thead>
         <tr>

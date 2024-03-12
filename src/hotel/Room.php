@@ -6,6 +6,7 @@ class Room
 {
     protected $room_id, $room_type, $accessibility, $price;
 
+
     public function toRoomArray()
     {
         return array
@@ -13,7 +14,7 @@ class Room
             'room_id' => $this->room_id,
             'room_type' => $this->room_type,
             'accessibility' => $this->accessibility,
-            'price' => $this->price
+            'price' => $this->price,
         );
     }
 
@@ -55,6 +56,26 @@ class Room
     public function setPrice($price): void
     {
         $this->price = $price;
+    }
+
+    public function getNumGuests()
+    {
+        return $this->num_guests;
+    }
+
+    public function setNumGuests($num_guests): void
+    {
+        $this->num_guests = $num_guests;
+    }
+
+    public function getCheckedIn()
+    {
+        return $this->checked_in;
+    }
+
+    public function setCheckedIn($checked_in): void
+    {
+        $this->checked_in = $checked_in;
     }
 
 

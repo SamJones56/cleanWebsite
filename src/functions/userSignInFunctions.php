@@ -21,6 +21,7 @@ function userLogIn()
                 if (($_POST['Email'] == $email_db) && ($_POST['Password'] == $pwd_db))
                 {
                     $_SESSION['login_id'] = $login_id_db;
+                    $_SESSION['temp_login'] = $login_id_db;
                     $_SESSION['Email'] = $email_db;
                     $_SESSION['permissionlvl'] = $permissionlvl;
                     $_SESSION['Active'] = true;

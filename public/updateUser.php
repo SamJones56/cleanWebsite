@@ -3,8 +3,6 @@ include "../src/Functions/profileDisplayAndUpdateFunctions.php";
 include "templates/header.php";
 require_once '../src/DBconnect.php';
 
-echo($_SESSION['temp_login']);
-
 // Check if user is editing their own profile
 if($_SESSION['login_id'] == $_SESSION['temp_login']) {
     $_SESSION['tempEmployee'] = true;

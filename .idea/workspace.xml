@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bff6bf8-3b2e-4929-89ff-2e5813ecbff7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/adminManageBookings.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/adminManageUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/adminManageUsers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/templates/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/bookRoom.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/bookRoom.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/updateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/updateUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/adminManageUsersFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/adminManageUsersFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/newRoomReservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/newRoomReservation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/userSignInFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/userSignInFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hotel/Room.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/Room.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hotel/RoomReservations.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/RoomReservations.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +50,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "php.add.doc.comment.for.fields.panel.add.php.doc": "false",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
@@ -84,7 +87,8 @@
       <workItem from="1709888745969" duration="15996000" />
       <workItem from="1709910772454" duration="12684000" />
       <workItem from="1710088372934" duration="5289000" />
-      <workItem from="1710179990210" duration="5595000" />
+      <workItem from="1710179990210" duration="6320000" />
+      <workItem from="1710228846113" duration="2424000" />
     </task>
     <servers />
   </component>

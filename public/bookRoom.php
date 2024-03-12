@@ -1,5 +1,5 @@
 <?php
-include "../src/functions/newRoomReservation.php"; // Make sure this path is correct
+include "../src/functions/newRoomReservation.php";
 include "templates/header.php";
 newRoomReservation();
 // Report all errors
@@ -39,8 +39,11 @@ error_reporting(E_ALL);
                 <option value="cash">Cash</option>
             </select> <br>
 
-            <label for="total_price">total_price</label>
-            <input type="number" name="total_price" id="total_price">
+            <label for="num_guests">num_guests</label>
+            <input type="number" name="num_guests" id="num_guests">
+
+<!--            <label for="total_price">--><?php //getAssociationKey($connection, "rooms", "", "room_id", "price")?><!--</label>-->
+<!--            <input type="number" name="total_price" id="total_price">-->
 
             <input type="submit" name="submit" value="Submit">
         </form>

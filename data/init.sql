@@ -188,6 +188,8 @@ CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`roomreservations` (
     `total_price` DECIMAL(10,2) NULL DEFAULT NULL,
     `payment` VARCHAR(45) NULL DEFAULT NULL,
     `room_id` INT NOT NULL,
+    `num_guests` INT NULL,
+    `checked_in` INT NULL,
     PRIMARY KEY (`reservations_id`, `room_id`),
     INDEX `fk_RoomReservations_Reservations1_idx` (`reservations_id` ASC) VISIBLE,
     INDEX `fk_roomreservations_rooms1_idx` (`room_id` ASC) VISIBLE,
@@ -226,6 +228,7 @@ CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`tablereservations` (
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 
 INSERT INTO departments (dept_name, address)
 VALUES ('Administration', 'HQ');

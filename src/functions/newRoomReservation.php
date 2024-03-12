@@ -32,11 +32,25 @@ function newRoomReservation()
             $roomReservation->setCheckIn(escape($_POST['check_in']));
             $roomReservation->setCheckOut(escape($_POST['check_out']));
             $roomReservation->setPayment(escape($_POST['payment']));
-            $roomReservation->setTotalPrice(escape($_POST['total_price']));
+            // Get the room price
+            $roomReservation->setTotalPrice(getAssociationKey($connection,"rooms", $roomReservation->getRoomId(),"room_id", "price"));
+//            $roomReservation->setTotalPrice(escape($_POST['total_price']));
+            $roomReservation->setNumGuests(escape($_POST['num_guests']));
+            $roomReservation->setCheckedIn(0);
+
+            // Do cost calculation
+            $roomPrice = $roomReservation->getTotalPrice();
+            $roomPrice += 10*$roomReservation->getNumGuests();
+            $roomReservation->setTotalPrice($roomPrice);
+
 
             addToTable($connection, $roomReservation->toRoomReservationsArray(), 'roomreservations');
 
             echo "Reservation added successfully.";
+
+            $roomReservation->setTotalPrice($roomPrice);
+
+            return $roomPrice;
         } catch (PDOException $error) {
             echo "Error: " . $error->getMessage();
         }
