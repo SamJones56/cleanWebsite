@@ -55,10 +55,11 @@ function getKey($connection, $tableName, $primaryKey){
     }
 }
 
-function getCount($connection, $tableName)
+function getCount($connection, $tableName, $searchKey , $searchValue)
 {
     try{
-        $sql = "SELECT COUNT(*) FROM " . $tableName;
+        var_dump($searchKey);
+        $sql = "SELECT COUNT(*) FROM " . $tableName . " WHERE " . $searchKey . " = " . $searchValue;
         $statement = $connection->prepare($sql);
         $statement->execute();
         $result_array = $statement->fetch(PDO::FETCH_ASSOC);
@@ -76,6 +77,20 @@ function searchDB($connection, $tableName, $searchKey, $searchValue)
         $statement->bindParam(':searchValue', $searchValue);
         $statement->execute();
         $result_array = $statement->fetch(PDO::FETCH_ASSOC);
+        return $result_array;
+    } catch(PDOException $error) {
+        echo $sql . "<br>" . $error->getMessage();
+    }
+}
+
+function searchAllDB($connection, $tableName, $searchKey, $searchValue)
+{
+    try {
+        $sql = "SELECT * FROM " . $tableName . " WHERE " . $searchKey . " = :searchValue";
+        $statement = $connection->prepare($sql);
+        $statement->bindParam(':searchValue', $searchValue);
+        $statement->execute();
+        $result_array = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $result_array;
     } catch(PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();

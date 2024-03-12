@@ -3,10 +3,6 @@ include "../src/Functions/adminManageUsersFunctions.php";
 include "templates/header.php";
 require_once '../src/DBconnect.php';
 
-//$user_array = buildUserList($connection);
-
-//buildUserList($connection);
-
 ?>
     <h2>Employees</h2>
     <table>

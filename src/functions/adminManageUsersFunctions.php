@@ -40,7 +40,7 @@ function buildEmployeeDisplay($userArray)
 {
 
     if(isset($_POST['submit'])){
-        $temp_login = $_POST['user_id']; // Get the unique identifier from the submitted form
+        $temp_login = $_POST['user_id'];
         $_SESSION['temp_login'] = $temp_login;
         header("Location: updateUser.php");
         exit();
@@ -73,7 +73,7 @@ function buildEmployeeDisplay($userArray)
 function buildMemberDisplay($userArray)
 {
     if(isset($_POST['submit'])){
-        $temp_login = $_POST['user_id']; // Get the unique identifier from the submitted form
+        $temp_login = $_POST['user_id'];
         $_SESSION['temp_login'] = $temp_login;
         header("Location: updateUser.php");
         exit();

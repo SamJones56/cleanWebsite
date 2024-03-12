@@ -24,7 +24,7 @@ require_once '../src/DBconnect.php';
         </tr>
         </thead>
         <tbody>
-        <?php buildEmployeeList($connection); ?>
+        <?php buildRoomReservationGeneralList($connection); ?>
         </tbody>
     </table>
 
@@ -42,7 +42,7 @@ require_once '../src/DBconnect.php';
         </tr>
         </thead>
         <tbody>
-        <?php buildMemberList($connection); ?>
+<!--        --><?php //buildMemberList($connection); ?>
         </tbody>
     </table>
 
