@@ -1,5 +1,5 @@
 <?php
-include "../src/Functions/adminManageUsersFunctions.php";
+include "../src/Functions/adminManageBookingsFunctions.php";
 include "templates/header.php";
 require_once '../src/DBconnect.php';
 
@@ -12,15 +12,15 @@ require_once '../src/DBconnect.php';
     <table>
         <thead>
         <tr>
-            <th>Login id</th>
-            <th>User id</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Date of Birth</th>
-            <th>Department id</th>
-            <th>Job</th>
+            <th>Reservation id</th>
+            <th>Employee id</th>
+            <th>Customer id</th>
+            <th>Date</th>
+            <th>Check in</th>
+            <th>Check out</th>
+            <th>Total Price</th>
+            <th>Room id</th>
+            <th>Number of Guests</th>
         </tr>
         </thead>
         <tbody>
@@ -32,13 +32,12 @@ require_once '../src/DBconnect.php';
     <table>
         <thead>
         <tr>
-            <th>User id</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Date of Birth</th>
-            <th>Passport number</th>
+            <th>Reservation id</th>
+            <th>Employee id</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Table id</th>
+            <th>Number of Guests</th>
         </tr>
         </thead>
         <tbody>
