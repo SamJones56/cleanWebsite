@@ -13,6 +13,8 @@ function buildEmployeeList($connection) {
             $login_id = $login['Login_id'];
             $isEmployee = true;
             $tempArray = newProfileDisplay($login_id, $isEmployee, $connection);
+//            echo("<br> Temp array at creation");
+//            var_dump($tempArray);
             buildEmployeeDisplay($tempArray);
         }
     }
@@ -38,13 +40,15 @@ function buildMemberList($connection) {
 
 function buildEmployeeDisplay($userArray)
 {
-
+    var_dump($userArray);
+    echo("<br>");
     if(isset($_POST['submit_employee'])){
+        var_dump($_POST['user_id']);
         $temp_login = $_POST['user_id'];
         $_SESSION['temp_login'] = $temp_login;
         $_SESSION['tempEmployee'] = true;
-        header("Location: updateUser.php");
-        exit();
+//        header("Location: updateUser.php");
+//        exit();
     }
 
     // Keys that match headers

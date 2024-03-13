@@ -12,11 +12,11 @@ function buildRoomReservationGeneralList($connection)
 
         // Check for employee - control what is displayed
         if ($reservation) {
-//            var_dump($reservation);
             $reservations_id = $reservation["reservations_id"];
             $isRoom = true;
             $tempArray = newReservationDisplay($reservations_id, $isRoom, $connection);
-
+//            echo("<br> Temp array at creation");
+//            var_dump($tempArray);
             buildRoomReservationDisplay($tempArray);
         }
     }
@@ -56,7 +56,7 @@ function buildRestaurantReservationList($connection)
     for ($i = 0; $i <= $count; $i++) {
         $reservation = searchDB($connection, "reservations", "reservations_id", $i);
         if ($reservation) {
-            $reservations_id = $reservation['$reservations_id'];
+            $reservations_id = $reservation['reservations_id']; // Remove $ from $reservations_id
             $isRoom = false;
             $tempArray = newReservationDisplay($reservations_id, $isRoom, $connection);
             buildRestaurantReservationDisplay($tempArray);
@@ -68,13 +68,15 @@ function buildRestaurantReservationList($connection)
 function buildRoomReservationDisplay($tempArray)
 {
 //    var_dump($tempArray);
-//    if(isset($_POST['submit'])){
-//        $temp_login = $_POST['user_id'];
-//        $_SESSION['temp_login'] = $temp_login;
-//        header("Location: updateUser.php");
-//        exit();
-//    }
-
+//    echo("<br>");
+    if(isset($_POST['submit_room'])){
+        $temp_res = $_POST['reservations_id'];
+        echo("TempRes" . $temp_res);
+        $_SESSION['temp_res'] = $temp_res;
+        $_SESSION['isRoom'] = true;
+        header("Location: updateReservation.php");
+        exit();
+    }
     // Keys that match headers
     $keys = ['reservations_id', 'employee_id', 'customer_id', 'date', 'check_in', 'check_out', 'total_price', 'room_id', 'num_guests'];
 
@@ -90,12 +92,12 @@ function buildRoomReservationDisplay($tempArray)
         }
     }
 
-//    echo '<td><form action="" method="post">';
-//    echo '<input type="hidden" name="user_id" value="' . ($tempArray['Login_id']) . '">';
-//    echo '<input type="submit" name="submit" value="Edit">';
-//    echo '</form></td>';
+    echo '<td><form action="" method="post">';
+    echo '<input type="hidden" name="reservations_id" value="' . ($tempArray['reservations_id']) . '">';
+//    var_dump($tempArray['reservations_id']);
+    echo '<input type="submit" name="submit_room" value="Edit">';
+    echo '</form></td>';
     echo "</tr>";
-
 }
 
 // Building restaurant bookings table

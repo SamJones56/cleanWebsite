@@ -44,7 +44,7 @@ if($_SESSION['permissionlvl'] < 2 )
     <br>
 <?php } ?>
     <div>
-        <form action="adminManageBookings.php" method="post">
+        <form action="adminManageReservations.php" method="post">
             <button type="submit">Manage Bookings</button>
         </form>
     </div>

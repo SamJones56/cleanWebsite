@@ -1,5 +1,5 @@
 <?php
-include "../src/Functions/adminManageBookingsFunctions.php";
+include "../src/Functions/adminManageReservationFunctions.php";
 include_once "../src/Functions/profileDisplayAndUpdateFunctions.php";
 include_once "../src/Functions/reservationDisplayAndUpdateFunctions.php";
 //include_once "../src/Functions/profileUpdateFunctions.php";
