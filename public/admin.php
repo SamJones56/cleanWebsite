@@ -1,7 +1,7 @@
 <?php
 include "templates/header.php";
 
-if($_SESSION['permissionlvl'] < 3 )
+if($_SESSION['permissionlvl'] < 2 )
 {
     header("location:index.php");
 }
