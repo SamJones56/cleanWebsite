@@ -4,10 +4,10 @@ function buildEmployeeList($connection) {
     include_once "../src/Functions/profileDisplayAndUpdateFunctions.php";
     include_once "dataBaseFunctions.php";
 
-    $count = getKey($connection, "login", "login_id");
+    $count = getKey($connection, "login", "Login_id");
 
     for ($i = 0; $i <= $count; $i++) {
-        $login = searchDB($connection, "login", "login_id", $i);
+        $login = searchDB($connection, "login", "Login_id", $i);
 
         if ($login && $login['permissionlvl'] >= 2) {
             $login_id = $login['Login_id'];
@@ -39,9 +39,10 @@ function buildMemberList($connection) {
 function buildEmployeeDisplay($userArray)
 {
 
-    if(isset($_POST['submit'])){
+    if(isset($_POST['submit_employee'])){
         $temp_login = $_POST['user_id'];
         $_SESSION['temp_login'] = $temp_login;
+        $_SESSION['tempEmployee'] = true;
         header("Location: updateUser.php");
         exit();
     }
@@ -64,7 +65,7 @@ function buildEmployeeDisplay($userArray)
 
     echo '<td><form action="" method="post">';
     echo '<input type="hidden" name="user_id" value="' . ($userArray['Login_id']) . '">';
-    echo '<input type="submit" name="submit" value="Edit">';
+    echo '<input type="submit" name="submit_employee" value="Edit">';
     echo '</form></td>';
     echo "</tr>";
 
@@ -72,9 +73,12 @@ function buildEmployeeDisplay($userArray)
 
 function buildMemberDisplay($userArray)
 {
-    if(isset($_POST['submit'])){
+    var_dump("buildMemberHit");
+
+    if(isset($_POST['submit_member'])){
         $temp_login = $_POST['user_id'];
         $_SESSION['temp_login'] = $temp_login;
+        $_SESSION['tempEmployee'] = false;
         header("Location: updateUser.php");
         exit();
     }
@@ -93,9 +97,11 @@ function buildMemberDisplay($userArray)
     }
     echo '<td><form action="" method="post">';
     echo '<input type="hidden" name="user_id" value="' . ($userArray['Login_id']) . '">';
-    echo '<input type="submit" name="submit" value="Edit">';
+    echo '<input type="submit" name="submit_member" value="Edit">';
     echo '</form></td>';
     echo "</tr>";
+    var_dump($_SESSION['tempEmployee']);
+
 }
 
 

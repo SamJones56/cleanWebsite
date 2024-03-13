@@ -43,6 +43,7 @@ function newRoomReservation()
             $initialRoomPrice = $roomReservation->getTotalPrice();
 
             // Convert to timestamps
+//            https://stackoverflow.com/questions/2040560/finding-the-number-of-days-between-two-dates
             $checkin = strtotime($roomReservation->getCheckIn());
             $checkout = strtotime($roomReservation->getCheckOut());
 
