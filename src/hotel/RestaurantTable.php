@@ -34,6 +34,4 @@ final class RestaurantTable
     {
         $this->capacity = $capacity;
     }
-
-
 }

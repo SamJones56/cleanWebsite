@@ -8,7 +8,7 @@ include "templates/header.php";
         <img src="../images/suite.webp">
         <h4>Suite</h4>
         <p>ROOM DESCRIPTION HERE</p>
-        <form action="bookRoom.php" method="post">
+        <form action="signInPrompt.php" method="post">
             <button type="submit">Book Now</button>
         </form>
     </div>

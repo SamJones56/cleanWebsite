@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bff6bf8-3b2e-4929-89ff-2e5813ecbff7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/createGuest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/signInPrompt.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/functions/newGuestFunctions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/person/Guest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/adminManageUsersFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/adminManageUsersFunctions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hotel/Department.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/Department.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hotel/Reservations.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/Reservations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stays.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/stays.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hotel/RestaurantTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/RestaurantTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hotel/Room.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/Room.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hotel/RoomReservations.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/RoomReservations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hotel/TableReservations.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/TableReservations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/person/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/Employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/person/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/person/Member.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/Member.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/person/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +88,7 @@
       <workItem from="1710179990210" duration="6320000" />
       <workItem from="1710228846113" duration="12531000" />
       <workItem from="1710324393557" duration="9469000" />
-      <workItem from="1710495011287" duration="1230000" />
+      <workItem from="1710495011287" duration="6111000" />
     </task>
     <servers />
   </component>
