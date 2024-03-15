@@ -4,7 +4,7 @@ namespace person;
 
 use person\Login;
 
-class User
+abstract class User
 {
     protected $user_id, $name, $dob, $address, $ph_no;
 

@@ -8,7 +8,7 @@ use hotel\Room;
 require_once 'Reservations.php';
 require_once 'Room.php';
 
-class RoomReservations extends Reservations
+final class RoomReservations extends Reservations
 {
     protected $date, $check_in, $check_out, $total_price, $payment , $num_guests, $checked_in;
     // Create room object

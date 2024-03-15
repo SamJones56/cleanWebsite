@@ -2,7 +2,7 @@
 
 namespace hotel;
 
-class Room
+final class Room
 {
     protected $room_id, $room_type, $accessibility, $price;
 

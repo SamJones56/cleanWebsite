@@ -4,7 +4,7 @@ namespace hotel;
 
 use hotel\Reservations;
 use hotel\RestaurantTable;
-class TableReservations extends Reservations
+final class TableReservations extends Reservations
 {
     protected $date, $time, $no_guests;
     private $restaurantTable;

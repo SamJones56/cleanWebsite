@@ -8,7 +8,7 @@ use person\Employee;
 require_once '../src/person/Employee.php';
 require_once '../src/person/Customer.php';
 
-class Reservations
+abstract class Reservations
 {
     protected $reservations_id, $employee_id, $customer_id;
     // Staff and customer objects

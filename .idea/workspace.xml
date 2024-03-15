@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bff6bf8-3b2e-4929-89ff-2e5813ecbff7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/updateReservation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/adminManageBookings.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/adminManageReservations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/adminManageBookingsFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/adminManageReservationFunctions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/functions/adminManageUsersFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/adminManageUsersFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hotel/Department.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/Department.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hotel/Reservations.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/Reservations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hotel/RestaurantTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/RestaurantTable.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hotel/Room.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/Room.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hotel/RoomReservations.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/RoomReservations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hotel/TableReservations.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/TableReservations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/Employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/Member.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/Member.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,23 +41,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "PHP Script.adminManageReservationFunctions.php.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/laragon/www/cleanWebsite",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "php.add.doc.comment.for.fields.panel.add.php.doc": "false",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;PHP Script.adminManageReservationFunctions.php.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/laragon/www/cleanWebsite&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.add.doc.comment.for.fields.panel.add.php.doc&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\laragon\www\cleanWebsite\public" />
@@ -87,7 +92,8 @@
       <workItem from="1710088372934" duration="5289000" />
       <workItem from="1710179990210" duration="6320000" />
       <workItem from="1710228846113" duration="12531000" />
-      <workItem from="1710324393557" duration="9417000" />
+      <workItem from="1710324393557" duration="9469000" />
+      <workItem from="1710495011287" duration="1230000" />
     </task>
     <servers />
   </component>

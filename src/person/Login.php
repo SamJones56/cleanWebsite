@@ -2,7 +2,7 @@
 
 namespace person;
 
-class Login
+final class Login
 {
     protected $login_id, $email, $password, $permissionlvl;
 

@@ -2,7 +2,7 @@
 
 namespace hotel;
 
-class RestaurantTable
+final class RestaurantTable
 {
     protected $table_id, $capacity;
 

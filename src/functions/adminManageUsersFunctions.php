@@ -13,8 +13,6 @@ function buildEmployeeList($connection) {
             $login_id = $login['Login_id'];
             $isEmployee = true;
             $tempArray = newProfileDisplay($login_id, $isEmployee, $connection);
-//            echo("<br> Temp array at creation");
-//            var_dump($tempArray);
             buildEmployeeDisplay($tempArray);
         }
     }
@@ -77,8 +75,6 @@ function buildEmployeeDisplay($userArray)
 
 function buildMemberDisplay($userArray)
 {
-    var_dump("buildMemberHit");
-
     if(isset($_POST['submit_member'])){
         $temp_login = $_POST['user_id'];
         $_SESSION['temp_login'] = $temp_login;
@@ -104,8 +100,6 @@ function buildMemberDisplay($userArray)
     echo '<input type="submit" name="submit_member" value="Edit">';
     echo '</form></td>';
     echo "</tr>";
-    var_dump($_SESSION['tempEmployee']);
-
 }
 
 

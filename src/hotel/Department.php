@@ -2,7 +2,7 @@
 
 namespace hotel;
 
-class Department
+final class Department
 {
     protected $dept_id, $dept_name, $address;
 

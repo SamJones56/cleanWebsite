@@ -6,7 +6,7 @@ use person\Login;
 require_once 'Customer.php';
 require_once 'Login.php';
 
-class Member extends Customer
+final class Member extends Customer
 {
     protected $member_id, $login_id;
     private $permissionLvl = 1;
