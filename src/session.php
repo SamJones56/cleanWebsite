@@ -18,6 +18,7 @@ class session
     }
     public function forgetSession()
     {
+        session_unset();
         $this->killSession();
         header("location:userLogin.php"); /* Redirect to login page */
         exit;

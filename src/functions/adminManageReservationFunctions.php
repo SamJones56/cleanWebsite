@@ -39,6 +39,7 @@ function buildRoomReservationUserList($connection, $user_id, $isEmployee)
             if (isset($reservation["reservations_id"])) {
                 $reservations_id = $reservation["reservations_id"];
                 $isRoom = true;
+                var_dump($reservations_id);
                 $tempArray = newReservationDisplay($reservations_id, $isRoom, $connection);
                 buildRoomReservationDisplay($tempArray);
             }

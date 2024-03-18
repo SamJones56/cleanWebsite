@@ -10,11 +10,11 @@ function newReservationDisplay($reservations_id, $isRoom, $connection)
     $temp_array = searchDB($connection, "reservations", "reservations_id", $reservations_id);
 
     if ($isRoom) {
-        // Search roomReservations table for data
-        $temp_array = $temp_array + searchDB($connection, "roomReservations", "reservations_id", $reservations_id);
+            // Search roomReservations table for data
+            $temp_array = $temp_array + searchDB($connection, "roomreservations", "reservations_id", $reservations_id);
 
-        // Search room table for data
-        $temp_array = $temp_array + searchDB($connection, "rooms", "room_id", $temp_array['room_id']);
+            // Search room table for data
+            $temp_array = $temp_array + searchDB($connection, "rooms", "room_id", $temp_array['room_id']);
     } else {
         // Search tableReservations table for data
         $temp_array = $temp_array + searchDB($connection, "tableReservations", "reservations_id", $reservations_id);

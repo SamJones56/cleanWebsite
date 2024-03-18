@@ -2,6 +2,7 @@
 
 function userLogIn()
 {
+    session_unset();
     if (isset($_POST['Submit'])) {
         try {
             require_once('../config.php');

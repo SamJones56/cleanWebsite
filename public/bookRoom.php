@@ -15,7 +15,9 @@ var_dump($_SESSION);
         <form method="post">
 
             <?php if($_SESSION['isEmployee']){?>
-            <input type="text" name="employee_id" id="employee_id" value="<?php echo $_SESSION['employee_id']; ?>" hidden>
+                <label for="employee_id">Employee id</label>
+            <input type="text" name="employee_id" id="employee_id" >
+
                 <label for="customer_id">Customer id</label>
                 <input type="text" name="customer_id" id="customer_id" required>
            <?php } ?>
@@ -36,7 +38,7 @@ var_dump($_SESSION);
 
             <label for="check_out">check_out</label>
             <input type="date" name="check_out" id="check_out" required>
-            <label for="room_type">Room Type</label>
+            <label for="room_type">Payment</label>
 
             <select name="payment" id="payment" required>
                 <option value="card">Card</option>
