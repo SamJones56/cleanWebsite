@@ -39,7 +39,7 @@ if ($user_is_logged_in) {
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="index.php" class="nav-link active" aria-current="page">Home</a></li>
             <li class="nav-item"><a href="stays.php" class="nav-link">Stay</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Dine</a></li>
+            <li class="nav-item"><a href="dine.php" class="nav-link">Dine</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Gallery</a></li>
             <?php if($_SESSION['permissionlvl'] > 1){?>
 			    <li class="nav-item"><a href="admin.php" class="nav-link">Staff</a></li>

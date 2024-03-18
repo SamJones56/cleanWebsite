@@ -7,7 +7,7 @@ require_once '../src/DBconnect.php';
 if($_SESSION['isRoom'])
 {
     $res_array = newReservationDisplay($_SESSION['temp_res'], $_SESSION['isRoom'], $connection);
-    var_dump($res_array);
+//    var_dump($res_array);
 ?>
 
 <h2>Edit A Reservation</h2>
