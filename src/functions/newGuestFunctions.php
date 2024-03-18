@@ -42,5 +42,13 @@ function makeNewGuest()
         // Add to guest table
         addToTable($connection, $guest->toGuestArray(), "guest");
 
+        // Logg the guest in
+//        $_SESSION['Active'] = true;
+        $_SESSION['isGuest'] = true;
+        $_SESSION['isEmployee'] = false;
+        $_SESSION['customer_id'] = $guest->getCustomerId();
+        $_SESSION['permissionlvl'] = 0;
+        header("location:bookRoom.php");
+
     }
 }

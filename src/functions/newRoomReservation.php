@@ -9,19 +9,23 @@ function newRoomReservation()
     // Check if the form is submitted
     if (isset($_POST['submit'])) {
         try {
-            error_reporting(E_ALL);
+//            error_reporting(E_ALL);
             require "../common.php";
             include "../src/functions/dataBaseFunctions.php";
             require_once "../src/hotel/RoomReservations.php";
 
             $roomReservation = new RoomReservations();
 
-            var_dump($_POST['employee_id']);
+//            var_dump($_POST['employee_id']);
+
 
             // Capture form data
 //            $roomReservation->setReservationsId(escape($_POST['reservations_id']));
             $roomReservation->setEmployeeId(escape($_POST['employee_id']));
             $roomReservation->setCustomerId(escape($_POST['customer_id']));
+
+            var_dump("Post: ");
+            var_dump($_POST);
 
             addToTable($connection, $roomReservation->toReservationsArray(), 'reservations');
 

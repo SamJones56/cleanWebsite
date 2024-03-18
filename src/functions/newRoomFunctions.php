@@ -20,6 +20,8 @@ function makeNewRoom()
         $room->setAccessibility(escape($_POST['accessibility']));
         $room->setPrice(escape($_POST['price']));
 
+
+//        var_dump($room);
         // Add to the room table
         addToTable($connection, $room->toRoomArray(), "rooms");
     }

@@ -1,5 +1,12 @@
 <?php
 include "templates/header.php";
+
+if($_SESSION['Active'])
+{
+    header("location:bookRoom.php");
+}
+
+else{
 ?>
 
 <h1>Sign in</h1>
@@ -11,3 +18,5 @@ include "templates/header.php";
 <form action="createGuest.php" method="post">
     <input type="submit" name="submit-login">
 </form>
+
+<?php };

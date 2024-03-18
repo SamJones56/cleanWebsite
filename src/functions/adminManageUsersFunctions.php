@@ -38,7 +38,6 @@ function buildMemberList($connection) {
 
 function buildEmployeeDisplay($userArray)
 {
-    var_dump($userArray);
     echo("<br>");
     if(isset($_POST['submit_employee'])){
         var_dump($_POST['user_id']);
