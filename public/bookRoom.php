@@ -25,7 +25,6 @@ var_dump($_SESSION);
             <?php if(!$_SESSION['isEmployee']) { ?>
                 <input type="text" name="employee_id" id="employee_id" readonly value="1" hidden>
                 <input type="text" name="customer_id" id="customer_id" value="<?php echo $_SESSION['customer_id']; ?>" hidden>
-
                 <?php } ?>
             <label for="room_id">room_id</label>
             <input type="text" name="room_id" id="room_id" required>
