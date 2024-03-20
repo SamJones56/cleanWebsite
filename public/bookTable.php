@@ -26,11 +26,11 @@ newRestaurantReservation();
         <label for="table_id">table_id</label>
         <input type="text" id="table_id" name="table_id" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="phone">Phone:</label>
-        <input type="tel" id="phone" name="phone" required>
+<!--        <label for="email">Email:</label>-->
+<!--        <input type="email" id="email" name="email" required>-->
+<!---->
+<!--        <label for="phone">Phone:</label>-->
+<!--        <input type="tel" id="phone" name="phone" required>-->
 
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" required>

@@ -4,18 +4,38 @@ namespace hotel;
 
 use hotel\Reservations;
 use hotel\RestaurantTable;
+
+require_once 'Reservations.php';
+require_once 'RestaurantTable.php';
+
 final class TableReservations extends Reservations
 {
     protected $date, $time, $no_guests;
+
+    protected $table_id;
     private $restaurantTable;
 
     public function __construct()
     {
+        parent::__construct();
         $this->restaurantTable = new RestaurantTable();
     }
 
+    public function toTableReservationsArray()
+    {
+        return array
+        (
+            'reservations_id' => $this->reservations_id,
+            'date' => $this->date,
+            'time' => $this->time,
+            'no_guests' => $this->no_guests,
+            'table_id' => $this->getRestaurantTableId()
+        );
+    }
+
+
     public function getRestaurantTableId(){
-        return $this->restaurantTable-$this->getRestaurantTableId();
+        return $this->restaurantTable->getTableId();
     }
 
     public function setRestaurantTableId($table_id)
@@ -52,6 +72,4 @@ final class TableReservations extends Reservations
     {
         $this->no_guests = $no_guests;
     }
-
-
 }

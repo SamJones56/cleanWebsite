@@ -23,8 +23,8 @@ function newRoomReservation()
             $roomReservation->setEmployeeId(escape($_POST['employee_id']));
             $roomReservation->setCustomerId(escape($_POST['customer_id']));
 
-            var_dump("Post: ");
-            var_dump($_POST);
+//            var_dump("Post: ");
+//            var_dump($_POST);
 
             addToTable($connection, $roomReservation->toReservationsArray(), 'reservations');
 
