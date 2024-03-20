@@ -48,7 +48,7 @@ function makeNewGuest()
         $_SESSION['isEmployee'] = false;
         $_SESSION['customer_id'] = $guest->getCustomerId();
         $_SESSION['permissionlvl'] = 0;
-        header("location:bookRoom.php");
+        header("location:" . $_SESSION['redirect']);
 
     }
 }

@@ -4,7 +4,6 @@ use hotel\RoomReservations;
 
 function newRoomReservation()
 {
-    // Include your database connection file
     require_once '../src/DBconnect.php';
     // Check if the form is submitted
     if (isset($_POST['submit'])) {
