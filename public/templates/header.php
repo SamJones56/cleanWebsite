@@ -1,5 +1,8 @@
 <!--source: https://getbootstrap.com/docs/5.3/examples/headers/-->
-<?php session_start();
+<?php
+// ob_start buffer for echo's https://www.php.net/manual/en/function.ob-start.php
+ob_start();
+session_start();
 
 $user_is_logged_in = isset($_SESSION['login_id']);
 if ($user_is_logged_in) {

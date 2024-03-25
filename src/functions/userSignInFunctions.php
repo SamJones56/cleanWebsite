@@ -25,7 +25,9 @@ function userLogIn()
                     $_SESSION['temp_login'] = $login_id_db;
                     $_SESSION['Email'] = $email_db;
                     $_SESSION['permissionlvl'] = $permissionlvl;
-                    $_SESSION['customer_id'] = searchDB($connection, "member", "login_id", $login_id_db);
+                    if($permissionlvl < 2) {
+                        $_SESSION['customer_id'] = searchDB($connection, "member", "login_id", $login_id_db);
+                    }
                     $_SESSION['Active'] = true;
 
                     header("location:index.php");

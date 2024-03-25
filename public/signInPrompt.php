@@ -3,7 +3,7 @@ include "templates/header.php";
 
 if($_SESSION['Active'])
 {
-    header("location:bookRoom.php");
+    header("location:" . $_SESSION['redirect']);
 }
 
 else{

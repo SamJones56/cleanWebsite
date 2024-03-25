@@ -33,6 +33,17 @@ final class TableReservations extends Reservations
         );
     }
 
+    public function setFilledTableRes($resArray)
+    {
+        $this->reservations_id = $resArray['reservations_id'];
+        $this->employee->setEmployeeId($resArray['employee_id']);
+        $this->customer->setCustomerId($resArray['customer_id']);
+        $this->date = $resArray['date'];
+        $this->time = $resArray['time'];
+        $this->no_guests = $resArray['no_guests'];
+        $this->restaurantTable->setTableId($resArray['table_id']);
+    }
+
 
     public function getRestaurantTableId(){
         return $this->restaurantTable->getTableId();

@@ -76,12 +76,13 @@ $user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee'],$
     </thead>
     <tbody>
     <?php
-        if($_SESSION['isEmployee']) {
-            buildRoomReservationUserList($connection, $user_array['employee_id'], $_SESSION['isEmployee']);
-        }
-        else{
-            buildRoomReservationUserList($connection, $user_array['customer_id'], $_SESSION['isEmployee']);
-        }
+
+            if ($_SESSION['isEmployee']) {
+                buildRoomReservationUserList($connection, $user_array['employee_id'], $_SESSION['isEmployee']);
+            } else {
+                buildRoomReservationUserList($connection, $user_array['customer_id'], $_SESSION['isEmployee']);
+            }
+
         ?>
     </tbody>
 </table>
@@ -92,6 +93,7 @@ $user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee'],$
     <tr>
         <th>Reservation id</th>
         <th>Employee id</th>
+        <th>Customer id</th>
         <th>Date</th>
         <th>Time</th>
         <th>Table id</th>
@@ -99,6 +101,6 @@ $user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee'],$
     </tr>
     </thead>
     <tbody>
-<!--    --><?php //buildRestaurantReservationList($connection); ?>
+    <?php buildRestaurantReservationList($connection); ?>
     </tbody>
 </table>

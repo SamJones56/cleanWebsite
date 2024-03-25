@@ -19,8 +19,9 @@ include "templates/header.php";
         <img src="../images/double.jpg" width="500">
         <h4>Double</h4>
         <p>ROOM DESCRIPTION HERE</p>
-        <form action="<?php echo "signInPrompt.php";
+        <form action="<?php
         $_SESSION['guestRedirect'] = "bookRoom.php";
+        echo "signInPrompt.php";
         ?>" method="post">
             <button type="submit">Book Now</button>
         </form>
@@ -30,8 +31,9 @@ include "templates/header.php";
         <img src="../images/twin.webp" width="500">
         <h4>Twin</h4>
         <p>ROOM DESCRIPTION HERE</p>
-        <form action="<?php echo "signInPrompt.php";
+        <form action="<?php
         $_SESSION['guestRedirect'] = "bookRoom.php";
+        echo "signInPrompt.php";
         ?>" method="post">
             <button type="submit">Book Now</button>
         </form>
@@ -42,8 +44,9 @@ include "templates/header.php";
         <img src="../images/family.jpg" width="500">
         <h4>Family</h4>
         <p>ROOM DESCRIPTION HERE</p>
-        <form action="<?php echo "signInPrompt.php";
+        <form action="<?php
             $_SESSION['redirect'] = "bookRoom.php";
+        echo "signInPrompt.php";
         ?>" method="post">
             <button type="submit">Book Now</button>
         </form>

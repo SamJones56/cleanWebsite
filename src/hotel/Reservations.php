@@ -12,7 +12,7 @@ abstract class Reservations
 {
     protected $reservations_id, $employee_id, $customer_id;
     // Staff and customer objects
-    private $employee, $customer;
+    protected $employee, $customer;
 
     public function __construct()
     {
