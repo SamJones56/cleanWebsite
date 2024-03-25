@@ -28,7 +28,7 @@ function newReservationDisplay($reservations_id, $isRoom, $connection)
         $temp_array = $temp_array + searchDB($connection, "restaurantTables", "table_id", $temp_array['table_id']);
     }
 
-    var_dump($temp_array);
+//    var_dump($temp_array);
     return $temp_array;
 }
 
@@ -62,6 +62,7 @@ function buildReservation($resArray, $isRoom, $connection)
         updateTable($connection, $tableRes->toTableReservationsArray(),"tablereservations", "reservations_id", $resArray['reservations_id']);
         echo "<br>";
 //        var_dump("update tabletable");
-        var_dump($tableRes);
+//        var_dump($tableRes);
     }
+    header("Refresh:0");
  } ?>

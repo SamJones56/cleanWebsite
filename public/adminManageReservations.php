@@ -34,6 +34,7 @@ require_once '../src/DBconnect.php';
         <tr>
             <th>Reservation id</th>
             <th>Employee id</th>
+            <th>Customer id</th>
             <th>Date</th>
             <th>Time</th>
             <th>Table id</th>
@@ -41,7 +42,7 @@ require_once '../src/DBconnect.php';
         </tr>
         </thead>
         <tbody>
-<!--        --><?php //buildMemberList($connection); ?>
+        <?php buildRestaurantReservationList($connection); ?>
         </tbody>
     </table>
 

@@ -76,7 +76,7 @@ function buildRoomReservationDisplay($tempArray)
 //    echo("<br>");
     if(isset($_POST['submit_room'])){
         $temp_res = $_POST['reservations_id'];
-        echo("TempRes" . $temp_res);
+//        echo("TempRes" . $temp_res);
         $_SESSION['temp_res'] = $temp_res;
         $_SESSION['isRoom'] = true;
         header("Location: updateReservation.php");
@@ -113,9 +113,7 @@ function buildRestaurantReservationDisplay($tableArray)
 //        echo("TempRes" . $temp_res);
         $_SESSION['temp_res'] = $temp_res;
         $_SESSION['isRoom'] = false;
-
         header("Location: updateReservation.php");
-
 //        exit();
     }
     // Keys that match headers
