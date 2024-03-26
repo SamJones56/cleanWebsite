@@ -23,8 +23,8 @@ newRestaurantReservation();
 
         <?php } ?>
 
-        <label for="table_id">table_id</label>
-        <input type="text" id="table_id" name="table_id" required>
+<!--        <label for="table_id">table_id</label>-->
+<!--        <input type="text" id="table_id" name="table_id" required>-->
 
 <!--        <label for="email">Email:</label>-->
 <!--        <input type="email" id="email" name="email" required>-->

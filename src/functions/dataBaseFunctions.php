@@ -97,6 +97,20 @@ function searchAllDB($connection, $tableName, $searchKey, $searchValue)
     }
 }
 
+function seachAllDBcap($connection, $tableName, $searchKey, $searchValue)
+{
+    try {
+        $sql = "SELECT * FROM " . $tableName . " WHERE " . $searchKey . " >= :searchValue";
+        $statement = $connection->prepare($sql);
+        $statement->bindParam(':searchValue', $searchValue);
+        $statement->execute();
+        $result_array = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result_array;
+    } catch(PDOException $error) {
+        echo $sql . "<br>" . $error->getMessage();
+    }
+}
+
 function getAssociationKey($connection, $tableName, $keyToSearch, $columnToSearch ,$keyToFind){
     try{
         $sql = "SELECT " . $keyToFind . " FROM " . $tableName . " WHERE " . $columnToSearch . " = " . $keyToSearch;

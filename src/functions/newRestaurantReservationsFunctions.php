@@ -31,9 +31,12 @@ function newRestaurantReservation()
             $restaurantReservation->setDate(escape($_POST['date']));
             $restaurantReservation->setTime(escape($_POST['time']));
             $restaurantReservation->setNoGuests(escape($_POST['guests']));
-            $restaurantReservation->setRestaurantTableId(escape($_POST['table_id']));
 
-            echo "<br> array:";
+            $_SESSION['temp_cap'] = $restaurantReservation->getNoGuests();
+
+            $restaurantReservation->setRestaurantTableId(checkTableAvailability($connection, escape($_POST['time'])));
+
+//            echo "<br> array:";
 
 //            var_dump($restaurantReservation);
 
@@ -43,5 +46,47 @@ function newRestaurantReservation()
             echo "Error: " . $error->getMessage();
         }
 
+    }
+}
+
+function checkTableAvailability($connection, $time)
+{
+    $tableCapacity = $_SESSION['temp_cap'];
+
+    $tableArray = seachAllDBcap($connection, "restauranttables", "capacity", $tableCapacity);
+
+    $availableTables = [];
+
+    foreach($tableArray as $table) {
+        $bookingsArray = searchAllDB($connection, "tablereservations", "no_guests", $table['capacity']);
+
+        $isAvailable = true;
+
+        foreach($bookingsArray as $booking)
+        {
+            // Check dates
+            $bookedCheckIn = strtotime($booking['time']);
+            $bookedCheckOut = (strtotime($booking['time']))+5400;
+            $newCheckIn = strtotime($time);
+            $newCheckOut = strtotime($time)+5400;
+
+            // Check if dates conflict
+            if($newCheckIn < $bookedCheckOut && $newCheckOut > $bookedCheckIn )
+            {
+                $isAvailable = false;
+            }
+        }
+        if($isAvailable)
+        {
+            $availableTables[] = $table;
+        }
+    }
+
+    if($availableTables) {
+        return $availableTables[0]['table_id'];
+    }
+    else
+    {
+        header("refresh:0");
     }
 }
