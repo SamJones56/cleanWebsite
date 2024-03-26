@@ -3,12 +3,12 @@ include "../src/functions/newRoomReservation.php";
 include "templates/header.php";
 include_once "../src/functions/dataBaseFunctions.php";
 require_once '../src/DBconnect.php';
-newRoomReservation();
+newRoomReservation($connection);
 // Report all errors
 //error_reporting(E_ALL);
 
-var_dump("Session: ");
-var_dump($_SESSION);
+//var_dump("Session: ");
+//var_dump($_SESSION);
 
 ?>
 
@@ -28,8 +28,8 @@ var_dump($_SESSION);
                 <input type="text" name="employee_id" id="employee_id" readonly value="1" hidden>
                 <input type="text" name="customer_id" id="customer_id" value="<?php echo getAssociationKey($connection, "member", $_SESSION['login_id'], "login_id", "customer_id") ?>" hidden>
                 <?php } ?>
-            <label for="room_id">room_id</label>
-            <input type="text" name="room_id" id="room_id" required>
+<!--            <label for="room_id">room_id</label>-->
+<!--            <input type="text" name="room_id" id="room_id" required>-->
 
 <!--            <label for="date">date</label>-->
             <input type="date" name="date" id="date" value="<?php echo date('Y-m-d'); ?>" hidden>

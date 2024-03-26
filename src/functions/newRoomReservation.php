@@ -2,7 +2,7 @@
 
 use hotel\RoomReservations;
 
-function newRoomReservation()
+function newRoomReservation($connection)
 {
     require_once '../src/DBconnect.php';
     // Check if the form is submitted
@@ -10,7 +10,7 @@ function newRoomReservation()
         try {
 //            error_reporting(E_ALL);
             require "../common.php";
-            include "../src/functions/dataBaseFunctions.php";
+            include_once "../src/functions/dataBaseFunctions.php";
             require_once "../src/hotel/RoomReservations.php";
 
             $roomReservation = new RoomReservations();
@@ -32,10 +32,13 @@ function newRoomReservation()
             $roomReservation->setReservationsId(getKey($connection, "reservations", "reservations_id"));
 //
             $roomReservation->setDate(escape($_POST['date']));
-            $roomReservation->setRoomId(escape($_POST['room_id']));
+//            $roomReservation->setRoomId(escape($_POST['room_id']));
             $roomReservation->setCheckIn(escape($_POST['check_in']));
             $roomReservation->setCheckOut(escape($_POST['check_out']));
             $roomReservation->setPayment(escape($_POST['payment']));
+
+            $roomReservation->setRoomId(checkRoomAvailability($connection, escape($_POST['check_in']), escape($_POST['check_out'])));
+
             // Get the room price
             $roomReservation->setTotalPrice(getAssociationKey($connection, "rooms", $roomReservation->getRoomId(), "room_id", "price"));
 //            $roomReservation->setTotalPrice(escape($_POST['total_price']));
@@ -62,11 +65,57 @@ function newRoomReservation()
 
             $roomReservation->setTotalPrice($roomPrice);
 
+
+//            checkRoomAvailability($connection, escape($_POST['check_in']), escape($_POST['check_out']));
+
             return $roomPrice;
         } catch (PDOException $error) {
             echo "Error: " . $error->getMessage();
         }
     }
 }
+
+function checkRoomAvailability($connection, $check_in, $check_out)
+{
+    $roomType = $_SESSION['temp_room_type'];
+    // Get an associated array of all room types and their id's
+    $roomsArray = searchAllDB($connection, "rooms", "room_type", $roomType);
+
+    $availableRooms = [];
+
+    foreach($roomsArray as $room) {
+        $bookingsArray = searchAllDB($connection, "roomreservations", "room_id", $room['room_id']);
+
+        $isAvailable = true;
+
+        foreach($bookingsArray as $booking)
+        {
+            // Check dates
+            $bookedCheckIn = strtotime($booking['check_in']);
+            $bookedCheckOut = strtotime($booking['check_out']);
+            $newCheckIn = strtotime($check_in);
+            $newCheckOut = strtotime($check_out);
+            // Check if dates conflict
+            if($newCheckIn < $bookedCheckOut && $newCheckOut > $bookedCheckIn )
+            {
+                $isAvailable = false;
+            }
+        }
+        if($isAvailable)
+        {
+            $availableRooms[] = $room;
+        }
+    }
+
+    if($availableRooms) {
+        return $availableRooms[0]['room_id'];
+    }
+    else
+    {
+        header("refresh:0");
+    }
+}
+
+
 
 ?>

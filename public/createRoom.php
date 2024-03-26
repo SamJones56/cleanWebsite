@@ -16,10 +16,10 @@ makeNewRoom();
             <label for="room_type">Room Type</label>
             <select
                 name="room_type" id="room_type">
-                <option value="single">Single</option>
+                <option value="suite">Suite</option>
                 <option value="double">Double</option>
                 <option value="twin">Twin</option>
-                <option value="suite">Suite</option>
+                <option value="family">Family</option>
             </select><br>
 
 
