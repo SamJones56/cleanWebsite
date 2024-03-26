@@ -112,7 +112,7 @@ function checkRoomAvailability($connection, $check_in, $check_out)
     }
     else
     {
-        header("refresh:0");
+//        header("refresh:0");
     }
 }
 

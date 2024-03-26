@@ -7,49 +7,42 @@ function newRestaurantReservation()
     require_once '../src/DBconnect.php';
 
     if (isset($_POST['submit'])) {
+        require "../common.php";
+        include "../src/functions/dataBaseFunctions.php";
+        require_once "../src/hotel/TableReservations.php";
+        $restaurantReservation = new TableReservations();
         try {
-            require "../common.php";
-            include "../src/functions/dataBaseFunctions.php";
-            require_once "../src/hotel/TableReservations.php";
-
-            $restaurantReservation = new TableReservations();
-
             // Get the data from the form
             $restaurantReservation->setEmployeeId(escape($_POST['employee_id']));
             $restaurantReservation->setCustomerId(escape($_POST['customer_id']));
 
             addToTable($connection, $restaurantReservation->toReservationsArray(), 'reservations');
 
-            var_dump("Reservation added");
-
-
             $restaurantReservation->setReservationsId(getKey($connection, "reservations", "reservations_id"));
 
-//            var_dump($restaurantReservation);
-
-//            $restaurantReservation->setTableId();
             $restaurantReservation->setDate(escape($_POST['date']));
             $restaurantReservation->setTime(escape($_POST['time']));
             $restaurantReservation->setNoGuests(escape($_POST['guests']));
 
             $_SESSION['temp_cap'] = $restaurantReservation->getNoGuests();
 
-            $restaurantReservation->setRestaurantTableId(checkTableAvailability($connection, escape($_POST['time'])));
-
-//            echo "<br> array:";
-
-//            var_dump($restaurantReservation);
+            $restaurantReservation->setRestaurantTableId(checkTableAvailability($connection, escape($_POST['time']),escape($_POST['date'])));
 
             addToTable($connection, $restaurantReservation->toTableReservationsArray(), 'tablereservations');
 
         } catch (PDOException $error) {
             echo "Error: " . $error->getMessage();
+
+            echo "<br>";
+            echo "<br>";
+            echo "Catch hit";
+//            deleteData($connection, "reservations", "reservation_id", $restaurantReservation->getReservationsId());
         }
 
     }
 }
 
-function checkTableAvailability($connection, $time)
+function checkTableAvailability($connection, $bookingTime, $bookingDate)
 {
     $tableCapacity = $_SESSION['temp_cap'];
 
@@ -60,20 +53,25 @@ function checkTableAvailability($connection, $time)
     foreach($tableArray as $table) {
         $bookingsArray = searchAllDB($connection, "tablereservations", "no_guests", $table['capacity']);
 
+        var_dump($bookingsArray);
+
         $isAvailable = true;
 
         foreach($bookingsArray as $booking)
         {
             // Check dates
-            $bookedCheckIn = strtotime($booking['time']);
-            $bookedCheckOut = (strtotime($booking['time']))+5400;
-            $newCheckIn = strtotime($time);
-            $newCheckOut = strtotime($time)+5400;
+            $bookedDate = strtotime($booking['date']);
+            $newDate = strtotime($bookingDate);
 
-            // Check if dates conflict
-            if($newCheckIn < $bookedCheckOut && $newCheckOut > $bookedCheckIn )
-            {
-                $isAvailable = false;
+            if($bookedDate == $newDate) {
+                $bookedStart = strtotime($booking['time']);
+                $bookedEnd = $bookedStart + 5400;
+                $newStart = strtotime($bookingTime);
+                $newEnd = $newStart + 5400;
+
+                if ($newStart < $bookedEnd && $newEnd > $bookedStart) {
+                    $isAvailable = false;
+                }
             }
         }
         if($isAvailable)
@@ -87,6 +85,6 @@ function checkTableAvailability($connection, $time)
     }
     else
     {
-        header("refresh:0");
+        deleteData($connection, "reservations", "reservations_id", getKey($connection, "reservations", "reservations_id"));
     }
 }

@@ -135,3 +135,15 @@ function updateColumn($connection, $tableName, $whereKey, $updateKey, $identifyi
         echo "error" .  $sql . "<br>" . $error->getMessage();
     }
 }
+
+function deleteData($connection, $tableName, $identifyingKey, $givenKey)
+{
+    try
+    {
+        $sql = "DELETE FROM $tableName WHERE $identifyingKey = $givenKey";
+        $statement = $connection->prepare($sql);
+        $statement->execute();
+    } catch(PDOException $error) {
+        echo "error" .  $sql . "<br>" . $error->getMessage();
+    }
+}
