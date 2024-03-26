@@ -109,3 +109,15 @@ function getAssociationKey($connection, $tableName, $keyToSearch, $columnToSearc
     echo "error" .  $sql . "<br>" . $error->getMessage();
     }
 }
+
+function updateColumn($connection, $tableName, $whereKey, $updateKey, $identifyingKey, $givenIdentifyingKey)
+{
+    try
+    {
+        $sql = "UPDATE $tableName SET $whereKey = $updateKey WHERE $identifyingKey = $givenIdentifyingKey";
+        $statement = $connection->prepare($sql);
+        $statement->execute();
+    } catch(PDOException $error) {
+        echo "error" .  $sql . "<br>" . $error->getMessage();
+    }
+}

@@ -17,7 +17,7 @@ function buildRoomReservationGeneralList($connection)
             $tempArray = newReservationDisplay($reservations_id, $isRoom, $connection);
 //            echo("<br> Temp array at creation");
 //            var_dump($tempArray);
-            buildRoomReservationDisplay($tempArray);
+            buildRoomReservationDisplay($tempArray, $connection);
         }
     }
 }
@@ -44,7 +44,7 @@ function buildRoomReservationUserList($connection, $user_id, $isEmployee)
                     $isRoom = true;
 //                var_dump($reservations_id);
                     $tempArray = newReservationDisplay($reservations_id, $isRoom, $connection);
-                    buildRoomReservationDisplay($tempArray);
+                    buildRoomReservationDisplay($tempArray, $connection);
                 }
             }
         }
@@ -70,8 +70,10 @@ function buildRestaurantReservationList($connection)
 }
 
 // Building room bookings table
-function buildRoomReservationDisplay($tempArray)
+function buildRoomReservationDisplay($tempArray, $connection)
 {
+    include_once "dataBaseFunctions.php";
+
 //    var_dump($tempArray);
 //    echo("<br>");
     if(isset($_POST['submit_room'])){
@@ -82,6 +84,14 @@ function buildRoomReservationDisplay($tempArray)
         header("Location: updateReservation.php");
 //        exit();
     }
+
+    if(isset($_POST['check_in']))
+    {
+        $temp_res = $_POST['reservations_id'];
+        updateColumn($connection, "roomReservations", "checked_in", "1", "reservations_id", $temp_res);
+
+    }
+
     // Keys that match headers
     $keys = ['reservations_id', 'employee_id', 'customer_id', 'date', 'check_in', 'check_out', 'total_price', 'room_id', 'num_guests'];
 
@@ -101,6 +111,8 @@ function buildRoomReservationDisplay($tempArray)
     echo '<input type="hidden" name="reservations_id" value="' . ($tempArray['reservations_id']) . '">';
 //    var_dump($tempArray['reservations_id']);
     echo '<input type="submit" name="submit_room" value="Edit">';
+    echo '</td> <td>';
+    echo '<input type="submit" name="check_in" value="Check in">';
     echo '</form></td>';
     echo "</tr>";
 }
