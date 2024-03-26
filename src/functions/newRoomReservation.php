@@ -112,7 +112,9 @@ function checkRoomAvailability($connection, $check_in, $check_out)
     }
     else
     {
-//        header("refresh:0");
+
+        deleteData($connection, "reservations", "reservations_id", getKey($connection, "reservations", "reservations_id"));
+        echo "<h1>DATE/TIME IS UNAVAILABLE</h1>";
     }
 }
 

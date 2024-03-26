@@ -53,7 +53,7 @@ function checkTableAvailability($connection, $bookingTime, $bookingDate)
     foreach($tableArray as $table) {
         $bookingsArray = searchAllDB($connection, "tablereservations", "no_guests", $table['capacity']);
 
-        var_dump($bookingsArray);
+//        var_dump($bookingsArray);
 
         $isAvailable = true;
 
@@ -86,5 +86,6 @@ function checkTableAvailability($connection, $bookingTime, $bookingDate)
     else
     {
         deleteData($connection, "reservations", "reservations_id", getKey($connection, "reservations", "reservations_id"));
+        echo "<h1>DATE/TIME IS UNAVAILABLE</h1>";
     }
 }
