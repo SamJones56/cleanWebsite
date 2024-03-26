@@ -3,6 +3,9 @@ include "../src/Functions/reservationDisplayAndUpdateFunctions.php";
 include "templates/header.php";
 require_once '../src/DBconnect.php';
 
+//var_dump($_SESSION);
+
+
 // Check if room
 if($_SESSION['isRoom'])
 {
@@ -23,7 +26,7 @@ if($_SESSION['isRoom'])
 
         <?php if(!$_SESSION['isEmployee']) { ?>
             <input type="text" name="employee_id" id="employee_id" readonly value="1" hidden>
-            <input type="text" name="customer_id" id="customer_id" value="<?php echo $_SESSION['customer_id']; ?>" hidden>
+            <input type="text" name="customer_id" id="customer_id" value="<?php echo $res_array['customer_id']; ?>" hidden>
 
         <?php } ?>
         <label for="room_id">room_id</label>
@@ -75,7 +78,7 @@ else
 
             <?php if(!$_SESSION['isEmployee']) { ?>
                 <input type="text" name="employee_id" id="employee_id" readonly value="1" hidden>
-                <input type="text" name="customer_id" id="customer_id" value="<?php echo $_SESSION['customer_id']; ?>" hidden>
+                <input type="text" name="customer_id" id="customer_id" value="<?php echo $res_array['customer_id']; ?>" hidden>
             <?php } ?>
 
             <!--            <label for="date">date</label>-->
