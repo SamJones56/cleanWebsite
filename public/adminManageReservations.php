@@ -21,6 +21,7 @@ require_once '../src/DBconnect.php';
             <th>Total Price</th>
             <th>Room id</th>
             <th>Number of Guests</th>
+            <th>Checked in</th>
         </tr>
         </thead>
         <tbody>

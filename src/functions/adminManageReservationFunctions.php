@@ -84,16 +84,21 @@ function buildRoomReservationDisplay($tempArray, $connection)
         header("Location: updateReservation.php");
 //        exit();
     }
-
     if(isset($_POST['check_in']))
     {
         $temp_res = $_POST['reservations_id'];
         updateColumn($connection, "roomReservations", "checked_in", "1", "reservations_id", $temp_res);
-
+        header("refresh:0");
+    }
+    else if(isset($_POST['check_out']))
+    {
+        $temp_res = $_POST['reservations_id'];
+        updateColumn($connection, "roomReservations", "checked_in", "0", "reservations_id", $temp_res);
+        header("refresh:0");
     }
 
     // Keys that match headers
-    $keys = ['reservations_id', 'employee_id', 'customer_id', 'date', 'check_in', 'check_out', 'total_price', 'room_id', 'num_guests'];
+    $keys = ['reservations_id', 'employee_id', 'customer_id', 'date', 'check_in', 'check_out', 'total_price', 'room_id', 'num_guests', 'checked_in'];
 
     echo "<tr>";
     foreach ($keys as $key) {
@@ -113,6 +118,8 @@ function buildRoomReservationDisplay($tempArray, $connection)
     echo '<input type="submit" name="submit_room" value="Edit">';
     echo '</td> <td>';
     echo '<input type="submit" name="check_in" value="Check in">';
+    echo '</td> <td>';
+    echo '<input type="submit" name="check_out" value="Check out">';
     echo '</form></td>';
     echo "</tr>";
 }
