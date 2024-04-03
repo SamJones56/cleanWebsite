@@ -2,7 +2,44 @@
 
 use hotel\RoomReservations;
 
-function newRoomReservation($connection)
+// Save form data
+function tempRoomReservation($connection)
+{
+    require "../common.php";
+    if (isset($_POST['submit']))
+    {
+        include_once "../src/functions/dataBaseFunctions.php";
+
+        // Get form data
+        $tempRoomReservation['employee_id'] = escape($_POST['employee_id']);
+        $tempRoomReservation['customer_id'] = escape($_POST['customer_id']);
+        $tempRoomReservation['date'] = escape($_POST['date']);
+        $tempRoomReservation['check_in'] = escape($_POST['check_in']);
+        $tempRoomReservation['check_out'] = escape($_POST['check_out']);
+        $tempRoomReservation['payment'] = escape($_POST['payment']);
+        $tempRoomReservation['num_guests'] = escape($_POST['num_guests']);
+
+        // Get the room price from the DB
+        $tempRoomReservation['room_id'] = checkRoomAvailability($connection, $tempRoomReservation['check_in'], $tempRoomReservation['check_out']);
+
+        $initialRoomPrice = getAssociationKey($connection, "rooms", $tempRoomReservation['room_id'], "room_id", "price");
+
+        $tempRoomReservation['roomPrice'] = roomPriceCalculator($initialRoomPrice, strtotime($tempRoomReservation['check_in']), strtotime($tempRoomReservation['check_out']));
+
+
+        $_SESSION['temp_room_reservation'] =  $tempRoomReservation;
+
+//        var_dump($_SESSION['temp_room_reservation']);
+
+        header("location: cart.php");
+    }
+}
+
+
+
+
+
+function newRoomReservation($connection, $tempRoomReservation)
 {
     require_once '../src/DBconnect.php';
     // Check if the form is submitted
@@ -20,8 +57,8 @@ function newRoomReservation($connection)
 
             // Capture form data
 //            $roomReservation->setReservationsId(escape($_POST['reservations_id']));
-            $roomReservation->setEmployeeId(escape($_POST['employee_id']));
-            $roomReservation->setCustomerId(escape($_POST['customer_id']));
+            $roomReservation->setEmployeeId($tempRoomReservation['employee_id']);
+            $roomReservation->setCustomerId($tempRoomReservation['customer_id']);
 
 //            var_dump("Post: ");
 //            var_dump($_POST);
@@ -31,18 +68,18 @@ function newRoomReservation($connection)
             // Set reservation id
             $roomReservation->setReservationsId(getKey($connection, "reservations", "reservations_id"));
 //
-            $roomReservation->setDate(escape($_POST['date']));
+            $roomReservation->setDate($tempRoomReservation['date']);
 //            $roomReservation->setRoomId(escape($_POST['room_id']));
-            $roomReservation->setCheckIn(escape($_POST['check_in']));
-            $roomReservation->setCheckOut(escape($_POST['check_out']));
-            $roomReservation->setPayment(escape($_POST['payment']));
+            $roomReservation->setCheckIn($tempRoomReservation['check_in']);
+            $roomReservation->setCheckOut($tempRoomReservation['check_out']);
+            $roomReservation->setPayment($tempRoomReservation['payment']);
 
-            $roomReservation->setRoomId(checkRoomAvailability($connection, escape($_POST['check_in']), escape($_POST['check_out'])));
+            $roomReservation->setRoomId(checkRoomAvailability($connection, $tempRoomReservation['check_in'], $tempRoomReservation['check_out']));
 
             // Get the room price
             $roomReservation->setTotalPrice(getAssociationKey($connection, "rooms", $roomReservation->getRoomId(), "room_id", "price"));
 //            $roomReservation->setTotalPrice(escape($_POST['total_price']));
-            $roomReservation->setNumGuests(escape($_POST['num_guests']));
+            $roomReservation->setNumGuests($tempRoomReservation['num_guests']);
             $roomReservation->setCheckedIn(0);
 
             // Do cost calculation
@@ -54,8 +91,10 @@ function newRoomReservation($connection)
             $checkout = strtotime($roomReservation->getCheckOut());
 
             // Calculate days and total price
-            $days = ceil(abs($checkout - $checkin) / 86400);
-            $roomPrice = $initialRoomPrice * $days; // Assuming $initialRoomPrice is your daily rate
+//            $days = ceil(abs($checkout - $checkin) / 86400);
+//            $roomPrice = $initialRoomPrice * $days;
+
+            $roomPrice = roomPriceCalculator($initialRoomPrice, $checkin, $checkout);
 
             $roomReservation->setTotalPrice($roomPrice);
 
@@ -63,7 +102,7 @@ function newRoomReservation($connection)
 
             echo "Reservation added successfully.";
 
-            $roomReservation->setTotalPrice($roomPrice);
+//            $roomReservation->setTotalPrice($roomPrice);
 
 
 //            checkRoomAvailability($connection, escape($_POST['check_in']), escape($_POST['check_out']));
@@ -118,6 +157,11 @@ function checkRoomAvailability($connection, $check_in, $check_out)
     }
 }
 
-
+function roomPriceCalculator($initialRoomPrice, $checkIn, $checkOut)
+{
+    // Calculate days and total price
+    $days = ceil(abs($checkOut - $checkIn) / 86400);
+    return $roomPrice = $initialRoomPrice * $days;
+}
 
 ?>
