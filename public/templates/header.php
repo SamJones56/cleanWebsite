@@ -30,6 +30,9 @@ if ($user_is_logged_in) {
 
     <link rel="stylesheet" href="../Bootstrap/bootstrap-5.3.2-dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.
+css">
 <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>-->
 </head>
 <div class="container">
@@ -66,3 +69,4 @@ if ($user_is_logged_in) {
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <body>
+<div class="container">

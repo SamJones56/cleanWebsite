@@ -100,6 +100,7 @@ function displayCart()
 {
     $products = getRoomProducts();
     $cartItems = getShoppingCart();
+    header('Location: cart.php');
     if(!empty($cartItems)){
 //    require_once __DIR__ . '/../templates/cart.php';
 } else {

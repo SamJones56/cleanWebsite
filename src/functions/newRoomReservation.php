@@ -39,7 +39,7 @@ function tempRoomReservation($connection)
 
 
 
-function newRoomReservation($connection, $tempRoomReservation)
+function newRoomReservation($connection, $tempRoomReservation, $total)
 {
     require_once '../src/DBconnect.php';
     // Check if the form is submitted
@@ -77,7 +77,7 @@ function newRoomReservation($connection, $tempRoomReservation)
             $roomReservation->setRoomId(checkRoomAvailability($connection, $tempRoomReservation['check_in'], $tempRoomReservation['check_out']));
 
             // Get the room price
-            $roomReservation->setTotalPrice(getAssociationKey($connection, "rooms", $roomReservation->getRoomId(), "room_id", "price"));
+            $roomReservation->setTotalPrice($total);
 //            $roomReservation->setTotalPrice(escape($_POST['total_price']));
             $roomReservation->setNumGuests($tempRoomReservation['num_guests']);
             $roomReservation->setCheckedIn(0);
@@ -87,16 +87,16 @@ function newRoomReservation($connection, $tempRoomReservation)
 
             // Convert to timestamps
 //            https://stackoverflow.com/questions/2040560/finding-the-number-of-days-between-two-dates
-            $checkin = strtotime($roomReservation->getCheckIn());
-            $checkout = strtotime($roomReservation->getCheckOut());
+//            $checkin = strtotime($roomReservation->getCheckIn());
+//            $checkout = strtotime($roomReservation->getCheckOut());
 
             // Calculate days and total price
 //            $days = ceil(abs($checkout - $checkin) / 86400);
 //            $roomPrice = $initialRoomPrice * $days;
 
-            $roomPrice = roomPriceCalculator($initialRoomPrice, $checkin, $checkout);
-
-            $roomReservation->setTotalPrice($roomPrice);
+//            $roomPrice = roomPriceCalculator($initialRoomPrice, $checkin, $checkout);
+//
+//            $roomReservation->setTotalPrice($roomPrice);
 
             addToTable($connection, $roomReservation->toRoomReservationsArray(), 'roomreservations');
 
@@ -107,7 +107,7 @@ function newRoomReservation($connection, $tempRoomReservation)
 
 //            checkRoomAvailability($connection, escape($_POST['check_in']), escape($_POST['check_out']));
 
-            return $roomPrice;
+//            return $roomPrice;
         } catch (PDOException $error) {
             echo "Error: " . $error->getMessage();
         }

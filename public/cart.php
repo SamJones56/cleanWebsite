@@ -4,11 +4,12 @@ include "../src/functions/newRoomReservation.php";
 include   __DIR__ . "/../src/functions/cartFunctions.php";
 require_once '../src/DBconnect.php';
 //var_dump($_SESSION['temp_room_reservation']);
-newRoomReservation($connection, $_SESSION['temp_room_reservation']);
+$total = $_SESSION['temp_room_reservation']['roomPrice'];
+newRoomReservation($connection, $_SESSION['temp_room_reservation'], $total);
 
 $products = getRoomProducts();
 $cartItems = getShoppingCart();
-$total = 0;
+
 
 // try to find "action" in query-string variables
 $action = filter_input(INPUT_GET, 'action');
@@ -37,7 +38,7 @@ switch ($action) {
         displayCart();
         break;
     default:
-        displayProducts();;
+        displayProducts();
 }
 
 
@@ -76,27 +77,29 @@ switch ($action) {
     foreach($products as $id => $product):
         $price = number_format($product['price'], 2);
         ?>
-        <div class="product col-md-2 text-center">
+        <div class="product col-md-3 text-center">
             <img src= "<?= $product['image'] ?>" alt="<?=
-            $product['image'] ?>" width="300px">
+            $product['image'] ?>" width="200px">
             <?php //= starsHtml($product['stars']) ?>
             <h4><?= $product['name'] ?></h4>
             <div class="price">
                 $ <?= $price ?>
                 <form method="post" action="cart.php?action=addToCart&id=<?= $id
                 ?>" style="display: inline">
+
                     <button class="btn btn-primary btn-sm">Add To
                         Cart</button>
                 </form>
             </div>
             <?= $product['description'] ?>
         </div>
+
     <?php endforeach; ?>
 </div>
 
 
 
-
+<?php if($_SESSION['cart']){?>
 <h2> Your Cart </h2>
 <div class="row">
     <div class="col font-weight-bold text-center">
@@ -170,12 +173,13 @@ foreach ($cartItems as $id => $quantity):
         </div>
     </div>
 <?php endforeach; ?>
-
-
+<?php } ?>
+<br>
 <div class="row border-top">
     <div class="col-10 price text-right">
         <?php
         $total = number_format($total, 2);
+
         ?>
         $ <?= $total ?>
     </div>
@@ -184,6 +188,10 @@ foreach ($cartItems as $id => $quantity):
     </div>
 </div>
 
+<form method="post">
+
+    <input type="submit" name="submit" value="Book">
+</form>
 
 
 
