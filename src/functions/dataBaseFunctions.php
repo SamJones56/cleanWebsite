@@ -120,7 +120,7 @@ function getAssociationKey($connection, $tableName, $keyToSearch, $columnToSearc
         $result = $keyResult[$keyToFind];
         return $result;
     } catch(PDOException $error) {
-    echo "error" .  $sql . "<br>" . $error->getMessage();
+//    echo "error" .  $sql . "<br>" . $error->getMessage();
     }
 }
 

@@ -24,20 +24,18 @@ function tempRoomReservation($connection)
 
         $initialRoomPrice = getAssociationKey($connection, "rooms", $tempRoomReservation['room_id'], "room_id", "price");
 
+
         $tempRoomReservation['roomPrice'] = roomPriceCalculator($initialRoomPrice, strtotime($tempRoomReservation['check_in']), strtotime($tempRoomReservation['check_out']));
 
 
         $_SESSION['temp_room_reservation'] =  $tempRoomReservation;
 
 //        var_dump($_SESSION['temp_room_reservation']);
-
-        header("location: cart.php");
+        if($tempRoomReservation['room_id']){
+            header("location: cart.php");
+        }
     }
 }
-
-
-
-
 
 function newRoomReservation($connection, $tempRoomReservation, $total)
 {
@@ -108,6 +106,9 @@ function newRoomReservation($connection, $tempRoomReservation, $total)
 //            checkRoomAvailability($connection, escape($_POST['check_in']), escape($_POST['check_out']));
 
 //            return $roomPrice;
+            unset($_SESSION['cart']);
+            unset($_SESSION['temp_room_reservation']);
+            header("location:profile.php");
         } catch (PDOException $error) {
             echo "Error: " . $error->getMessage();
         }

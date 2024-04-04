@@ -5,7 +5,7 @@ include   __DIR__ . "/../src/functions/cartFunctions.php";
 require_once '../src/DBconnect.php';
 //var_dump($_SESSION['temp_room_reservation']);
 $total = $_SESSION['temp_room_reservation']['roomPrice'];
-newRoomReservation($connection, $_SESSION['temp_room_reservation'], $total);
+
 
 $products = getRoomProducts();
 $cartItems = getShoppingCart();
@@ -194,4 +194,4 @@ foreach ($cartItems as $id => $quantity):
 </form>
 
 
-
+<?php newRoomReservation($connection, $_SESSION['temp_room_reservation'], $total);
