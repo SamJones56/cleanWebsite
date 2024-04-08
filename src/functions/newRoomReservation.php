@@ -52,7 +52,6 @@ function newRoomReservation($connection, $tempRoomReservation, $total)
 
 //            var_dump($_POST['employee_id']);
 
-
             // Capture form data
 //            $roomReservation->setReservationsId(escape($_POST['reservations_id']));
             $roomReservation->setEmployeeId($tempRoomReservation['employee_id']);

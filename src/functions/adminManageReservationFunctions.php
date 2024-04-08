@@ -41,7 +41,7 @@ function buildRoomReservationUserList($connection, $user_id, $isEmployee)
                 $isRoomRes = searchDB($connection, "roomreservations", "reservations_id", $reservation['reservations_id']);
                 if ($isRoomRes) {
                     $reservations_id = $reservation["reservations_id"];
-                    $isRoom = true;
+                    $isRoom = false;
 //                var_dump($reservations_id);
                     $tempArray = newReservationDisplay($reservations_id, $isRoom, $connection);
                     buildRoomReservationDisplay($tempArray, $connection);
@@ -51,22 +51,46 @@ function buildRoomReservationUserList($connection, $user_id, $isEmployee)
     }
 }
 
-function buildRestaurantReservationList($connection)
+function buildRestaurantReservationList($connection, $user_id, $isEmployee)
 {
     include_once "../src/Functions/reservationDisplayAndUpdateFunctions.php";
     include_once "dataBaseFunctions.php";
 
-    $count = getKey($connection, "reservations", "reservations_id");
+    if ($isEmployee) {
+        $reservations = searchAllDB($connection, "reservations", "employee_id", $user_id);
+    } else {
+        $reservations = searchAllDB($connection, "reservations", "customer_id", $user_id);
+    }
 
-    for ($i = 0; $i <= $count; $i++) {
-        $reservation = searchDB($connection, "tablereservations", "reservations_id", $i);
-        if ($reservation) {
-            $reservations_id = $reservation['reservations_id']; // Remove $ from $reservations_id
-            $isRoom = false;
-            $tempArray = newReservationDisplay($reservations_id, $isRoom, $connection);
-            buildRestaurantReservationDisplay($tempArray);
+// Check for employee - control what is displayed
+    if (is_array($reservations)) {
+//        reservations_id
+        foreach ($reservations as $reservation) {
+            if (isset($reservation["reservations_id"])) {
+                $isTableRes = searchDB($connection, "tablereservations", "reservations_id", $reservation['reservations_id']);
+                if ($isTableRes) {
+                    $reservations_id = $reservation["reservations_id"];
+                    $isRoom = true;
+//                var_dump($reservations_id);
+                    $tempArray = newReservationDisplay($reservations_id, $isRoom, $connection);
+                    buildRestaurantReservationDisplay($tempArray);
+                }
+            }
         }
     }
+
+
+//    $count = getKey($connection, "reservations", "reservations_id");
+//
+//    for ($i = 0; $i <= $count; $i++) {
+//        $reservation = searchDB($connection, "tablereservations", "reservations_id", $i);
+//        if ($reservation) {
+//            $reservations_id = $reservation['reservations_id']; // Remove $ from $reservations_id
+//            $isRoom = false;
+//            $tempArray = newReservationDisplay($reservations_id, $isRoom, $connection);
+//            buildRestaurantReservationDisplay($tempArray);
+//        }
+//    }
 }
 
 // Building room bookings table

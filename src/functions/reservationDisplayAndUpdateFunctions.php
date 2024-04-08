@@ -21,11 +21,16 @@ function newReservationDisplay($reservations_id, $isRoom, $connection)
 
         }
     } else {
-        // Search tableReservations table for data
-        $temp_array = $temp_array + searchDB($connection, "tableReservations", "reservations_id", $reservations_id);
+        try {
+            // Search tableReservations table for data
+            $temp_array = $temp_array + searchDB($connection, "tableReservations", "reservations_id", $reservations_id);
 
-        // Search restaurantTables table for data
-        $temp_array = $temp_array + searchDB($connection, "restaurantTables", "table_id", $temp_array['table_id']);
+            // Search restaurantTables table for data
+            $temp_array = $temp_array + searchDB($connection, "restaurantTables", "table_id", $temp_array['table_id']);
+        }
+        catch (TypeError $error){
+
+        }
     }
 
 //    var_dump($temp_array);

@@ -30,12 +30,18 @@ function newRestaurantReservation()
 
             addToTable($connection, $restaurantReservation->toTableReservationsArray(), 'tablereservations');
 
-        } catch (PDOException $error) {
-            echo "Error: " . $error->getMessage();
+//            var_dump($restaurantReservation);
+//            header("location:profile.php");
 
             echo "<br>";
             echo "<br>";
-            echo "Catch hit";
+//            var_dump($_SESSION['customer_id']);
+        } catch (PDOException $error) {
+            echo "Error: " . $error->getMessage();
+//
+//            echo "<br>";
+//            echo "<br>";
+//            echo "Catch hit";
 //            deleteData($connection, "reservations", "reservation_id", $restaurantReservation->getReservationsId());
         }
 

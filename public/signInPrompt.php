@@ -7,7 +7,7 @@ if($_SESSION['Active'])
         $_SESSION['temp_room_type'] = $_POST['room_type'];
         $_SESSION['guestRedirect'] = "bookRoom.php";
     }
-    header("location:" . $_SESSION['redirect']);
+    header("location:" . $_SESSION['guestRedirect']);
 }
 
 else{

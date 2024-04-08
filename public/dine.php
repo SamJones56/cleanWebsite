@@ -28,7 +28,7 @@
 <!--        <a href="bookTable.php">-->
 <!--            <button style="font-size:32px; background-color:#54aeff; color:rgba(0,0,0,0.85); padding:10px; border:none; box-shadow: 0 2px 4px rgba(0,0,0,0.69);">-->
             <form action="<?php
-            $_SESSION['redirect'] = "bookTable.php";
+            $_SESSION['guestRedirect'] = "bookTable.php";
             echo "signInPrompt.php";
             ?>" method="post">
                 <button type="submit">Book Now</button>

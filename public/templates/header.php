@@ -71,4 +71,7 @@ css">
 <body>
 <div class="container">
 
-<?php  var_dump($_SESSION['temp_room_type']);?>
+<?php
+//var_dump($_SESSION['temp_room_type']);
+//var_dump($_SESSION);
+?>

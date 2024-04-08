@@ -18,16 +18,19 @@ tempRoomReservation($connection);
 
             <?php if($_SESSION['isEmployee']){?>
                 <label for="employee_id">Employee id</label>
-            <input type="text" name="employee_id" id="employee_id" >
+                <input type="text" name="employee_id" id="employee_id" >
+                <br>
 
                 <label for="customer_id">Customer id</label>
                 <input type="text" name="customer_id" id="customer_id" required>
+                <br>
            <?php } ?>
 
             <?php if(!$_SESSION['isEmployee']) { ?>
                 <input type="text" name="employee_id" id="employee_id" readonly value="1" hidden>
                 <input type="text" name="customer_id" id="customer_id" value="<?php echo getAssociationKey($connection, "member", $_SESSION['login_id'], "login_id", "customer_id") ?>" hidden>
-                <?php } ?>
+                <br>
+            <?php } ?>
 <!--            <label for="room_id">room_id</label>-->
 <!--            <input type="text" name="room_id" id="room_id" required>-->
 
@@ -36,9 +39,10 @@ tempRoomReservation($connection);
 
             <label for="check_in">check_in</label>
             <input type="date" name="check_in" id="check_in" required>
-
+            <br>
             <label for="check_out">check_out</label>
             <input type="date" name="check_out" id="check_out" required>
+            <br>
             <label for="room_type">Payment</label>
 
             <select name="payment" id="payment" required>
@@ -46,9 +50,9 @@ tempRoomReservation($connection);
                 <option value="cash">Cash</option>
             </select> <br>
 
-            <label for="num_guests">num_guests</label>
+            <label for="num_guests">Number of Guests</label>
             <input type="number" name="num_guests" id="num_guests" required>
-
+            <br>
 <!--            <label for="total_price">--><?php //getAssociationKey($connection, "rooms", "", "room_id", "price")?><!--</label>-->
 <!--            <input type="number" name="total_price" id="total_price">-->
 

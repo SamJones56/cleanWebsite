@@ -6,6 +6,7 @@ function userLogIn()
     if (isset($_POST['Submit'])) {
         try {
             require_once('../config.php');
+            include_once "../src/functions/dataBaseFunctions.php";
             $connection = new PDO($dsn, $username, $password, $options);
             $sql = "SELECT login_id, email, password, permissionlvl from login where email = :USER";
             $statement = $connection->prepare($sql);

@@ -101,6 +101,19 @@ $user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee'],$
     </tr>
     </thead>
     <tbody>
-    <?php buildRestaurantReservationList($connection); ?>
+    <?php
+
+
+    if ($_SESSION['isEmployee']) {
+//        buildRoomReservationUserList($connection, $user_array['employee_id'], $_SESSION['isEmployee']);
+        buildRestaurantReservationList($connection, $user_array['customer_id'], $_SESSION['isEmployee']);
+    } else {
+//        buildRoomReservationUserList($connection, $user_array['customer_id'], $_SESSION['isEmployee']);
+        buildRestaurantReservationList($connection, $user_array['customer_id'], $_SESSION['isEmployee']);
+    }
+
+
+//    buildRestaurantReservationList($connection);
+    ?>
     </tbody>
 </table>
