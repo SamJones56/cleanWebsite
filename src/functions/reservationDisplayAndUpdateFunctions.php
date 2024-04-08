@@ -47,9 +47,14 @@ function buildReservation($resArray, $isRoom, $connection)
     require_once '../src/hotel/TableReservations.php';
     require_once '../src/hotel/RoomReservations.php';
 
-    if(!$isRoom){
-        $tableRes = new TableReservations();
-        // Update $tableRes with new data, value is passed by reference so it can be changed
+    if(!$isRoom) {
+        $tempRes = new TableReservations();
+    }
+    else
+    {
+        $tempRes = new RoomReservations();
+    }
+        // Update $tempRes with new data, value is passed by reference so it can be changed
 //        https://www.php.net/manual/en/language.references.pass.php
         foreach($resArray as $key => &$value) {
             // Logic to find a change
@@ -58,16 +63,24 @@ function buildReservation($resArray, $isRoom, $connection)
                 $value = $_POST[$key];
             }
         }
-
 //        var_dump($resArray);
-        $tableRes -> setFilledTableRes($resArray);
-
-        updateTable($connection, $tableRes->toReservationsArray(),"reservations", "reservations_id", $resArray['reservations_id']);
-        echo "<br>";
-        updateTable($connection, $tableRes->toTableReservationsArray(),"tablereservations", "reservations_id", $resArray['reservations_id']);
-        echo "<br>";
-//        var_dump("update tabletable");
-//        var_dump($tableRes);
+    if(!$isRoom) {
+        $tempRes->setFilledTableRes($resArray);
     }
-    header("Refresh:0");
+    else {
+        $tempRes->setFilledRoomRes($resArray);
+    }
+
+        updateTable($connection, $tempRes->toReservationsArray(),"reservations", "reservations_id", $resArray['reservations_id']);
+        echo "<br>";
+    if(!$isRoom){
+        updateTable($connection, $tempRes->toTableReservationsArray(),"tablereservations", "reservations_id", $resArray['reservations_id']);
+    }
+    else {
+        updateTable($connection, $tempRes->toRoomReservationsArray(),"roomReservations", "reservations_id", $resArray['reservations_id']);
+    }
+
+
+
+//    header("Refresh:0");
  } ?>

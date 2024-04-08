@@ -39,6 +39,22 @@ final class RoomReservations extends Reservations
         );
     }
 
+    public function setFilledRoomRes($resArray)
+    {
+        $this->reservations_id = $resArray['reservations_id'];
+        $this->employee->setEmployeeId($resArray['employee_id']);
+        $this->customer->setCustomerId($resArray['customer_id']);
+        $this->date = $resArray['date'];
+        $this->check_in =$resArray['check_in'];
+        $this->check_out =$resArray['check_out'];
+        $this->total_price =$resArray['total_price'];
+        $this->payment =$resArray['payment'];
+        $this->room_id =$resArray['room_id'];
+        $this->num_guests =$resArray['num_guests'];
+        $this->checked_in =$resArray['checked_in'];
+
+    }
+
     public function getRoomId()
     {
         return $this->room_id;
