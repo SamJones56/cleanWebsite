@@ -41,7 +41,7 @@ function buildRoomReservationUserList($connection, $user_id, $isEmployee)
                 $isRoomRes = searchDB($connection, "roomreservations", "reservations_id", $reservation['reservations_id']);
                 if ($isRoomRes) {
                     $reservations_id = $reservation["reservations_id"];
-                    $isRoom = false;
+                    $isRoom = true;
 //                var_dump($reservations_id);
                     $tempArray = newReservationDisplay($reservations_id, $isRoom, $connection);
                     buildRoomReservationDisplay($tempArray, $connection);
@@ -67,12 +67,12 @@ function buildRestaurantReservationList($connection, $user_id, $isEmployee)
 //        reservations_id
         foreach ($reservations as $reservation) {
             if (isset($reservation["reservations_id"])) {
-                $isTableRes = searchDB($connection, "tablereservations", "reservations_id", $reservation['reservations_id']);
-                if ($isTableRes) {
+                $tempArray = searchDB($connection, "tablereservations", "reservations_id", $reservation['reservations_id']);
+                if ($tempArray) {
                     $reservations_id = $reservation["reservations_id"];
                     $isRoom = true;
 //                var_dump($reservations_id);
-                    $tempArray = newReservationDisplay($reservations_id, $isRoom, $connection);
+                    $tempArray = $tempArray + newReservationDisplay($reservations_id, $isRoom, $connection);
                     buildRestaurantReservationDisplay($tempArray);
                 }
             }
