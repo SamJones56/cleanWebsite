@@ -47,6 +47,8 @@ function buildReservation($resArray, $isRoom, $connection)
     require_once '../src/hotel/TableReservations.php';
     require_once '../src/hotel/RoomReservations.php';
 
+    require_once '../src/functions/newRoomReservation.php';
+
     if(!$isRoom) {
         $tempRes = new TableReservations();
     }
@@ -77,10 +79,19 @@ function buildReservation($resArray, $isRoom, $connection)
         updateTable($connection, $tempRes->toTableReservationsArray(),"tablereservations", "reservations_id", $resArray['reservations_id']);
     }
     else {
-        updateTable($connection, $tempRes->toRoomReservationsArray(),"roomReservations", "reservations_id", $resArray['reservations_id']);
+        // Check room availability
+        $temp = checkRoomAvailability($connection, $resArray['check_in'], $resArray['check_out']);
+        if($temp)
+        {
+            updateTable($connection, $tempRes->toRoomReservationsArray(),"roomReservations", "reservations_id", $resArray['reservations_id']);
+        }
+        else
+        {
+            echo "Selected dates are not available";
+        }
     }
 
 
-
-//    header("Refresh:0");
+//    var_dump($resArray);
+    header("location:profile.php");
  } ?>
