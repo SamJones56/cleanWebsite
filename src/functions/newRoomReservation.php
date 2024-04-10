@@ -98,7 +98,9 @@ function newRoomReservation($connection, $tempRoomReservation, $total)
             addToTable($connection, $roomReservation->toRoomReservationsArray(), 'roomreservations');
 
             echo "Reservation added successfully.";
-
+//            echo "<br>";
+//            var_dump($tempRoomReservation);
+//            echo "<br>";
 //            $roomReservation->setTotalPrice($roomPrice);
 
 
@@ -107,7 +109,11 @@ function newRoomReservation($connection, $tempRoomReservation, $total)
 //            return $roomPrice;
             unset($_SESSION['cart']);
             unset($_SESSION['temp_room_reservation']);
-            header("location:profile.php");
+            if($_SESSION['permissionlvl']>0)
+            {
+                header("location:profile.php");
+            }
+
         } catch (PDOException $error) {
             echo "Error: " . $error->getMessage();
         }
