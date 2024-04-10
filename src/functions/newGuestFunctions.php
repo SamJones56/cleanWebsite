@@ -43,7 +43,7 @@ function makeNewGuest()
         addToTable($connection, $guest->toGuestArray(), "guest");
 
         // Logg the guest in
-        var_dump($_SESSION);
+//        var_dump($_SESSION);
 //        $_SESSION['Active'] = true;
         $_SESSION['isGuest'] = true;
         $_SESSION['isEmployee'] = false;

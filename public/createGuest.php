@@ -26,6 +26,6 @@ makeNewGuest();
             <input type="submit" name="submit" value="Submit">
         </form>
     </div>
-    <a href="bookRoom.php">Back to stays</a>
+<!--    <a href="bookRoom.php">Back to stays</a>-->
 
 <?php include "templates/footer.php"; ?>
