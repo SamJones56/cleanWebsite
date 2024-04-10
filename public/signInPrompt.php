@@ -1,6 +1,7 @@
 <?php
 include "templates/header.php";
 
+// Check if user is logged in
 if($_SESSION['Active'])
 {
     if (isset($_POST['room_type'])) {
@@ -24,3 +25,8 @@ else{
 </form>
 
 <?php };
+if (isset($_POST['room_type'])) {
+    $_SESSION['temp_room_type'] = $_POST['room_type'];
+    $_SESSION['guestRedirect'] = "bookRoom.php";
+}
+

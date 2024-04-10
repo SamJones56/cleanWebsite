@@ -73,5 +73,5 @@ css">
 
 <?php
 //var_dump($_SESSION['temp_room_type']);
-//var_dump($_SESSION);
+var_dump($_SESSION);
 ?>

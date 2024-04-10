@@ -43,12 +43,13 @@ function makeNewGuest()
         addToTable($connection, $guest->toGuestArray(), "guest");
 
         // Logg the guest in
+        var_dump($_SESSION);
 //        $_SESSION['Active'] = true;
         $_SESSION['isGuest'] = true;
         $_SESSION['isEmployee'] = false;
         $_SESSION['customer_id'] = $guest->getCustomerId();
         $_SESSION['permissionlvl'] = 0;
-        header("location:" . $_SESSION['redirect']);
+        header("location:" . $_SESSION['guestRedirect']);
 
     }
 }

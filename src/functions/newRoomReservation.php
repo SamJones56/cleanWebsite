@@ -158,8 +158,39 @@ function checkRoomAvailability($connection, $check_in, $check_out)
 
 function roomPriceCalculator($initialRoomPrice, $checkIn, $checkOut)
 {
-    // Calculate days and total price
+//    // Check and see if it is within Christmas dates
+//    $dateRange = [];
+//    $dateRange = $checkIn;
+//    $dateRange = $checkOut;
+//
+//    // Christmas date checker
+//    if(roomDateRangeDeals(11,12,$dateRange))
+//    {
+//        // Calculate days and total price
+//        $days = ceil(abs($checkOut - $checkIn) / 86400);
+//        return $roomPrice = ($initialRoomPrice*0.5) * $days;
+//    }
+//    else
+//    {
+//        // Calculate days and total price
+//        $days = ceil(abs($checkOut - $checkIn) / 86400);
+//        return $roomPrice = $initialRoomPrice * $days;
+//    }
+
     $days = ceil(abs($checkOut - $checkIn) / 86400);
     return $roomPrice = $initialRoomPrice * $days;
 }
-?>
+
+//https://codereview.stackexchange.com/questions/255002/checking-if-an-array-of-dates-are-within-a-date-range#:~:text=I%20created%20a%20dates_in_range(),%2C%20it'll%20return%20false.
+function roomDateRangeDeals(int $start, int $end, array $dateRange): bool
+{
+    foreach ( $dateRange as $date ) {
+        $mon = date("m", $date);
+        $mon = (int)$mon;
+        if ( $mon < $start || $mon > $end ) {
+            return false;
+        }
+    }
+    return true;
+}
+
