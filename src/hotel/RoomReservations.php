@@ -134,7 +134,5 @@ final class RoomReservations extends Reservations
     {
         $this->checked_in = $checked_in;
     }
-
-
 }
 

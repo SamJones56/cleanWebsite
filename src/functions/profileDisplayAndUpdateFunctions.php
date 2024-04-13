@@ -87,6 +87,9 @@ function buildUser($userArray, $isEmployee, $connection)
     require_once '../src/person/Member.php';
     require_once '../src/person/Employee.php';
 
+    echo"<br>";
+    var_dump($userArray);
+    echo"<br>";
     if(!$isEmployee) {
         $member = new Member();
         // Update $userArray with new data, value is passed by reference so it can be changed
