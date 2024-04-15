@@ -111,7 +111,7 @@ function newRoomReservation($connection, $tempRoomReservation, $total)
             unset($_SESSION['temp_room_reservation']);
             if($_SESSION['permissionlvl']>0)
             {
-                header("location:profile.php");
+//                header("location:profile.php");
             }
 
         } catch (PDOException $error) {

@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bff6bf8-3b2e-4929-89ff-2e5813ecbff7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/SQLTester.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Testing/SQLTester.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBconnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBconnect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/profileDisplayAndUpdateFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/profileDisplayAndUpdateFunctions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hotel/RoomReservations.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/RoomReservations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/bookRoom.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/bookRoom.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/newRoomReservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/newRoomReservation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hotel/Reservations.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/Reservations.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +97,7 @@
       <workItem from="1712236056284" duration="7339000" />
       <workItem from="1712564434628" duration="10412000" />
       <workItem from="1712737839095" duration="5321000" />
+      <workItem from="1713169290943" duration="2412000" />
     </task>
     <servers />
   </component>

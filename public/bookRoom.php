@@ -26,7 +26,7 @@ tempRoomReservation($connection);
                 <br>
            <?php } ?>
 
-            <?php if(!$_SESSION['permissionlvl'] == 0) { ?>
+            <?php if($_SESSION['permissionlvl'] == 1) { ?>
                 <input type="text" name="employee_id" id="employee_id" readonly value="1" hidden>
                 <input type="text" name="customer_id" id="customer_id" value="<?php echo getAssociationKey($connection, "member", $_SESSION['login_id'], "login_id", "customer_id") ?>" hidden>
                 <br>
