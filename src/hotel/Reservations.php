@@ -37,7 +37,8 @@ abstract class Reservations
     //
     public function setEmployeeId($employee_id): void
     {
-        if (is_numeric($employee_id)){
+        if (is_numeric($employee_id))
+        {
             $this->employee->setEmployeeId($employee_id);
         }
         else {

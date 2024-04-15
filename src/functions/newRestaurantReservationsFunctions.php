@@ -31,7 +31,7 @@ function newRestaurantReservation()
             addToTable($connection, $restaurantReservation->toTableReservationsArray(), 'tablereservations');
 
 //            var_dump($restaurantReservation);
-//            header("location:profile.php");
+            header("location:profile.php");
 
             echo "<br>";
             echo "<br>";

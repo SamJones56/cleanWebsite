@@ -162,6 +162,47 @@ function checkRoomAvailability($connection, $check_in, $check_out)
     }
 }
 
+function checkRoomAvailabilityGivenRoom($connection, $roomType, $check_in, $check_out)
+{
+    // Get an associated array of all room types and their id's
+    $roomsArray = searchAllDB($connection, "rooms", "room_type", $roomType);
+
+    $availableRooms = [];
+
+    foreach($roomsArray as $room) {
+        $bookingsArray = searchAllDB($connection, "roomreservations", "room_id", $room['room_id']);
+
+        $isAvailable = true;
+
+        foreach($bookingsArray as $booking)
+        {
+            // Check dates
+            $bookedCheckIn = strtotime($booking['check_in']);
+            $bookedCheckOut = strtotime($booking['check_out']);
+            $newCheckIn = strtotime($check_in);
+            $newCheckOut = strtotime($check_out);
+            // Check if dates conflict
+            if($newCheckIn < $bookedCheckOut && $newCheckOut > $bookedCheckIn )
+            {
+                $isAvailable = false;
+            }
+        }
+        if($isAvailable)
+        {
+            $availableRooms[] = $room;
+        }
+    }
+
+    if($availableRooms) {
+        return $availableRooms[0]['room_id'];
+    }
+    else
+    {
+        deleteData($connection, "reservations", "reservations_id", getKey($connection, "reservations", "reservations_id"));
+        echo "<h1>DATE/TIME IS UNAVAILABLE</h1>";
+    }
+}
+
 function roomPriceCalculator($initialRoomPrice, $checkIn, $checkOut)
 {
 //    // Check and see if it is within Christmas dates
