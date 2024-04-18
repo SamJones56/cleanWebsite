@@ -52,7 +52,6 @@ final class RoomReservations extends Reservations
         $this->room_id =$resArray['room_id'];
         $this->num_guests =$resArray['num_guests'];
         $this->checked_in =$resArray['checked_in'];
-
     }
 
     public function getRoomId()
@@ -122,7 +121,11 @@ final class RoomReservations extends Reservations
 
     public function setNumGuests($num_guests): void
     {
-        $this->num_guests = $num_guests;
+        if($num_guests > 0) {
+            $this->num_guests = $num_guests;
+        }
+        else
+            echo "<br> <h1> Number of guests must be greater than 0</h1>";
     }
 
     public function getCheckedIn()

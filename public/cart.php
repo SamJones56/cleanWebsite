@@ -189,8 +189,9 @@ foreach ($cartItems as $id => $quantity):
 </div>
 
 <form method="post">
-
     <input type="submit" name="submit" value="Book">
+    <br>
+    <a href="bookroom.php">Back to room booking</a>
 </form>
 
 
