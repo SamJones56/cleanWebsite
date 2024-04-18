@@ -3,7 +3,7 @@
 use hotel\RoomReservations;
 
 // Save form data
-function tempRoomReservation($connection)
+function tempRoomReservation($connection, $tester)
 {
     require "../common.php";
     if (isset($_POST['submit']))
@@ -30,9 +30,25 @@ function tempRoomReservation($connection)
 
         $_SESSION['temp_room_reservation'] =  $tempRoomReservation;
 
-//        var_dump($_SESSION['temp_room_reservation']);
-        if($tempRoomReservation['room_id']){
+
+        if($tempRoomReservation['room_id'] && $tempRoomReservation['num_guests'] > 0 && $tester == 0){
             header("location: cart.php");
+        }
+        if($tempRoomReservation['employee_id']<1 || $tempRoomReservation['customer_id']<1)
+        {
+            echo "<br> <h1> Please enter valid id's</h1>";
+        }
+        if($tempRoomReservation['num_guests'] < 1)
+        {
+            echo "<br> <h1> Number of guests must be greater than 0</h1>";
+        }
+        if (!$tempRoomReservation['check_in'] || !$tempRoomReservation['check_out'] || (strtotime($tempRoomReservation['check_in']) > strtotime($tempRoomReservation['check_out'])) )
+        {
+            echo "<br> <h1> Please enter valid check in/out date</h1>";
+        }
+        if ($tester == 1)
+        {
+            newRoomReservation($connection, $tempRoomReservation, 100);
         }
     }
 }
@@ -44,7 +60,7 @@ function newRoomReservation($connection, $tempRoomReservation, $total)
     if (isset($_POST['submit'])) {
         try {
 //            error_reporting(E_ALL);
-            require "../common.php";
+            require_once "../common.php";
             include_once "../src/functions/dataBaseFunctions.php";
             require_once "../src/hotel/RoomReservations.php";
 

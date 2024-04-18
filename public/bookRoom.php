@@ -3,7 +3,7 @@ include "../src/functions/newRoomReservation.php";
 include "templates/header.php";
 include_once "../src/functions/dataBaseFunctions.php";
 require_once '../src/DBconnect.php';
-tempRoomReservation($connection);
+tempRoomReservation($connection, 0);
 // Report all errors
 //error_reporting(E_ALL);
 

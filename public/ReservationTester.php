@@ -2,80 +2,60 @@
 
 use hotel\RoomReservations;
 
-$host = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "hotelTallafornia"; // database name
-$dsn = "mysql:host=$host;dbname=$dbname"; // datbase DSN
-$options = array(
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-);
-global $connection;
-$connection = new PDO($dsn, $username, $password, $options);
+require_once '../src/DBconnect.php';
 
-function goodRoomDataTest()
+function testSession()
+{
+    session_start();
+    $_SESSION['temp_room_type'] = 'suite';
+}
+function roomBuilder($testTitle, $roomArray)
 {
     global $connection;
-    require_once "../common.php";
-    include_once "../src/functions/dataBaseFunctions.php";
-    require_once "../src/hotel/RoomReservations.php";
-    require_once "../src/functions/newRoomReservation.php";
-
-    // Declare room object
-    $room1 = new RoomReservations();
-
-    // Data for room object
-    $room1array = array(
-        'reservations_id' => '18',
-        'employee_id' => '01',
-        'customer_id' => '01',
-        'date' => '2024-04-15 00:00:00.00',
-        'check_in' => '2024-07-22 00:00:00.00',
-        'check_out' => '2024-07-23 00:00:00.00',
-        'total_price' => '100',
-        'payment' => 'card',
-        'num_guests' => '01',
-        'checked_in' => '0'
+    include_once "../src/functions/newRoomReservation.php";
+    tempRoomReservation($connection, 1);
+    $formArray = array(
+        "employee_id", "customer_id", "date", "check_in", "check_out", "payment", "num_guests"
     );
-    // Check for valid roomid
-    $room1array['room_id'] = checkRoomAvailabilityGivenRoom($connection, "suite", $room1array['check_in'], $room1array['check_out']);
-    if($room1array['room_id']) {
-        $room1->setFilledRoomRes($room1array);
-        addToTable($connection, $room1->toReservationsArray(), "reservations");
-        addToTable($connection, $room1->toRoomReservationsArray(), "roomreservations");
-        echo "<br>";
-        echo "Room added to table";
-        echo "<br>";
+
+    $combinedArray = array_combine($formArray, $roomArray);
+
+    echo '<h1> ' . $testTitle . ' </h1> <form method="post">';
+    foreach($combinedArray as $key => $value)
+    {
+        if($key != "payment") {
+            echo '<label for="' . $key . '">' . $key . '</label> <br>';
+            if ($key == "employee_id" || $key == "customer_id") {
+                echo '<input type="text" name="';
+            }
+            if ($key == "date" || $key == "check_in" || $key == "check_out") {
+                echo '<input type="date" name="';
+            }
+            if ($key == "num_guests"){
+                echo '<input type="number" name="';
+            }
+            echo $key . '" id="' . $key . '" value=' . $value . '> <br>';
+        }
+        else
+        {
+            echo '<p1> payment </p1> <br> <select name="payment" id="payment" required>
+                <option value="card">Card</option>
+                <option value="cash">Cash</option>
+            </select> <br> ';
+        }
     }
+    echo '<br> <input type="submit" name="submit" value="Submit"> </form>';
 }
 
-function badRoomDataTest()
-{
-    global $connection;
-    require_once "../common.php";
-    include_once "../src/functions/dataBaseFunctions.php";
-    require_once "../src/hotel/RoomReservations.php";
+$goodRoomArray = array(
+    'employee_id' => '01',
+    'customer_id' => '01',
+    'date' => '2024-04-15 00:00:00.00',
+    'check_in' => '2024-07-22 00:00:00.00',
+    'check_out' => '2024-07-23 00:00:00.00',
+    'payment' => 'card',
+    'num_guests' => '01',
+);
 
-    $room1 = new RoomReservations();
-
-    $room1array = array(
-        'reservations_id' => 'a',
-        'employee_id' => 'b',
-        'customer_id' => 'c',
-        'date' => 'abc-abc-abc aa:bb:cc:dd',
-        'check_in' => '2024-07-20 00:00:00.00',
-        'check_out' => '2024-07-21 00:00:00.00',
-        'total_price' => '100',
-        'payment' => 'card',
-        'num_guests' => '01',
-        'checked_in' => '0'
-    );
-    $room1->setFilledRoomRes($room1array);
-    addToTable($connection, $room1->toReservationsArray(),"reservations");
-    addToTable($connection, $room1->toRoomReservationsArray(),"roomreservations");
-}
-echo "<h1>Good Room Data Test</h1>";
-goodRoomDataTest();
-echo "<br>";
-echo "<h1>Bad Room Data Test</h1>";
-badRoomDataTest();
+testSession();
+roomBuilder("Good Room Test",$goodRoomArray);
