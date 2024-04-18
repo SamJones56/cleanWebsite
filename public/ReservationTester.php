@@ -3,16 +3,17 @@
 use hotel\RoomReservations;
 
 require_once '../src/DBconnect.php';
+require_once "../src/functions/newRoomReservation.php";
+
 
 function testSession()
 {
     session_start();
     $_SESSION['temp_room_type'] = 'suite';
 }
-function roomBuilder($testTitle, $roomArray)
+function roomBuilder($testTitle, $roomArray, $connection)
 {
-    global $connection;
-    include_once "../src/functions/newRoomReservation.php";
+//    include_once "../src/functions/newRoomReservation.php"
     tempRoomReservation($connection, 1);
     $formArray = array(
         "employee_id", "customer_id", "date", "check_in", "check_out", "payment", "num_guests"
@@ -57,5 +58,16 @@ $goodRoomArray = array(
     'num_guests' => '01',
 );
 
+$badRoomDateArray = array(
+    'employee_id' => '01',
+    'customer_id' => '01',
+    'date' => '2024-04-15 00:00:00.00',
+    'check_in' => '2024-07-22 00:00:00.00',
+    'check_out' => '2024-07-23 00:00:00.00',
+    'payment' => 'card',
+    'num_guests' => '01',
+);
+
 testSession();
-roomBuilder("Good Room Test",$goodRoomArray);
+roomBuilder("Good Room Test",$goodRoomArray, $connection);
+roomBuilder("Bad Room Date Test",$badRoomDateArray, $connection);

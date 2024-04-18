@@ -5,7 +5,7 @@ use hotel\RoomReservations;
 // Save form data
 function tempRoomReservation($connection, $tester)
 {
-    require "../common.php";
+    require_once "../common.php";
     if (isset($_POST['submit']))
     {
         include_once "../src/functions/dataBaseFunctions.php";

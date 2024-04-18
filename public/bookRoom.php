@@ -1,6 +1,6 @@
 <?php
-include "../src/functions/newRoomReservation.php";
-include "templates/header.php";
+include_once "../src/functions/newRoomReservation.php";
+include_once "templates/header.php";
 include_once "../src/functions/dataBaseFunctions.php";
 require_once '../src/DBconnect.php';
 tempRoomReservation($connection, 0);
