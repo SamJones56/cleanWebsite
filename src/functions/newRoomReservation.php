@@ -9,7 +9,6 @@ function tempRoomReservation($connection, $tester)
     if (isset($_POST['submit']))
     {
         include_once "../src/functions/dataBaseFunctions.php";
-
         // Get form data
         $tempRoomReservation['employee_id'] = escape($_POST['employee_id']);
         $tempRoomReservation['customer_id'] = escape($_POST['customer_id']);
@@ -46,6 +45,7 @@ function tempRoomReservation($connection, $tester)
         {
             echo "<br> <h1> Please enter valid check in/out date</h1>";
         }
+        // For the purpose of testing
         if ($tester == 1)
         {
             newRoomReservation($connection, $tempRoomReservation, 100);
@@ -59,70 +59,26 @@ function newRoomReservation($connection, $tempRoomReservation, $total)
     // Check if the form is submitted
     if (isset($_POST['submit'])) {
         try {
-//            error_reporting(E_ALL);
             require_once "../common.php";
             include_once "../src/functions/dataBaseFunctions.php";
             require_once "../src/hotel/RoomReservations.php";
-
             $roomReservation = new RoomReservations();
-
-//            var_dump($_POST['employee_id']);
-
-            // Capture form data
-//            $roomReservation->setReservationsId(escape($_POST['reservations_id']));
             $roomReservation->setEmployeeId($tempRoomReservation['employee_id']);
             $roomReservation->setCustomerId($tempRoomReservation['customer_id']);
-
-//            var_dump("Post: ");
-//            var_dump($_POST);
-
             addToTable($connection, $roomReservation->toReservationsArray(), 'reservations');
-
-            // Set reservation id
             $roomReservation->setReservationsId(getKey($connection, "reservations", "reservations_id"));
-//
             $roomReservation->setDate($tempRoomReservation['date']);
-//            $roomReservation->setRoomId(escape($_POST['room_id']));
             $roomReservation->setCheckIn($tempRoomReservation['check_in']);
             $roomReservation->setCheckOut($tempRoomReservation['check_out']);
             $roomReservation->setPayment($tempRoomReservation['payment']);
-
             $roomReservation->setRoomId(checkRoomAvailability($connection, $tempRoomReservation['check_in'], $tempRoomReservation['check_out']));
-
             // Get the room price
             $roomReservation->setTotalPrice($total);
-//            $roomReservation->setTotalPrice(escape($_POST['total_price']));
             $roomReservation->setNumGuests($tempRoomReservation['num_guests']);
             $roomReservation->setCheckedIn(0);
-
-            // Do cost calculation
             $initialRoomPrice = $roomReservation->getTotalPrice();
-
-            // Convert to timestamps
-//            https://stackoverflow.com/questions/2040560/finding-the-number-of-days-between-two-dates
-//            $checkin = strtotime($roomReservation->getCheckIn());
-//            $checkout = strtotime($roomReservation->getCheckOut());
-
-            // Calculate days and total price
-//            $days = ceil(abs($checkout - $checkin) / 86400);
-//            $roomPrice = $initialRoomPrice * $days;
-
-//            $roomPrice = roomPriceCalculator($initialRoomPrice, $checkin, $checkout);
-//
-//            $roomReservation->setTotalPrice($roomPrice);
-
             addToTable($connection, $roomReservation->toRoomReservationsArray(), 'roomreservations');
-
             echo "Reservation added successfully.";
-//            echo "<br>";
-//            var_dump($tempRoomReservation);
-//            echo "<br>";
-//            $roomReservation->setTotalPrice($roomPrice);
-
-
-//            checkRoomAvailability($connection, escape($_POST['check_in']), escape($_POST['check_out']));
-
-//            return $roomPrice;
             unset($_SESSION['cart']);
             unset($_SESSION['temp_room_reservation']);
             if($_SESSION['permissionlvl']>0)

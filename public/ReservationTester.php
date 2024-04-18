@@ -13,14 +13,11 @@ function testSession()
 }
 function roomBuilder($testTitle, $roomArray, $connection)
 {
-//    include_once "../src/functions/newRoomReservation.php"
     tempRoomReservation($connection, 1);
     $formArray = array(
         "employee_id", "customer_id", "date", "check_in", "check_out", "payment", "num_guests"
     );
-
     $combinedArray = array_combine($formArray, $roomArray);
-
     echo '<h1> ' . $testTitle . ' </h1> <form method="post">';
     foreach($combinedArray as $key => $value)
     {
@@ -57,18 +54,20 @@ $goodRoomArray = array(
     'payment' => 'card',
     'num_guests' => '01',
 );
+// Test for same date going in
+$badRoomDateArray = $goodRoomArray;
+// Test for a bad employee id
+$badEmpID = $goodRoomArray;
+// Validation
+$badEmpID['employee_id'] = null;
+// Test for a bad cust id
+$badCustID = $goodRoomArray;
+$badCustID['customer_id'] = 0;
 
-$badRoomDateArray = array(
-    'employee_id' => '01',
-    'customer_id' => '01',
-    'date' => '2024-04-15 00:00:00.00',
-    'check_in' => '2024-07-22 00:00:00.00',
-    'check_out' => '2024-07-23 00:00:00.00',
-    'payment' => 'card',
-    'num_guests' => '01',
-);
 
 testSession();
 roomBuilder("Good Room Test",$goodRoomArray, $connection);
 roomBuilder("Bad Room Date Test",$badRoomDateArray, $connection);
+roomBuilder("Bad Employee_id Test",$badEmpID, $connection);
+roomBuilder("Bad Cust_id Test",$badCustID, $connection);
 echo '<br> <input type="submit" name="submit" value="Submit"> </form>';
