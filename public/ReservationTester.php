@@ -45,7 +45,7 @@ function roomBuilder($testTitle, $roomArray, $connection)
             </select> <br> ';
         }
     }
-    echo '<br> <input type="submit" name="submit" value="Submit"> </form>';
+
 }
 
 $goodRoomArray = array(
@@ -71,3 +71,4 @@ $badRoomDateArray = array(
 testSession();
 roomBuilder("Good Room Test",$goodRoomArray, $connection);
 roomBuilder("Bad Room Date Test",$badRoomDateArray, $connection);
+echo '<br> <input type="submit" name="submit" value="Submit"> </form>';
