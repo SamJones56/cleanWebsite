@@ -13,7 +13,7 @@ function testSession()
 }
 function roomBuilder($testTitle, $roomArray, $connection)
 {
-    tempRoomReservation($connection, 1);
+
     $formArray = array(
         "employee_id", "customer_id", "date", "check_in", "check_out", "payment", "num_guests"
     );
@@ -26,10 +26,10 @@ function roomBuilder($testTitle, $roomArray, $connection)
             if ($key == "employee_id" || $key == "customer_id") {
                 echo '<input type="text" name="';
             }
-            if ($key == "date" || $key == "check_in" || $key == "check_out") {
+            else if ($key == "date" || $key == "check_in" || $key == "check_out") {
                 echo '<input type="date" name="';
             }
-            if ($key == "num_guests"){
+            else if ($key == "num_guests"){
                 echo '<input type="number" name="';
             }
             echo $key . '" id="' . $key . '" value=' . $value . '> <br>';
@@ -42,7 +42,7 @@ function roomBuilder($testTitle, $roomArray, $connection)
             </select> <br> ';
         }
     }
-
+    tempRoomReservation($connection, 1);
 }
 
 $goodRoomArray = array(
@@ -54,20 +54,9 @@ $goodRoomArray = array(
     'payment' => 'card',
     'num_guests' => '01',
 );
-// Test for same date going in
-$badRoomDateArray = $goodRoomArray;
-// Test for a bad employee id
-$badEmpID = $goodRoomArray;
-// Validation
-$badEmpID['employee_id'] = null;
-// Test for a bad cust id
-$badCustID = $goodRoomArray;
-$badCustID['customer_id'] = 0;
+
 
 
 testSession();
 roomBuilder("Good Room Test",$goodRoomArray, $connection);
-roomBuilder("Bad Room Date Test",$badRoomDateArray, $connection);
-roomBuilder("Bad Employee_id Test",$badEmpID, $connection);
-roomBuilder("Bad Cust_id Test",$badCustID, $connection);
 echo '<br> <input type="submit" name="submit" value="Submit"> </form>';

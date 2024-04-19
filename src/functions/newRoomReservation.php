@@ -35,10 +35,17 @@ function tempRoomReservation($connection, $tester)
         {
             echo "<br> <h1> Please enter valid check in/out date</h1>";
         }
+        if (!$tempRoomReservation['date'])
+        {
+            echo "Error in host date/time";
+        }
         // For the purpose of testing
         if ($tester == 1)
         {
             newRoomReservation($connection, $tempRoomReservation, 100);
+            echo "<br> <p1> temp res</p1>";
+            var_dump($tempRoomReservation);
+            echo "<br>";
         }
     }
 }
