@@ -20,9 +20,6 @@ function tempRoomReservation($connection, $tester)
         $initialRoomPrice = getAssociationKey($connection, "rooms", $tempRoomReservation['room_id'], "room_id", "price");
         $tempRoomReservation['roomPrice'] = roomPriceCalculator($initialRoomPrice, strtotime($tempRoomReservation['check_in']), strtotime($tempRoomReservation['check_out']));
         $_SESSION['temp_room_reservation'] =  $tempRoomReservation;
-        if($tempRoomReservation['room_id'] && $tempRoomReservation['num_guests'] > 0 && $tester == 0){
-            header("location: cart.php");
-        }
         if($tempRoomReservation['employee_id']<1 || $tempRoomReservation['customer_id']<1 || !is_numeric($tempRoomReservation['employee_id'])|| !is_numeric($tempRoomReservation['customer_id']))
         {
             echo "<br> <h1> Please enter valid id's</h1>";
@@ -39,8 +36,11 @@ function tempRoomReservation($connection, $tester)
         {
             echo "Error in host date/time";
         }
+        if($tempRoomReservation['room_id'] && $tempRoomReservation['num_guests'] > 0 && $tester == 0){
+            header("location: cart.php");
+        }
         // For the purpose of testing
-        if ($tester == 1)
+        if ($tempRoomReservation['room_id'] && $tester == 1)
         {
             newRoomReservation($connection, $tempRoomReservation, 100);
             echo "<br> <p1> temp res</p1>";
@@ -168,7 +168,7 @@ function checkRoomAvailabilityGivenRoom($connection, $roomType, $check_in, $chec
     else
     {
         deleteData($connection, "reservations", "reservations_id", getKey($connection, "reservations", "reservations_id"));
-        echo "<h1>DATE/TIME IS UNAVAILABLE</h1>";
+        echo "<h1>DATE IS UNAVAILABLE</h1>";
     }
 }
 

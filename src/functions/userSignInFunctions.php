@@ -4,12 +4,6 @@ function userLogIn()
 {
     session_unset();
     if (isset($_POST['Submit'])) {
-
-        //If email has correct format|| password invalid
-        //
-
-        //If
-
         try {
             require_once('../config.php');
             include_once "../src/functions/dataBaseFunctions.php";
@@ -20,7 +14,7 @@ function userLogIn()
             $statement->bindParam(':USER', $tmpUser, PDO::PARAM_STR);
             $statement->execute();
             $result = $statement->fetchAll();
-            foreach ($result as $row => $rows){
+            foreach ($result as $row => $rows) {
                 $login_id_db = $rows['login_id'];
                 $email_db = $rows['email'];
                 $pwd_db = $rows['password'];
@@ -30,7 +24,7 @@ function userLogIn()
                 {
                     $_SESSION['login_id'] = $login_id_db;
                     $_SESSION['temp_login'] = $login_id_db;
-                    $_SESSION['email'] = $email_db;
+                    $_SESSION['Email'] = $email_db;
                     $_SESSION['permissionlvl'] = $permissionlvl;
                     if($permissionlvl < 2) {
                         $_SESSION['customer_id'] = searchDB($connection, "member", "login_id", $login_id_db);
@@ -39,9 +33,8 @@ function userLogIn()
 
                     header("location:index.php");
                     exit;
-                }
-                else {
-                    echo 'Incorrect Email or Password';
+                } else {
+                    echo '<h1> Incorrect Email or Password </h1>';
                 }
 
         } catch
