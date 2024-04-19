@@ -14,12 +14,12 @@ function userLogIn()
             $statement->bindParam(':USER', $tmpUser, PDO::PARAM_STR);
             $statement->execute();
             $result = $statement->fetchAll();
-            foreach ($result as $row => $rows)
-            {
+            foreach ($result as $row => $rows) {
                 $login_id_db = $rows['login_id'];
                 $email_db = $rows['email'];
                 $pwd_db = $rows['password'];
                 $permissionlvl = $rows['permissionlvl'];
+            }
                 if (($_POST['Email'] == $email_db) && ($_POST['Password'] == $pwd_db))
                 {
                     $_SESSION['login_id'] = $login_id_db;
@@ -34,9 +34,9 @@ function userLogIn()
                     header("location:index.php");
                     exit;
                 } else {
-                    echo 'Incorrect Email or Password';
+                    echo '<h1> Incorrect Email or Password </h1>';
                 }
-            }
+
         } catch
         (Exception $e) {
             echo '<div class="messages-error">Error Logging in:' . $e->getMessage() . '</div>';

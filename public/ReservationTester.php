@@ -13,7 +13,6 @@ function testSession()
 }
 function roomBuilder($testTitle, $roomArray, $connection)
 {
-
     $formArray = array(
         "employee_id", "customer_id", "date", "check_in", "check_out", "payment", "num_guests"
     );

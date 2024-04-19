@@ -29,7 +29,6 @@ if (isset($_POST['submit']))
     else {
         tempRoomReservation($connection, 0);
     }
-
 }
 
 
