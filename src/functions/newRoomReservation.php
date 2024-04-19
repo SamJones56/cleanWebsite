@@ -1,7 +1,5 @@
 <?php
-
 use hotel\RoomReservations;
-
 // Save form data
 function tempRoomReservation($connection, $tester)
 {
@@ -17,23 +15,15 @@ function tempRoomReservation($connection, $tester)
         $tempRoomReservation['check_out'] = escape($_POST['check_out']);
         $tempRoomReservation['payment'] = escape($_POST['payment']);
         $tempRoomReservation['num_guests'] = escape($_POST['num_guests']);
-
         // Get the room price from the DB
         $tempRoomReservation['room_id'] = checkRoomAvailability($connection, $tempRoomReservation['check_in'], $tempRoomReservation['check_out']);
-
         $initialRoomPrice = getAssociationKey($connection, "rooms", $tempRoomReservation['room_id'], "room_id", "price");
-
-
         $tempRoomReservation['roomPrice'] = roomPriceCalculator($initialRoomPrice, strtotime($tempRoomReservation['check_in']), strtotime($tempRoomReservation['check_out']));
-
-
         $_SESSION['temp_room_reservation'] =  $tempRoomReservation;
-
-
         if($tempRoomReservation['room_id'] && $tempRoomReservation['num_guests'] > 0 && $tester == 0){
             header("location: cart.php");
         }
-        if($tempRoomReservation['employee_id']<1 || $tempRoomReservation['customer_id']<1)
+        if($tempRoomReservation['employee_id']<1 || $tempRoomReservation['customer_id']<1 || !is_numeric($tempRoomReservation['employee_id'])|| !is_numeric($tempRoomReservation['customer_id']))
         {
             echo "<br> <h1> Please enter valid id's</h1>";
         }
