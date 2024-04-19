@@ -84,7 +84,7 @@ if (isset($_POST['submit']))
 <!--            <label for="total_price">--><?php //getAssociationKey($connection, "rooms", "", "room_id", "price")?><!--</label>-->
 <!--            <input type="number" name="total_price" id="total_price">-->
 
-            <input type="submit" name="submit" value="Submit">
+            <input type="submit" name="submit" "value="Submit">
         </form>
     </div>
     <a href="index.php">Back to home</a>

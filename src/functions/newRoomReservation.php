@@ -4,57 +4,54 @@ use hotel\RoomReservations;
 function tempRoomReservation($connection, $tester)
 {
     require_once "../common.php";
-    if (isset($_POST['submit']))
-    {
         include_once "../src/functions/dataBaseFunctions.php";
         // Get form data
-        $tempRoomReservation['employee_id'] = escape($_POST['employee_id']);
-        $tempRoomReservation['customer_id'] = escape($_POST['customer_id']);
-        $tempRoomReservation['date'] = escape($_POST['date']);
-        $tempRoomReservation['check_in'] = escape($_POST['check_in']);
-        $tempRoomReservation['check_out'] = escape($_POST['check_out']);
-        $tempRoomReservation['payment'] = escape($_POST['payment']);
-        $tempRoomReservation['num_guests'] = escape($_POST['num_guests']);
+        $tempRoomReservation = [
+            'employee_id' => escape($_POST['employee_id']),
+            'customer_id' => escape($_POST['customer_id']),
+            'date' => escape($_POST['date']),
+            'check_in' => escape($_POST['check_in']),
+            'check_out' => escape($_POST['check_out']),
+            'payment' => escape($_POST['payment']),
+            'num_guests' => escape($_POST['num_guests'])
+        ];
         // Get the room price from the DB
         $tempRoomReservation['room_id'] = checkRoomAvailability($connection, $tempRoomReservation['check_in'], $tempRoomReservation['check_out']);
         $initialRoomPrice = getAssociationKey($connection, "rooms", $tempRoomReservation['room_id'], "room_id", "price");
         $tempRoomReservation['roomPrice'] = roomPriceCalculator($initialRoomPrice, strtotime($tempRoomReservation['check_in']), strtotime($tempRoomReservation['check_out']));
         $_SESSION['temp_room_reservation'] =  $tempRoomReservation;
-        if($tempRoomReservation['employee_id']<1 || $tempRoomReservation['customer_id']<1 || !is_numeric($tempRoomReservation['employee_id'])|| !is_numeric($tempRoomReservation['customer_id']))
+        if($tempRoomReservation['room_id']) {
+            if ($tempRoomReservation['employee_id'] < 1 || $tempRoomReservation['customer_id'] < 1 || !is_numeric($tempRoomReservation['employee_id']) || !is_numeric($tempRoomReservation['customer_id'])) {
+                echo "<br> <h1 style='color: red'> Please enter valid id's</h1>";
+            }
+            else if ($tempRoomReservation['num_guests'] < 1) {
+                echo "<br> <h1 style='color: red'> Number of guests must be greater than 0</h1>";
+            }
+            else if (!$tempRoomReservation['check_in'] || !$tempRoomReservation['check_out']) {
+                echo "<br> <h1 style='color: red'> Please enter valid check in/out date</h1>";
+            }
+            else if ($tempRoomReservation['date'] == 0) {
+                echo "<br> <h1 style='color: red'> Error in host date </h1>";
+            }
+            else if ($tester == 1) {
+                header("location: cart.php");
+            }
+            // For the purpose of testing
+            else if ($tester == 0) {
+                newRoomReservation($connection, $tempRoomReservation, 100);
+            }
+        }
+        else
         {
-            echo "<br> <h1> Please enter valid id's</h1>";
+            echo "<h1 style='color: red'> Error in generating room_id </h1>";
         }
-        if($tempRoomReservation['num_guests'] < 1)
-        {
-            echo "<br> <h1> Number of guests must be greater than 0</h1>";
-        }
-        if (!$tempRoomReservation['check_in'] || !$tempRoomReservation['check_out'] || (strtotime($tempRoomReservation['check_in']) > strtotime($tempRoomReservation['check_out'])) )
-        {
-            echo "<br> <h1> Please enter valid check in/out date</h1>";
-        }
-        if (!$tempRoomReservation['date'])
-        {
-            echo "Error in host date/time";
-        }
-        if($tempRoomReservation['room_id'] && $tempRoomReservation['num_guests'] > 0 && $tester == 0){
-            header("location: cart.php");
-        }
-        // For the purpose of testing
-        if ($tempRoomReservation['room_id'] && $tester == 1)
-        {
-            newRoomReservation($connection, $tempRoomReservation, 100);
-            echo "<br> <p1> temp res</p1>";
-            var_dump($tempRoomReservation);
-            echo "<br>";
-        }
-    }
 }
 
 function newRoomReservation($connection, $tempRoomReservation, $total)
 {
     require_once '../src/DBconnect.php';
     // Check if the form is submitted
-    if (isset($_POST['submit'])) {
+//    if (isset($_POST['submit'])) {
         try {
             require_once "../common.php";
             include_once "../src/functions/dataBaseFunctions.php";
@@ -74,52 +71,30 @@ function newRoomReservation($connection, $tempRoomReservation, $total)
             $roomReservation->setNumGuests($tempRoomReservation['num_guests']);
             $roomReservation->setCheckedIn(0);
             $initialRoomPrice = $roomReservation->getTotalPrice();
+
             addToTable($connection, $roomReservation->toRoomReservationsArray(), 'roomreservations');
             echo "Reservation added successfully.";
+            echo "<br>";
             unset($_SESSION['cart']);
             unset($_SESSION['temp_room_reservation']);
             if($_SESSION['permissionlvl']>0)
             {
-//                header("location:profile.php");
+                header("location:profile.php");
             }
 
         } catch (PDOException $error) {
             echo "Error: " . $error->getMessage();
+            echo "<h1> ERROR AT NEW ROOM RESERVATION</h1>";
+            deleteData($connection, "reservations", "reservations_id", getKey($connection, "reservations", "reservations_id"));
         }
-    }
+//    }
 }
 
 function checkRoomAvailability($connection, $check_in, $check_out)
 {
     $roomType = $_SESSION['temp_room_type'];
     // Get an associated array of all room types and their id's
-    $roomsArray = searchAllDB($connection, "rooms", "room_type", $roomType);
-
-    $availableRooms = [];
-
-    foreach($roomsArray as $room) {
-        $bookingsArray = searchAllDB($connection, "roomreservations", "room_id", $room['room_id']);
-
-        $isAvailable = true;
-
-        foreach($bookingsArray as $booking)
-        {
-            // Check dates
-            $bookedCheckIn = strtotime($booking['check_in']);
-            $bookedCheckOut = strtotime($booking['check_out']);
-            $newCheckIn = strtotime($check_in);
-            $newCheckOut = strtotime($check_out);
-            // Check if dates conflict
-            if($newCheckIn < $bookedCheckOut && $newCheckOut > $bookedCheckIn )
-            {
-                $isAvailable = false;
-            }
-        }
-        if($isAvailable)
-        {
-            $availableRooms[] = $room;
-        }
-    }
+    $availableRooms = getArr($connection, $roomType, $check_in, $check_out);
 
     if($availableRooms) {
         return $availableRooms[0]['room_id'];
@@ -131,36 +106,46 @@ function checkRoomAvailability($connection, $check_in, $check_out)
     }
 }
 
-function checkRoomAvailabilityGivenRoom($connection, $roomType, $check_in, $check_out)
+/**
+ * @param $connection
+ * @param $roomType
+ * @param $check_in
+ * @param $check_out
+ * @return array
+ */
+function getArr($connection, $roomType, $check_in, $check_out): array
 {
-    // Get an associated array of all room types and their id's
     $roomsArray = searchAllDB($connection, "rooms", "room_type", $roomType);
 
     $availableRooms = [];
 
-    foreach($roomsArray as $room) {
+    foreach ($roomsArray as $room) {
         $bookingsArray = searchAllDB($connection, "roomreservations", "room_id", $room['room_id']);
 
         $isAvailable = true;
 
-        foreach($bookingsArray as $booking)
-        {
+        foreach ($bookingsArray as $booking) {
             // Check dates
             $bookedCheckIn = strtotime($booking['check_in']);
             $bookedCheckOut = strtotime($booking['check_out']);
             $newCheckIn = strtotime($check_in);
             $newCheckOut = strtotime($check_out);
             // Check if dates conflict
-            if($newCheckIn < $bookedCheckOut && $newCheckOut > $bookedCheckIn )
-            {
+            if ($newCheckIn < $bookedCheckOut && $newCheckOut > $bookedCheckIn) {
                 $isAvailable = false;
             }
         }
-        if($isAvailable)
-        {
+        if ($isAvailable) {
             $availableRooms[] = $room;
         }
     }
+    return $availableRooms;
+}
+
+function checkRoomAvailabilityGivenRoom($connection, $roomType, $check_in, $check_out)
+{
+    // Get an associated array of all room types and their id's
+    $availableRooms = getArr($connection, $roomType, $check_in, $check_out);
 
     if($availableRooms) {
         return $availableRooms[0]['room_id'];
