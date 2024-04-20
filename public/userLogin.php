@@ -1,6 +1,7 @@
 <?php include "templates/header.php";
 include "../src/Functions/userSignInFunctions.php";
-userLogIn();
+require_once '../src/DBconnect.php';
+userLogIn($connection);
 ?>
     <!DOCTYPE html>
     <html>
