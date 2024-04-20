@@ -1,5 +1,8 @@
 <?php
 
+
+use person\Login;
+
 function userLogIn()
 {
     session_unset();
@@ -44,3 +47,22 @@ function userLogIn()
     }
 }
 
+
+function createLogin(){
+//use person\Login;
+
+    require_once '../src/person/Login.php';
+    require_once '../src/functions/dataBaseFunctions.php';
+    require_once '../src/DBconnect.php';
+
+    $login = new Login();
+
+    $login->setLoginId("100");
+    $login->setPermissionlvl("1");
+    $login->setPassword("PASSWORD");
+    $login->setEmail("test@test.com");
+
+    addToTable($connection, $login->toLoginArray(), "Login");
+    echo '<br>Login Details Added Successfully';
+
+}
