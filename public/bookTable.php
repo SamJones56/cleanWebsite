@@ -1,12 +1,15 @@
 <?php include "templates/header.php";
 include "../src/functions/newRestaurantReservationsFunctions.php";
+include_once "../src/functions/dataBaseFunctions.php";
+require_once '../src/DBconnect.php';
 
-newRestaurantReservation();
+if (isset($_POST['submit'])) {
+    tempTableReservation($connection, 1);
+}
 
 ?>
 
     <title>Dine</title>
-
     <form method="post">
 
         <?php if($_SESSION['isEmployee']){?>
@@ -26,23 +29,14 @@ newRestaurantReservation();
 
         <?php } ?>
 
-<!--        <label for="table_id">table_id</label>-->
-<!--        <input type="text" id="table_id" name="table_id" required>-->
-
-<!--        <label for="email">Email:</label>-->
-<!--        <input type="email" id="email" name="email" required>-->
-<!---->
-<!--        <label for="phone">Phone:</label>-->
-<!--        <input type="tel" id="phone" name="phone" required>-->
-
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" required>
         <br>
         <label for="time">Time:</label>
         <input type="time" id="time" name="time" required>
         <br>
-        <label for="guests">Number of Guests:</label>
-        <input type="number" id="guests" name="guests" required>
+        <label for="num_guests">Number of Guests:</label>
+        <input type="number" id="num_guests" name="num_guests" required>
         <br>
         <label for="special_requests">Special Requests:</label>
         <br>

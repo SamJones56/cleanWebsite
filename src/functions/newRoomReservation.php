@@ -65,7 +65,8 @@ function newRoomReservation($connection, $tempRoomReservation, $total)
             $roomReservation->setCheckIn($tempRoomReservation['check_in']);
             $roomReservation->setCheckOut($tempRoomReservation['check_out']);
             $roomReservation->setPayment($tempRoomReservation['payment']);
-            $roomReservation->setRoomId(checkRoomAvailability($connection, $tempRoomReservation['check_in'], $tempRoomReservation['check_out']));
+//            $roomReservation->setRoomId(checkRoomAvailability($connection, $tempRoomReservation['check_in'], $tempRoomReservation['check_out']));
+            $roomReservation->setRoomId($tempRoomReservation['room_id']);
             // Get the room price
             $roomReservation->setTotalPrice($total);
             $roomReservation->setNumGuests($tempRoomReservation['num_guests']);

@@ -2,18 +2,9 @@
 
 use hotel\RoomReservations;
 
+
 require_once '../src/DBconnect.php';
 require_once "../src/functions/newRoomReservation.php";
-
-
-//if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//    echo "<pre>POST Data:\n";
-//    print_r($_POST);
-//    echo "</pre>";
-//    // Continue processing
-//}
-
-
 session_start();
 
 function correctSession()
@@ -31,6 +22,7 @@ function formBuilder($testTitle, $roomArray, $formId , $connection)
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['submit'. $formId])) {
             tempRoomReservation($connection, 0);
+//            var_dump($_POST['submit'. $formId]);
         }
     }
     echo '<form method="post" action="" id="form' . $formId . '" name="form' . $formId . '">';
@@ -64,7 +56,6 @@ function formBuilder($testTitle, $roomArray, $formId , $connection)
     }
     echo '<input type="submit" name="submit' . $formId .'" value="Submit" form="form' . $formId . '">';
     echo '</form>';
-
 }
 // Path 1: Good data
 $goodRoomArray = array(
