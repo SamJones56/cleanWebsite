@@ -47,7 +47,7 @@ function userLogIn($connection)
     }
 }
 
-
+//
 function createLogin($connection){
 //use person\Login;
 
@@ -65,4 +65,11 @@ function createLogin($connection){
     addToTable($connection, $login->toLoginArray(), "Login");
     echo '<br>Login Details Added Successfully';
 
+}
+function deleteLogin($connection){
+    require_once '../src/functions/dataBaseFunctions.php';
+    require_once '../src/DBconnect.php';
+
+    deleteData($connection, "Login", "login_id", 100); //Comment out for USER SIGN IN
+    echo '<br>Login Removed Successfully';
 }

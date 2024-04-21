@@ -1,0 +1,7 @@
+{
+    "require-dev": {
+        "codeception/codeception": "^5.1",
+        "codeception/module-asserts": "*",
+        "phpunit/phpunit": "^11.1"
+    }
+}
