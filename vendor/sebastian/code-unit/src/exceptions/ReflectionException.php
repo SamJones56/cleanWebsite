@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /*
- * This file is part of sebastian/code-unit.
+ * This file is part of sebastian/code-unit
  *
  * (c) Sebastian Bergmann <sebastian@phpunit.de>
  *

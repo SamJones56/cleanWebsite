@@ -2,7 +2,7 @@ namespace: Tests
 support_namespace: Support
 suites:
     unit:
-        path: tests/unit.
+        path: tests/unit
         actor: UnitTester
         modules:
             enabled:
