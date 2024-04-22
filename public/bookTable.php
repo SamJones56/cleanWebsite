@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
         <?php } ?>
 
         <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required>
+        <input type="date" id="date" name="date" value="<?php echo date('Y-m-d');?>" required>
         <br>
         <label for="time">Time:</label>
         <input type="time" id="time" name="time" required>
