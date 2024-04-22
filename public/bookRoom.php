@@ -61,8 +61,8 @@ if (isset($_POST['submit']))
                 <?php }?>
             <input type="date" name="date" id="date" value="<?php echo date('Y-m-d'); ?>" hidden>
 
-            <label for="check_in">check_in</label>
-            <input type="date" name="check_in" id="check_in" required>
+            <label for="check_in" >check_in</label>
+            <input type="date" name="check_in" id="check_in" value="<?php echo date('Y-m-d');?>" required>
             <span class="error">* <?php echo $chk_inErr;?></span>
 
             <br>
