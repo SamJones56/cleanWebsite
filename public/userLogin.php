@@ -1,7 +1,10 @@
 <?php include "templates/header.php";
 include "../src/Functions/userSignInFunctions.php";
 require_once '../src/DBconnect.php';
-userLogIn($connection);
+
+if(isset($_POST['Submit'])) {
+    userLogIn($connection, 0);
+}
 ?>
     <!DOCTYPE html>
     <html>

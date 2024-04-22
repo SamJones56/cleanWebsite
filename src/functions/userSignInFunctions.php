@@ -3,10 +3,10 @@
 
 use person\Login;
 
-function userLogIn($connection)
+function userLogIn($connection, $test)
 {
     session_unset();
-    if (isset($_POST['Submit'])) {
+//    if (isset($_POST['Submit'])) {
         try {
             require_once('../config.php');
             include_once "../src/functions/dataBaseFunctions.php";
@@ -33,8 +33,12 @@ function userLogIn($connection)
                         $_SESSION['customer_id'] = searchDB($connection, "member", "login_id", $login_id_db);
                     }
                     $_SESSION['Active'] = true;
-
-                    header("location:index.php");
+                    if($test == 0) {
+                        header("location:index.php");
+                    }
+                    else if ($test == 1){
+                        header("Refresh:0");
+                    }
                     exit;
                 } else {
                     echo '<h1> Incorrect Email or Password </h1>';
@@ -44,7 +48,7 @@ function userLogIn($connection)
         (Exception $e) {
             echo '<div class="messages-error">Error Logging in:' . $e->getMessage() . '</div>';
         }
-    }
+//    }
 }
 
 //
@@ -58,7 +62,7 @@ function createLogin($connection){
     $login = new Login();
 
     $login->setLoginId("100");
-    $login->setPermissionlvl("1");
+    $login->setPermissionlvl("3");
     $login->setPassword("PASSWORD");
     $login->setEmail("test@test.com");
 

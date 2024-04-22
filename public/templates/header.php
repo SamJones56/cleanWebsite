@@ -13,10 +13,10 @@ if ($user_is_logged_in) {
     }
     else
         $_SESSION['isEmployee'] = false;
-} else {
+}
+else {
     $_SESSION['Active'] = false;
     $_SESSION['permissionlvl'] = 0;
-
 }
 ?>
 
@@ -73,5 +73,5 @@ css">
 
 <?php
 //var_dump($_SESSION['temp_room_type']);
-var_dump($_SESSION);
+//var_dump($_SESSION);
 ?>

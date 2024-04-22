@@ -2,59 +2,45 @@
 //Report Errors MAC
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
+include "templates/header.php";
 require_once '../src/DBconnect.php';
 require_once '../src/functions/userSignInFunctions.php';
-require_once '../src/functions/profileDisplayAndUpdateFunctions.php'
+require_once '../src/functions/profileDisplayAndUpdateFunctions.php';
 
-//TEST 1: CRUD VALIDATION - LOGIN
+function loginTestForm($connection){
+    ?>
+    <title>Sign in</title>
+    <form action="" method="post" name="Login_Form" class="form-signin">
+        <h2 class="form-signin-heading">Sign In Test: Credentials to validate below</h2>
+        <label for="inputEmail" >Email</label>
+        <input name="Email" type="email" id="email" class="form-control" placeholder="Email"  autofocus>
+        <label for="inputPassword">Password</label>
+        <input name="Password" type="password" id="Password" class="form-control" placeholder="Password" >
+        <button name="test1pt1" value="test1pt1" type="submit">Add data</button>
+        <button name="test1pt2" value="test1pt2" class="button" type="submit">Sign in</button>
+        <button name="test1pt3" value="test1pt3" type="submit">Delete data</button>
+    </form>
 
-//STEP 1: Test Login Creation (CREATE)
-//createLogin($connection); //Comment out for userLogIn();
-
-//STEP 2: Test Login Function (READ & USE)
-//userLogIn($connection); //Comment out for CREATE & DELETE
-
-//STEP 3: Test Delete (DELETE)
-//deleteLogin($connection);//Comment out for userLogIn();
-
-?>
-
-<title>Sign in</title>
-        <form action="" method="post" name="Login_Form" class="form-signin">
-            <h2 class="form-signin-heading">Sign In Test: Credentials to validate below</h2>
-            <label for="inputEmail" >Email</label>
-            <input name="Email" type="email" id="email" class="form-control" placeholder="Email" required autofocus>
-            <label for="inputPassword">Password</label>
-            <input name="Password" type="password" id="Password" class="form-control" placeholder="Password" required>
-            <button name="Submit" value="Login" class="button" type="submit">Sign in</button>
-
-        </form>
-
-    <?php echo "Login Credentials to Validate: <br>";
-        echo "email: test@test.com <br> ";
-        echo "password: PASSWORD <br>";
-
-//TEST 2: CRUD VALIDATION - DISPLAY DATA
-    //STEP 1: Use the profile to validate the Data (CREATE)
+<?php
+     echo "Login Credentials to Validate: <br>";
+     echo "email: test@test.com <br> ";
+     echo "password: PASSWORD <br>";
 
 
-    //STEP 2: Test Login Function (READ & USE)
-
-
-    //STEP 3: Test Delete (DELETE)
-
-
-
-
-
-
+    if(isset($_POST['test1pt1'])) {
+        createLogin($connection);
+    }
+    if(isset($_POST['test1pt2'])) {
+        userLogIn($connection, 1);
+    }
+    if(isset($_POST['test1pt3'])) {
+        deleteLogin($connection);
+    }
+}
 function roomAndRestaurantDateValidationTest($connection)
 {
-//    require_once '../src/DBconnect.php';
     function dateTester($connection)
     {
-
         require_once "../src/functions/newRoomReservation.php";
         require_once "../src/functions/newRestaurantReservationsFunctions.php";
         session_start();
@@ -157,6 +143,14 @@ function roomAndRestaurantDateValidationTest($connection)
     dateTester($connection);
 }
 
+function deleteTest()
+{
+ if (isset($_POST['delete']))
+ {
+
+ }
+}
+    loginTestForm($connection);
     roomAndRestaurantDateValidationTest($connection);
 ?>
 
