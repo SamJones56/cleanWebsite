@@ -18,6 +18,8 @@ else {
     $_SESSION['Active'] = false;
     $_SESSION['permissionlvl'] = 0;
 }
+
+var_dump(($_SESSION));
 ?>
 
 

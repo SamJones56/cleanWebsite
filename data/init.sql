@@ -239,24 +239,26 @@ VALUES
 
 INSERT INTO user (name, address, ph_no, dob)
 VALUES
+    ('Admin', 'HQ', '0123456', '2024-01-01'),
    ('Emily', 'Kildare', '0123456', '2020-01-01'),
    ('Anna', 'Cork', '0123456', '2021-01-01'),
    ('Sam', 'Kildare', '0123456', '2022-01-01'),
-   ('Admin', 'HQ', '0123456', '2024-01-01');
+    ('member', 'Kildare', '0123456', '2022-01-01');
 
 INSERT INTO login (email, password, permissionlvl)
 VALUES
+    ('admin@gmail.com', '123', 3),
     ('emily@gmail.com', 'pass', 3),
     ('anna@gmail.com', 'passw', 3),
     ('sam@gmail.com', 'passwo', 3),
-    ('admin@gmail.com', '123', 3);
+    ('member@gmail.com', 'passwor',1);
 
 INSERT INTO employee (user_id, dept_id, login_id, job)
 VALUES
-    (1, 2, 1, 'cleaning supervisor'),
+    (1, 4, 1, 'site administrator'),
     (2, 1, 2, 'waitress'),
     (3, 3, 3, 'event manager'),
-    (4, 4, 4, 'site administrator');
+    (4, 2, 4, 'cleaning-supervisor');
 
 INSERT INTO restauranttables (table_id, capacity)
 VALUES
@@ -284,3 +286,12 @@ VALUES
     (10,'suite','accessible',200),
     (11,'twin','accessible',150),
     (12,'family','accessible', 180);
+
+
+INSERT INTO customer(customer_id,user_id,passport_no)
+VALUES
+    (2, 5, 1234);
+
+INSERT INTO member(customer_id ,login_id)
+VALUES
+    (2, 5)
