@@ -290,8 +290,8 @@ VALUES
 
 INSERT INTO customer(customer_id,user_id,passport_no)
 VALUES
-    (2, 5, 1234);
+    (1, 5, 1234);
 
 INSERT INTO member(customer_id ,login_id)
 VALUES
-    (2, 5)
+    (1, 5)

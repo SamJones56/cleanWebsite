@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2bff6bf8-3b2e-4929-89ff-2e5813ecbff7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/templates/header.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,10 +139,6 @@
       <PhpTestRunnerSettings configuration_file="$PROJECT_DIR$/codeception.yml" scope="ConfigurationFile" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="ComposerRunConfigurationType" factoryName="Composer Script">
-      <option name="pathToComposerJson" value="$PROJECT_DIR$/composer.json" />
-      <method v="2" />
-    </configuration>
     <configuration name="DepartmentsTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Unit\DepartmentsTest" file="$PROJECT_DIR$/tests/tests/unit/DepartmentsTest.php" scope="Class" />
       <method v="2" />
@@ -230,6 +226,7 @@
       <workItem from="1713711510213" duration="5663000" />
       <workItem from="1713773228597" duration="5021000" />
       <workItem from="1713779247514" duration="212000" />
+      <workItem from="1713802412134" duration="487000" />
     </task>
     <servers />
   </component>
