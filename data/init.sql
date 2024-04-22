@@ -231,13 +231,56 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 INSERT INTO departments (dept_name, address)
-VALUES ('Administration', 'HQ');
+VALUES
+    ('Restaurant', 'Tallaght Co. Dublin'),
+    ('Accommodation', 'Tallaght Co. Dublin'),
+    ('Events', 'Tallaght Co. Dublin'),
+    ('Administration', 'Tallaght Co. Dublin');
 
 INSERT INTO user (name, address, ph_no, dob)
-VALUES ('Admin', 'HQ', '0123456', '2024-01-01');
+VALUES
+   ('Emily', 'Kildare', '0123456', '2020-01-01'),
+   ('Anna', 'Cork', '0123456', '2021-01-01'),
+   ('Sam', 'Kildare', '0123456', '2022-01-01'),
+   ('Admin', 'HQ', '0123456', '2024-01-01');
 
 INSERT INTO login (email, password, permissionlvl)
-VALUES ('admin@gmail.com', '123', 3);
+VALUES
+    ('emily@gmail.com', 'pass', 3),
+    ('anna@gmail.com', 'passw', 3),
+    ('sam@gmail.com', 'passwo', 3),
+    ('admin@gmail.com', '123', 3);
 
 INSERT INTO employee (user_id, dept_id, login_id, job)
-VALUES (1, 1, 1, 'administrator');
+VALUES
+    (1, 2, 1, 'cleaning supervisor'),
+    (2, 1, 2, 'waitress'),
+    (3, 3, 3, 'event manager'),
+    (4, 4, 4, 'site administrator');
+
+INSERT INTO restauranttables (table_id, capacity)
+VALUES
+    (1,4),
+    (2,4),
+    (3,6),
+    (4,4),
+    (5,10),
+    (6,4),
+    (7,2),
+    (8,4),
+    (9,6);
+
+INSERT INTO rooms (room_id, room_type, accessibility,price)
+VALUES
+    (1,'double','accessible',100),
+    (2,'suite','accessible',200),
+    (3,'twin','accessible',150),
+    (4,'family','accessible',180),
+    (5,'double','non-accessible',100),
+    (6,'suite','non-accessible',200),
+    (7,'twin','non-accessible',150),
+    (8,'family','non-accessible',180),
+    (9,'double','accessible',100),
+    (10,'suite','accessible',200),
+    (11,'twin','accessible',150),
+    (12,'family','accessible', 180);
