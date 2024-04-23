@@ -72,7 +72,7 @@ function buildRestaurantReservationList($connection, $user_id, $isEmployee)
                     $isRoom = true;
 //                var_dump($reservations_id);
                     $tempArray = $tempArray + newReservationDisplay($reservations_id, $isRoom, $connection);
-                    buildRestaurantReservationDisplay($tempArray);
+                    buildRestaurantReservationDisplay($tempArray, $connection);
                 }
             }
         }
@@ -117,7 +117,7 @@ function buildRoomReservationDisplay($tempArray, $connection)
         header("refresh:0");
     }
 
-    else if(isset($_POST['cancel']))
+    else if(isset($_POST['cancel_room']))
     {
         $temp_res = $_POST['reservations_id'];
         deleteData($connection, "roomextras","reservations_id",$temp_res);
@@ -150,13 +150,13 @@ function buildRoomReservationDisplay($tempArray, $connection)
     echo '</td> <td>';
     echo '<input type="submit" name="check_out" value="Check out">';
     echo '</td> <td>';
-    echo '<input type="submit" name="cancel" value="Cancel">';
+    echo '<input type="submit" name="cancel_room" value="Cancel">';
     echo '</form></td>';
     echo "</tr>";
 }
 
 // Building restaurant bookings table
-function buildRestaurantReservationDisplay($tableArray)
+function buildRestaurantReservationDisplay($tableArray, $connection)
 {
     if(isset($_POST['submit_table'])){
         $temp_res = $_POST['reservations_id'];
@@ -165,6 +165,12 @@ function buildRestaurantReservationDisplay($tableArray)
         $_SESSION['isRoom'] = false;
         header("Location: updateReservation.php");
 //        exit();
+    }
+    if(isset($_POST['cancel_table'])){
+        $temp_res = $_POST['reservations_id'];
+        deleteData($connection, "tablereservations","reservations_id",$temp_res);
+        deleteData($connection, "reservations","reservations_id",$temp_res);
+        header("refresh:0");
     }
     // Keys that match headers
     $keys = ['reservations_id', 'employee_id', 'customer_id', 'date', 'time', 'table_id', 'no_guests'];
@@ -183,7 +189,10 @@ function buildRestaurantReservationDisplay($tableArray)
     echo '<td><form action="" method="post">';
     echo '<input type="hidden" name="reservations_id" value="' . ($tableArray['reservations_id']) . '">';
 //    var_dump($tempArray['reservations_id']);
+    echo '</td> <td>';
     echo '<input type="submit" name="submit_table" value="Edit">';
+    echo '</td> <td>';
+    echo '<input type="submit" name="cancel_table" value="Cancel">';
     echo '</form></td>';
     echo "</tr>";
 }

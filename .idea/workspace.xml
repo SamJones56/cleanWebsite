@@ -7,8 +7,6 @@
     <list default="true" id="2bff6bf8-3b2e-4929-89ff-2e5813ecbff7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/functions/adminManageReservationFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/adminManageReservationFunctions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/cartFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/cartFunctions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/newRoomReservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/newRoomReservation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +226,7 @@
       <workItem from="1713773228597" duration="5021000" />
       <workItem from="1713779247514" duration="212000" />
       <workItem from="1713802412134" duration="487000" />
-      <workItem from="1713874303105" duration="9512000" />
+      <workItem from="1713874303105" duration="9961000" />
     </task>
     <servers />
   </component>
