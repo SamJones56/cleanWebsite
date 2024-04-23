@@ -1,36 +1,17 @@
 <?php
-function getRoomProducts()
+include_once "../src/functions/dataBaseFunctions.php";
+require_once '../src/DBconnect.php';
+function getRoomProducts($connection)
 {
-// Create the products
+    $itemCount = getCount($connection, "extraoptions");
     $products = [];
 
-    $products['01'] = [
-        'name' => 'Morning breakfast',
-        'description' => 'book morning breakfast per day',
-        'price' => '25',
-        'image' => '../images/roomAdons/breakfast_trays.png'
-    ];
-
-    $products['02'] = [
-        'name' => 'Daily car rental',
-        'description' => 'Book a 4 seater car per day',
-        'price' => '100',
-        'image' => '../images/roomAdons/hotel_car.png'
-    ];
-
-    $products['03'] = [
-        'name' => 'A round of golf',
-        'description' => 'Book a round of gold',
-        'price' => '50',
-        'image' => '../images/roomAdons/hotel_golf.png'
-    ];
-
-    $products['04'] = [
-        'name' => 'Book a local tour',
-        'description' => 'Book a local tour of Tallaght',
-        'price' => '1000',
-        'image' => '../images/roomAdons/hotel_tallaght.png'
-    ];
+    for($i = 0; $i < $itemCount['COUNT(*)']; $i++){
+        $result = searchAllDB($connection, "extraoptions", "option_id", $i+1);
+        if(!empty($result)) {
+            $products[$i] = $result[0];
+        }
+    }
 
     return $products;
 }
@@ -90,15 +71,15 @@ function reduceCartQuantity($id)
     $_SESSION['cart'] = $cartItems;
 }
 
-function displayProducts()
+function displayProducts($connection)
 {
-    $products = getRoomProducts();
+    $products = getRoomProducts($connection);
 //    require_once __DIR__ . '/../templates/list.php';
 }
 
-function displayCart()
+function displayCart($connection)
 {
-    $products = getRoomProducts();
+    $products = getRoomProducts($connection);
     $cartItems = getShoppingCart();
     header('Location: cart.php');
     if(!empty($cartItems)){

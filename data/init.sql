@@ -207,8 +207,8 @@ CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`roomreservations` (
 -- Table `hoteltallafornia`.`tablereservations`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`tablereservations` (
-                                                                      `reservations_id` INT NOT NULL,
-                                                                      `date` VARCHAR(45) NULL DEFAULT NULL,
+    `reservations_id` INT NOT NULL,
+    `date` VARCHAR(45) NULL DEFAULT NULL,
     `time` VARCHAR(45) NULL DEFAULT NULL,
     `no_guests` INT NOT NULL,
     `table_id` INT NOT NULL,
@@ -224,10 +224,41 @@ CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`tablereservations` (
     ENGINE = InnoDB
     DEFAULT CHARACTER SET = utf8mb3;
 
+-- -----------------------------------------------------
+-- Table `hoteltallafornia`.`extraoptions`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`extraoptions` (
+                                                                 `option_id` INT NOT NULL,
+                                                                 `name` VARCHAR(45) NULL,
+    `description` VARCHAR(45) NULL,
+    `price` INT NULL,
+    `image` VARCHAR(45) NULL,
+    PRIMARY KEY (`option_id`))
+    ENGINE = InnoDB;
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Table `hoteltallafornia`.`roomextras`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`roomextras` (
+                                                               `extraoptions_option_id` INT NOT NULL,
+                                                               `count` INT NULL,
+                                                               `roomreservations_reservations_id` INT NOT NULL,
+                                                               `roomreservations_room_id` INT NOT NULL,
+                                                               PRIMARY KEY (`extraoptions_option_id`, `roomreservations_reservations_id`, `roomreservations_room_id`),
+    INDEX `fk_roomextras_extraoptions1_idx` (`extraoptions_option_id` ASC) VISIBLE,
+    INDEX `fk_roomextras_roomreservations1_idx` (`roomreservations_reservations_id` ASC, `roomreservations_room_id` ASC) VISIBLE,
+    CONSTRAINT `fk_roomextras_extraoptions1`
+    FOREIGN KEY (`extraoptions_option_id`)
+    REFERENCES `hoteltallafornia`.`extraoptions` (`option_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    CONSTRAINT `fk_roomextras_roomreservations1`
+    FOREIGN KEY (`roomreservations_reservations_id` , `roomreservations_room_id`)
+    REFERENCES `hoteltallafornia`.`roomreservations` (`reservations_id` , `room_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+    ENGINE = InnoDB;
 
 
 INSERT INTO departments (dept_name, address)
@@ -294,4 +325,11 @@ VALUES
 
 INSERT INTO member(customer_id ,login_id)
 VALUES
-    (1, 5)
+    (1, 5);
+
+INSERT INTO extraoptions (option_id,name,description,price,image)
+VALUES
+    (1,'Morning breakfast', 'book morning breakfast per day', 25, '../images/roomAdons/breakfast_trays.png'),
+    (2, 'Daily car rental', 'Book a 4 seater car per day', 100,  '../images/roomAdons/hotel_car.png'),
+    (3, 'A round of golf', 'Book a round of golf', 50, '../images/roomAdons/hotel_golf.png'),
+    (4, 'Book a local tour', 'Book a local tour of Tallaght', 1000, '../images/roomAdons/hotel_tallaght.png');

@@ -55,11 +55,10 @@ function getKey($connection, $tableName, $primaryKey){
     }
 }
 
-function getCount($connection, $tableName, $searchKey , $searchValue)
+function getCount($connection, $tableName)
 {
     try{
-        var_dump($searchKey);
-        $sql = "SELECT COUNT(*) FROM " . $tableName . " WHERE " . $searchKey . " = " . $searchValue;
+        $sql = "SELECT COUNT(*) FROM " . $tableName ;
         $statement = $connection->prepare($sql);
         $statement->execute();
         $result_array = $statement->fetch(PDO::FETCH_ASSOC);

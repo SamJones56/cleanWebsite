@@ -1,4 +1,6 @@
 <?php
+// Shopping cart tutorial from moodle
+// https://vle-bn.tudublin.ie/mod/resource/view.php?id=323519
 include "templates/header.php";
 include "../src/functions/newRoomReservation.php";
 include   __DIR__ . "/../src/functions/cartFunctions.php";
@@ -7,7 +9,7 @@ require_once '../src/DBconnect.php';
 $total = $_SESSION['temp_room_reservation']['roomPrice'];
 
 
-$products = getRoomProducts();
+$products = getRoomProducts($connection);
 $cartItems = getShoppingCart();
 
 
@@ -20,12 +22,12 @@ switch ($action) {
     case 'addToCart':
         $id = filter_input(INPUT_GET, 'id');
         addItemToCart($id);
-        displayCart();
+        displayCart($connection);
         break;
     case 'removeFromCart':
         $id = filter_input(INPUT_GET, 'id');
         removeItemFromCart($id);
-        displayCart();
+        displayCart($connection);
         break;
     case 'changeCartQuantity':
         $id = filter_input(INPUT_GET, 'id');
@@ -35,10 +37,10 @@ switch ($action) {
         } else {
             reduceCartQuantity($id);
         }
-        displayCart();
+        displayCart($connection);
         break;
     default:
-        displayProducts();
+        displayProducts($connection);
 }
 
 
@@ -123,6 +125,7 @@ switch ($action) {
 </div>
 
 <?php
+    var_dump($cartItems);
 foreach ($cartItems as $id => $quantity):
     $product = $products[$id];
     $price = $product['price'];

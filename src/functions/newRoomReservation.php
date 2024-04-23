@@ -202,3 +202,7 @@ function roomDateRangeDeals(int $start, int $end, array $dateRange): bool
     return true;
 }
 
+function addExtras()
+{
+
+}
