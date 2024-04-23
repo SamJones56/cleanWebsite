@@ -99,7 +99,7 @@ switch ($action) {
 
 
 
-<?php if($_SESSION['cart']){?>
+<?php if (isset($_SESSION['cart'])){?>
 <h2> Your Cart </h2>
 <div class="row">
     <div class="col font-weight-bold text-center">
@@ -195,4 +195,7 @@ foreach ($cartItems as $id => $quantity):
 </form>
 
 
-<?php newRoomReservation($connection, $_SESSION['temp_room_reservation'], $total);
+<?php
+if (isset($_POST['submit'])) {
+    newRoomReservation($connection, $_SESSION['temp_room_reservation'], $total, 1);
+}

@@ -90,19 +90,19 @@ function roomAndRestaurantDateValidationTest($connection)
             if (isset($_POST['submit'. $formId])){
                 if((int)$formId == 1)
                 {
-                    tempRoomReservation($connection, 0);
+                    tempRoomReservation($connection, 1);
                 }
                 if((int)$formId == 2)
                 {
-                    tempRoomReservation($connection, 0);
+                    tempRoomReservation($connection, 1);
                 }
                 if ((int)$formId == 3)
                 {
-                    tempTableReservation($connection, 0);
+                    tempTableReservation($connection, 1);
                 }
                 if ((int)$formId == 4)
                 {
-                    tempTableReservation($connection, 0);
+                    tempTableReservation($connection, 1);
                 }
             }
         }

@@ -21,7 +21,7 @@ function formBuilder($testTitle, $roomArray, $formId , $connection)
 {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['submit'. $formId])) {
-            tempRoomReservation($connection, 0);
+            tempRoomReservation($connection, 1);
 //            var_dump($_POST['submit'. $formId]);
         }
     }
