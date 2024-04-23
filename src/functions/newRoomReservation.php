@@ -154,10 +154,8 @@ function checkRoomAvailabilityGivenRoom($connection, $roomType, $check_in, $chec
 
 function roomPriceCalculator($initialRoomPrice, $checkIn, $checkOut)
 {
-//    // Check and see if it is within Christmas dates
     $dateRange = [];
     $selectedDate = $checkIn;
-//    $dateRange = $checkOut;
     while($selectedDate <= $checkOut)
     {
         $dateRange[] = $selectedDate;
@@ -178,9 +176,6 @@ function roomPriceCalculator($initialRoomPrice, $checkIn, $checkOut)
         $days = ceil(abs($checkOut - $checkIn) / 86400);
         return $roomPrice = $initialRoomPrice * $days;
     }
-
-//    $days = ceil(abs($checkOut - $checkIn) / 86400);
-//    return $roomPrice = $initialRoomPrice * $days;
 }
 
 //https://codereview.stackexchange.com/questions/255002/checking-if-an-array-of-dates-are-within-a-date-range#:~:text=I%20created%20a%20dates_in_range(),%2C%20it'll%20return%20false.
@@ -198,7 +193,6 @@ function roomDateRangeDeals(int $start, int $end, array $dateRange): bool
 
 function addExtras($cartItems, $connection)
 {
-//    $nameArray = array("options_id","count","reservation_id");
     $reservation_id = getKey($connection, "reservations", "reservations_id");
     foreach ($cartItems as $key => $value)
     {
@@ -209,11 +203,6 @@ function addExtras($cartItems, $connection)
             'count' => $value,
             'reservations_id' => $reservation_id
         ];
-
-        var_dump($tempArray);
-        echo '<br>';
-
         addToTable($connection, $tempArray, "roomExtras");
     }
-
 }

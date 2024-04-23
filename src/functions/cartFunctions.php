@@ -4,8 +4,6 @@ require_once '../src/DBconnect.php';
 function getRoomProducts($connection)
 {
     $itemCount = getCount($connection, "extraoptions");
-//    $products = [];
-
     for($i = 0; $i < $itemCount['COUNT(*)']; $i++){
         $result = searchAllDB($connection, "extraoptions", "option_id", $i+1);
         if(!empty($result)) {

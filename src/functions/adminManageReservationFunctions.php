@@ -42,7 +42,6 @@ function buildRoomReservationUserList($connection, $user_id, $isEmployee)
                 if ($isRoomRes) {
                     $reservations_id = $reservation["reservations_id"];
                     $isRoom = true;
-//                var_dump($reservations_id);
                     $tempArray = newReservationDisplay($reservations_id, $isRoom, $connection);
                     buildRoomReservationDisplay($tempArray, $connection);
                 }
@@ -97,9 +96,6 @@ function buildRestaurantReservationList($connection, $user_id, $isEmployee)
 function buildRoomReservationDisplay($tempArray, $connection)
 {
     include_once "dataBaseFunctions.php";
-
-//    var_dump($tempArray);
-//    echo("<br>");
     if(isset($_POST['submit_room'])){
         $temp_res = $_POST['reservations_id'];
 //        echo("TempRes" . $temp_res);
@@ -121,6 +117,15 @@ function buildRoomReservationDisplay($tempArray, $connection)
         header("refresh:0");
     }
 
+    else if(isset($_POST['cancel']))
+    {
+        $temp_res = $_POST['reservations_id'];
+        deleteData($connection, "roomextras","reservations_id",$temp_res);
+        deleteData($connection, "roomreservations","reservations_id",$temp_res);
+        deleteData($connection, "reservations","reservations_id",$temp_res);
+//        header("refresh:0");
+    }
+
     // Keys that match headers
     $keys = ['reservations_id', 'employee_id', 'customer_id', 'date', 'check_in', 'check_out', 'total_price', 'room_id', 'num_guests', 'checked_in'];
 
@@ -139,11 +144,14 @@ function buildRoomReservationDisplay($tempArray, $connection)
     echo '<td><form action="" method="post">';
     echo '<input type="hidden" name="reservations_id" value="' . ($tempArray['reservations_id']) . '">';
 //    var_dump($tempArray['reservations_id']);
+    echo '</td> <td>';
     echo '<input type="submit" name="submit_room" value="Edit">';
     echo '</td> <td>';
     echo '<input type="submit" name="check_in" value="Check in">';
     echo '</td> <td>';
     echo '<input type="submit" name="check_out" value="Check out">';
+    echo '</td> <td>';
+    echo '<input type="submit" name="cancel" value="Cancel">';
     echo '</form></td>';
     echo "</tr>";
 }
