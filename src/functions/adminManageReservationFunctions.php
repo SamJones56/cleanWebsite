@@ -123,7 +123,6 @@ function buildRoomReservationDisplay($tempArray, $connection)
         deleteData($connection, "roomextras","reservations_id",$temp_res);
         deleteData($connection, "roomreservations","reservations_id",$temp_res);
         deleteData($connection, "reservations","reservations_id",$temp_res);
-//        header("refresh:0");
     }
 
     // Keys that match headers
