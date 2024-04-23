@@ -17,7 +17,7 @@ $cartItems = getShoppingCart();
 $action = filter_input(INPUT_GET, 'action');
 switch ($action) {
     case 'cart':
-        displayCart();
+        displayCart($connection);
         break;
     case 'addToCart':
         $id = filter_input(INPUT_GET, 'id');
@@ -126,6 +126,7 @@ switch ($action) {
 
 <?php
     var_dump($cartItems);
+//    var_dump($products);
 foreach ($cartItems as $id => $quantity):
     $product = $products[$id];
     $price = $product['price'];
@@ -201,4 +202,5 @@ foreach ($cartItems as $id => $quantity):
 <?php
 if (isset($_POST['submit'])) {
     newRoomReservation($connection, $_SESSION['temp_room_reservation'], $total, 1);
+    addExtras($cartItems, $connection);
 }

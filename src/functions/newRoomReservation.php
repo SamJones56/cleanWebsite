@@ -107,13 +107,7 @@ function checkRoomAvailability($connection, $check_in, $check_out)
     }
 }
 
-/**
- * @param $connection
- * @param $roomType
- * @param $check_in
- * @param $check_out
- * @return array
- */
+
 function getArr($connection, $roomType, $check_in, $check_out): array
 {
     $roomsArray = searchAllDB($connection, "rooms", "room_type", $roomType);
@@ -202,7 +196,24 @@ function roomDateRangeDeals(int $start, int $end, array $dateRange): bool
     return true;
 }
 
-function addExtras()
+function addExtras($cartItems, $connection)
 {
+//    $nameArray = array("options_id","count","reservation_id");
+    $reservation_id = getKey($connection, "reservations", "reservations_id");
+    foreach ($cartItems as $key => $value)
+    {
+        $newKey = $key +1;
+        $dbCart[$newKey] = $value;
+        $tempArray = [
+            'option_id' => $newKey,
+            'count' => $value,
+            'reservations_id' => $reservation_id
+        ];
+
+        var_dump($tempArray);
+        echo '<br>';
+
+        addToTable($connection, $tempArray, "roomExtras");
+    }
 
 }

@@ -241,21 +241,20 @@ CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`extraoptions` (
 -- Table `hoteltallafornia`.`roomextras`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`roomextras` (
-                                                               `extraoptions_option_id` INT NOT NULL,
+                                                               `option_id` INT NOT NULL,
                                                                `count` INT NULL,
-                                                               `roomreservations_reservations_id` INT NOT NULL,
-                                                               `roomreservations_room_id` INT NOT NULL,
-                                                               PRIMARY KEY (`extraoptions_option_id`, `roomreservations_reservations_id`, `roomreservations_room_id`),
-    INDEX `fk_roomextras_extraoptions1_idx` (`extraoptions_option_id` ASC) VISIBLE,
-    INDEX `fk_roomextras_roomreservations1_idx` (`roomreservations_reservations_id` ASC, `roomreservations_room_id` ASC) VISIBLE,
+                                                               `reservations_id` INT NOT NULL,
+                                                               PRIMARY KEY (`option_id`, `reservations_id`),
+    INDEX `fk_roomextras_extraoptions1_idx` (`option_id` ASC) VISIBLE,
+    INDEX `fk_roomextras_roomreservations1_idx` (`reservations_id` ASC) VISIBLE,
     CONSTRAINT `fk_roomextras_extraoptions1`
-    FOREIGN KEY (`extraoptions_option_id`)
+    FOREIGN KEY (`option_id`)
     REFERENCES `hoteltallafornia`.`extraoptions` (`option_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
     CONSTRAINT `fk_roomextras_roomreservations1`
-    FOREIGN KEY (`roomreservations_reservations_id` , `roomreservations_room_id`)
-    REFERENCES `hoteltallafornia`.`roomreservations` (`reservations_id` , `room_id`)
+    FOREIGN KEY (`reservations_id`)
+    REFERENCES `hoteltallafornia`.`roomreservations` (`reservations_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
     ENGINE = InnoDB;

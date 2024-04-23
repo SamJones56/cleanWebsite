@@ -9,7 +9,6 @@
       <change beforePath="$PROJECT_DIR$/data/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/init.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/functions/cartFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/cartFunctions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/dataBaseFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/dataBaseFunctions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/functions/newRoomReservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/newRoomReservation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -230,7 +229,7 @@
       <workItem from="1713773228597" duration="5021000" />
       <workItem from="1713779247514" duration="212000" />
       <workItem from="1713802412134" duration="487000" />
-      <workItem from="1713874303105" duration="5440000" />
+      <workItem from="1713874303105" duration="8291000" />
     </task>
     <servers />
   </component>
