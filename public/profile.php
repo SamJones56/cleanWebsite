@@ -6,7 +6,10 @@ include_once "../src/Functions/reservationDisplayAndUpdateFunctions.php";
 include "templates/header.php";
 require_once '../src/DBconnect.php';
 
-
+if ($_SESSION['permission_lvl'] == 0)
+{
+    header("location:index.php");
+}
 $user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee'],$connection);
 
 //var_dump($_SESSION);
