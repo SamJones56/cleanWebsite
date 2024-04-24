@@ -168,7 +168,7 @@ function roomPriceCalculator($initialRoomPrice, $checkIn, $checkOut)
     {
         // Calculate days and total price
         $days = ceil(abs($checkOut - $checkIn) / 86400);
-        return $roomPrice = ($initialRoomPrice*0.5) * $days;
+        return $roomPrice = ($initialRoomPrice*0.75) * $days;
     }
     else
     {
