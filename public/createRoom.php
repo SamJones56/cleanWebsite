@@ -1,6 +1,10 @@
 <?php
 include "../src/Functions/newRoomFunctions.php";
 include "templates/header.php";
+if($_SESSION['permissionlvl'] < 2 )
+{
+    header("location:index.php");
+}
 makeNewRoom();
 ?>
 

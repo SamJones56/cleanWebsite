@@ -3,9 +3,14 @@ include "../src/Functions/adminManageReservationFunctions.php";
 include "templates/header.php";
 require_once '../src/DBconnect.php';
 
-//$user_array = buildUserList($connection);
+if($_SESSION['permissionlvl'] < 2 )
+{
+    header("location:index.php");
+}
 
-//buildUserList($connection);
+$_SESSION['guestRedirect'] = "adminReservationsUsers.php";
+$reservationArray = buildReservationGeneralList($connection);
+
 
 ?>
     <h2>Room Bookings</h2>
@@ -25,7 +30,13 @@ require_once '../src/DBconnect.php';
         </tr>
         </thead>
         <tbody>
-        <?php buildRoomReservationGeneralList($connection); ?>
+        <?php
+            foreach ($reservationArray as $tableRes){
+                if(isset($tableRes['room_id'])){
+                    buildRoomReservationDisplay($tableRes, $connection);
+                }
+            }
+        ?>
         </tbody>
     </table>
 
@@ -43,7 +54,13 @@ require_once '../src/DBconnect.php';
         </tr>
         </thead>
         <tbody>
-        <?php buildRestaurantReservationList($connection); ?>
+        <?php
+        foreach ($reservationArray as $tableRes){
+            if(!isset($tableRes['room_id'])){
+                buildRestaurantReservationDisplay($tableRes, $connection);
+            }
+        }
+        ?>
         </tbody>
     </table>
 

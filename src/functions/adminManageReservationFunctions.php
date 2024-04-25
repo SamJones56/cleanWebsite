@@ -1,25 +1,33 @@
 <?php
 
-function buildRoomReservationGeneralList($connection)
+function buildReservationGeneralList($connection): array
 {
     include_once "../src/Functions/reservationDisplayAndUpdateFunctions.php";
     include_once "dataBaseFunctions.php";
 
     $count = getKey($connection, "reservations", "reservations_id");
-
+    $reservationArray = [];
     for ($i = 0; $i <= $count; $i++) {
-        $reservation = searchDB($connection, "roomreservations", "reservations_id", $i);
+        $roomReservation = searchDB($connection, "roomreservations", "reservations_id", $i);
+        $tableReservation = searchDB($connection, "tablereservations", "reservations_id", $i);
 
         // Check for employee - control what is displayed
-        if ($reservation) {
-            $reservations_id = $reservation["reservations_id"];
+        if ($roomReservation) {
+            $reservations_id = $roomReservation["reservations_id"];
             $isRoom = true;
             $tempArray = newReservationDisplay($reservations_id, $isRoom, $connection);
-//            echo("<br> Temp array at creation");
-//            var_dump($tempArray);
-            buildRoomReservationDisplay($tempArray, $connection);
+            $reservationArray[] = $tempArray;
+        }
+        if ($tableReservation)
+        {
+            $reservations_id = $tableReservation["reservations_id"];
+            $isRoom = false;
+            $tempArray = newReservationDisplay($reservations_id, $isRoom, $connection);
+            $reservationArray[] = $tempArray;
+
         }
     }
+    return $reservationArray;
 }
 
 function buildRoomReservationUserList($connection, $user_id, $isEmployee)
@@ -77,19 +85,6 @@ function buildRestaurantReservationList($connection, $user_id, $isEmployee)
             }
         }
     }
-
-
-//    $count = getKey($connection, "reservations", "reservations_id");
-//
-//    for ($i = 0; $i <= $count; $i++) {
-//        $reservation = searchDB($connection, "tablereservations", "reservations_id", $i);
-//        if ($reservation) {
-//            $reservations_id = $reservation['reservations_id']; // Remove $ from $reservations_id
-//            $isRoom = false;
-//            $tempArray = newReservationDisplay($reservations_id, $isRoom, $connection);
-//            buildRestaurantReservationDisplay($tempArray);
-//        }
-//    }
 }
 
 // Building room bookings table
