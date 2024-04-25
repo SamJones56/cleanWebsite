@@ -7,7 +7,7 @@ final class Room
     protected $room_id, $room_type, $accessibility, $price;
 
 
-    public function toRoomArray()
+    public function toRoomArray(): array
     {
         return array
         (

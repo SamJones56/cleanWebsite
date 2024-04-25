@@ -42,5 +42,4 @@ makeNewRoom();
     </div>
 
 
-    <!-- FOOTER -->
 <?php include "templates/footer.php";?>

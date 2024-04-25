@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bff6bf8-3b2e-4929-89ff-2e5813ecbff7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/tests/tests/unit/EmployeeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/tests/unit/EmployeeTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/adminManageRooms.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/updateRoom.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/functions/editingRoomsAndTablesFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/createRoom.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/createRoom.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/updateReservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/updateReservation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/updateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/updateUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/adminManageUsersFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/adminManageUsersFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/newRoomFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/newRoomFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hotel/Room.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/Room.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,9 +136,9 @@
       <recent name="D:\laragon\www\cleanWebsite\src\functions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\cleanWebsite\public" />
       <recent name="C:\laragon\www\cleanWebsite\images\miscPhotos" />
       <recent name="C:\laragon\www\cleanWebsite\images\img_rest" />
-      <recent name="D:\laragon\www\cleanWebsite\public" />
       <recent name="D:\laragon\www\cleanWebsite\src\functions" />
       <recent name="D:\laragon\www\cleanWebsite\images" />
     </key>

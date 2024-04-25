@@ -5,7 +5,10 @@ require_once '../src/DBconnect.php';
 
 //var_dump($_SESSION);
 
-
+if($_SESSION['permissionlvl'] < 2 )
+{
+    header("location:index.php");
+}
 // Check if room
 if($_SESSION['isRoom'])
 {

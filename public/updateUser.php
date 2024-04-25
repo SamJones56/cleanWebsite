@@ -2,7 +2,10 @@
 include "../src/Functions/profileDisplayAndUpdateFunctions.php";
 include "templates/header.php";
 require_once '../src/DBconnect.php';
-
+if($_SESSION['permissionlvl'] < 2 )
+{
+    header("location:index.php");
+}
 
 // Check if user is editing their own profile
 if($_SESSION['login_id'] == $_SESSION['temp_login']) {
