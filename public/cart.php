@@ -182,10 +182,10 @@ foreach ($cartItems as $id => $quantity):
 <div class="row border-top">
     <div class="col-10 price text-right">
         <?php
-        $total = number_format($total, 2);
+        $totalPost = number_format($total, 2);
 
         ?>
-        $ <?= $total ?>
+        $ <?= $totalPost ?>
     </div>
     <div class="col font-weight-bold ">
         Total

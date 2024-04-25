@@ -6,7 +6,7 @@ use hotel\Department;
 
 require_once 'User.php';
 require_once 'Login.php';
-require_once 'src/hotel/Department.php';
+require_once '../src/hotel/Department.php';
 
 final class Employee extends User
 {

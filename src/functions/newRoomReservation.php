@@ -80,7 +80,7 @@ function newRoomReservation($connection, $tempRoomReservation, $total, $tester)
             unset($_SESSION['temp_room_reservation']);
             if($tester == 1)
             {
-                header("location:profile.php");
+//                header("location:profile.php");
             }
 
         } catch (PDOException $error) {
