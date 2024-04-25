@@ -104,6 +104,7 @@ else
 if(isset($_POST['submit']))
 {
     buildReservation($res_array, $_SESSION['isRoom'],$connection);
+    header("location:" . $_SESSION['guestRedirect']);
 }
 
 ?>
