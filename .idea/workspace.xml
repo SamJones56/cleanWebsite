@@ -5,11 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bff6bf8-3b2e-4929-89ff-2e5813ecbff7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/images/img_rest/lounge.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/img_rest/outdoorDining.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/miscPhotos/afternoonTeaDrinks.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/miscPhotos/afternoonTeaFood.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/miscPhotos/ballroom.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/miscPhotos/gardens.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/miscPhotos/golf1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/miscPhotos/golf2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/miscPhotos/mainEntrance.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/miscPhotos/privateGardens.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/miscPhotos/privateGardens2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeception.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeception.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/cartFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/cartFunctions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/newRoomReservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/newRoomReservation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dine.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/dine.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +127,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;php.add.doc.comment.for.fields.panel.add.php.doc&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;php.test.frameworks.configurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -129,11 +139,11 @@
       <recent name="D:\laragon\www\cleanWebsite\src\functions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\cleanWebsite\images\miscPhotos" />
+      <recent name="C:\laragon\www\cleanWebsite\images\img_rest" />
       <recent name="D:\laragon\www\cleanWebsite\public" />
       <recent name="D:\laragon\www\cleanWebsite\src\functions" />
       <recent name="D:\laragon\www\cleanWebsite\images" />
-      <recent name="D:\laragon\www\cleanWebsite\src\hotel" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunManager" selected="Codeception.Main">
@@ -188,7 +198,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-php-predefined-ba97393d7c68-6f8e3395a2b4-com.jetbrains.php.sharedIndexes-PS-233.14015.96" />
+        <option value="bundled-php-predefined-ba97393d7c68-6f8e3395a2b4-com.jetbrains.php.sharedIndexes-PS-233.14475.35" />
       </set>
     </attachedChunks>
   </component>
@@ -230,6 +240,8 @@
       <workItem from="1713779247514" duration="212000" />
       <workItem from="1713802412134" duration="487000" />
       <workItem from="1713874303105" duration="8291000" />
+      <workItem from="1713883111637" duration="7764000" />
+      <workItem from="1713912876733" duration="857000" />
     </task>
     <servers />
   </component>
