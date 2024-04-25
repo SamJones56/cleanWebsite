@@ -8,7 +8,7 @@ abstract class User
 {
     protected $user_id, $name, $dob, $address, $ph_no;
 
-    public function toUserArray(){
+    public function getUserArray(){
         return array(
             'name' => $this->name,
             'address' => $this->address,

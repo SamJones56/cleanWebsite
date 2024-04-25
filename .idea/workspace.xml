@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bff6bf8-3b2e-4929-89ff-2e5813ecbff7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/adminManageRooms.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/updateRoom.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/functions/editingRoomsAndTablesFunctions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/createRoom.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/createRoom.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/updateReservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/updateReservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/updateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/updateUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/adminManageUsersFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/adminManageUsersFunctions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/newRoomFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/newRoomFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/updateRoom.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/updateRoom.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/newEmployeeFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/newEmployeeFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/newGuestFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/newGuestFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/newMemberFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/newMemberFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/newRoomFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/RoomFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/profileDisplayAndUpdateFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/profileDisplayAndUpdateFunctions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hotel/Room.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/hotel/Room.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

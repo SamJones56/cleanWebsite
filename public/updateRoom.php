@@ -1,5 +1,5 @@
 <?php
-include "../src/Functions/newRoomFunctions.php";
+include "../src/Functions/RoomFunctions.php";
 include "../src/Functions/databasefunctions.php";
 include_once "../src/Functions/editingRoomsAndTablesFunctions.php";
 require_once '../src/DBconnect.php';

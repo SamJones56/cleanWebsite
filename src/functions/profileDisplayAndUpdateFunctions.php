@@ -104,7 +104,7 @@ function buildUser($userArray, $isEmployee, $connection)
 
         $member->setFilledMember($userArray);
 
-        updateTable($connection, $member->toUserArray(), "user", "user_id", $userArray['user_id']);
+        updateTable($connection, $member->getUserArray(), "user", "user_id", $userArray['user_id']);
         updateTable($connection, $member->toLoginArray(), "login", "Login_id", $userArray['Login_id']);
         updateTable($connection, $member->toCustomerArray(), "customer", "customer_id", $userArray['customer_id']);
         updateTable($connection, $member->toMemberArray(), "member", "member_id", $userArray['member_id']);
@@ -125,7 +125,7 @@ function buildUser($userArray, $isEmployee, $connection)
         // Set the data into employee
         $employee->setFilledEmployee($userArray);
 
-        updateTable($connection, $employee->toUserArray(), "user", "user_id", $userArray['user_id']);
+        updateTable($connection, $employee->getUserArray(), "user", "user_id", $userArray['user_id']);
         updateTable($connection, $employee->toLoginArray(), "login", "Login_id", $userArray['Login_id']);
         updateTable($connection, $employee->toEmployeeArray(), "employee", "employee_id", $userArray['employee_id']);
     }
