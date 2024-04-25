@@ -8,7 +8,7 @@ if($_SESSION['permissionlvl'] < 2 )
     header("location:index.php");
 }
 
-$_SESSION['guestRedirect'] = "adminReservationsUsers.php";
+$_SESSION['guestRedirect'] = "adminManageReservations.php";
 $reservationArray = buildReservationGeneralList($connection);
 
 
