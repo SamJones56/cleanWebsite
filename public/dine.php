@@ -1,19 +1,73 @@
 <?php include "templates/header.php"; ?>
 
+<!--Carousel Source: https://getbootstrap.com/docs/5.3/components/carousel/-->
+
     <title>Dine</title>
 
     <div class="container">
 
-        <!-- Restaurant photos -->
-        <div class="restaurant">
-            <h2>Our Restaurant</h2>
-            <img src="../images/img_rest/mainRestaurant.jpg" alt="Photo of main restaurant area" width="1000">
-            <img src="../images/img_rest/barSeating.jpg" alt="Photo of bar seating area" width="1000">
+        <div id="dineCarousel" class="carousel slide" Data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#dineCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#dineCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#dineCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#dineCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
+                        <input type="image" src="../images/img_rest/mainRestaurant.jpg" class="d-block w-100" alt="Photo of main restaurant area, the Shamrock Restaurant." alt="Submit" style="float:right" width="500">
+<!--                       Edit db table and reservations page-->
+<!--                        <input type="hidden" name="area" value="mainrest">-->
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Shamrock Restaurant</h5>
+                            <p>Dine in our main restaurant, which takes it's name from the Shamrock Rovers.</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
+                        <input type="image" src="../images/img_rest/barSeating.jpg" class="d-block w-100" alt="Photo of bar and brasserie dining area." alt="Submit" style="float:right" width="500">
+<!--                        Edit db table and reservations page-->
+<!--                        <input type="hidden" name="area" value="bar">-->
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Bar & Brasserie</h5>
+                            <p>Enjoy a cocktail in our cosy bar and brasserie.</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
+                        <input type="image" src="../images/img_rest/outdoorDining.jpg" class="d-block w-100" alt="Photo of outdoor dining area." alt="Submit" style="float:right" width="500">
+<!--                        Edit db table and reservations page-->
+<!--                        <input type="hidden" name="area" value="outdoor">-->
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Garden Restaurant</h5>
+                            <p>Take advantage of the great outdoors and have lunch in our garden restaurant.</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
+                        <input type="image" src="../images/img_rest/lounge.jpg" class="d-block w-100" alt="Photo of lounge area." alt="Submit" style="float:right" width="500">
+<!--                        Edit db table and reservations page-->
+<!--                        <input type="hidden" name="area" value="lounge">-->
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Lounge Bar</h5>
+                            <p>Enjoy breakfast or a coffee in our lounge.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-
-
-        <!-- Restaurant info -->
-        <p>RESTAURANT INFO!!!</p>
 
         <!-- Menu images with links to pdf of menu -->
         <div class="menu">
