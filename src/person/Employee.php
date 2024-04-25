@@ -6,7 +6,7 @@ use hotel\Department;
 
 require_once 'User.php';
 require_once 'Login.php';
-require_once '../src/hotel/Department.php';
+require_once 'src/hotel/Department.php';
 
 final class Employee extends User
 {
@@ -67,6 +67,14 @@ final class Employee extends User
         $this->login->setEmail($email);
         $this->login->setPassword($password);
         $this->login->setPermissionlvl($permissionlvl);
+    }
+
+    public function getLoginDetails($employee) {
+        return array(
+            $this->login->getEmail(),
+            $this->login->getPassword(),
+            $this->login->getPermissionlvl(),
+    );
     }
 
     public function toLoginArray() {
