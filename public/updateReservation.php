@@ -19,7 +19,6 @@ if($_SESSION['isRoom'])
         <?php if($_SESSION['isEmployee']){?>
             <label for="employee_id">Employee id</label>
             <input type="text" name="employee_id" id="employee_id" value="<?php echo $res_array['employee_id']?>">
-
             <label for="customer_id">Customer id</label>
             <input type="text" name="customer_id" id="customer_id" value="<?php echo $res_array['customer_id']?>" required>
         <?php } ?>

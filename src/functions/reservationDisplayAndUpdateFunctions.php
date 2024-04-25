@@ -46,7 +46,6 @@ function buildReservation($resArray, $isRoom, $connection)
     include_once "dataBaseFunctions.php";
     require_once '../src/hotel/TableReservations.php';
     require_once '../src/hotel/RoomReservations.php';
-
     require_once '../src/functions/newRoomReservation.php';
 
     if(!$isRoom) {
@@ -55,6 +54,9 @@ function buildReservation($resArray, $isRoom, $connection)
     else
     {
         $tempRes = new RoomReservations();
+        $temp_room_type = searchDB($connection, "rooms", "room_id", $_POST['room_id']);
+
+        $_SESSION['temp_room_type'] = $temp_room_type['room_type'];
     }
         // Update $tempRes with new data, value is passed by reference so it can be changed
 //        https://www.php.net/manual/en/language.references.pass.php
@@ -93,5 +95,5 @@ function buildReservation($resArray, $isRoom, $connection)
 
 
 //    var_dump($resArray);
-    header("location:profile.php");
+//    header("location:profile.php");
  } ?>
