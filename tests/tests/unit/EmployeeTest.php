@@ -15,21 +15,21 @@ class EmployeeTest extends \Codeception\Test\Unit
     public function testGetSetUserid(){
         $employee = new Employee();
 
-        // Set properties using set methods or directly if they are public
+
         $employee->setUserId(1);
         $this->assertSame(1, $employee->getUserId());
     }
     public function testGetSetName(){
         $employee = new Employee();
 
-        // Set properties using set methods or directly if they are public
+
         $employee->setName("EmployeeTester");
         $this->assertSame("EmployeeTester", $employee->getName());
     }
     public function testGetSetAddress(){
         $employee = new Employee();
 
-        // Set properties using set methods or directly if they are public
+
         $employee->setAddress("I Live Here");
         $this->assertSame("I Live Here", $employee->getAddress());
     }
@@ -80,10 +80,10 @@ class EmployeeTest extends \Codeception\Test\Unit
 
     public function testGetFilledEmployee(): void
     {
-        // Create a new Employee instance
+
         $employee = new Employee();
 
-        // Set properties using set methods or directly if they are public
+
         $employee->setUserId(1);
         $employee->setName('Test Employee');
         $employee->setAddress('EmployeeLivesHere');
