@@ -18,7 +18,7 @@ function makeNewEmployee()
         $employee->setDob(escape($_POST['dob']));
 
         // Add to user table
-        addToTable($connection, $employee->toUserArray(), "user");
+        addToTable($connection, $employee->getUserArray(), "user");
 
         // Get user_id
         $employee->setUserId(getKey($connection, "user", "user_id"));

@@ -1,6 +1,10 @@
 <?php
-include "../src/Functions/newRoomFunctions.php";
+include "../src/Functions/RoomFunctions.php";
 include "templates/header.php";
+if($_SESSION['permissionlvl'] < 2 )
+{
+    header("location:index.php");
+}
 makeNewRoom();
 ?>
 
@@ -38,5 +42,4 @@ makeNewRoom();
     </div>
 
 
-    <!-- FOOTER -->
 <?php include "templates/footer.php";?>

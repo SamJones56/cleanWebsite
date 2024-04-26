@@ -22,7 +22,7 @@ function makeNewMember()
         $member->setDob(escape($_POST['dob']));
 
         // Add to user table
-        addToTable($connection, $member->toUserArray(), "user");
+        addToTable($connection, $member->getUserArray(), "user");
 
         // Set customer attributes
         $member->setUserId(getKey($connection, "user", "user_id"));

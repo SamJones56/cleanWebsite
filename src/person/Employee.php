@@ -69,6 +69,14 @@ final class Employee extends User
         $this->login->setPermissionlvl($permissionlvl);
     }
 
+    public function getLoginDetails($employee) {
+        return array(
+            $this->login->getEmail(),
+            $this->login->getPassword(),
+            $this->login->getPermissionlvl(),
+    );
+    }
+
     public function toLoginArray() {
         return $this->login->toLoginArray();
     }

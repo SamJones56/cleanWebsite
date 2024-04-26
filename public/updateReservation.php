@@ -5,7 +5,10 @@ require_once '../src/DBconnect.php';
 
 //var_dump($_SESSION);
 
-
+if($_SESSION['permissionlvl'] < 2 )
+{
+    header("location:index.php");
+}
 // Check if room
 if($_SESSION['isRoom'])
 {
@@ -19,7 +22,6 @@ if($_SESSION['isRoom'])
         <?php if($_SESSION['isEmployee']){?>
             <label for="employee_id">Employee id</label>
             <input type="text" name="employee_id" id="employee_id" value="<?php echo $res_array['employee_id']?>">
-
             <label for="customer_id">Customer id</label>
             <input type="text" name="customer_id" id="customer_id" value="<?php echo $res_array['customer_id']?>" required>
         <?php } ?>
@@ -105,6 +107,7 @@ else
 if(isset($_POST['submit']))
 {
     buildReservation($res_array, $_SESSION['isRoom'],$connection);
+    header("location:" . $_SESSION['guestRedirect']);
 }
 
 ?>

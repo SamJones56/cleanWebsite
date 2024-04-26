@@ -13,26 +13,26 @@ if($_SESSION['permissionlvl'] < 2 )
 <title>Admin Page</title>
 <?php if($_SESSION['permissionlvl'] > 2){?>
   <div>
-    <form action="createRoom.php" method="post">
-        <button type="submit">Create Room</button>
+    <form action="adminManageRooms.php" method="post">
+        <button type="submit">Manage Rooms</button>
     </form>
 </div>
 <br>
  <div>
     <form action="createRestaurantTable.php" method="post">
-        <button type="submit">Create Table</button>
+        <button type="submit">Manage Tables</button>
     </form>
 </div>
 <br>
 <div>
     <form action="createEmployee.php" method="post">
-        <button type="submit">Create Employee</button>
+        <button type="submit">Manage Employees</button>
     </form>
 </div>
 <br>
     <div>
         <form action="createDepartment.php" method="post">
-            <button type="submit">Create department</button>
+            <button type="submit">Manage departments</button>
         </form>
     </div>
     <br>

@@ -40,12 +40,12 @@ function buildEmployeeDisplay($userArray)
 {
     echo("<br>");
     if(isset($_POST['submit_employee'])){
-        var_dump($_POST['user_id']);
+//        var_dump($_POST['user_id']);
         $temp_login = $_POST['user_id'];
         $_SESSION['temp_login'] = $temp_login;
         $_SESSION['tempEmployee'] = true;
-//        header("Location: updateUser.php");
-//        exit();
+        header("Location: updateUser.php");
+        exit();
     }
 
     // Keys that match headers
