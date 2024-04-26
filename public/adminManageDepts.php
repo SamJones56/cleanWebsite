@@ -8,9 +8,9 @@ if($_SESSION['permissionlvl'] < 2 )
 {
     header("location:index.php");
 }
-$_SESSION['guestRedirect'] = "adminManageRooms.php";
-$keys = ['room_id', 'room_type', 'accessibility', 'price'];
-$roomArray = buildTableList($connection, "rooms","room_id");
+$_SESSION['guestRedirect'] = "adminManageDepts.php";
+$keys = ['dept_id', 'dept_name', 'address'];
+$deptArray = buildTableList($connection, "departments","dept_id");
 
 if(isset($_POST['submit_room']))
 {
@@ -19,22 +19,20 @@ if(isset($_POST['submit_room']))
 }
 ?>
     <h2>Manage Rooms</h2>
-    <button><a href="createRoom.php" > Create a room </a> </button>
+    <button><a href="createDepartment.php" > Create a Department </a> </button>
     <table>
         <thead>
         <tr>
-            <th>Room id</th>
-            <th>Room Type</th>
-            <th>Accessibility</th>
-            <th>Price</th>
+            <th>Dept id</th>
+            <th>Dept Name</th>
+            <th>Address</th>
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($roomArray as $room){
-            printData($room, "room_id");
+        <?php foreach ($deptArray as $dept){
+            printData($dept, "dept_id");
         }  ?>
         </tbody>
     </table>
-    <a href="admin.php" > Back to admin </a>
 <?php
 include_once "templates/footer.php";

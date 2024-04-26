@@ -20,7 +20,7 @@ function printData ($tableData, $searchKey){
     }
     echo '<td><form action="" method="post">';
     echo '<input type="hidden" name="item_id" value="' . ($tableData[$searchKey]) . '">';
-    echo '<input type="submit" name="submit_room" value="Edit">';
+    echo '<td><input type="submit" name="submit_room" value="Edit"></td>';
     echo '</form></td>';
     echo "</tr>";
 }

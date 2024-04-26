@@ -6,11 +6,13 @@ include_once "../src/Functions/reservationDisplayAndUpdateFunctions.php";
 include "templates/header.php";
 require_once '../src/DBconnect.php';
 
-if ($_SESSION['permission_lvl'] == 0)
+if ($_SESSION['permissionlvl'] == 0)
 {
     header("location:index.php");
 }
 $user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee'],$connection);
+
+//var_dump($user_array);
 $_SESSION['guestRedirect'] = "profile.php";
 //var_dump($_SESSION);
 //var_dump($user_array);

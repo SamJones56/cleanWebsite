@@ -40,6 +40,7 @@ makeNewRoom();
             <input type="submit" name="submit" value="Submit">
         </form>
     </div>
+    <button><a href="adminManageRooms.php" > Back to rooms </a> </button>
 
 
 <?php include "templates/footer.php";?>
