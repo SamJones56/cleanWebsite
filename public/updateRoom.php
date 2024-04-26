@@ -40,4 +40,5 @@ updateRoom($connection);
 
         <input type="submit" name="submit" value="Submit">
     </form>
+    <a href="adminManageRooms.php">Back to Rooms</a>
 </div>
