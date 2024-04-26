@@ -12,3 +12,6 @@ https://vle-bn.tudublin.ie/pluginfile.php/372186/mod_resource/content/0/PHP_17_s
 
 w3schools: empty() function
 https://www.w3schools.com/php/func_var_empty.asp
+
+PDO fetch statements:
+https://www.php.net/manual/en/pdostatement.fetchobject.php

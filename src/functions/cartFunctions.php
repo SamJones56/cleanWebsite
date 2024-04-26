@@ -69,39 +69,47 @@ function increaseCartQuantity($id)
 {
     // Get the current cart items
     $cartItems = getShoppingCart();
+    // Get the quantity of the item
     $quantity = getQuantity($id, $cartItems);
+    // Increase the quantity
     $newQuantity = $quantity + 1;
+    // update the item at id
     $cartItems[$id] = $newQuantity;
+    // update the session cart
     $_SESSION['cart'] = $cartItems;
 }
-
+// This function reduces the cart quantity
 function reduceCartQuantity($id)
 {
+    // Get current cart
     $cartItems = getShoppingCart();
+    // Get current quantity of item at id
     $quantity = getQuantity($id, $cartItems);
+    // Decrement the id
     $newQuantity = $quantity - 1;
+    // if the quantity is less than 1
     if ($newQuantity < 1) {
+        // remove the item from the cart
         unset($cartItems[$id]);
     } else {
+        // else update quantity
         $cartItems[$id] = $newQuantity;
     }
+    // update session cart
     $_SESSION['cart'] = $cartItems;
 }
-
+// This function is used by the default to display the products
 function displayProducts($connection)
 {
     $products = getRoomProducts($connection);
-//    require_once __DIR__ . '/../templates/list.php';
 }
-
+// This function displays the cart
 function displayCart($connection)
 {
+    // Get the products
     $products = getRoomProducts($connection);
+    // Get the items in the cart
     $cartItems = getShoppingCart();
+    // Redirect to the cart page
     header('Location: cart.php');
-    if(!empty($cartItems)){
-//    require_once __DIR__ . '/../templates/cart.php';
-} else {
-//    require_once __DIR__ . '/../templates/emptyCart.php';
-}
 }

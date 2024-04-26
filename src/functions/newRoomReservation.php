@@ -65,7 +65,6 @@ function newRoomReservation($connection, $tempRoomReservation, $total, $tester)
             $roomReservation->setCheckIn($tempRoomReservation['check_in']);
             $roomReservation->setCheckOut($tempRoomReservation['check_out']);
             $roomReservation->setPayment($tempRoomReservation['payment']);
-//            $roomReservation->setRoomId(checkRoomAvailability($connection, $tempRoomReservation['check_in'], $tempRoomReservation['check_out']));
             $roomReservation->setRoomId($tempRoomReservation['room_id']);
             // Get the room price
             $roomReservation->setTotalPrice($total);
@@ -100,7 +99,6 @@ function checkRoomAvailability($connection, $check_in, $check_out)
     $roomType = $_SESSION['temp_room_type'];
     // Get an associated array of all room types and their id's
     $availableRooms = getArr($connection, $roomType, $check_in, $check_out);
-
     if($availableRooms) {
         return $availableRooms[0]['room_id'];
     }
@@ -115,14 +113,10 @@ function checkRoomAvailability($connection, $check_in, $check_out)
 function getArr($connection, $roomType, $check_in, $check_out): array
 {
     $roomsArray = searchAllDB($connection, "rooms", "room_type", $roomType);
-
     $availableRooms = [];
-
     foreach ($roomsArray as $room) {
         $bookingsArray = searchAllDB($connection, "roomreservations", "room_id", $room['room_id']);
-
         $isAvailable = true;
-
         foreach ($bookingsArray as $booking) {
             // Check dates
             $bookedCheckIn = strtotime($booking['check_in']);
@@ -166,7 +160,6 @@ function roomPriceCalculator($initialRoomPrice, $checkIn, $checkOut)
 //        https://stackoverflow.com/questions/11076334/php-strtotime-add-hours
         $selectedDate = strtotime('+1 day', $selectedDate);
     }
-
     // Christmas date checker
     if(roomDateRangeDeals(11,12,$dateRange))
     {

@@ -1,4 +1,6 @@
 <?php
+
+// This function adds data to the table using an input array and the name of the table
 function addToTable($connection, $inputArray, $tableName){
     try {
     $sql = sprintf(
@@ -13,10 +15,7 @@ function addToTable($connection, $inputArray, $tableName){
         echo $sql . "<br>" . $error->getMessage();
     }
 }
-
-
-
-
+// This function updates the data in a table, it takes an input array, the name of the table, the name of the key, and the given key that is associated
 function updateTable($connection, $inputArray, $tableName, $keyName, $givenKey)
 {
     try{
@@ -39,10 +38,10 @@ function updateTable($connection, $inputArray, $tableName, $keyName, $givenKey)
     echo $sql . "<br>" . $error->getMessage();
     }
 }
-
+// PDO Fetch statements
 // https://www.php.net/manual/en/pdostatement.fetchobject.php
+// This function returns the latest pk put into a table, using a table name and the name of the pk
 function getKey($connection, $tableName, $primaryKey){
-//    require_once '../src/DBconnect.php';
     try {
         $sql = "SELECT MAX(" . $primaryKey . ") FROM " . $tableName;
         $statement = $connection->prepare($sql);
@@ -54,7 +53,7 @@ function getKey($connection, $tableName, $primaryKey){
         echo $sql . "<br>" . $error->getMessage();
     }
 }
-
+// This function gets the count of the entries in a table using just the table name
 function getCount($connection, $tableName)
 {
     try{
@@ -67,7 +66,7 @@ function getCount($connection, $tableName)
      echo $sql . "<br>" . $error->getMessage();
     }
 }
-
+// This function searches the database for an associated key to a given value
 function searchDB($connection, $tableName, $searchKey, $searchValue)
 {
     try {
@@ -81,7 +80,7 @@ function searchDB($connection, $tableName, $searchKey, $searchValue)
         echo $sql . "<br>" . $error->getMessage();
     }
 }
-
+// This function searched the whole database for associated key and value
 function searchAllDB($connection, $tableName, $searchKey, $searchValue)
 {
     try {
@@ -109,7 +108,7 @@ function seachAllDBcap($connection, $tableName, $searchKey, $searchValue)
         echo $sql . "<br>" . $error->getMessage();
     }
 }
-
+// This function searches the database for an associated key with a value
 function getAssociationKey($connection, $tableName, $keyToSearch, $columnToSearch ,$keyToFind){
     try{
         $sql = "SELECT " . $keyToFind . " FROM " . $tableName . " WHERE " . $columnToSearch . " = " . $keyToSearch;
@@ -123,7 +122,7 @@ function getAssociationKey($connection, $tableName, $keyToSearch, $columnToSearc
 //    echo "error" .  $sql . "<br>" . $error->getMessage();
     }
 }
-
+// This function updates a column in the database
 function updateColumn($connection, $tableName, $whereKey, $updateKey, $identifyingKey, $givenIdentifyingKey)
 {
     try
@@ -135,7 +134,7 @@ function updateColumn($connection, $tableName, $whereKey, $updateKey, $identifyi
         echo "error" .  $sql . "<br>" . $error->getMessage();
     }
 }
-
+// this function deletes data from the database
 function deleteData($connection, $tableName, $identifyingKey, $givenKey)
 {
     try

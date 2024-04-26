@@ -1,5 +1,5 @@
 <?php
-
+// Build a list of all the tables
 function buildTableList($connection, $tableName, $searchKey)
 {
     include_once "dataBaseFunctions.php";
