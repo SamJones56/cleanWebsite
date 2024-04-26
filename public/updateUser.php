@@ -16,24 +16,23 @@ if($_SESSION['login_id'] == $_SESSION['temp_login']) {
 }
 // Check if its editing another employee
 else if($_SESSION['tempEmployee']){
-//    var_dump("if else hit");
+    var_dump("if else hit");
     $user_array = newProfileDisplay($_SESSION['temp_login'], $_SESSION['tempEmployee'], $connection);
+    echo '<br>';
+    var_dump($user_array);
     buildProfileDisplay($user_array, $_SESSION['tempEmployee']);
-    $_SESSION['tempEmployee'] = false;
+    $_SESSION['tempEmployee'] = true;
 }
 
 
 // Check if user is editing anothers profile, using their templogin id to build table
 else
 {
-//    var_dump("else hit");
+    var_dump("else hit");
     $user_array = newProfileDisplay($_SESSION['temp_login'], $_SESSION['tempEmployee'], $connection);
     buildProfileDisplay($user_array, $_SESSION['tempEmployee']);
     $_SESSION['tempEmployee'] = false;
 }
-
-
-
 
 if(isset($_POST['submit']))
 {

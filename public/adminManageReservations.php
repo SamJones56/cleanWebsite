@@ -63,6 +63,6 @@ $reservationArray = buildReservationGeneralList($connection);
         ?>
         </tbody>
     </table>
-
+    <a href="admin.php" > Back to admin </a>
 
 <?php  include "templates/footer.php"; ?>

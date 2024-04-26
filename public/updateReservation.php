@@ -55,7 +55,7 @@ if($_SESSION['isRoom'])
         <input type="submit" name="submit" value="Submit">
     </form>
 </div>
-
+    <a href="<?php echo $_SESSION['guestRedirect']; ?>">Back</a>
 <?php }
 
 else
@@ -99,7 +99,7 @@ else
         </form>
     </div>
 
-
+    <a href="<?php echo $_SESSION['guestRedirect']; ?>">Back</a>
 <?php
 
 }

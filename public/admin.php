@@ -24,12 +24,6 @@ if($_SESSION['permissionlvl'] < 2 )
     </form>
 </div>
 <br>
-<div>
-    <form action="createEmployee.php" method="post">
-        <button type="submit">Manage Employees</button>
-    </form>
-</div>
-<br>
     <div>
         <form action="adminManageDepts.php" method="post">
             <button type="submit">Manage departments</button>
@@ -39,6 +33,12 @@ if($_SESSION['permissionlvl'] < 2 )
     <div>
         <form action="adminManageUsers.php" method="post">
             <button type="submit">Manage users</button>
+        </form>
+    </div>
+    <br>
+    <div>
+        <form action="createEmployee.php" method="post">
+            <button type="submit">Add Employees</button>
         </form>
     </div>
     <br>

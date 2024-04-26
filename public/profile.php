@@ -12,8 +12,17 @@ if ($_SESSION['permissionlvl'] == 0)
 }
 $user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee'],$connection);
 
+$_SESSION['temp_login'] = $_SESSION['login_id'];
+
+
+
 //var_dump($user_array);
 $_SESSION['guestRedirect'] = "profile.php";
+
+//if()
+//{
+//
+//}
 //var_dump($_SESSION);
 //var_dump($user_array);
 

@@ -77,7 +77,7 @@ function buildProfileDisplay($userArray, $isEmployee)
         <?php ?>
         <input type="submit" name="submit" value="Submit">
     </form>
-    <a href="index.php">Back to home</a>
+    <a href="<?php echo $_SESSION['guestRedirect']; ?>">Back</a>
 <?php }
 
 function buildUser($userArray, $isEmployee, $connection)
@@ -88,7 +88,9 @@ function buildUser($userArray, $isEmployee, $connection)
     require_once '../src/person/Employee.php';
 
     echo"<br>";
+    echo '<h1> Test </h1>';
     var_dump($userArray);
+    var_dump($isEmployee);
     echo"<br>";
     if(!$isEmployee) {
         $member = new Member();
@@ -126,10 +128,10 @@ function buildUser($userArray, $isEmployee, $connection)
         $employee->setFilledEmployee($userArray);
 
         updateTable($connection, $employee->getUserArray(), "user", "user_id", $userArray['user_id']);
-        updateTable($connection, $employee->toLoginArray(), "login", "Login_id", $userArray['Login_id']);
+        updateTable($connection, $employee->toLoginArray(), "login", "Login_id", $userArray['login_id']);
         updateTable($connection, $employee->toEmployeeArray(), "employee", "employee_id", $userArray['employee_id']);
     }
 //https://stackoverflow.com/questions/12383371/refresh-a-page-using-php
     // Refresh page
-    header("Refresh:0");
+//    header("Refresh:0");
 }

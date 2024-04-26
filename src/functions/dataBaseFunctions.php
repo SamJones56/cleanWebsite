@@ -116,6 +116,7 @@ function getAssociationKey($connection, $tableName, $keyToSearch, $columnToSearc
         $statement = $connection->prepare($sql);
         $statement->execute();
         $keyResult = $statement->fetch(PDO::FETCH_ASSOC);
+
         $result = $keyResult[$keyToFind];
         return $result;
     } catch(PDOException $error) {
