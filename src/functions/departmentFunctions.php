@@ -22,3 +22,20 @@ function makeNewDepartment()
         $dept->setDeptId(getKey($connection, "departments", "dept_id"));
     }
 }
+
+function updateDept($connection)
+{
+    if (isset($_POST['submit'])) {
+        require "../common.php";
+        include_once "../src/functions/dataBaseFunctions.php";
+        require_once '../src/hotel/department.php';
+
+        $dept = new Department();
+
+        $dept->setDeptId(escape($_POST['dept_id']));
+        $dept->setDeptName(escape($_POST['dept_name']));
+        $dept->setAddress(escape($_POST['address']));
+        updateTable($connection, $dept->toDeptArray(), "departments", "dept_id", $dept->getdeptId());
+        header("location:" . $_SESSION['guestRedirect']);
+    }
+}

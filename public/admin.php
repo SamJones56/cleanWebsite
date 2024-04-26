@@ -31,7 +31,7 @@ if($_SESSION['permissionlvl'] < 2 )
 </div>
 <br>
     <div>
-        <form action="createDepartment.php" method="post">
+        <form action="adminManageDepts.php" method="post">
             <button type="submit">Manage departments</button>
         </form>
     </div>

@@ -12,7 +12,7 @@ $_SESSION['guestRedirect'] = "adminManageRooms.php";
 $keys = ['room_id', 'room_type', 'accessibility', 'price'];
 $roomArray = buildTableList($connection, "rooms","room_id");
 
-if(isset($_POST['submit_room']))
+if(isset($_POST['submit_post']))
 {
     $_SESSION['tempEdit'] = $_POST['item_id'];
     header("Location: updateRoom.php");

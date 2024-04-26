@@ -1,5 +1,5 @@
 <?php
-include "../src/Functions/RoomFunctions.php";
+include "../src/Functions/roomFunctions.php";
 include "../src/Functions/databasefunctions.php";
 include_once "../src/Functions/editingRoomsAndTablesFunctions.php";
 require_once '../src/DBconnect.php';
@@ -8,18 +8,10 @@ if($_SESSION['permissionlvl'] < 2 )
 {
     header("location:index.php");
 }
-
-$editingRoom = getItemToUpdate($connection, "rooms", "room~_id", $_SESSION['tempEdit']);
-
-
-var_dump($editingRoom);
-
-
+$editingRoom = getItemToUpdate($connection, "rooms", "room_id", $_SESSION['tempEdit']);
+//var_dump($editingRoom);
 updateRoom($connection);
-
-
 ?>
-
 <h2>Update a Room</h2>
 <div id="dataForm">
     <form method="post">

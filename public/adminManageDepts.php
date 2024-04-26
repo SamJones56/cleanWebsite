@@ -12,13 +12,13 @@ $_SESSION['guestRedirect'] = "adminManageDepts.php";
 $keys = ['dept_id', 'dept_name', 'address'];
 $deptArray = buildTableList($connection, "departments","dept_id");
 
-if(isset($_POST['submit_room']))
+if(isset($_POST['submit_post']))
 {
     $_SESSION['tempEdit'] = $_POST['item_id'];
-    header("Location: updateRoom.php");
+    header("Location: updateDepartment.php");
 }
 ?>
-    <h2>Manage Rooms</h2>
+    <h2>Manage Departments</h2>
     <button><a href="createDepartment.php" > Create a Department </a> </button>
     <table>
         <thead>
@@ -34,5 +34,6 @@ if(isset($_POST['submit_room']))
         }  ?>
         </tbody>
     </table>
+    <a href="admin.php" > Back to admin </a>
 <?php
 include_once "templates/footer.php";

@@ -1,5 +1,5 @@
 <?php
-include "../src/Functions/newDepartmentFunctions.php";
+include "../src/Functions/departmentFunctions.php";
 include "templates/header.php";
 if($_SESSION['permissionlvl'] < 2 )
 {
@@ -20,6 +20,6 @@ makeNewDepartment();
             <input type="submit" name="submit" value="Submit">
         </form>
     </div>
-    <a href="index.php">Back to home</a>
+    <a href="adminManageDepts.php">Back to departments</a>
 
 <?php include "templates/footer.php"; ?>

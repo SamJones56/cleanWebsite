@@ -1,5 +1,5 @@
 <?php
-include "../src/Functions/RoomFunctions.php";
+include "../src/Functions/roomFunctions.php";
 include "templates/header.php";
 if($_SESSION['permissionlvl'] < 2 )
 {
