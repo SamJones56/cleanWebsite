@@ -21,8 +21,6 @@ function updateNewMember()
         $member->setDob(escape($_POST['dob']));
 
         // Add to user table
-
-
         $member->setUserId(escape($_POST['dob']));
         $member->setPassportNo(escape($_POST['passport_no']));
 

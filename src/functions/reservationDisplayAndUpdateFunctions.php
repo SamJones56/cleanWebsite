@@ -1,7 +1,6 @@
 <?php
 
 // Check for rooms or restaurant
-
 function newReservationDisplay($reservations_id, $isRoom, $connection)
 {
     require_once "../common.php";
@@ -32,8 +31,6 @@ function newReservationDisplay($reservations_id, $isRoom, $connection)
 
         }
     }
-
-//    var_dump($temp_array);
     return $temp_array;
 }
 
@@ -67,7 +64,6 @@ function buildReservation($resArray, $isRoom, $connection)
                 $value = $_POST[$key];
             }
         }
-//        var_dump($resArray);
     if(!$isRoom) {
         $tempRes->setFilledTableRes($resArray);
     }
@@ -92,8 +88,4 @@ function buildReservation($resArray, $isRoom, $connection)
             echo "Selected dates are not available";
         }
     }
-
-
-//    var_dump($resArray);
-//    header("location:profile.php");
  } ?>

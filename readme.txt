@@ -15,3 +15,6 @@ https://www.w3schools.com/php/func_var_empty.asp
 
 PDO fetch statements:
 https://www.php.net/manual/en/pdostatement.fetchobject.php
+
+PHP : Pasing from reference
+https://www.php.net/manual/en/language.references.pass.php

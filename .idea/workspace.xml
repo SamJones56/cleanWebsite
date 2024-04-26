@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2bff6bf8-3b2e-4929-89ff-2e5813ecbff7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/adminManageReservationFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/adminManageReservationFunctions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/adminManageUsersFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/adminManageUsersFunctions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/cartFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/cartFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/editingRoomsAndTablesFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/editingRoomsAndTablesFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/newEmployeeFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/newEmployeeFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/newGuestFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/newGuestFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/newRestaurantReservationsFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/newRestaurantReservationsFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/newRestaurantTableFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/newRestaurantTableFunctions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

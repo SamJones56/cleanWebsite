@@ -6,11 +6,9 @@ use person\Login;
 function userLogIn($connection, $test)
 {
     session_unset();
-//    if (isset($_POST['Submit'])) {
         try {
             require_once('../config.php');
             include_once "../src/functions/dataBaseFunctions.php";
-//            $connection = new PDO($dsn, $username, $password, $options);
             $sql = "SELECT login_id, email, password, permissionlvl from login where email = :USER";
             $statement = $connection->prepare($sql);
             $tmpUser = $_POST['Email'];
@@ -48,13 +46,10 @@ function userLogIn($connection, $test)
         (Exception $e) {
             echo '<div class="messages-error">Error Logging in:' . $e->getMessage() . '</div>';
         }
-//    }
+
 }
 
-//
 function createLogin($connection){
-//use person\Login;
-
     require_once '../src/person/Login.php';
     require_once '../src/functions/dataBaseFunctions.php';
     require_once '../src/DBconnect.php';

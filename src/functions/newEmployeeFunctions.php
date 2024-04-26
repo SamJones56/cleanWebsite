@@ -3,12 +3,14 @@ use person\Employee;
 
 function makeNewEmployee()
 {
+    // Handle form post
     if (isset($_POST['submit'])) {
         require "../common.php";
         include "../src/functions/dataBaseFunctions.php";
         require_once '../src/DBconnect.php';
         require_once '../src/person/Employee.php';
 
+        // Create a new employee object
         $employee = new Employee();
 
         // Set user attributes
@@ -25,7 +27,7 @@ function makeNewEmployee()
 
         // Set login attributes
         $employee->setLoginDetails(escape($_POST['email']), escape($_POST['password']),escape($_POST['permissionlvl']));
-//        $employee->setPermissionlvl(escape($_POST['permissionlvl']));
+
         // Add login table
         addToTable($connection, $employee->toLoginArray(), "login");
 
@@ -36,9 +38,7 @@ function makeNewEmployee()
         $employee->setDeptId(escape($_POST['dept_id']));
         $employee->setJob(escape($_POST['job']));
 
-
         // Add to employee table
         addToTable($connection, $employee->toEmployeeArray(), "employee");
-
     }
 }

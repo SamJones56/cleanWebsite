@@ -13,7 +13,7 @@ function buildTableList($connection, $tableName, $searchKey)
     }
     return $retrievedData;
 }
-
+// Print the data
 function printData ($tableData, $searchKey){
     foreach ($tableData as $data) {
         echo "<td>" . $data . "</td>";

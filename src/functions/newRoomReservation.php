@@ -1,6 +1,6 @@
 <?php
 use hotel\RoomReservations;
-// Save form data
+// This function creates
 function tempRoomReservation($connection, $tester)
 {
     require_once "../common.php";
@@ -51,7 +51,6 @@ function newRoomReservation($connection, $tempRoomReservation, $total, $tester)
 {
     require_once '../src/DBconnect.php';
     // Check if the form is submitted
-//    if (isset($_POST['submit'])) {
         try {
             require_once "../common.php";
             include_once "../src/functions/dataBaseFunctions.php";

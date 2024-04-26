@@ -1,7 +1,7 @@
 <?php
 
 use hotel\RestaurantTable;
-
+// This function creates a new table
 function makeNewRestaurantTable()
 {
     if (isset($_POST['submit'])) {

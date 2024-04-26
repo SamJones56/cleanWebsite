@@ -30,21 +30,10 @@ function makeNewGuest()
         addToTable($connection, $guest->toCustomerArray(), "customer");
         $guest->setCustomerId(getKey($connection, "customer", "customer_id"));
 
-        // Set login attributes
-//        $guest->setLoginDetails("guestEmail" . $guest->getUserId() . ".com", "password" .  $guest->getUserId(),$guest->getPermissionlvl());
-
-        // Add login table
-//        addToTable($connection, $guest->toLoginArray(), "login");
-
-        // Set login id
-//        $guest->setLoginId(getKey($connection, "login", "login_id"));
-
         // Add to guest table
         addToTable($connection, $guest->toGuestArray(), "guest");
 
         // Logg the guest in
-//        var_dump($_SESSION);
-//        $_SESSION['Active'] = true;
         $_SESSION['isGuest'] = true;
         $_SESSION['isEmployee'] = false;
         $_SESSION['customer_id'] = $guest->getCustomerId();
