@@ -17,6 +17,11 @@ if(isset($_POST['submit_post']))
     $_SESSION['tempEdit'] = $_POST['item_id'];
     header("Location: updateRoom.php");
 }
+if(isset($_POST['delete_post'])){
+    $temp_id = $_POST['item_id'];
+    deleteData($connection, "rooms","room_id",$temp_id);
+    header("refresh:0");
+}
 ?>
     <h2>Manage Rooms</h2>
     <button><a href="createRoom.php" > Create a room </a> </button>

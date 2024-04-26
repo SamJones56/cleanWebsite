@@ -17,6 +17,11 @@ if(isset($_POST['submit_post']))
     $_SESSION['tempEdit'] = $_POST['item_id'];
     header("Location: updateDepartment.php");
 }
+if(isset($_POST['delete_post'])){
+    $temp_id = $_POST['item_id'];
+    deleteData($connection, "departments","dept_id",$temp_id);
+    header("refresh:0");
+}
 ?>
     <h2>Manage Departments</h2>
     <button><a href="createDepartment.php" > Create a Department </a> </button>

@@ -20,6 +20,8 @@ function makeNewDepartment()
         addToTable($connection, $dept->toDeptArray(), "departments");
         // Set the id
         $dept->setDeptId(getKey($connection, "departments", "dept_id"));
+
+        header("location:adminManageDepts.php");
     }
 }
 
