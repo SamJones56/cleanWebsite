@@ -72,6 +72,7 @@ function buildRoomReservationUserList($connection, $user_id, $isEmployee)
     }
 }
 
+// This function builds an array of restaurant bookings
 function buildRestaurantReservationList($connection, $user_id, $isEmployee)
 {
     include_once "../src/Functions/reservationDisplayAndUpdateFunctions.php";
@@ -105,7 +106,7 @@ function buildRestaurantReservationList($connection, $user_id, $isEmployee)
     }
 }
 
-// Building room bookings table
+// This function builds a table with the reservation data
 function buildRoomReservationDisplay($tempArray, $connection)
 {
     include_once "dataBaseFunctions.php";
@@ -178,7 +179,7 @@ function buildRoomReservationDisplay($tempArray, $connection)
     echo "</tr>";
 }
 
-// Building restaurant bookings table
+// This function builds a table with the reservation data
 function buildRestaurantReservationDisplay($tableArray, $connection)
 {
     // See if the form submission

@@ -7,4 +7,8 @@ w3schools : array key exists
 https://www.w3schools.com/php/func_array_key_exists.asp
 
 
+COMP H2029 : Shopping cart
+https://vle-bn.tudublin.ie/pluginfile.php/372186/mod_resource/content/0/PHP_17_shoppingCarts.pdf
 
+w3schools: empty() function
+https://www.w3schools.com/php/func_var_empty.asp
