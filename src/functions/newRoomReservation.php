@@ -34,7 +34,7 @@ function tempRoomReservation($connection, $tester)
                 echo "<br> <h1 style='color: red'> Error in host date </h1>";
             }
             else if ($tester == 0) {
-                header("location: cart.php");
+//                header("location: cart.php");
             }
             // For the purpose of testing
             else if ($tester == 1) {
@@ -162,50 +162,36 @@ function roomPriceCalculator($connection,$initialRoomPrice, $checkIn, $checkOut)
     }
 
     // Get entries from the discount table
-    $count = getCount($onnection, "discounts");
-
-    $availableDates = [];
-    // Loop through all entries in discount table
-    for($i = 0; $i < $count; $i++){
+    $count = getKey($connection, "discounts", "discount_id");
+    $discountArray = [];
+    for($i = 0; $i <= $count; $i++) {
         $tempDiscount = searchDB($connection, "discounts", "discount_id", $i);
-        $discStart = $tempDiscount['startDate'];
-        $discEnd = $tempDiscount['endDate'];
-        // Discount date checker
-        if(roomDateRangeDeals($discStart,$discEnd,$dateRange))
+        if($tempDiscount)
         {
-            // Calculate days and total price
-            $days = ceil(abs($checkOut - $checkIn) / 86400);
-            return $roomPrice = ($initialRoomPrice*0.75) * $days;
-        }
-        else
-        {
-            // Calculate days and total price
-            $days = ceil(abs($checkOut - $checkIn) / 86400);
-            return $roomPrice = $initialRoomPrice * $days;
+            $discountArray[] = $tempDiscount;
+            var_dump($discountArray);
         }
     }
 
-//    $dateRange = [];
-//    $selectedDate = $checkIn;
-//    while($selectedDate <= $checkOut)
-//    {
-//        $dateRange[] = $selectedDate;
-////        https://stackoverflow.com/questions/11076334/php-strtotime-add-hours
-//        $selectedDate = strtotime('+1 day', $selectedDate);
-//    }
-//    // Christmas date checker
-//    if(roomDateRangeDeals(11,12,$dateRange))
-//    {
-//        // Calculate days and total price
-//        $days = ceil(abs($checkOut - $checkIn) / 86400);
-//        return $roomPrice = ($initialRoomPrice*0.75) * $days;
-//    }
-//    else
-//    {
-//        // Calculate days and total price
-//        $days = ceil(abs($checkOut - $checkIn) / 86400);
-//        return $roomPrice = $initialRoomPrice * $days;
-//    }
+    // Apply discount
+    $finalPrice = $initialRoomPrice * count($dateRange);
+    foreach ($discountArray as $discount)
+    {
+        $discountStart = strtotime($discount['startDate']);
+        $discountEnd = strtotime($discount['endDate']);
+        $amount = $discount['amount'];
+        // Check for matching dates
+        foreach ($dateRange as $date)
+        {
+            if ($date >= $discountStart && $date <= $discountEnd)
+            {
+                $finalPrice -= ($initialRoomPrice * $amount);
+            }
+        }
+    }
+    echo '<br> <h1>Final Price: </h1>';
+    var_dump($finalPrice);
+    return $finalPrice;
 }
 
 //https://codereview.stackexchange.com/questions/255002/checking-if-an-array-of-dates-are-within-a-date-range#:~:text=I%20created%20a%20dates_in_range(),%2C%20it'll%20return%20false.

@@ -19,10 +19,10 @@ updateDiscount($connection);
         <input type="text" name="discount_id" id="discount_id" value="<?php echo $editingDisc['discount_id']?>"><br>
 
         <label for="startDate">Start Date</label>
-        <input type="text" name="startDate" id="startDate" value="<?php echo $editingDisc['startDate']?>"><br>
+        <input type="date" name="startDate" id="startDate" value="<?php echo $editingDisc['startDate']?>"><br>
 
         <label for="endDate">End Date</label>
-        <input type="text" name="endDate" id="endDate" value="<?php echo $editingDisc['endDate']?>"><br>
+        <input type="date" name="endDate" id="endDate" value="<?php echo $editingDisc['endDate']?>"><br>
 
         <label for="amount">Amount</label>
         <input type="text" name="amount" id="amount" value="<?php echo $editingDisc['amount']?>"><br>

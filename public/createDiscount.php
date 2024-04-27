@@ -11,10 +11,10 @@ makeDisount();
     <div id="dataForm">
         <form method="post">
             <label for="startDate">Start Date</label>
-            <input type="text" name="startDate" id="startDate">
+            <input type="date" name="startDate" id="startDate">
 
             <label for="endDate">End Date</label>
-            <input type="text" name="endDate" id="endDate">
+            <input type="date" name="endDate" id="endDate">
 
             <label for="amount">Amount</label>
             <input type="text" name="amount" id="amount">

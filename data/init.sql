@@ -263,10 +263,10 @@ CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`roomextras` (
 -- Table `hoteltallafornia`.`Discounts`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`Discounts` (
-                                                              `discount_id` INT NOT NULL AUTO_INCREMENT,
-                                                              `startDate` INT NOT NULL,
-                                                              `endDate` INT NOT NULL,
-                                                              `amount` DECIMAL(2,2) NOT NULL,
+                                                              `discount_id` INT NOT NULL,
+                                                              `startDate` DATETIME(2) NOT NULL,
+    `endDate` DATETIME(2) NOT NULL,
+    `amount` DECIMAL(2,2) NOT NULL,
     `description` VARCHAR(45) NULL,
     PRIMARY KEY (`discount_id`))
     ENGINE = InnoDB;
@@ -347,4 +347,4 @@ VALUES
 
 INSERT INTO discounts (discount_id, startDate, endDate, amount, description)
 VALUES
-    (1, 11, 12, 0.75, 'Christmas Deal')
+    (1, '2024-04-01', '2024-05-30', 0.10, 'Test Deal')
