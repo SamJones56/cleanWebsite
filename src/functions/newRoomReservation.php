@@ -34,7 +34,7 @@ function tempRoomReservation($connection, $tester)
                 echo "<br> <h1 style='color: red'> Error in host date </h1>";
             }
             else if ($tester == 0) {
-//                header("location: cart.php");
+                header("location: cart.php");
             }
             // For the purpose of testing
             else if ($tester == 1) {
