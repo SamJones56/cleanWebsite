@@ -125,7 +125,7 @@ switch ($action) {
 </div>
 
 <?php
-    var_dump($cartItems);
+//    var_dump($cartItems);
 //    var_dump($products);
 foreach ($cartItems as $id => $quantity):
     $product = $products[$id];

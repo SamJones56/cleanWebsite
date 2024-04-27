@@ -172,7 +172,7 @@ function roomPriceCalculator($connection,$initialRoomPrice, $checkIn, $checkOut)
             var_dump($discountArray);
         }
     }
-
+//  Get count : https://www.w3schools.com/sql/sql_count_avg_sum.asp
     // Apply discount
     $finalPrice = $initialRoomPrice * count($dateRange);
     foreach ($discountArray as $discount)
@@ -189,8 +189,8 @@ function roomPriceCalculator($connection,$initialRoomPrice, $checkIn, $checkOut)
             }
         }
     }
-    echo '<br> <h1>Final Price: </h1>';
-    var_dump($finalPrice);
+//    echo '<br> <h1>Final Price: </h1>';
+//    var_dump($finalPrice);
     return $finalPrice;
 }
 

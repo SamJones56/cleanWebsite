@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bff6bf8-3b2e-4929-89ff-2e5813ecbff7" name="Changes" comment="" />
+    <list default="true" id="2bff6bf8-3b2e-4929-89ff-2e5813ecbff7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/createEmployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/createEmployee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/newRoomReservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/newRoomReservation.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -230,7 +237,7 @@
       <workItem from="1714119970271" duration="4851000" />
       <workItem from="1714133528804" duration="137000" />
       <workItem from="1714135067368" duration="5435000" />
-      <workItem from="1714207431927" duration="8143000" />
+      <workItem from="1714207431927" duration="9950000" />
     </task>
     <servers />
   </component>

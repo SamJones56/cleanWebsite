@@ -6,6 +6,8 @@ https://www.w3schools.com/php/func_var_is_array.asp#:~:text=Definition%20and%20U
 w3schools : array key exists
 https://www.w3schools.com/php/func_array_key_exists.asp
 
+w3schools : get count
+https://www.w3schools.com/sql/sql_count_avg_sum.asp
 
 COMP H2029 : Shopping cart
 https://vle-bn.tudublin.ie/pluginfile.php/372186/mod_resource/content/0/PHP_17_shoppingCarts.pdf
@@ -18,3 +20,4 @@ https://www.php.net/manual/en/pdostatement.fetchobject.php
 
 PHP : Pasing from reference
 https://www.php.net/manual/en/language.references.pass.php
+

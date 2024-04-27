@@ -42,6 +42,6 @@ makeNewEmployee();
             <input type="submit" name="submit" value="Submit">
         </form>
     </div>
-    <a href="index.php">Back to home</a>
+    <a href="Admin.php">Back to Admin</a>
 
 <?php include "templates/footer.php"; ?>
