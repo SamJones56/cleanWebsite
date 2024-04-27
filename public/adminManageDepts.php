@@ -1,8 +1,10 @@
 <?php
+
 include "templates/header.php";
 include_once "../src/Functions/editingRoomsAndTablesFunctions.php";
 include_once "../src/Functions/databasefunctions.php";
 require_once '../src/DBconnect.php';
+
 
 if($_SESSION['permissionlvl'] < 2 )
 {

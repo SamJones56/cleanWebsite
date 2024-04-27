@@ -6,7 +6,8 @@ namespace Tests\Unit;
 use Tests\Support\UnitTester;
 use person\Employee;
 require_once 'src/person/Employee.php';
-require_once 'src/hotel/Department.php';
+require 'src/hotel/Department.php';
+
 class EmployeeTest extends \Codeception\Test\Unit
 {
 

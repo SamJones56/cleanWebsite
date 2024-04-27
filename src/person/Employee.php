@@ -8,6 +8,9 @@ require_once 'User.php';
 require_once 'Login.php';
 require_once '../src/hotel/Department.php';
 
+
+
+
 final class Employee extends User
 {
     protected $employee_id, $login_id, $dept_id, $job;

@@ -1,26 +1,4 @@
 <?php
-//
-//
-//namespace Tests\Unit;
-//
-//use Tests\Support\UnitTester;
-//
-//class DepartmentsTest extends \Codeception\Test\unit
-//{
-//
-//    protected UnitTester $tester;
-//
-//    protected function _before()
-//    {
-//    }
-//
-//    // tests
-//    public function testSomeFeature()
-//    {
-//
-//    }
-//}
-
 
 namespace Tests\Unit;
 
@@ -31,11 +9,6 @@ require_once 'src/hotel/Department.php';
 class DepartmentsTest extends \Codeception\Test\Unit
 {
     protected UnitTester $tester;
-
-    protected function _before()
-    {
-        // Initialize any test setup here
-    }
 
     // Test toDeptArray method
     public function testToDeptArray(): void

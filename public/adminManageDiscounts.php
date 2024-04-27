@@ -1,4 +1,5 @@
 <?php
+
 include "templates/header.php";
 include_once "../src/Functions/editingRoomsAndTablesFunctions.php";
 include_once "../src/Functions/databasefunctions.php";
