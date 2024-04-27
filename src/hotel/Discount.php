@@ -4,13 +4,14 @@ namespace hotel;
 
 final class Discount
 {
-    protected $discount_id, $startDate, $endDate, $amount;
+    protected $discount_id, $startDate, $endDate, $amount, $description;
 
     public function getDiscountArray(){
         return array(
             'startDate' => $this->startDate,
             'endDate' => $this->endDate,
             'amount' => $this->amount,
+            'description' => $this->description
         );
     }
 
@@ -52,5 +53,15 @@ final class Discount
     public function setDiscountId($discount_id): void
     {
         $this->discount_id = $discount_id;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setDescription($description): void
+    {
+        $this->description = $description;
     }
 }

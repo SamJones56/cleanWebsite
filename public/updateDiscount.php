@@ -27,6 +27,10 @@ updateDiscount($connection);
         <label for="amount">Amount</label>
         <input type="text" name="amount" id="amount" value="<?php echo $editingDisc['amount']?>"><br>
 
+        <label for="description">Amount</label>
+        <input type="text" name="description" id="description" value="<?php echo $editingDisc['description']?>"><br>
+
         <input type="submit" name="submit" value="Submit">
     </form>
+    <a href="adminManageDiscounts.php">Back to Discounts</a>
 </div>

@@ -9,7 +9,7 @@ if($_SESSION['permissionlvl'] < 2 )
     header("location:index.php");
 }
 $_SESSION['guestRedirect'] = "adminManageDiscounts.php";
-$keys = ['discount_id', 'startDate', 'endDate', 'amount'];
+$keys = ['discount_id', 'startDate', 'endDate', 'amount', 'description'];
 $discountArray = buildTableList($connection, "discounts","discount_id");
 
 if(isset($_POST['submit_post']))
@@ -32,6 +32,7 @@ if(isset($_POST['delete_post'])){
             <th>Start Month</th>
             <th>End Month</th>
             <th>Amount</th>
+            <th>Description</th>
         </tr>
         </thead>
         <tbody>

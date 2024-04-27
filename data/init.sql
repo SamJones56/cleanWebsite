@@ -259,6 +259,18 @@ CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`roomextras` (
     ON UPDATE NO ACTION)
     ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `hoteltallafornia`.`Discounts`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hoteltallafornia`.`Discounts` (
+                                                              `discount_id` INT NOT NULL AUTO_INCREMENT,
+                                                              `startDate` INT NOT NULL,
+                                                              `endDate` INT NOT NULL,
+                                                              `amount` DECIMAL(2,2) NOT NULL,
+    `description` VARCHAR(45) NULL,
+    PRIMARY KEY (`discount_id`))
+    ENGINE = InnoDB;
+
 
 INSERT INTO departments (dept_name, address)
 VALUES
@@ -332,3 +344,7 @@ VALUES
     (2, 'Daily car rental', 'Book a 4 seater car per day', 100,  '../images/roomAdons/hotel_car.png'),
     (3, 'A round of golf', 'Book a round of golf', 50, '../images/roomAdons/hotel_golf.png'),
     (4, 'Book a local tour', 'Book a local tour of Tallaght', 1000, '../images/roomAdons/hotel_tallaght.png');
+
+INSERT INTO discounts (discount_id, startDate, endDate, amount, description)
+VALUES
+    (1, 11, 12, 0.75, 'Christmas Deal')

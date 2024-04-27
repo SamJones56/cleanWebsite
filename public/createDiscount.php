@@ -19,9 +19,12 @@ makeDisount();
             <label for="amount">Amount</label>
             <input type="text" name="amount" id="amount">
 
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description">
+
             <input type="submit" name="submit" value="Submit">
         </form>
     </div>
-    <a href="adminManageDiscounts.php">Back to departments</a>
+    <a href="adminManageDiscounts.php">Back to Discounts</a>
 
 <?php include "templates/footer.php"; ?>

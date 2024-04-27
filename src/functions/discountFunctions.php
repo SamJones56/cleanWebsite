@@ -15,13 +15,14 @@ function makeDisount()
         $disc->setStartDate(escape($_POST['startDate']));
         $disc->setEndDate(escape($_POST['endDate']));
         $disc->setAmount(escape($_POST['amount']));
+        $disc->setDescription(escape($_POST['description']));
 
         // Add to department table
         addToTable($connection, $disc->getDiscountArray(), "discounts");
         // Set the id
         $disc->setDiscountId(getKey($connection, "discounts", "discount_id"));
 
-        header("location:adminManageDepts.php");
+        header("location:adminManagediscounts.php");
     }
 }
 
@@ -36,9 +37,11 @@ function updateDiscount($connection)
         // Create new discount object
         $disc = new Discount();
         // Set discount attributes
+        $disc->setDiscountId(escape($_POST['discount_id']));
         $disc->setStartDate(escape($_POST['startDate']));
         $disc->setEndDate(escape($_POST['endDate']));
         $disc->setAmount(escape($_POST['amount']));
+        $disc->setDescription(escape($_POST['description']));
         // Update the table
         updateTable($connection, $disc->getDiscountArray(), "discounts", "discount_id", $disc->getdiscountId());
         // Redirect user
