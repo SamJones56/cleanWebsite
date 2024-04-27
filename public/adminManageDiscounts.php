@@ -23,8 +23,8 @@ if(isset($_POST['delete_post'])){
     header("refresh:0");
 }
 ?>
-    <h2>Manage Departments</h2>
-    <button><a href="createDepartment.php" > Create a Discount </a> </button>
+    <h2>Manage Discounts</h2>
+    <button><a href="createDiscount.php" > Create a Discount </a> </button>
     <table>
         <thead>
         <tr>

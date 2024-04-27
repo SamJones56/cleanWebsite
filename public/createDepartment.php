@@ -8,7 +8,7 @@ if($_SESSION['permissionlvl'] < 2 )
 makeNewDepartment();
 ?>
 
-    <h2>Add a table</h2>
+    <h2>Add a Department</h2>
     <div id="dataForm">
         <form method="post">
             <label for="dept_name">Department Name</label>

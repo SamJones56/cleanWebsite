@@ -42,6 +42,12 @@ if($_SESSION['permissionlvl'] < 2 )
         </form>
     </div>
     <br>
+    <div>
+        <form action="adminManageDiscounts.php" method="post">
+            <button type="submit">Manage Discounts</button>
+        </form>
+    </div>
+    <br>
 <?php } ?>
     <div>
         <form action="adminManageReservations.php" method="post">
