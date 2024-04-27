@@ -19,7 +19,7 @@ if($_SESSION['permissionlvl'] < 2 )
 </div>
 <br>
  <div>
-    <form action="createRestaurantTable.php" method="post">
+    <form action="adminManageTables.php" method="post">
         <button type="submit">Manage Tables</button>
     </form>
 </div>

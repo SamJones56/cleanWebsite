@@ -1,5 +1,5 @@
 <?php
-include "../src/Functions/newRestaurantTableFunctions.php";
+include "../src/Functions/restaurantTableFunctions.php";
 include "templates/header.php";
 if($_SESSION['permissionlvl'] < 2 )
 {
