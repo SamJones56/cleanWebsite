@@ -5,9 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bff6bf8-3b2e-4929-89ff-2e5813ecbff7" name="Changes" comment="">
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/public/gallery.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/templates/header.php" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/tests/tests/unit/LoginTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/tests/unit/RestaurantTableTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/tests/unit/TableReservationsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeception.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeception.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/adminManageDepts.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/adminManageDepts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/adminManageDiscounts.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/adminManageDiscounts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/Employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/tests/unit/DepartmentsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/tests/unit/DepartmentsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/tests/unit/EmployeeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/tests/unit/EmployeeTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/tests/unit/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/tests/tests/unit/composer.json" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
