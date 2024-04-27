@@ -45,12 +45,12 @@ css">
         </a>
 
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="index.php" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="stays.php" class="nav-link">Stay</a></li>
-            <li class="nav-item"><a href="dine.php" class="nav-link">Dine</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Gallery</a></li>
+            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/index.php' || $_SERVER['REQUEST_URI'] == '/') ? 'active' : ''; ?>"><a href="index.php" class="nav-link" aria-current="page">Home</a></li>
+            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/stays.php') ? 'active' : ''; ?>"><a href="stays.php" class="nav-link">Stay</a></li>
+            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/dine.php') ? 'active' : ''; ?>"><a href="dine.php" class="nav-link">Dine</a></li>
+            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/gallery.php') ? 'active' : ''; ?>"><a href="#" class="nav-link">Gallery</a></li>
             <?php if($_SESSION['permissionlvl'] > 1){?>
-			    <li class="nav-item"><a href="admin.php" class="nav-link">Staff</a></li>
+                <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/admin.php') ? 'active' : ''; ?>"><a href="admin.php" class="nav-link">Staff</a></li>
             <?php } ?>
         </ul>
 <!--        Begin checks for logged in                  -->

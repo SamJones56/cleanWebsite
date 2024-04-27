@@ -20,3 +20,7 @@ td, th {
     font-size: 1.5rem;
     font-weight: bold;
 }
+
+/*.nav-pills .nav-item.active .nav-link {*/
+/*    color: goldenrod;*/
+/*}*/
