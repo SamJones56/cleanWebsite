@@ -168,13 +168,13 @@ function buildRoomReservationDisplay($tempArray, $connection)
     echo '<input type="hidden" name="reservations_id" value="' . ($tempArray['reservations_id']) . '">';
     // All the different options to interract with each of the entries
     echo '</td> <td>';
-    echo '<input type="submit" name="submit_room" value="Edit">';
+    echo '<input type="submit" name="submit_room" value="Edit" class="btn btn-warning">';
     echo '</td> <td>';
-    echo '<input type="submit" name="check_in" value="Check in">';
+    echo '<input type="submit" name="check_in" value="Check in" class="btn btn-success">';
     echo '</td> <td>';
-    echo '<input type="submit" name="check_out" value="Check out">';
+    echo '<input type="submit" name="check_out" value="Check out" class="btn btn-outline-warning">';
     echo '</td> <td>';
-    echo '<input type="submit" name="cancel_room" value="Cancel">';
+    echo '<input type="submit" name="cancel_room" value="Cancel" class="btn btn-danger">';
     echo '</form></td>';
     echo "</tr>";
 }
@@ -217,9 +217,9 @@ function buildRestaurantReservationDisplay($tableArray, $connection)
     echo '<input type="hidden" name="reservations_id" value="' . ($tableArray['reservations_id']) . '">';
     // Options for dealing with data
     echo '</td> <td>';
-    echo '<input type="submit" name="submit_table" value="Edit">';
+    echo '<input type="submit" name="submit_table" value="Edit" class="btn btn-warning">';
     echo '</td> <td>';
-    echo '<input type="submit" name="cancel_table" value="Cancel">';
+    echo '<input type="submit" name="cancel_table" value="Cancel" class="btn btn-danger">';
     echo '</form></td>';
     echo "</tr>";
 }

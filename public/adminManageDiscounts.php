@@ -25,15 +25,14 @@ if(isset($_POST['delete_post'])){
 }
 ?>
     <h2>Manage Discounts</h2>
-    <button><a href="createDiscount.php" > Create a Discount </a> </button>
-    <table>
-        <thead>
+    <table class="table table-striped">
+        <thead >
         <tr>
-            <th>Discount id</th>
-            <th>Start Month</th>
-            <th>End Month</th>
-            <th>Amount</th>
-            <th>Description</th>
+            <th scope="col">Discount id</th>
+            <th scope="col">Start Month</th>
+            <th scope="col">End Month</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Description</th>
         </tr>
         </thead>
         <tbody>
@@ -42,6 +41,7 @@ if(isset($_POST['delete_post'])){
         }  ?>
         </tbody>
     </table>
-    <a href="admin.php" > Back to admin </a>
+    <a href="createDiscount.php" class="btn btn-success"> Create a Discount </a>
+    <a href="admin.php" class="btn btn-secondary" > Back to admin </a>
 <?php
 include_once "templates/footer.php";

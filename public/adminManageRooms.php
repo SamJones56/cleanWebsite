@@ -24,14 +24,14 @@ if(isset($_POST['delete_post'])){
 }
 ?>
     <h2>Manage Rooms</h2>
-    <button><a href="createRoom.php" > Create a room </a> </button>
-    <table>
+
+    <table class="table table-striped">
         <thead>
         <tr>
-            <th>Room id</th>
-            <th>Room Type</th>
-            <th>Accessibility</th>
-            <th>Price</th>
+            <th scope="col">Room id</th>
+            <th scope="col">Room Type</th>
+            <th scope="col">Accessibility</th>
+            <th scope="col">Price</th>
         </tr>
         </thead>
         <tbody>
@@ -40,6 +40,7 @@ if(isset($_POST['delete_post'])){
         }  ?>
         </tbody>
     </table>
-    <a href="admin.php" > Back to admin </a>
+    <a href="createRoom.php" class="btn btn-success"> Create a room </a>
+    <a href="admin.php" class="btn btn-secondary"> Back to admin </a>
 <?php
 include_once "templates/footer.php";

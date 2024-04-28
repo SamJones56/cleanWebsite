@@ -24,12 +24,12 @@ if(isset($_POST['delete_post'])){
 }
 ?>
     <h2>Manage Tables</h2>
-    <button><a href="createRestaurantTable.php" > Create a Table </a> </button>
-    <table>
+
+    <table class="table table-striped">
         <thead>
         <tr>
-            <th>Table id</th>
-            <th>Capacity</th>
+            <th scope="col">Table id</th>
+            <th scope="col">Capacity</th>
         </tr>
         </thead>
         <tbody>
@@ -38,6 +38,7 @@ if(isset($_POST['delete_post'])){
         }  ?>
         </tbody>
     </table>
-    <a href="admin.php" > Back to admin </a>
+    <a href="createRestaurantTable.php" class="btn btn-success"> Create a Table </a>
+    <a href="admin.php" class="btn btn-secondary"> Back to admin </a>
 <?php
 include_once "templates/footer.php";
