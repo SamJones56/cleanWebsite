@@ -21,7 +21,6 @@ function makeNewRoom()
         $room->setPrice(escape($_POST['price']));
 
 
-//        var_dump($room);
         // Add to the room table
         addToTable($connection, $room->getRoomArray(), "rooms");
     }

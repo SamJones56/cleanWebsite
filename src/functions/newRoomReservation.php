@@ -211,6 +211,9 @@ function bookingRestore($formArray, $formDataArray)
 {
     unset($formDataArray['room_id']);
     unset($formDataArray['roomPrice']);
+    // Combining an array
+//    Array Combine
+//  https://www.w3schools.com/php/func_array_combine.asp
     $combinedArray = array_combine($formArray, $formDataArray);
     foreach ($combinedArray as $key => $value) {
         if ($key != "payment") {

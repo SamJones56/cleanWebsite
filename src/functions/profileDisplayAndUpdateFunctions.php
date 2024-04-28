@@ -130,7 +130,4 @@ function buildUser($userArray, $isEmployee, $connection)
         updateTable($connection, $employee->toLoginArray(), "login", "Login_id", $userArray['login_id']);
         updateTable($connection, $employee->toEmployeeArray(), "employee", "employee_id", $userArray['employee_id']);
     }
-//https://stackoverflow.com/questions/12383371/refresh-a-page-using-php
-    // Refresh page
-//    header("Refresh:0");
 }

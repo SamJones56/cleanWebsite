@@ -33,6 +33,8 @@ function userLogIn($connection, $test)
             $_SESSION['Active'] = true;
             if ($test == 0) {
                 header("location:index.php");
+//                Refreshing a page
+//          https://stackoverflow.com/questions/12383371/refresh-a-page-using-php
             } else if ($test == 1) {
                 header("Refresh:0");
             }
