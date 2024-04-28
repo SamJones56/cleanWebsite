@@ -45,7 +45,7 @@ function tempRoomReservation($connection, $tester)
             echo "<h1 style='color: red'> Error in generating room_id </h1>";
         }
     } else {
-        echo "<h1 style='color: red'> Check out bust be later than check in </h1>";
+        echo "<h1 style='color: red'> Check out must be later than check in </h1>";
     }
 }
 
