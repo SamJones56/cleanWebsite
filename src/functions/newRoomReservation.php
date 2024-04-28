@@ -164,7 +164,6 @@ function roomPriceCalculator($connection, $initialRoomPrice, $checkIn, $checkOut
 //        https://stackoverflow.com/questions/11076334/php-strtotime-add-hours
         $selectedDate = strtotime('+1 day', $selectedDate);
     }
-
     // Get entries from the discount table
     $count = getKey($connection, "discounts", "discount_id");
     $discountArray = [];
@@ -173,6 +172,7 @@ function roomPriceCalculator($connection, $initialRoomPrice, $checkIn, $checkOut
         if ($tempDiscount) {
             $discountArray[] = $tempDiscount;
         }
+
     }
 //  Get count : https://www.w3schools.com/php/func_array_count.asp#:~:text=Definition%20and%20Usage,of%20elements%20in%20an%20array.
     // Apply discount
