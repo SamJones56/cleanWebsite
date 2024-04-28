@@ -4,6 +4,8 @@
 
     <title>Dine</title>
 
+    <h1 class="fw-light text-center text-lg-start mt-4 mb-0">Our Restaurants</h1>
+
     <div class="container">
 
         <div id="dineCarousel" class="carousel slide" Data-bs-ride="carousel">
