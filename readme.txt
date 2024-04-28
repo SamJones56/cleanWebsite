@@ -1,5 +1,18 @@
 References:
 
+Contribution Statement: 
+
+Emily - 
+Person & Hotel Classes & Class Design-(repo changed to fresh one since this).
+Room Reservations & Stays functions. 
+SQL Scripting & DB population.  
+Stays Page.
+Unit testing. 
+
+
+
+
+
 w3schools : is array
 https://www.w3schools.com/php/func_var_is_array.asp#:~:text=Definition%20and%20Usage,otherwise%20it%20returns%20false%2Fnothing.
 
