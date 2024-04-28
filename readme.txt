@@ -41,6 +41,19 @@ https://github.com/EmzzH/HotelTallafornia
 
 References:
 
+Stays Page Carousel 
+Bootstrap Code: 
+https://getbootstrap.com/docs/5.3/components/carousel/#how-it-works-->
+
+Index and dine pages carousel
+https://getbootstrap.com/docs/5.3/components/carousel/
+
+Gallery page photo layout
+https://startbootstrap.com/snippets/thumbnail-gallery
+
+w3schools : get count
+https://www.w3schools.com/sql/sql_count_avg_sum.asp
+
 w3schools : is array
 https://www.w3schools.com/php/func_var_is_array.asp#:~:text=Definition%20and%20Usage,otherwise%20it%20returns%20false%2Fnothing.
 
