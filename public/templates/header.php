@@ -44,10 +44,10 @@ css">
         </a>
 
         <ul class="nav nav-pills">
-            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/index.php' || $_SERVER['REQUEST_URI'] == '/') ? 'active' : ''; ?>"><a style="color: #13653f" href="index.php" class="nav-link" aria-current="page">Home</a></li>
-            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/stays.php') ? 'active' : ''; ?>"><a href="stays.php" class="nav-link" style="color: #13653f">Stay</a></li>
-            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/dine.php') ? 'active' : ''; ?>"><a href="dine.php" class="nav-link" style="color: #13653f">Dine</a></li>
-            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/gallery.php') ? 'active' : ''; ?>"><a href="gallery.php" class="nav-link" style="color: #13653f">Gallery</a></li>
+            <li class="nav-item"><a style="color: #13653f" href="index.php" class="nav-link" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="stays.php" class="nav-link" style="color: #13653f">Stay</a></li>
+            <li class="nav-item"><a href="dine.php" class="nav-link" style="color: #13653f">Dine</a></li>
+            <li class="nav-item"><a href="gallery.php" class="nav-link" style="color: #13653f">Gallery</a></li>
             <?php if($_SESSION['permissionlvl'] > 1){?>
                 <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/admin.php') ? 'active' : ''; ?>"><a href="admin.php" class="nav-link" style="color: #13653f">Staff</a></li>
             <?php } ?>

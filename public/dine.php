@@ -73,16 +73,12 @@
 
         <!-- Menu images with links to pdf of menu -->
         <div class="menu">
-            <h2>Our Menus</h2>
+            <h2 class="fw-light text-center text-lg-start mt-4 mb-0">Our Restaurants</h2>
             <a href="../data/restaurant/breakfast.pdf" target="_blank"><img src="../images/png_menu/breakfast.png" alt="Breakfast Menu" width="300"></a>
             <a href="../data/restaurant/lunch.pdf" target="_blank"><img src="../images/png_menu/lunch.png" alt="Lunch Menu" width="300"></a>
             <a href="../data/restaurant/dinner.pdf" target="_blank"><img src="../images/png_menu/dinner.png" alt="Dinner Menu" width="300"></a>
         </div>
 
-        <!-- Book button -->
-        <!-- <a href="bookTable.php" class="book-btn">Book Now</a> -->
-<!--        <a href="bookTable.php">-->
-<!--            <button style="font-size:32px; background-color:#54aeff; color:rgba(0,0,0,0.85); padding:10px; border:none; box-shadow: 0 2px 4px rgba(0,0,0,0.69);">-->
             <form action="<?php
             $_SESSION['guestRedirect'] = "bookTable.php";
             echo "signInPrompt.php";
