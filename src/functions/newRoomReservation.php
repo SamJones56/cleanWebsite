@@ -232,7 +232,7 @@ function bookingRestore($formArray, $formDataArray)
     {
         if($key != "payment") {
             echo '<label ' ;
-            if(!$_SESSION['isEmployee'] && $key == "employee_id" || $key == "customer_id"){
+            if(!$_SESSION['isEmployee'] && $key == "employee_id" || $key == "customer_id" || $key == "date"){
                 echo ' hidden ';
             }
             echo ' for="' . $key . '">' . $key . '</label>';
@@ -256,12 +256,15 @@ function bookingRestore($formArray, $formDataArray)
             }
             // Rest of the form
             else if ($key == "date" || $key == "check_in" || $key == "check_out") {
-                echo '<br> <input type="date" name="';
                 if($key == "date")
                 {
-                    echo ' value ="' . date('Y-m-d') . ' " hidden' ;
+                    echo '<br> <input type="date" name="';
+                    echo $key . '" value ="' . date('Y-m-d') . ' " hidden > <br>' ;
                 }
-                echo $key . '" id="' . $key . '" value=' . $value . '> <br>';
+                else {
+                    echo '<br> <input type="date" name="';
+                    echo $key . '" id="' . $key . '" value=' . $value . '> <br>';
+                }
             }
             else if ($key == "num_guests"){
                 echo '<br> <input type="number" name="';
