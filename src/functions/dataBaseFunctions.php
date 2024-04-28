@@ -152,6 +152,6 @@ function deleteData($connection, $tableName, $identifyingKey, $givenKey)
         $statement = $connection->prepare($sql);
         $statement->execute();
     } catch (PDOException $error) {
-        echo "error" . $sql . "<br>" . $error->getMessage();
+//        echo "error" . $sql . "<br>" . $error->getMessage();
     }
 }
