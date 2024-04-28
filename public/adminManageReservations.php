@@ -10,7 +10,6 @@ if ($_SESSION['permissionlvl'] < 2) {
 $_SESSION['guestRedirect'] = "adminManageReservations.php";
 $reservationArray = buildReservationGeneralList($connection);
 
-
 ?>
     <h2>Room Bookings</h2>
     <table class="table table-striped">

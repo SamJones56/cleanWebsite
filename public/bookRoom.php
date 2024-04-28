@@ -3,8 +3,6 @@ include_once "../src/functions/newRoomReservation.php";
 include_once "templates/header.php";
 include_once "../src/functions/dataBaseFunctions.php";
 require_once '../src/DBconnect.php';
-//tempRoomReservation($connection, 0);
-//
 // https://www.w3schools.com/php/php_form_required.asp
 
 $empErr = $custErr = $chk_inErr = $chk_outErr = $num_gErr = "";

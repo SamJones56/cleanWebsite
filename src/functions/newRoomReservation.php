@@ -87,7 +87,7 @@ function newRoomReservation($connection, $tempRoomReservation, $total, $tester)
         unset($_SESSION['cart']);
         unset($_SESSION['temp_room_reservation']);
         if ($tester == 1) {
-//            header("location:profile.php");
+            header("location:profile.php");
         }
         if ($_SESSION['permissionlvl'] == 0) {
             header("location:index.php");

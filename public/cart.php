@@ -5,7 +5,6 @@ include "templates/header.php";
 include "../src/functions/newRoomReservation.php";
 include __DIR__ . "/../src/functions/cartFunctions.php";
 require_once '../src/DBconnect.php';
-//var_dump($_SESSION['temp_room_reservation']);
 $total = $_SESSION['temp_room_reservation']['roomPrice'];
 
 
@@ -67,24 +66,17 @@ switch ($action) {
         </tr>
         </tbody>
     </table>
-
     <br>
-
     <br>
-
     <h2> Room Additions</h2>
-
     <div class="row">
         <table class="table table-striped">
             <thead>
             <tr>
-
                 <?php
                 foreach ($products as $id => $product):
                     $price = number_format($product['price'], 2);
                     ?>
-
-
                     <div class="product col-md-3 text-center">
                         <img src="<?= $product['image'] ?>" alt="<?=
                         $product['image'] ?>" width="200px">
@@ -103,8 +95,6 @@ switch ($action) {
                         </div>
                         <?= $product['description'] ?>
                     </div>
-
-
                 <?php endforeach; ?>
             </tr>
             </thead>
