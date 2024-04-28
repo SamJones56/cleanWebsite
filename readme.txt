@@ -23,6 +23,12 @@ Session class and associated session logic handling.
 Equivalence Partition and Basis Path Testing.
 Validation Testing.
 
+Anna - 
+Dine page & book table
+Gallery page
+Requirements testing
+UI testing
+
 
 
 Old repo's
@@ -36,6 +42,12 @@ https://www.w3schools.com/php/func_var_is_array.asp#:~:text=Definition%20and%20U
 Stays Page Carousel 
 Bootstrap Code: 
 https://getbootstrap.com/docs/5.3/components/carousel/#how-it-works-->
+
+Index and dine pages carousel
+https://getbootstrap.com/docs/5.3/components/carousel/
+
+Gallery page photo layout
+https://startbootstrap.com/snippets/thumbnail-gallery
 
 w3schools : array key exists
 https://www.w3schools.com/php/func_array_key_exists.asp
