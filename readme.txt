@@ -9,8 +9,25 @@ SQL Scripting & DB population.
 Stays Page.
 Unit testing. 
 
+Sam -
+User profile page and functions.
+Admin/Staff page and admin/staff page functions.
+Booking rooms and functions.
+Reserving tables and reservation functions.
+Work on person and hotel classes and functions.
+Shopping cart and shopping cart functions.
+Database functions.
+Discount class and discount functions.
+User sign in and sign out functions.
+Session class and associated session logic handling.
+Equivalence Partition and Basis Path Testing.
+Validation Testing.
 
 
+
+Old repo's
+https://github.com/SamJones56/WebDevProject
+https://github.com/EmzzH/HotelTallafornia
 
 
 w3schools : is array
