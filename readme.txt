@@ -15,6 +15,12 @@ https://vle-bn.tudublin.ie/pluginfile.php/372186/mod_resource/content/0/PHP_17_s
 w3schools: empty() function
 https://www.w3schools.com/php/func_var_empty.asp
 
+Adding time
+https://stackoverflow.com/questions/11076334/php-strtotime-add-hours
+
+Getting a count with SQL
+https://www.w3schools.com/sql/sql_count_avg_sum.asp
+
 PDO fetch statements:
 https://www.php.net/manual/en/pdostatement.fetchobject.php
 
