@@ -2,7 +2,7 @@
 include "../src/Functions/profileDisplayAndUpdateFunctions.php";
 include "templates/header.php";
 require_once '../src/DBconnect.php';
-if ($_SESSION['permissionlvl'] < 2) {
+if ($_SESSION['permissionlvl'] == 0) {
     header("location:index.php");
 }
 

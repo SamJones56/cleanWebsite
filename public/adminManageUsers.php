@@ -3,8 +3,8 @@ include "../src/Functions/adminManageUsersFunctions.php";
 include "templates/header.php";
 require_once '../src/DBconnect.php';
 
-if ($_SESSION['permissionlvl'] < 2) {
-    header("location:index.php");
+if ($_SESSION['permissionlvl'] == 0) {
+//    header("location:index.php");
 }
 
 $_SESSION['guestRedirect'] = "adminManageUsers.php";

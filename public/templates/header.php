@@ -15,7 +15,6 @@ if ($user_is_logged_in) {
     $_SESSION['Active'] = false;
     $_SESSION['permissionlvl'] = 0;
 }
-
 ?>
 
 

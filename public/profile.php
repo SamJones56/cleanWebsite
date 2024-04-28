@@ -48,7 +48,7 @@ $_SESSION['guestRedirect'] = "profile.php";
         <?php } else { ?>
             <td><?php echo $user_array["passport_no"]; ?></td>
         <?php } ?>
-        <td><a href="updateUser.php" class="btn btn-warning"> edit </a></td>
+        <td><a href="updateUser.php" class="btn btn-warning"> Edit </a></td>
 
         <!--            ?user_id=--><?php //echo $user_array["user_id"];
         //                ?><!--">Edit</a></td>-->
