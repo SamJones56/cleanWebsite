@@ -3,6 +3,7 @@
 namespace person;
 
 require_once 'Customer.php';
+
 //require_once 'Login.php';
 
 class Guest extends Customer
@@ -11,7 +12,8 @@ class Guest extends Customer
 
 //    private $login;
 
-    public function __construct(){
+    public function __construct()
+    {
 //        $this->login = new Login();
 //        // Set the permission lvl to 1 for lowest user
 //        $this->login->setPermissionlvl(0);
@@ -25,7 +27,9 @@ class Guest extends Customer
             'customer_id' => $this->customer_id,
         );
     }
-    public function setFilledGuest($userArray){
+
+    public function setFilledGuest($userArray)
+    {
         $this->user_id = $userArray['user_id'];
         $this->name = $userArray['name'];
         $this->address = $userArray['address'];

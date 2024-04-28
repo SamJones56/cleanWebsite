@@ -1,6 +1,7 @@
 <?php
 // This function builds an array of all employees and builds the display
-function buildEmployeeList($connection) {
+function buildEmployeeList($connection)
+{
     include_once "../src/Functions/profileDisplayAndUpdateFunctions.php";
     include_once "dataBaseFunctions.php";
     // Get a count of all employee entries in the db
@@ -21,8 +22,10 @@ function buildEmployeeList($connection) {
         }
     }
 }
+
 // This function builds an array of all members and builds the display
-function buildMemberList($connection) {
+function buildMemberList($connection)
+{
     include_once "../src/Functions/profileDisplayAndUpdateFunctions.php";
     include_once "dataBaseFunctions.php";
     // Get a count of all member entries in the db
@@ -42,18 +45,19 @@ function buildMemberList($connection) {
         }
     }
 }
+
 // This function builds the display for the employee
 function buildEmployeeDisplay($userArray)
 {
     // Handle the submission, edit the correct employee
-    if(isset($_POST['submit_employee'])){
+    if (isset($_POST['submit_employee'])) {
         $temp_login = $_POST['user_id'];
         $_SESSION['temp_login'] = $temp_login;
         $_SESSION['tempEmployee'] = true;
         header("Location: updateUser.php");
     }
     // Keys that match headers
-    $keys = ['Login_id','user_id', 'name', 'address', 'ph_no', 'email', 'dob', 'dept_id', 'job'];
+    $keys = ['Login_id', 'user_id', 'name', 'address', 'ph_no', 'email', 'dob', 'dept_id', 'job'];
     echo "<tr>";
     // loop through each of the keys
     foreach ($keys as $key) {
@@ -61,7 +65,7 @@ function buildEmployeeDisplay($userArray)
         // Check if the key exists in the userArray
         if (array_key_exists($key, $userArray)) {
             // If it exists, then print the value
-            echo "<td>" . $userArray[$key]  . "</td>";
+            echo "<td>" . $userArray[$key] . "</td>";
         } else {
             // Doesn't match, do nothing
             echo "<td></td>";
@@ -79,14 +83,14 @@ function buildEmployeeDisplay($userArray)
 function buildMemberDisplay($userArray)
 {
     // Handle the submission, edit the correct member
-    if(isset($_POST['submit_member'])){
+    if (isset($_POST['submit_member'])) {
         $temp_login = $_POST['user_id'];
         $_SESSION['temp_login'] = $temp_login;
         $_SESSION['tempEmployee'] = false;
         header("Location: updateUser.php");
     }
     // Keys that match headers
-    $keys = ['user_id', 'name', 'address', 'ph_no', 'email', 'dob', 'passport_no' ];
+    $keys = ['user_id', 'name', 'address', 'ph_no', 'email', 'dob', 'passport_no'];
     echo "<tr>";
     // loop through each of the keys
     foreach ($keys as $key) {

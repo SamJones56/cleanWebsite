@@ -1,4 +1,5 @@
 <?php
+
 class session
 {
     public function killSession()
@@ -16,6 +17,7 @@ class session
         }
         session_destroy();
     }
+
     public function forgetSession()
     {
         session_unset();
@@ -24,4 +26,5 @@ class session
         exit;
     }
 }
+
 ?>

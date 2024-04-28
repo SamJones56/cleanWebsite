@@ -1,17 +1,17 @@
 <?php
 
-function newProfileDisplay($login_id,$isEmployee, $connection)
+function newProfileDisplay($login_id, $isEmployee, $connection)
 {
     require_once "../common.php";
     include_once "dataBaseFunctions.php";
 
-    if($isEmployee) {
+    if ($isEmployee) {
 
         // Get the employee_id by searching in the employee table
-        $employee_id = getAssociationKey($connection, "employee", $login_id, "login_id" ,  "employee_id");
+        $employee_id = getAssociationKey($connection, "employee", $login_id, "login_id", "employee_id");
 
         // Get the user id by searching in the employee table
-        $user_id = getAssociationKey($connection, "employee", $employee_id,  "employee_id","user_id");
+        $user_id = getAssociationKey($connection, "employee", $employee_id, "employee_id", "user_id");
 
         // Search user table for data
         $temp_array = searchDB($connection, "user", "user_id", $user_id);
@@ -26,13 +26,12 @@ function newProfileDisplay($login_id,$isEmployee, $connection)
         $temp_array['employee_id'] = $employee_id;
 
         return $temp_array;
-    }
-    else {
+    } else {
         // Get the employee_id by searching in the customer table
-        $customer_id = getAssociationKey($connection, "member", $login_id, "login_id","customer_id");
+        $customer_id = getAssociationKey($connection, "member", $login_id, "login_id", "customer_id");
 
         // Get the user id by searching in the customer table
-        $user_id = getAssociationKey($connection, "customer", $customer_id,  "customer_id","user_id");
+        $user_id = getAssociationKey($connection, "customer", $customer_id, "customer_id", "user_id");
 
         $member_id = getAssociationKey($connection, "member", $login_id, "login_id", "member_id");
 
@@ -54,6 +53,7 @@ function newProfileDisplay($login_id,$isEmployee, $connection)
 
 use person\Member;
 use person\Employee;
+
 function buildProfileDisplay($userArray, $isEmployee)
 { ?>
     <h2>Edit a user</h2>
@@ -62,16 +62,15 @@ function buildProfileDisplay($userArray, $isEmployee)
         <!-- Takes away user details -->
         <?php
         unset($userArray["user_id"], $userArray["Login_id"]);
-            if(!$isEmployee){
-                unset($userArray["customer_id"], $userArray["permissionlvl"]); }
-            else
-            {
-                unset($userArray["employee_id"], $userArray["dept_id"]);
-            }
-            foreach ($userArray as $key => $value) : ?>
+        if (!$isEmployee) {
+            unset($userArray["customer_id"], $userArray["permissionlvl"]);
+        } else {
+            unset($userArray["employee_id"], $userArray["dept_id"]);
+        }
+        foreach ($userArray as $key => $value) : ?>
             <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
             <input class="form-control" type="text" name="<?php echo $key; ?>" id="<?php echo $key;
-            ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ?
+            ?>" value="<?php echo escape($value); ?>" <?php echo($key === 'id' ?
                 'readonly' : null); ?>>
         <?php endforeach; ?>
         <?php ?>
@@ -89,16 +88,16 @@ function buildUser($userArray, $isEmployee, $connection)
     require_once '../src/person/Member.php';
     require_once '../src/person/Employee.php';
 
-    echo"<br>";
+    echo "<br>";
     echo '<h1> Test </h1>';
     var_dump($userArray);
     var_dump($isEmployee);
-    echo"<br>";
-    if(!$isEmployee) {
+    echo "<br>";
+    if (!$isEmployee) {
         $member = new Member();
         // Update $userArray with new data, value is passed by reference so it can be changed
 //        https://www.php.net/manual/en/language.references.pass.php
-        foreach($userArray as $key => &$value) {
+        foreach ($userArray as $key => &$value) {
             // Logic to find a change
             if (isset($_POST[$key]) && $value != $_POST[$key]) {
                 // Update the value to the correct value in the form
@@ -112,14 +111,12 @@ function buildUser($userArray, $isEmployee, $connection)
         updateTable($connection, $member->toLoginArray(), "login", "Login_id", $userArray['Login_id']);
         updateTable($connection, $member->toCustomerArray(), "customer", "customer_id", $userArray['customer_id']);
         updateTable($connection, $member->toMemberArray(), "member", "member_id", $userArray['member_id']);
-    }
-    // Check for employee
-    else
-    {
+    } // Check for employee
+    else {
         $employee = new Employee();
         // Update $userArray with new data, value is passed by reference so it can be changed
 //        https://www.php.net/manual/en/language.references.pass.php
-        foreach($userArray as $key => &$value) {
+        foreach ($userArray as $key => &$value) {
             // Logic to find a change
             if (isset($_POST[$key]) && $value != $_POST[$key]) {
                 // Update the value to the correct value in the form

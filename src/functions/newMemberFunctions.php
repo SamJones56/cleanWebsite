@@ -6,7 +6,7 @@ use person\Member;
 
 function makeNewMember()
 {
-    if (isset($_POST['submit'])){
+    if (isset($_POST['submit'])) {
         require "../common.php";
         include "../src/functions/dataBaseFunctions.php";
         require_once '../src/DBconnect.php';

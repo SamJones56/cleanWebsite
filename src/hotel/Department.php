@@ -6,7 +6,8 @@ final class Department
 {
     protected $dept_id, $dept_name, $address;
 
-    public function toDeptArray(){
+    public function toDeptArray()
+    {
         return array(
             'dept_name' => $this->dept_name,
             'address' => $this->address,

@@ -1,4 +1,5 @@
 <?php
+
 use person\Employee;
 
 function makeNewEmployee()
@@ -26,7 +27,7 @@ function makeNewEmployee()
         $employee->setUserId(getKey($connection, "user", "user_id"));
 
         // Set login attributes
-        $employee->setLoginDetails(escape($_POST['email']), escape($_POST['password']),escape($_POST['permissionlvl']));
+        $employee->setLoginDetails(escape($_POST['email']), escape($_POST['password']), escape($_POST['permissionlvl']));
 
         // Add login table
         addToTable($connection, $employee->toLoginArray(), "login");

@@ -13,12 +13,12 @@ class SQLTester
     public function goodConnect()
     {
         $inputArray = array(
-          'Login_id' => '03',
+            'Login_id' => '03',
             'email' => 'admin@gmail.com',
             'password' => '123',
             'permissionlvl' => '3'
 
         );
-        addToTable($connection,$inputArray,"login");
+        addToTable($connection, $inputArray, "login");
     }
 }

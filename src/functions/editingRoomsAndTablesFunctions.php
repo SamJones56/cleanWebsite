@@ -7,14 +7,16 @@ function buildTableList($connection, $tableName, $searchKey)
     $count = getKey($connection, $tableName, $searchKey);
     for ($i = 0; $i <= $count; $i++) {
         $searched = searchDB($connection, $tableName, $searchKey, $i);
-        if($searched) {
+        if ($searched) {
             $retrievedData[] = $searched;
         }
     }
     return $retrievedData;
 }
+
 // Print the data
-function printData ($tableData, $searchKey){
+function printData($tableData, $searchKey)
+{
     foreach ($tableData as $data) {
         echo "<td>" . $data . "</td>";
     }
@@ -28,5 +30,5 @@ function printData ($tableData, $searchKey){
 
 function getItemToUpdate($connection, $tableName, $searchKey, $searchValue)
 {
-    return $tempData = searchDB($connection, $tableName,$searchKey, $searchValue);
+    return $tempData = searchDB($connection, $tableName, $searchKey, $searchValue);
 }

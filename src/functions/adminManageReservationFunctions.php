@@ -22,8 +22,7 @@ function buildReservationGeneralList($connection): array
             // Add to the array that will be returned
             $reservationArray[] = $tempArray;
         }
-        if ($tableReservation)
-        {
+        if ($tableReservation) {
             $reservations_id = $tableReservation["reservations_id"];
             $isRoom = false;
             // Build the display with the gathered data
@@ -111,7 +110,7 @@ function buildRoomReservationDisplay($tempArray, $connection)
 {
     include_once "dataBaseFunctions.php";
     // Handle submission of the form
-    if(isset($_POST['submit_room'])){
+    if (isset($_POST['submit_room'])) {
         $temp_res = $_POST['reservations_id'];
         $_SESSION['temp_res'] = $temp_res;
         $_SESSION['isRoom'] = true;
@@ -119,32 +118,27 @@ function buildRoomReservationDisplay($tempArray, $connection)
         header("Location: updateReservation.php");
     }
     // See if check_in is selected
-    if(isset($_POST['check_in']))
-    {
+    if (isset($_POST['check_in'])) {
         // set the temp reservation_id as the forms reservation_id
         $temp_res = $_POST['reservations_id'];
         // update the column in the database with the new data
         updateColumn($connection, "roomReservations", "checked_in", "1", "reservations_id", $temp_res);
         header("refresh:0");
-    }
-    // See if check_out was selected
-    else if(isset($_POST['check_out']))
-    {
+    } // See if check_out was selected
+    else if (isset($_POST['check_out'])) {
         // Update the temp reservation
         $temp_res = $_POST['reservations_id'];
         // update the column in the db with the new value
         updateColumn($connection, "roomReservations", "checked_in", "0", "reservations_id", $temp_res);
         header("refresh:0");
-    }
-    // See if cancel_room was selected
-    else if(isset($_POST['cancel_room']))
-    {
+    } // See if cancel_room was selected
+    else if (isset($_POST['cancel_room'])) {
         // update the temp reservation id with the new value
         $temp_res = $_POST['reservations_id'];
         // delete the data from the necessary tables
-        deleteData($connection, "roomextras","reservations_id",$temp_res);
-        deleteData($connection, "roomreservations","reservations_id",$temp_res);
-        deleteData($connection, "reservations","reservations_id",$temp_res);
+        deleteData($connection, "roomextras", "reservations_id", $temp_res);
+        deleteData($connection, "roomreservations", "reservations_id", $temp_res);
+        deleteData($connection, "reservations", "reservations_id", $temp_res);
         header("refresh:0");
     }
     // Keys that match needed table headers
@@ -183,7 +177,7 @@ function buildRoomReservationDisplay($tempArray, $connection)
 function buildRestaurantReservationDisplay($tableArray, $connection)
 {
     // See if the form submission
-    if(isset($_POST['submit_table'])){
+    if (isset($_POST['submit_table'])) {
         $temp_res = $_POST['reservations_id'];
         $_SESSION['temp_res'] = $temp_res;
         $_SESSION['isRoom'] = false;
@@ -191,10 +185,10 @@ function buildRestaurantReservationDisplay($tableArray, $connection)
         header("Location: updateReservation.php");
     }
     // See if cancel table was selected, this deletes the entry from the database
-    if(isset($_POST['cancel_table'])){
+    if (isset($_POST['cancel_table'])) {
         $temp_res = $_POST['reservations_id'];
-        deleteData($connection, "tablereservations","reservations_id",$temp_res);
-        deleteData($connection, "reservations","reservations_id",$temp_res);
+        deleteData($connection, "tablereservations", "reservations_id", $temp_res);
+        deleteData($connection, "reservations", "reservations_id", $temp_res);
         header("refresh:0");
     }
     // Keys that match headers

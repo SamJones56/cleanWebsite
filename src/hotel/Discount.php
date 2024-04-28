@@ -6,7 +6,8 @@ final class Discount
 {
     protected $discount_id, $startDate, $endDate, $amount, $description;
 
-    public function getDiscountArray(){
+    public function getDiscountArray()
+    {
         return array(
             'startDate' => $this->startDate,
             'endDate' => $this->endDate,

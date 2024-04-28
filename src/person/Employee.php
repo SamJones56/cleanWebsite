@@ -9,21 +9,21 @@ require_once 'Login.php';
 require_once '../src/hotel/Department.php';
 
 
-
-
 final class Employee extends User
 {
     protected $employee_id, $login_id, $dept_id, $job;
     // login and departments object
     private $login, $department;
 
-    public function __construct() {
+    public function __construct()
+    {
         // Initialize Login instance
         $this->login = new Login();
         $this->department = new Department();
     }
 
-    public function toEmployeeArray(){
+    public function toEmployeeArray()
+    {
         return array(
             'user_id' => $this->getUserId(),
             'login_id' => $this->login->getLoginId(),
@@ -45,7 +45,7 @@ final class Employee extends User
         $this->login->setPermissionlvl($userArray['permissionlvl']);
         $this->employee_id = $userArray['employee_id'];
         $this->department->setDeptId($userArray['dept_id']);
-        $this->job=$userArray['job'];
+        $this->job = $userArray['job'];
     }
 
     public function getFilledEmployee()
@@ -66,21 +66,25 @@ final class Employee extends User
         );
 
     }
-    public function setLoginDetails($email, $password,$permissionlvl) {
+
+    public function setLoginDetails($email, $password, $permissionlvl)
+    {
         $this->login->setEmail($email);
         $this->login->setPassword($password);
         $this->login->setPermissionlvl($permissionlvl);
     }
 
-    public function getLoginDetails($employee) {
+    public function getLoginDetails($employee)
+    {
         return array(
             $this->login->getEmail(),
             $this->login->getPassword(),
             $this->login->getPermissionlvl(),
-    );
+        );
     }
 
-    public function toLoginArray() {
+    public function toLoginArray()
+    {
         return $this->login->toLoginArray();
     }
 

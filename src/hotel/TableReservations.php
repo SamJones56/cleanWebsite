@@ -45,7 +45,8 @@ final class TableReservations extends Reservations
     }
 
 
-    public function getRestaurantTableId(){
+    public function getRestaurantTableId()
+    {
         return $this->restaurantTable->getTableId();
     }
 

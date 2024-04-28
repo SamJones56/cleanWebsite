@@ -8,7 +8,8 @@ abstract class User
 {
     protected $user_id, $name, $dob, $address, $ph_no;
 
-    public function getUserArray(){
+    public function getUserArray()
+    {
         return array(
             'name' => $this->name,
             'address' => $this->address,
@@ -21,14 +22,13 @@ abstract class User
     public function toUserFullArray()
     {
         return array(
-            'user_id'=>$this->user_id,
+            'user_id' => $this->user_id,
             'name' => $this->name,
             'address' => $this->address,
             'ph_no' => $this->ph_no,
             'dob' => $this->dob,
         );
     }
-
 
 
     public function getUserId()

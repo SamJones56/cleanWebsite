@@ -10,7 +10,7 @@ require_once 'Room.php';
 
 final class RoomReservations extends Reservations
 {
-    protected $date, $check_in, $check_out, $total_price, $payment , $num_guests, $checked_in;
+    protected $date, $check_in, $check_out, $total_price, $payment, $num_guests, $checked_in;
     // Create room object
     protected $room_id;
     // room object
@@ -19,7 +19,7 @@ final class RoomReservations extends Reservations
     public function __construct()
     {
         parent::__construct();
-         $this->room = new Room();
+        $this->room = new Room();
 //         $checked_in = 0;
     }
 
@@ -45,34 +45,34 @@ final class RoomReservations extends Reservations
         $this->employee->setEmployeeId($resArray['employee_id']);
         $this->customer->setCustomerId($resArray['customer_id']);
         $this->date = $resArray['date'];
-        $this->check_in =$resArray['check_in'];
-        $this->check_out =$resArray['check_out'];
-        $this->total_price =$resArray['total_price'];
-        $this->payment =$resArray['payment'];
-        $this->room_id =$resArray['room_id'];
-        $this->num_guests =$resArray['num_guests'];
-        $this->checked_in =$resArray['checked_in'];
+        $this->check_in = $resArray['check_in'];
+        $this->check_out = $resArray['check_out'];
+        $this->total_price = $resArray['total_price'];
+        $this->payment = $resArray['payment'];
+        $this->room_id = $resArray['room_id'];
+        $this->num_guests = $resArray['num_guests'];
+        $this->checked_in = $resArray['checked_in'];
     }
 
-    public function getFilledRoomRes(){
+    public function getFilledRoomRes()
+    {
 
-    return array(
-        'reservations_id' => $this->reservations_id,
-        'employee_id' => $this->employee->getEmployeeId(),
-        'customer_id' => $this->customer->getCustomerId(),
-        'date' => $this->date,
-        'check_in' => $this->check_in,
-        'check_out' => $this->check_out,
-        'total_price' => $this->total_price,
-        'payment' => $this->payment,
-        'room_id' => $this->room_id,
-        'num_guests' => $this->num_guests,
-        'checked_in' => $this->checked_in,
-    );
+        return array(
+            'reservations_id' => $this->reservations_id,
+            'employee_id' => $this->employee->getEmployeeId(),
+            'customer_id' => $this->customer->getCustomerId(),
+            'date' => $this->date,
+            'check_in' => $this->check_in,
+            'check_out' => $this->check_out,
+            'total_price' => $this->total_price,
+            'payment' => $this->payment,
+            'room_id' => $this->room_id,
+            'num_guests' => $this->num_guests,
+            'checked_in' => $this->checked_in,
+        );
 
 
     }
-
 
 
     public function getRoomId()
@@ -142,10 +142,9 @@ final class RoomReservations extends Reservations
 
     public function setNumGuests($num_guests): void
     {
-        if($num_guests > 0) {
+        if ($num_guests > 0) {
             $this->num_guests = $num_guests;
-        }
-        else
+        } else
             echo "<br> <h1> Number of guests must be greater than 0</h1>";
     }
 

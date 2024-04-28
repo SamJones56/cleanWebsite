@@ -1,5 +1,7 @@
 <?php
+
 use hotel\Discount;
+
 function makeDisount()
 {
     // Form submitted

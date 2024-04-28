@@ -1,24 +1,26 @@
 <?php
 
 // This function adds data to the table using an input array and the name of the table
-function addToTable($connection, $inputArray, $tableName){
+function addToTable($connection, $inputArray, $tableName)
+{
     try {
-    $sql = sprintf(
-        "INSERT INTO %s (%s) values (%s)",
-        "$tableName",
-        implode(", ", array_keys($inputArray)),
-        ":" . implode(", :", array_keys($inputArray))
-    );
-    $statement = $connection->prepare($sql);
-    $statement->execute($inputArray);
-    } catch(PDOException $error) {
+        $sql = sprintf(
+            "INSERT INTO %s (%s) values (%s)",
+            "$tableName",
+            implode(", ", array_keys($inputArray)),
+            ":" . implode(", :", array_keys($inputArray))
+        );
+        $statement = $connection->prepare($sql);
+        $statement->execute($inputArray);
+    } catch (PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
     }
 }
+
 // This function updates the data in a table, it takes an input array, the name of the table, the name of the key, and the given key that is associated
 function updateTable($connection, $inputArray, $tableName, $keyName, $givenKey)
 {
-    try{
+    try {
         foreach ($inputArray as $key => $value) {
             // For each key-value pair in the input array, add a set clause using placeholders
             // and add the value to the parameters array
@@ -34,38 +36,42 @@ function updateTable($connection, $inputArray, $tableName, $keyName, $givenKey)
         // Prepare and execute the SQL statement with the parameters
         $statement = $connection->prepare($sql);
         $statement->execute($params);
-    } catch(PDOException $error) {
-    echo $sql . "<br>" . $error->getMessage();
+    } catch (PDOException $error) {
+        echo $sql . "<br>" . $error->getMessage();
     }
 }
+
 // PDO Fetch statements
 // https://www.php.net/manual/en/pdostatement.fetchobject.php
 // This function returns the latest pk put into a table, using a table name and the name of the pk
-function getKey($connection, $tableName, $primaryKey){
+function getKey($connection, $tableName, $primaryKey)
+{
     try {
         $sql = "SELECT MAX(" . $primaryKey . ") FROM " . $tableName;
         $statement = $connection->prepare($sql);
         $statement->execute();
         $result_array = $statement->fetch(PDO::FETCH_ASSOC);
-        $result = $result_array ["MAX(". $primaryKey .")"];
+        $result = $result_array ["MAX(" . $primaryKey . ")"];
         return $result;
-    } catch(PDOException $error) {
+    } catch (PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
     }
 }
+
 // This function gets the count of the entries in a table using just the table name
 function getCount($connection, $tableName)
 {
-    try{
-        $sql = "SELECT COUNT(*) FROM " . $tableName ;
+    try {
+        $sql = "SELECT COUNT(*) FROM " . $tableName;
         $statement = $connection->prepare($sql);
         $statement->execute();
         $result_array = $statement->fetch(PDO::FETCH_ASSOC);
         return $result_array;
-    }catch(PDOException $error) {
-     echo $sql . "<br>" . $error->getMessage();
+    } catch (PDOException $error) {
+        echo $sql . "<br>" . $error->getMessage();
     }
 }
+
 // This function searches the database for an associated key to a given value
 function searchDB($connection, $tableName, $searchKey, $searchValue)
 {
@@ -76,10 +82,11 @@ function searchDB($connection, $tableName, $searchKey, $searchValue)
         $statement->execute();
         $result_array = $statement->fetch(PDO::FETCH_ASSOC);
         return $result_array;
-    } catch(PDOException $error) {
+    } catch (PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
     }
 }
+
 // This function searched the whole database for associated key and value
 function searchAllDB($connection, $tableName, $searchKey, $searchValue)
 {
@@ -90,7 +97,7 @@ function searchAllDB($connection, $tableName, $searchKey, $searchValue)
         $statement->execute();
         $result_array = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $result_array;
-    } catch(PDOException $error) {
+    } catch (PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
     }
 }
@@ -104,13 +111,15 @@ function seachAllDBcap($connection, $tableName, $searchKey, $searchValue)
         $statement->execute();
         $result_array = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $result_array;
-    } catch(PDOException $error) {
+    } catch (PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
     }
 }
+
 // This function searches the database for an associated key with a value
-function getAssociationKey($connection, $tableName, $keyToSearch, $columnToSearch ,$keyToFind){
-    try{
+function getAssociationKey($connection, $tableName, $keyToSearch, $columnToSearch, $keyToFind)
+{
+    try {
         $sql = "SELECT " . $keyToFind . " FROM " . $tableName . " WHERE " . $columnToSearch . " = " . $keyToSearch;
         $statement = $connection->prepare($sql);
         $statement->execute();
@@ -118,31 +127,31 @@ function getAssociationKey($connection, $tableName, $keyToSearch, $columnToSearc
 
         $result = $keyResult[$keyToFind];
         return $result;
-    } catch(PDOException $error) {
+    } catch (PDOException $error) {
 //    echo "error" .  $sql . "<br>" . $error->getMessage();
     }
 }
+
 // This function updates a column in the database
 function updateColumn($connection, $tableName, $whereKey, $updateKey, $identifyingKey, $givenIdentifyingKey)
 {
-    try
-    {
+    try {
         $sql = "UPDATE $tableName SET $whereKey = $updateKey WHERE $identifyingKey = $givenIdentifyingKey";
         $statement = $connection->prepare($sql);
         $statement->execute();
-    } catch(PDOException $error) {
-        echo "error" .  $sql . "<br>" . $error->getMessage();
+    } catch (PDOException $error) {
+        echo "error" . $sql . "<br>" . $error->getMessage();
     }
 }
+
 // this function deletes data from the database
 function deleteData($connection, $tableName, $identifyingKey, $givenKey)
 {
-    try
-    {
+    try {
         $sql = "DELETE FROM $tableName WHERE $identifyingKey = $givenKey";
         $statement = $connection->prepare($sql);
         $statement->execute();
-    } catch(PDOException $error) {
-        echo "error" .  $sql . "<br>" . $error->getMessage();
+    } catch (PDOException $error) {
+        echo "error" . $sql . "<br>" . $error->getMessage();
     }
 }

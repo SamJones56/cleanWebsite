@@ -7,12 +7,12 @@ function getRoomProducts($connection)
     // Get a count of all entries in the db
     $itemCount = getCount($connection, "extraoptions");
     // Loop through each entry
-    for($i = 0; $i < $itemCount['COUNT(*)']; $i++){
+    for ($i = 0; $i < $itemCount['COUNT(*)']; $i++) {
         // search the database and return the result
-        $result = searchAllDB($connection, "extraoptions", "option_id", $i+1);
+        $result = searchAllDB($connection, "extraoptions", "option_id", $i + 1);
 //        https://www.w3schools.com/php/func_var_empty.asp
         // Checking if it variable isn't empty
-        if(!empty($result)) {
+        if (!empty($result)) {
             // adds to the products array the result
             $products[$i] = $result[0];
         }
@@ -20,6 +20,7 @@ function getRoomProducts($connection)
     // Return the products array
     return $products;
 }
+
 // This function gets the current cart
 function getShoppingCart()
 {
@@ -33,6 +34,7 @@ function getShoppingCart()
     // Return the cart items
     return $cartItems;
 }
+
 // This function adds items to the cart taking in their id
 function addItemToCart($id)
 {
@@ -43,6 +45,7 @@ function addItemToCart($id)
     // Add the new items to the session cart
     $_SESSION['cart'] = $cartItems;
 }
+
 // This function removes an item from the cart
 function removeItemFromCart($id)
 {
@@ -53,6 +56,7 @@ function removeItemFromCart($id)
     // update the session cart
     $_SESSION['cart'] = $cartItems;
 }
+
 // Get the quanitity of items
 function getQuantity($id, $cart)
 {
@@ -64,6 +68,7 @@ function getQuantity($id, $cart)
         return 0;
     }
 }
+
 // Increase quantity of item in the cart
 function increaseCartQuantity($id)
 {
@@ -78,6 +83,7 @@ function increaseCartQuantity($id)
     // update the session cart
     $_SESSION['cart'] = $cartItems;
 }
+
 // This function reduces the cart quantity
 function reduceCartQuantity($id)
 {
@@ -98,11 +104,13 @@ function reduceCartQuantity($id)
     // update session cart
     $_SESSION['cart'] = $cartItems;
 }
+
 // This function is used by the default to display the products
 function displayProducts($connection)
 {
     $products = getRoomProducts($connection);
 }
+
 // This function displays the cart
 function displayCart($connection)
 {

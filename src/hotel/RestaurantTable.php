@@ -10,8 +10,8 @@ final class RestaurantTable
     {
         return array
         (
-            'table_id'=>$this->table_id,
-            'capacity'=>$this->capacity
+            'table_id' => $this->table_id,
+            'capacity' => $this->capacity
         );
     }
 

@@ -74,6 +74,7 @@ function newRestaurantReservation($connection, $tempTableReservation, $tester)
 
     }
 }
+
 // This function checks if the room is available
 function checkTableAvailability($connection, $bookingTime, $bookingDate, $num_guests)
 {

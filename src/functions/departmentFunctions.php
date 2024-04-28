@@ -1,6 +1,7 @@
 <?php
 
 use hotel\Department;
+
 // This function makes a new department
 function makeNewDepartment()
 {
@@ -26,6 +27,7 @@ function makeNewDepartment()
         header("location:adminManageDepts.php");
     }
 }
+
 // This function updates a department
 function updateDept($connection)
 {

@@ -27,7 +27,8 @@ function makeNewRoom()
     }
 }
 
-function updateRoom($connection){
+function updateRoom($connection)
+{
     if (isset($_POST['submit'])) {
         require "../common.php";
         include_once "../src/functions/dataBaseFunctions.php";

@@ -13,20 +13,21 @@ class Customer extends User
 
     public function toCustomerArray()
     {
-        return array (
+        return array(
             'user_id' => $this->getUserId(),
             'passport_no' => $this->passport_no
-            );
+        );
     }
 
     public function toCustomerFullArray()
     {
-        return array (
+        return array(
             'customer_id' => $this->customer_id,
             'user_id' => $this->getUserId(),
             'passport_no' => $this->passport_no
         );
     }
+
     public function getCustomerId()
     {
         return $this->customer_id;

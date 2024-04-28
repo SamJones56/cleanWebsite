@@ -37,11 +37,9 @@ abstract class Reservations
     //
     public function setEmployeeId($employee_id): void
     {
-        if (is_numeric($employee_id))
-        {
+        if (is_numeric($employee_id)) {
             $this->employee->setEmployeeId($employee_id);
-        }
-        else {
+        } else {
             echo "<br>";
             var_dump($employee_id);
             echo gettype($employee_id);
@@ -60,9 +58,7 @@ abstract class Reservations
     {
         if (is_numeric($customer_id)) {
             $this->customer->setCustomerId($customer_id);
-        }
-        else
-        {
+        } else {
             echo "<br>";
             var_dump($customer_id);
             echo gettype($customer_id);
@@ -78,11 +74,9 @@ abstract class Reservations
 
     public function setReservationsId($reservations_id): void
     {
-        if (is_numeric($reservations_id))
-        {
+        if (is_numeric($reservations_id)) {
             $this->reservations_id = $reservations_id;
-        }
-        else{
+        } else {
             echo "<br>";
             var_dump($reservations_id);
             echo gettype($reservations_id);

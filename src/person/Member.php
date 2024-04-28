@@ -1,6 +1,7 @@
 <?php
 
 namespace person;
+
 use person\Login;
 
 require_once 'Customer.php';
@@ -12,7 +13,9 @@ final class Member extends Customer
     private $permissionLvl = 1;
     // login object
     private $login;
-    public function __construct() {
+
+    public function __construct()
+    {
         // Initialize Login instance
         $this->login = new Login();
         // Set the permission lvl to 1 for lowest user
@@ -71,16 +74,20 @@ final class Member extends Customer
         );
     }
 
-    public function setLoginDetails($email, $password,$permissionlvl) {
+    public function setLoginDetails($email, $password, $permissionlvl)
+    {
         $this->login->setEmail($email);
         $this->login->setPassword($password);
         $this->login->setPermissionlvl($permissionlvl);
     }
-    public function toLoginArray() {
+
+    public function toLoginArray()
+    {
         return $this->login->toLoginArray();
     }
 
-    public function toLoginFullArray() {
+    public function toLoginFullArray()
+    {
         return $this->login->toLoginFullArray();
     }
 
@@ -104,11 +111,13 @@ final class Member extends Customer
         $this->login->setLoginId($login_id);
     }
 
-    public function setPermissionlvl($permissionlvl){
+    public function setPermissionlvl($permissionlvl)
+    {
         $this->login->setPermissionlvl($permissionlvl);
     }
 
-    public function getPermissionlvl(){
+    public function getPermissionlvl()
+    {
         return $this->login->getPermissionlvl();
     }
 }
