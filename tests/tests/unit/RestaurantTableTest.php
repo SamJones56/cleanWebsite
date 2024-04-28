@@ -3,10 +3,10 @@
 
 namespace Tests\Unit;
 
-use hotel\RestaurantTable;
 use Tests\Support\UnitTester;
+use tests\unit\testerClasses\RestaurantTable;
 
-require_once 'src/hotel/RestaurantTable.php';
+require_once 'testerClasses/RestaurantTable.php';
 class RestaurantTableTest extends \Codeception\Test\Unit
 {
 

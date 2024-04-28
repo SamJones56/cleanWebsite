@@ -1,9 +1,9 @@
 <?php
 
-namespace hotel;
+namespace tests\unit\testerClasses;
 
-use hotel\Reservations;
-use hotel\Room;
+use tests\unit\testerClasses\Reservations;
+use tests\unit\testerClasses\Room;
 
 require_once 'Reservations.php';
 require_once 'Room.php';
@@ -56,24 +56,22 @@ final class RoomReservations extends Reservations
 
     public function getFilledRoomRes(){
 
-    return array(
-        'reservations_id' => $this->reservations_id,
-        'employee_id' => $this->employee->getEmployeeId(),
-        'customer_id' => $this->customer->getCustomerId(),
-        'date' => $this->date,
-        'check_in' => $this->check_in,
-        'check_out' => $this->check_out,
-        'total_price' => $this->total_price,
-        'payment' => $this->payment,
-        'room_id' => $this->room_id,
-        'num_guests' => $this->num_guests,
-        'checked_in' => $this->checked_in,
-    );
+        return array(
+            'reservations_id' => $this->reservations_id,
+            'employee_id' => $this->employee->getEmployeeId(),
+            'customer_id' => $this->customer->getCustomerId(),
+            'date' => $this->date,
+            'check_in' => $this->check_in,
+            'check_out' => $this->check_out,
+            'total_price' => $this->total_price,
+            'payment' => $this->payment,
+            'room_id' => $this->room_id,
+            'num_guests' => $this->num_guests,
+            'checked_in' => $this->checked_in,
+        );
 
 
     }
-
-
 
     public function getRoomId()
     {

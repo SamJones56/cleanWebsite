@@ -2,10 +2,11 @@
 
 namespace Tests\Unit;
 
-use hotel\Department;
-use Tests\Support\UnitTester;
 
-require_once 'src/hotel/Department.php';
+use Tests\Support\UnitTester;
+use tests\unit\testerClasses\Department;
+
+require_once 'testerClasses/Department.php';
 class DepartmentsTest extends \Codeception\Test\Unit
 {
     protected UnitTester $tester;
