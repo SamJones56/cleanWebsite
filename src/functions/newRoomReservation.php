@@ -189,22 +189,7 @@ function roomPriceCalculator($connection, $initialRoomPrice, $checkIn, $checkOut
             }
         }
     }
-//    echo '<br> <h1>Final Price: </h1>';
-//    var_dump($finalPrice);
     return $finalPrice;
-}
-
-//https://codereview.stackexchange.com/questions/255002/checking-if-an-array-of-dates-are-within-a-date-range#:~:text=I%20created%20a%20dates_in_range(),%2C%20it'll%20return%20false.
-function roomDateRangeDeals(int $start, int $end, array $dateRange): bool
-{
-    foreach ($dateRange as $date) {
-        $mon = date("m", $date);
-        $mon = (int)$mon;
-        if ($mon < $start || $mon > $end) {
-            return false;
-        }
-    }
-    return true;
 }
 
 function addExtras($cartItems, $connection)
