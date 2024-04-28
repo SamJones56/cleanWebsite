@@ -27,12 +27,13 @@ function userLogIn($connection, $test)
                     $_SESSION['temp_login'] = $login_id_db;
                     $_SESSION['Email'] = $email_db;
                     $_SESSION['permissionlvl'] = $permissionlvl;
+
                     if($permissionlvl < 2) {
                         $_SESSION['customer_id'] = searchDB($connection, "member", "login_id", $login_id_db);
                     }
                     $_SESSION['Active'] = true;
                     if($test == 0) {
-                        header("location:index.php");
+                            header("location:index.php");
                     }
                     else if ($test == 1){
                         header("Refresh:0");

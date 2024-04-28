@@ -17,12 +17,13 @@ makeNewRestaurantTable();
 <div id="dataForm">
     <form method="post">
         <label for="table_id">Table No</label>
-        <input type="text" name="table_id" id="table_id"><br>
+        <input type="text" name="table_id" id="table_id" class="form-control" required><br>
 
         <label for="capacity">Capacity</label>
-        <input type="text" name="capacity" id="capacity"><br>
+        <input type="text" name="capacity" id="capacity" class="form-control" required><br>
 
-        <input type="submit" name="submit" value="Submit">
+        <input type="submit" name="submit" value="Submit" class="btn btn-success">
+        <a href="adminManageTables.php" class="btn btn-secondary">Back to Tables</a>
     </form>
 </div>
 

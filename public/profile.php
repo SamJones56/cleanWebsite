@@ -14,29 +14,11 @@ $user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee'],$
 
 $_SESSION['temp_login'] = $_SESSION['login_id'];
 
-
-
-//var_dump($user_array);
 $_SESSION['guestRedirect'] = "profile.php";
-
-//if()
-//{
-//
-//}
-//var_dump($_SESSION);
-//var_dump($user_array);
-
-//if($_SESSION['isEmployee']){
-//    $reservation_array = newReservationDisplay($user_array['employee_id'], ($_SESSION['isEmployee']), ($isRoom = true), $connection);
-//}
-//else {
-//    $reservation_array = newReservationDisplay($user_array['customer_id'], ($_SESSION['isEmployee']), ($isRoom = true), $connection);
-//}
-
 ?>
 
 <h2>User Data</h2>
-<table>
+<table class="table table-striped">
     <thead>
     <tr>
         <th>User id</th>
@@ -67,7 +49,7 @@ $_SESSION['guestRedirect'] = "profile.php";
             <?php }else{?>
             <td><?php echo $user_array["passport_no"]; ?></td>
             <?php }?>
-            <td><a href="updateUser.php" > edit </a> </td>
+            <td><a href="updateUser.php" class="btn btn-warning"> edit </a> </td>
 
 <!--            ?user_id=--><?php //echo $user_array["user_id"];
 //                ?><!--">Edit</a></td>-->
@@ -75,7 +57,7 @@ $_SESSION['guestRedirect'] = "profile.php";
     </tbody>
 </table>
 <h2>Room Bookings</h2>
-<table>
+<table  class="table table-striped" >
     <thead>
     <tr>
         <th>Reservation id</th>
@@ -103,7 +85,7 @@ $_SESSION['guestRedirect'] = "profile.php";
 </table>
 
 <h2>Restaurant Bookings</h2>
-<table>
+<table  class="table table-striped">
     <thead>
     <tr>
         <th>Reservation id</th>

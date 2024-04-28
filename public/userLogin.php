@@ -14,8 +14,8 @@ if(isset($_POST['Submit'])) {
             <input name="Email" type="email" id="email" class="form-control" placeholder="Email" required autofocus>
             <label for="Password">Password</label>
             <input name="Password" type="password" id="Password" class="form-control" placeholder="Password" required>
-            <button name="Submit" value="Login" class="button" type="submit">Sign in</button>
-            <!--        https://www.w3schools.com/howto/howto_js_redirect_webpage.asp -->
-            <button name="Reg" value="Reg" class="button" type="button"><a href="memberSignUp.php">Register</a></button>
+            <br>
+            <button name="Submit" value="Login" class="btn btn-success" type="submit" >Sign in</button>
+            <a href="memberSignUp.php" class="btn btn-outline-success">Register</a>
         </form>
 <?php include "templates/footer.php"; ?>

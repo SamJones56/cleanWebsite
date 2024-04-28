@@ -15,14 +15,13 @@ if($_SESSION['Active'])
 else{
 ?>
 
-<h1>Sign in</h1>
+
 <form action="userLogin.php" method="post">
-    <input type="submit" name="submit-login">
+    <button class="btn btn-light btn-lg btn-block btn btn-outline-secondary" type="submit" name="submit-login" > Sign in</button>
 </form>
 <br>
-<h1>Continue as Guest</h1>
 <form action="createGuest.php" method="post">
-    <input type="submit" name="submit-login">
+    <button class="btn btn-light btn-lg btn-block btn btn-outline-secondary" type="submit" name="submit-guest" > Continue as Guest</button>
 </form>
 
 <?php };

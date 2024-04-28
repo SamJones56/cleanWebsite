@@ -15,32 +15,33 @@ makeNewRoom();
     <div id="dataForm">
         <form method="post">
             <label for="room_id">Room id</label>
-            <input type="text" name="room_id" id="room_id"><br>
+            <input type="text" name="room_id" id="room_id" class="form-control" required>
 
             <label for="room_type">Room Type</label>
             <select
-                name="room_type" id="room_type">
+                name="room_type" id="room_type" class="form-control" required>
                 <option value="suite">Suite</option>
                 <option value="double">Double</option>
                 <option value="twin">Twin</option>
                 <option value="family">Family</option>
-            </select><br>
+            </select>
 
 
             <label for="accessibility">Accessibility</label>
             <select
-                name="accessibility" id="accessibility">
+                name="accessibility" id="accessibility" class="form-control" required>
                 <option value="wheelchair">Wheelchair Accessible</option>
                 <option value="non_accessible">Non Accessible</option>
-            </select><br>
+            </select>
 
             <label for="price">Price</label>
-            <input type="text" name="price" id="price"><br>
-
-            <input type="submit" name="submit" value="Submit">
+            <input type="text" name="price" id="price" class="form-control" required>
+            <br>
+            <input type="submit" name="submit" value="Submit"  class="btn btn-success">
+            <a href="adminManageRooms.php" class="btn btn-secondary"> Back to rooms </a>
         </form>
     </div>
-    <button><a href="adminManageRooms.php" > Back to rooms </a> </button>
+
 
 
 <?php include "templates/footer.php";?>

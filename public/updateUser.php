@@ -9,14 +9,12 @@ if($_SESSION['permissionlvl'] < 2 )
 
 // Check if user is editing their own profile
 if($_SESSION['login_id'] == $_SESSION['temp_login']) {
-//    var_dump("if hit");
     $user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee'], $connection);
     buildProfileDisplay($user_array, $_SESSION['isEmployee']);
     $_SESSION['tempEmployee'] = false;
 }
 // Check if its editing another employee
 else if($_SESSION['tempEmployee']){
-    var_dump("if else hit");
     $user_array = newProfileDisplay($_SESSION['temp_login'], $_SESSION['tempEmployee'], $connection);
     echo '<br>';
     var_dump($user_array);
@@ -28,7 +26,6 @@ else if($_SESSION['tempEmployee']){
 // Check if user is editing anothers profile, using their templogin id to build table
 else
 {
-    var_dump("else hit");
     $user_array = newProfileDisplay($_SESSION['temp_login'], $_SESSION['tempEmployee'], $connection);
     buildProfileDisplay($user_array, $_SESSION['tempEmployee']);
     $_SESSION['tempEmployee'] = false;

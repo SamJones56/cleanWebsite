@@ -87,7 +87,7 @@
             $_SESSION['guestRedirect'] = "bookTable.php";
             echo "signInPrompt.php";
             ?>" method="post">
-                <button type="submit">Book Now</button>
+                <button type="submit" class="btn btn-success">Book Now</button>
             </form>
         </a>
 

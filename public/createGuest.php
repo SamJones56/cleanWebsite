@@ -23,6 +23,7 @@ makeNewGuest();
             <label for="passport_no">Passport Number</label>
             <input type="text" name="passport_no" id="passport_no" class="form-control" required>
 
+            <br>
             <input type="submit" name="submit" value="Submit" class="btn btn-success">
             <a href="index.php" class="btn btn-secondary">Back to home</a>
         </form>
