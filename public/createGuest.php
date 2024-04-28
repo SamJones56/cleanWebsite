@@ -21,7 +21,7 @@ makeNewGuest();
             <input type="text" name="ph_no" id="ph_no" class="form-control" required>
 
             <label for="passport_no">Passport Number</label>
-            <input type="text" name="passport_no" id="passport_no" class="form-control" required>
+            <input type="password" name="passport_no" id="passport_no" class="form-control" required>
 
             <br>
             <input type="submit" name="submit" value="Submit" class="btn btn-success">

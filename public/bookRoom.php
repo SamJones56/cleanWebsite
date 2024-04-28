@@ -62,7 +62,8 @@ $keys = array("employee_id", "customer_id", "date", "check_in", "check_out", "pa
         <input type="text" name="customer_id" id="customer_id"
                value="<?php echo $_SESSION['customer_id'] ?>" hidden class="form-control">
     <?php } ?>
-    <input type="date" name="date" id="date" value="<?php echo date('Y-m-d'); ?>" hidden>
+    <label for="date">
+    </label><input type="date" name="date" id="date" value="<?php echo date('Y-m-d'); ?>" hidden>
 
     <label for="check_in">check_in</label>
     <input type="date" name="check_in" id="check_in" value="<?php echo date('Y-m-d'); ?>" required class="form-control">
