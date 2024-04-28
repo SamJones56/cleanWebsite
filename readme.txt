@@ -1,3 +1,41 @@
+Contribution Statement: 
+
+Emily - 
+Person & Hotel Classes & Class Design-(repo changed to fresh one since this).
+Room Reservations & Stays functions. 
+SQL Scripting & DB population.  
+Stays Page.
+Unit testing. 
+
+Sam -
+User profile page and functions.
+Admin/Staff page and admin/staff page functions.
+Booking rooms and functions.
+Reserving tables and reservation functions.
+Work on person and hotel classes and functions.
+Shopping cart and shopping cart functions.
+Database functions.
+Discount class and discount functions.
+User sign in and sign out functions.
+Session class and associated session logic handling.
+Equivalence Partition and Basis Path Testing.
+Validation Testing.
+
+Anna - 
+Dine page & book table
+Gallery page
+Requirements testing
+UI testing
+
+
+
+Old repo's
+https://github.com/SamJones56/WebDevProject
+https://github.com/EmzzH/HotelTallafornia
+
+
+
+
 References:
 
 w3schools : is array
