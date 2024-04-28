@@ -32,6 +32,7 @@ $keys = array("employee_id", "customer_id", "date", "check_in", "check_out", "pa
 
 ?>
     <h2>Reserve A Room</h2>
+
     <div id="dataForm">
     <form method="post">
 
@@ -74,7 +75,7 @@ $keys = array("employee_id", "customer_id", "date", "check_in", "check_out", "pa
     <span class="error">* <?php echo $chk_outErr; ?></span>
     <br>
 
-    <label for="room_type">Payment</label>
+    <label for="payment">Payment</label>
     <select name="payment" id="payment" required>
         <option value="card">Card</option>
         <option value="cash">Cash</option>

@@ -232,8 +232,11 @@ function bookingRestore($formArray, $formDataArray)
     {
         if($key != "payment") {
             echo '<label ' ;
-            if(!$_SESSION['isEmployee'] && $key == "employee_id" || $key == "customer_id" || $key == "date"){
+            if(!$_SESSION['isEmployee'] && ($key == "employee_id" || $key == "customer_id" || $key == "date")){
                 echo ' hidden ';
+            }
+            else if ($_SESSION['isEmployee'] && $key == 'date'){
+                echo 'hidden';
             }
             echo ' for="' . $key . '">' . $key . '</label>';
             if ($key == "employee_id" || $key == "customer_id") {
