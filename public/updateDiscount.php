@@ -12,25 +12,27 @@ $editingDisc = getItemToUpdate($connection, "discounts", "discount_id", $_SESSIO
 var_dump($editingDisc);
 updateDiscount($connection);
 ?>
+<div class="container">
 <h2>Update a Discount</h2>
 <div id="dataForm">
-    <form method="post">
+    <form method="post" >
         <label for="discount_id">Discount id</label>
-        <input type="text" name="discount_id" id="discount_id" value="<?php echo $editingDisc['discount_id']?>"><br>
+        <input type="text" name="discount_id" id="discount_id" class="form-control" value="<?php echo $editingDisc['discount_id']?>"><br>
 
         <label for="startDate">Start Date</label>
-        <input type="date" name="startDate" id="startDate" value="<?php echo $editingDisc['startDate']?>"><br>
+        <input type="date" name="startDate" id="startDate" class="form-control" value="<?php echo $editingDisc['startDate']?>"><br>
 
         <label for="endDate">End Date</label>
-        <input type="date" name="endDate" id="endDate" value="<?php echo $editingDisc['endDate']?>"><br>
+        <input type="date" name="endDate" id="endDate" class="form-control" value="<?php echo $editingDisc['endDate']?>"><br>
 
         <label for="amount">Amount</label>
-        <input type="text" name="amount" id="amount" value="<?php echo $editingDisc['amount']?>"><br>
+        <input type="text" name="amount" id="amount" class="form-control" value="<?php echo $editingDisc['amount']?>"><br>
 
         <label for="description">Amount</label>
-        <input type="text" name="description" id="description" value="<?php echo $editingDisc['description']?>"><br>
+        <input type="text" name="description" id="description" class="form-control" value="<?php echo $editingDisc['description']?>"><br>
 
         <input type="submit" name="submit" value="Submit">
     </form>
     <a href="adminManageDiscounts.php">Back to Discounts</a>
+</div>
 </div>

@@ -26,13 +26,13 @@ if(isset($_POST['delete_post'])){
 }
 ?>
     <h2>Manage Departments</h2>
-    <button><a href="createDepartment.php" > Create a Department </a> </button>
-    <table>
-        <thead>
+    <a href="createDepartment.php" class="btn btn-light"> Create a Department </a>
+    <table class="table table-striped">
+        <thead >
         <tr>
-            <th>Dept id</th>
-            <th>Dept Name</th>
-            <th>Address</th>
+            <th scope="col">Dept id</th>
+            <th scope="col">Dept Name</th>
+            <th scope="col">Address</th>
         </tr>
         </thead>
         <tbody>
@@ -41,6 +41,6 @@ if(isset($_POST['delete_post'])){
         }  ?>
         </tbody>
     </table>
-    <a href="admin.php" > Back to admin </a>
+    <a href="admin.php" class="btn btn-light"> Back to admin </a>
 <?php
 include_once "templates/footer.php";

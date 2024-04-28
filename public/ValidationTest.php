@@ -12,9 +12,9 @@ function loginTestForm($connection){
     <title>Sign in</title>
     <form action="" method="post" name="Login_Form" class="form-signin">
         <h2 class="form-signin-heading">Sign In Test: Credentials to validate below</h2>
-        <label for="inputEmail" >Email</label>
+        <label for="Email" >Email</label>
         <input name="Email" type="email" id="email" class="form-control" placeholder="Email"  autofocus>
-        <label for="inputPassword">Password</label>
+        <label for="Password">Password</label>
         <input name="Password" type="password" id="Password" class="form-control" placeholder="Password" >
         <button name="test1pt1" value="test1pt1" type="submit">Add data</button>
         <button name="test1pt2" value="test1pt2" class="button" type="submit">Sign in</button>
