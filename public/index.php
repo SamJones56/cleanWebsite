@@ -31,7 +31,7 @@
         <div class="carousel-inner">
             <!-- Main entrance -->
             <div class="carousel-item active" data-bs-interval="3000">
-                <img src="../images/miscPhotos/mainEntrance.jpg" class="d-block w-100" alt="Photo of main hotel entrance.">
+                <img src="../images/roomAdons/hotel_tallaght.png" class="d-block w-100" alt="Photo of main hotel entrance.">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Hotel Tallafornia</h5>
                     <p>Have your driver drop you right at our front door!</p>
@@ -49,8 +49,6 @@
             <div class="carousel-item" data-bs-interval="3000">
                 <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
                     <input type="image" src="../images/img_rest/mainRestaurant.jpg" class="d-block w-100" alt="Photo of main restaurant area, the Shamrock Restaurant." alt="Submit" style="float:right" width="500">
-                    <!--                       Edit db table and reservations page-->
-                    <!--                        <input type="hidden" name="area" value="mainrest">-->
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Shamrock Restaurant</h5>
                         <p>Open for dinner. Click to book.</p>
@@ -88,8 +86,6 @@
             <div class="carousel-item" data-bs-interval="3000">
                 <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
                     <input type="image" src="../images/img_rest/barSeating.jpg" class="d-block w-100" alt="Photo of bar and brasserie dining area." alt="Submit" style="float:right" width="500">
-                    <!--                        Edit db table and reservations page-->
-                    <!--                        <input type="hidden" name="area" value="bar">-->
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Bar & Brasserie</h5>
                         <p>Open evenings only. Click to book.</p>
@@ -119,8 +115,6 @@
             <div class="carousel-item" data-bs-interval="3000">
                 <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
                     <input type="image" src="../images/img_rest/outdoorDining.jpg" class="d-block w-100" alt="Photo of outdoor dining area." alt="Submit" style="float:right" width="500">
-                    <!--                        Edit db table and reservations page-->
-                    <!--                        <input type="hidden" name="area" value="outdoor">-->
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Garden Restaurant</h5>
                         <p>Open for lunch. Click to book.</p>
@@ -158,8 +152,6 @@
             <div class="carousel-item" data-bs-interval="3000">
                 <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
                     <input type="image" src="../images/img_rest/lounge.jpg" class="d-block w-100" alt="Photo of lounge area." alt="Submit" style="float:right" width="500">
-                    <!--                        Edit db table and reservations page-->
-                    <!--                        <input type="hidden" name="area" value="lounge">-->
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Lounge</h5>
                         <p>Open for breakfast or coffee. Click to book.</p>

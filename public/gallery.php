@@ -11,44 +11,49 @@
         <div class="row text-center text-lg-start">
 
             <div class="col-lg-3 col-md-4 col-6">
-                <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="../images/suite.webp" alt="Photo of suite">
-                </a>
+                <form action="signInPrompt.php <?php $_SESSION['guestRedirect'] = "bookRoom.php"; ?>" method="post">
+<!--                    <img class="img-fluid img-thumbnail" src="../images/suite.webp" alt="Photo of suite">-->
+                    <input class="img-fluid img-thumbnail" type="image" src="../images/suite.webp">
+                    <input type="hidden" name="room_type" value="suite">
+                </form>
             </div>
             <div class="col-lg-3 col-md-4 col-6">
-                <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="../images/double.jpg" alt="Photo of double room">
-                </a>
+                <form action="signInPrompt.php <?php $_SESSION['guestRedirect'] = "bookRoom.php"; ?>" method="post">
+                    <input class="img-fluid img-thumbnail" type="image" src="../images/double.jpg">
+                    <input type="hidden" name="room_type" value="double">
+                </form>
             </div>
             <div class="col-lg-3 col-md-4 col-6">
-                <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="../images/family.jpg" alt="Photo of family room">
-                </a>
+                <form action="signInPrompt.php <?php $_SESSION['guestRedirect'] = "bookRoom.php"; ?>" method="post">
+                    <input class="img-fluid img-thumbnail" type="image" src="../images/family.jpg">
+                    <input type="hidden" name="room_type" value="family">
+                </form>
             </div>
             <div class="col-lg-3 col-md-4 col-6">
-                <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="../images/twin.webp" alt="Photo of twin room">
-                </a>
+                <form action="signInPrompt.php <?php $_SESSION['guestRedirect'] = "bookRoom.php"; ?>" method="post">
+                    <input class="img-fluid img-thumbnail" type="image" src="../images/twin.webp">
+                    <input type="hidden" name="room_type" value="twin">
+                </form>
             </div>
             <div class="col-lg-3 col-md-4 col-6">
-                <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="../images/img_rest/mainRestaurant.jpg" alt="Photo of Shamrock Restaurant">
-                </a>
+                <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
+                    <input class="img-fluid img-thumbnail" type="image" src="../images/img_rest/mainRestaurant.jpg">
+                </form>
             </div>
             <div class="col-lg-3 col-md-4 col-6">
-                <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="../images/img_rest/barSeating.jpg" alt="Photo of bar and brasserie">
-                </a>
+                <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
+                    <input class="img-fluid img-thumbnail" type="image" src="../images/img_rest/barSeating.jpg">
+                </form>
             </div>
             <div class="col-lg-3 col-md-4 col-6">
-                <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="../images/img_rest/lounge.jpg" alt="Photo of lounge">
-                </a>
+                <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
+                    <input class="img-fluid img-thumbnail" type="image" src="../images/img_rest/lounge.jpg" class="d-block w-100" alt="Photo of lounge area." alt="Submit" style="float:right" width="500">
+                </form>
             </div>
             <div class="col-lg-3 col-md-4 col-6">
-                <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="../images/img_rest/outdoorDining.jpg" alt="Photo of outdoor dining area">
-                </a>
+                <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
+                    <input class="img-fluid img-thumbnail" type="image" src="../images/img_rest/outdoorDining.jpg">
+                </form>
             </div>
             <div class="col-lg-3 col-md-4 col-6">
                 <a href="#" class="d-block mb-4 h-100">
@@ -67,7 +72,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-6">
                 <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="../images/miscPhotos/mainEntrance.jpg" alt="">
+                    <img class="img-fluid img-thumbnail" src="../images/roomAdons/hotel_tallaght.png" alt="">
                 </a>
             </div>
         </div>

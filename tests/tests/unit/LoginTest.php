@@ -3,10 +3,11 @@
 
 namespace Tests\Unit;
 
-use person\Login;
-use Tests\Support\UnitTester;
 
-require_once 'src/person/Login.php';
+use Tests\Support\UnitTester;
+use tests\unit\testerClasses\Login;
+
+require_once 'testerClasses/Login.php';
 class LoginTest extends \Codeception\Test\Unit
 {
 
