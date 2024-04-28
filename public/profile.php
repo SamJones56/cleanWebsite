@@ -6,11 +6,10 @@ include_once "../src/Functions/reservationDisplayAndUpdateFunctions.php";
 include "templates/header.php";
 require_once '../src/DBconnect.php';
 
-if ($_SESSION['permissionlvl'] == 0)
-{
+if ($_SESSION['permissionlvl'] == 0) {
     header("location:index.php");
 }
-$user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee'],$connection);
+$user_array = newProfileDisplay($_SESSION['login_id'], $_SESSION['isEmployee'], $connection);
 
 $_SESSION['temp_login'] = $_SESSION['login_id'];
 
@@ -27,37 +26,37 @@ $_SESSION['guestRedirect'] = "profile.php";
         <th>Phone</th>
         <th>Email</th>
         <th>Date of Birth</th>
-        <?php if($_SESSION['isEmployee']){ ?>
+        <?php if ($_SESSION['isEmployee']) { ?>
             <th>Department id</th>
             <th>job</th>
-        <?php } else{ ?>
+        <?php } else { ?>
             <th>Passport number</th>
         <?php } ?>
     </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><?php echo $user_array["user_id"]; ?></td>
-            <td><?php echo $user_array["name"]; ?></td>
-            <td><?php echo $user_array["address"]; ?></td>
-            <td><?php echo $user_array["ph_no"]; ?></td>
-            <td><?php echo $user_array["email"]; ?></td>
-            <td><?php echo $user_array["dob"]; ?></td>
-            <?php if($_SESSION['isEmployee']){ ?>
-                <td><?php echo $user_array["dept_id"]; ?></td>
-                <td><?php echo $user_array["job"]; ?></td>
-            <?php }else{?>
+    <tr>
+        <td><?php echo $user_array["user_id"]; ?></td>
+        <td><?php echo $user_array["name"]; ?></td>
+        <td><?php echo $user_array["address"]; ?></td>
+        <td><?php echo $user_array["ph_no"]; ?></td>
+        <td><?php echo $user_array["email"]; ?></td>
+        <td><?php echo $user_array["dob"]; ?></td>
+        <?php if ($_SESSION['isEmployee']) { ?>
+            <td><?php echo $user_array["dept_id"]; ?></td>
+            <td><?php echo $user_array["job"]; ?></td>
+        <?php } else { ?>
             <td><?php echo $user_array["passport_no"]; ?></td>
-            <?php }?>
-            <td><a href="updateUser.php" class="btn btn-warning"> edit </a> </td>
+        <?php } ?>
+        <td><a href="updateUser.php" class="btn btn-warning"> edit </a></td>
 
-<!--            ?user_id=--><?php //echo $user_array["user_id"];
-//                ?><!--">Edit</a></td>-->
-        </tr>
+        <!--            ?user_id=--><?php //echo $user_array["user_id"];
+        //                ?><!--">Edit</a></td>-->
+    </tr>
     </tbody>
 </table>
 <h2>Room Bookings</h2>
-<table  class="table table-striped" >
+<table class="table table-striped">
     <thead>
     <tr>
         <th>Reservation id</th>
@@ -74,18 +73,18 @@ $_SESSION['guestRedirect'] = "profile.php";
     <tbody>
     <?php
 
-            if ($_SESSION['isEmployee']) {
-                buildRoomReservationUserList($connection, $user_array['employee_id'], $_SESSION['isEmployee']);
-            } else {
-                buildRoomReservationUserList($connection, $user_array['customer_id'], $_SESSION['isEmployee']);
-            }
+    if ($_SESSION['isEmployee']) {
+        buildRoomReservationUserList($connection, $user_array['employee_id'], $_SESSION['isEmployee']);
+    } else {
+        buildRoomReservationUserList($connection, $user_array['customer_id'], $_SESSION['isEmployee']);
+    }
 
-        ?>
+    ?>
     </tbody>
 </table>
 
 <h2>Restaurant Bookings</h2>
-<table  class="table table-striped">
+<table class="table table-striped">
     <thead>
     <tr>
         <th>Reservation id</th>
@@ -110,7 +109,7 @@ $_SESSION['guestRedirect'] = "profile.php";
     }
 
 
-//    buildRestaurantReservationList($connection);
+    //    buildRestaurantReservationList($connection);
     ?>
     </tbody>
 </table>

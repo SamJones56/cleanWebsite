@@ -3,8 +3,7 @@ include "../src/Functions/adminManageReservationFunctions.php";
 include "templates/header.php";
 require_once '../src/DBconnect.php';
 
-if($_SESSION['permissionlvl'] < 2 )
-{
+if ($_SESSION['permissionlvl'] < 2) {
     header("location:index.php");
 }
 
@@ -31,11 +30,11 @@ $reservationArray = buildReservationGeneralList($connection);
         </thead>
         <tbody>
         <?php
-            foreach ($reservationArray as $tableRes){
-                if(isset($tableRes['room_id'])){
-                    buildRoomReservationDisplay($tableRes, $connection);
-                }
+        foreach ($reservationArray as $tableRes) {
+            if (isset($tableRes['room_id'])) {
+                buildRoomReservationDisplay($tableRes, $connection);
             }
+        }
         ?>
         </tbody>
     </table>
@@ -55,14 +54,14 @@ $reservationArray = buildReservationGeneralList($connection);
         </thead>
         <tbody>
         <?php
-        foreach ($reservationArray as $tableRes){
-            if(!isset($tableRes['room_id'])){
+        foreach ($reservationArray as $tableRes) {
+            if (!isset($tableRes['room_id'])) {
                 buildRestaurantReservationDisplay($tableRes, $connection);
             }
         }
         ?>
         </tbody>
     </table>
-    <a href="admin.php" class="btn btn-secondary" > Back to admin </a>
+    <a href="admin.php" class="btn btn-secondary"> Back to admin </a>
 
-<?php  include "templates/footer.php"; ?>
+<?php include "templates/footer.php"; ?>

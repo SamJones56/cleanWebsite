@@ -18,14 +18,15 @@ function goodConnect()
     include_once "../src/functions/dataBaseFunctions.php";
     echo 'DB connected';
     $inputArray = array(
-            'Login_id' => '10',
-            'email' => 'admin@gmail.com',
-            'password' => '123',
-            'permissionlvl' => '3'
+        'Login_id' => '10',
+        'email' => 'admin@gmail.com',
+        'password' => '123',
+        'permissionlvl' => '3'
 
     );
-    addToTable($connection,$inputArray,"login");
+    addToTable($connection, $inputArray, "login");
 }
+
 function badConnect()
 {
     require_once "../common.php";
@@ -37,8 +38,9 @@ function badConnect()
         'password' => '123',
         'permissionlvl' => '3'
     );
-    addToTable("notAPDO",$inputArray,"login");
+    addToTable("notAPDO", $inputArray, "login");
 }
+
 function badData()
 {
     global $connection;
@@ -51,8 +53,9 @@ function badData()
         'permissionlvl' => '3'
 
     );
-    addToTable($connection,$inputArray,"login");
+    addToTable($connection, $inputArray, "login");
 }
+
 goodConnect();
 //badConnect();
 badData();

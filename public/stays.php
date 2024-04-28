@@ -1,6 +1,6 @@
 <?php
 include "templates/header.php";
-if(isset($_SESSION['temp_room_reservation'])){
+if (isset($_SESSION['temp_room_reservation'])) {
     unset($_SESSION['temp_room_reservation']);
 }
 ?>
@@ -15,8 +15,10 @@ if(isset($_SESSION['temp_room_reservation'])){
             <form action="signInPrompt.php <?php $_SESSION['guestRedirect'] = "bookRoom.php"; ?>" method="post">
                 <input type="image" src="../images/doubleBook.jpg" alt="Submit" style="grid" width=95%>
                 <input type="hidden" name="room_type" value="double">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Aliquam eleifend mi in nulla posuere. </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.
+                    Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Aliquam eleifend mi in
+                    nulla posuere. </p>
             </form>
         </div>
 
@@ -26,8 +28,10 @@ if(isset($_SESSION['temp_room_reservation'])){
             <form action="signInPrompt.php <?php $_SESSION['guestRedirect'] = "bookRoom.php"; ?>" method="post">
                 <input type="image" src="../images/suiteBook.jpg" alt="Submit" style="grid" width=95%>
                 <input type="hidden" name="room_type" value="double">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Aliquam eleifend mi in nulla posuere.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.
+                    Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Aliquam eleifend mi in
+                    nulla posuere.</p>
             </form>
 
 
@@ -37,8 +41,10 @@ if(isset($_SESSION['temp_room_reservation'])){
             <form action="signInPrompt.php<?php $_SESSION['guestRedirect'] = "bookRoom.php"; ?>" method="post">
                 <input type="image" src="../images/twinBook.jpg" alt="Submit" style="grid" width=95%>
                 <input type="hidden" name="room_type" value="twin">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Aliquam eleifend mi in nulla posuere.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.
+                    Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Aliquam eleifend mi in
+                    nulla posuere.</p>
             </form>
 
 
@@ -49,8 +55,10 @@ if(isset($_SESSION['temp_room_reservation'])){
             <form action="signInPrompt.php<?php $_SESSION['guestRedirect'] = "bookRoom.php"; ?>" method="post">
                 <input type="image" src="../images/familyBook.jpg" alt="Submit" style="grid" width=95%>
                 <input type="hidden" name="room_type" value="family">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Aliquam eleifend mi in nulla posuere.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.
+                    Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Aliquam eleifend mi in
+                    nulla posuere.</p>
             </form>
             </form>
 

@@ -9,7 +9,8 @@
 
     <div id="indexCarousel" class="carousel slide" Data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#dineCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#dineCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+                    aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#dineCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#dineCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             <button type="button" data-bs-target="#dineCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
@@ -31,7 +32,8 @@
         <div class="carousel-inner">
             <!-- Main entrance -->
             <div class="carousel-item active" data-bs-interval="3000">
-                <img src="../images/roomAdons/hotel_tallaght.png" class="d-block w-100" alt="Photo of main hotel entrance.">
+                <img src="../images/roomAdons/hotel_tallaght.png" class="d-block w-100"
+                     alt="Photo of main hotel entrance.">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Hotel Tallafornia</h5>
                     <p>Have your driver drop you right at our front door!</p>
@@ -39,7 +41,8 @@
             </div>
             <!-- Gardens -->
             <div class="carousel-item" data-bs-interval="3000">
-                <img src="../images/miscPhotos/gardens.jpg" class="d-block w-100" alt="Photo of gardens from top of steps.">
+                <img src="../images/miscPhotos/gardens.jpg" class="d-block w-100"
+                     alt="Photo of gardens from top of steps.">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Gardens</h5>
                     <p>Stroll through our stunning gardens.</p>
@@ -47,8 +50,11 @@
             </div>
             <!-- Shamrock dining room -->
             <div class="carousel-item" data-bs-interval="3000">
-                <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
-                    <input type="image" src="../images/img_rest/mainRestaurant.jpg" class="d-block w-100" alt="Photo of main restaurant area, the Shamrock Restaurant." alt="Submit" style="float:right" width="500">
+                <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php";
+                echo "signInPrompt.php"; ?>" method="post">
+                    <input type="image" src="../images/img_rest/mainRestaurant.jpg" class="d-block w-100"
+                           alt="Photo of main restaurant area, the Shamrock Restaurant." alt="Submit"
+                           style="float:right" width="500">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Shamrock Restaurant</h5>
                         <p>Open for dinner. Click to book.</p>
@@ -57,7 +63,8 @@
             </div>
             <!-- Afternoon tea - food -->
             <div class="carousel-item" data-bs-interval="3000">
-                <img src="../images/miscPhotos/afternoonTeaFood.jpg" class="d-block w-100" alt="PHoto of food served for afternoon tea.">
+                <img src="../images/miscPhotos/afternoonTeaFood.jpg" class="d-block w-100"
+                     alt="PHoto of food served for afternoon tea.">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Afternoon Tea</h5>
                     <p>Enjoy a selection of freshly made sandwiches and desserts.</p>
@@ -66,7 +73,8 @@
             <!-- Suite -->
             <div class="carousel-item" data-bs-interval="3000">
                 <form action="signInPrompt.php <?php $_SESSION['guestRedirect'] = "bookRoom.php"; ?>" method="post">
-                    <input type="image" src="../images/suite.webp" class="d-block w-100" alt="Photo of a suite." alt="Submit" style="float:right" width="500">
+                    <input type="image" src="../images/suite.webp" class="d-block w-100" alt="Photo of a suite."
+                           alt="Submit" style="float:right" width="500">
                     <input type="hidden" name="room_type" value="suite">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Suite</h5>
@@ -84,8 +92,10 @@
             </div>
             <!-- Bar and brasserie -->
             <div class="carousel-item" data-bs-interval="3000">
-                <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
-                    <input type="image" src="../images/img_rest/barSeating.jpg" class="d-block w-100" alt="Photo of bar and brasserie dining area." alt="Submit" style="float:right" width="500">
+                <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php";
+                echo "signInPrompt.php"; ?>" method="post">
+                    <input type="image" src="../images/img_rest/barSeating.jpg" class="d-block w-100"
+                           alt="Photo of bar and brasserie dining area." alt="Submit" style="float:right" width="500">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Bar & Brasserie</h5>
                         <p>Open evenings only. Click to book.</p>
@@ -103,7 +113,8 @@
             <!-- Double room -->
             <div class="carousel-item" data-bs-interval="3000">
                 <form action="signInPrompt.php <?php $_SESSION['guestRedirect'] = "bookRoom.php"; ?>" method="post">
-                    <input type="image" src="../images/double.jpg" class="d-block w-100" alt="Photo of a double room." alt="Submit" style="float:right" width="500">
+                    <input type="image" src="../images/double.jpg" class="d-block w-100" alt="Photo of a double room."
+                           alt="Submit" style="float:right" width="500">
                     <input type="hidden" name="room_type" value="double">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Double Room</h5>
@@ -113,8 +124,10 @@
             </div>
             <!-- Outdoor dining area -->
             <div class="carousel-item" data-bs-interval="3000">
-                <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
-                    <input type="image" src="../images/img_rest/outdoorDining.jpg" class="d-block w-100" alt="Photo of outdoor dining area." alt="Submit" style="float:right" width="500">
+                <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php";
+                echo "signInPrompt.php"; ?>" method="post">
+                    <input type="image" src="../images/img_rest/outdoorDining.jpg" class="d-block w-100"
+                           alt="Photo of outdoor dining area." alt="Submit" style="float:right" width="500">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Garden Restaurant</h5>
                         <p>Open for lunch. Click to book.</p>
@@ -123,7 +136,8 @@
             </div>
             <!-- Afternoon tea drinks -->
             <div class="carousel-item" data-bs-interval="3000">
-                <img src="../images/miscPhotos/afternoonTeaDrinks.jpg" class="d-block w-100" alt="Photo of drinks for afternoon tea.">
+                <img src="../images/miscPhotos/afternoonTeaDrinks.jpg" class="d-block w-100"
+                     alt="Photo of drinks for afternoon tea.">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Afternoon Tea</h5>
                     <p>Enjoy freshly made sandwiches and desserts.</p>
@@ -140,7 +154,8 @@
             <!-- Family room -->
             <div class="carousel-item" data-bs-interval="3000">
                 <form action="signInPrompt.php <?php $_SESSION['guestRedirect'] = "bookRoom.php"; ?>" method="post">
-                    <input type="image" src="../images/family.jpg" class="d-block w-100" alt="Photo of a family room." alt="Submit" style="float:right" width="500">
+                    <input type="image" src="../images/family.jpg" class="d-block w-100" alt="Photo of a family room."
+                           alt="Submit" style="float:right" width="500">
                     <input type="hidden" name="room_type" value="family">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Family Room</h5>
@@ -150,8 +165,10 @@
             </div>
             <!-- Lounge bar -->
             <div class="carousel-item" data-bs-interval="3000">
-                <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
-                    <input type="image" src="../images/img_rest/lounge.jpg" class="d-block w-100" alt="Photo of lounge area." alt="Submit" style="float:right" width="500">
+                <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php";
+                echo "signInPrompt.php"; ?>" method="post">
+                    <input type="image" src="../images/img_rest/lounge.jpg" class="d-block w-100"
+                           alt="Photo of lounge area." alt="Submit" style="float:right" width="500">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Lounge</h5>
                         <p>Open for breakfast or coffee. Click to book.</p>
@@ -168,7 +185,8 @@
             </div>
             <!-- Private gardens -->
             <div class="carousel-item" data-bs-interval="3000">
-                <img src="../images/miscPhotos/privateGardens2.jpg" class="d-block w-100" alt="Photo of private gardens.">
+                <img src="../images/miscPhotos/privateGardens2.jpg" class="d-block w-100"
+                     alt="Photo of private gardens.">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Private Gardens</h5>
                     <p>Enjoy the serenity of our private gardens.</p>
@@ -177,7 +195,8 @@
             <!-- Twin room -->
             <div class="carousel-item" data-bs-interval="3000">
                 <form action="signInPrompt.php <?php $_SESSION['guestRedirect'] = "bookRoom.php"; ?>" method="post">
-                    <input type="image" src="../images/twin.webp" class="d-block w-100" alt="Photo of twin room." alt="Submit" style="float:right" width="500">
+                    <input type="image" src="../images/twin.webp" class="d-block w-100" alt="Photo of twin room."
+                           alt="Submit" style="float:right" width="500">
                     <input type="hidden" name="room_type" value="twin">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Twin Room</h5>

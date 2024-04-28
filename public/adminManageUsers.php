@@ -3,8 +3,7 @@ include "../src/Functions/adminManageUsersFunctions.php";
 include "templates/header.php";
 require_once '../src/DBconnect.php';
 
-if($_SESSION['permissionlvl'] < 2 )
-{
+if ($_SESSION['permissionlvl'] < 2) {
     header("location:index.php");
 }
 
@@ -50,4 +49,4 @@ $_SESSION['guestRedirect'] = "adminManageUsers.php";
     </table>
     <a href="admin.php" class="btn btn-secondary"> Back to admin </a>
 
-<?php  include "templates/footer.php"; ?>
+<?php include "templates/footer.php"; ?>
