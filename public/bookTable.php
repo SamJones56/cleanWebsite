@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     <title>Dine</title>
     <form method="post">
 
-        <?php if($_SESSION['isEmployee']){?>
+        <?php if ($_SESSION['isEmployee']) { ?>
             <label for="employee_id">Employee id</label>
             <input type="text" name="employee_id" id="employee_id" class="form-control">
             <br>
@@ -21,16 +21,17 @@ if (isset($_POST['submit'])) {
             <br>
         <?php } ?>
 
-        <?php if(!$_SESSION['isEmployee']) { ?>
+        <?php if (!$_SESSION['isEmployee']) { ?>
             <input type="text" name="employee_id" id="employee_id" readonly value="1" hidden class="form-control">
             <br>
-            <input type="text" name="customer_id" id="customer_id" value="<?php echo $_SESSION['customer_id']['customer_id']; ?>" hidden class="form-control">
+            <input type="text" name="customer_id" id="customer_id"
+                   value="<?php echo $_SESSION['customer_id']['customer_id']; ?>" hidden class="form-control">
             <br>
 
         <?php } ?>
 
         <label for="date">Date:</label>
-        <input type="date" id="date" name="date" value="<?php echo date('Y-m-d');?>" required class="form-control">
+        <input type="date" id="date" name="date" value="<?php echo date('Y-m-d'); ?>" required class="form-control">
         <br>
         <label for="time">Time:</label>
         <input type="time" id="time" name="time" required class="form-control">

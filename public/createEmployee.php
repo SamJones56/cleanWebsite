@@ -1,8 +1,7 @@
 <?php
 include "../src/Functions/newEmployeeFunctions.php";
 include "templates/header.php";
-if($_SESSION['permissionlvl'] < 2 )
-{
+if ($_SESSION['permissionlvl'] < 2) {
     header("location:index.php");
 }
 makeNewEmployee();
@@ -39,7 +38,7 @@ makeNewEmployee();
             <label for="permissionlvl">Permission Level</label>
             <input type="text" name="permissionlvl" id="permissionlvl" class="form-control" required>
 
-            <input type="submit" name="submit" value="Submit"  class="btn btn-success">
+            <input type="submit" name="submit" value="Submit" class="btn btn-success">
             <a href="Admin.php" class="btn btn-secondary">Back to Admin</a>
         </form>
     </div>

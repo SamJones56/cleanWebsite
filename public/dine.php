@@ -1,6 +1,6 @@
 <?php include "templates/header.php"; ?>
 
-<!--Carousel Source: https://getbootstrap.com/docs/5.3/components/carousel/-->
+    <!--Carousel Source: https://getbootstrap.com/docs/5.3/components/carousel/-->
 
     <title>Dine</title>
 
@@ -10,17 +10,21 @@
 
         <div id="dineCarousel" class="carousel slide" Data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#dineCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#dineCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#dineCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#dineCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 <button type="button" data-bs-target="#dineCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="3000">
-                    <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
-                        <input type="image" src="../images/img_rest/mainRestaurant.jpg" class="d-block w-100" alt="Photo of main restaurant area, the Shamrock Restaurant." alt="Submit" style="float:right" width="500">
-<!--                       Edit db table and reservations page-->
-<!--                        <input type="hidden" name="area" value="mainrest">-->
+                    <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php";
+                    echo "signInPrompt.php"; ?>" method="post">
+                        <input type="image" src="../images/img_rest/mainRestaurant.jpg" class="d-block w-100"
+                               alt="Photo of main restaurant area, the Shamrock Restaurant." alt="Submit"
+                               style="float:right" width="500">
+                        <!--                       Edit db table and reservations page-->
+                        <!--                        <input type="hidden" name="area" value="mainrest">-->
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Shamrock Restaurant</h5>
                             <p>Dine in our main restaurant, which takes it's name from the Shamrock Rovers.</p>
@@ -28,10 +32,13 @@
                     </form>
                 </div>
                 <div class="carousel-item" data-bs-interval="3000">
-                    <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
-                        <input type="image" src="../images/img_rest/barSeating.jpg" class="d-block w-100" alt="Photo of bar and brasserie dining area." alt="Submit" style="float:right" width="500">
-<!--                        Edit db table and reservations page-->
-<!--                        <input type="hidden" name="area" value="bar">-->
+                    <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php";
+                    echo "signInPrompt.php"; ?>" method="post">
+                        <input type="image" src="../images/img_rest/barSeating.jpg" class="d-block w-100"
+                               alt="Photo of bar and brasserie dining area." alt="Submit" style="float:right"
+                               width="500">
+                        <!--                        Edit db table and reservations page-->
+                        <!--                        <input type="hidden" name="area" value="bar">-->
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Bar & Brasserie</h5>
                             <p>Enjoy a cocktail in our cosy bar and brasserie.</p>
@@ -39,10 +46,12 @@
                     </form>
                 </div>
                 <div class="carousel-item" data-bs-interval="3000">
-                    <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
-                        <input type="image" src="../images/img_rest/outdoorDining.jpg" class="d-block w-100" alt="Photo of outdoor dining area." alt="Submit" style="float:right" width="500">
-<!--                        Edit db table and reservations page-->
-<!--                        <input type="hidden" name="area" value="outdoor">-->
+                    <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php";
+                    echo "signInPrompt.php"; ?>" method="post">
+                        <input type="image" src="../images/img_rest/outdoorDining.jpg" class="d-block w-100"
+                               alt="Photo of outdoor dining area." alt="Submit" style="float:right" width="500">
+                        <!--                        Edit db table and reservations page-->
+                        <!--                        <input type="hidden" name="area" value="outdoor">-->
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Garden Restaurant</h5>
                             <p>Take advantage of the great outdoors and have lunch in our garden restaurant.</p>
@@ -50,10 +59,12 @@
                     </form>
                 </div>
                 <div class="carousel-item" data-bs-interval="3000">
-                    <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php"; echo "signInPrompt.php"; ?>" method="post">
-                        <input type="image" src="../images/img_rest/lounge.jpg" class="d-block w-100" alt="Photo of lounge area." alt="Submit" style="float:right" width="500">
-<!--                        Edit db table and reservations page-->
-<!--                        <input type="hidden" name="area" value="lounge">-->
+                    <form action="<?php $_SESSION['guestRedirect'] = "bookTable.php";
+                    echo "signInPrompt.php"; ?>" method="post">
+                        <input type="image" src="../images/img_rest/lounge.jpg" class="d-block w-100"
+                               alt="Photo of lounge area." alt="Submit" style="float:right" width="500">
+                        <!--                        Edit db table and reservations page-->
+                        <!--                        <input type="hidden" name="area" value="lounge">-->
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Lounge Bar</h5>
                             <p>Enjoy breakfast or a coffee in our lounge.</p>
@@ -74,17 +85,20 @@
         <!-- Menu images with links to pdf of menu -->
         <div class="menu">
             <h2 class="fw-light text-center text-lg-start mt-4 mb-0">Our Restaurants</h2>
-            <a href="../data/restaurant/breakfast.pdf" target="_blank"><img src="../images/png_menu/breakfast.png" alt="Breakfast Menu" width="300"></a>
-            <a href="../data/restaurant/lunch.pdf" target="_blank"><img src="../images/png_menu/lunch.png" alt="Lunch Menu" width="300"></a>
-            <a href="../data/restaurant/dinner.pdf" target="_blank"><img src="../images/png_menu/dinner.png" alt="Dinner Menu" width="300"></a>
+            <a href="../data/restaurant/breakfast.pdf" target="_blank"><img src="../images/png_menu/breakfast.png"
+                                                                            alt="Breakfast Menu" width="300"></a>
+            <a href="../data/restaurant/lunch.pdf" target="_blank"><img src="../images/png_menu/lunch.png"
+                                                                        alt="Lunch Menu" width="300"></a>
+            <a href="../data/restaurant/dinner.pdf" target="_blank"><img src="../images/png_menu/dinner.png"
+                                                                         alt="Dinner Menu" width="300"></a>
         </div>
 
-            <form action="<?php
-            $_SESSION['guestRedirect'] = "bookTable.php";
-            echo "signInPrompt.php";
-            ?>" method="post">
-                <button type="submit" class="btn btn-success">Book Now</button>
-            </form>
+        <form action="<?php
+        $_SESSION['guestRedirect'] = "bookTable.php";
+        echo "signInPrompt.php";
+        ?>" method="post">
+            <button type="submit" class="btn btn-success">Book Now</button>
+        </form>
         </a>
 
     </div>

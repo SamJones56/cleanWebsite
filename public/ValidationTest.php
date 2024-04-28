@@ -7,36 +7,38 @@ require_once '../src/DBconnect.php';
 require_once '../src/functions/userSignInFunctions.php';
 require_once '../src/functions/profileDisplayAndUpdateFunctions.php';
 
-function loginTestForm($connection){
+function loginTestForm($connection)
+{
     ?>
     <title>Sign in</title>
     <form action="" method="post" name="Login_Form" class="form-signin">
         <h2 class="form-signin-heading">Sign In Test: Credentials to validate below</h2>
-        <label for="Email" >Email</label>
-        <input name="Email" type="email" id="email" class="form-control" placeholder="Email"  autofocus>
+        <label for="Email">Email</label>
+        <input name="Email" type="email" id="email" class="form-control" placeholder="Email" autofocus>
         <label for="Password">Password</label>
-        <input name="Password" type="password" id="Password" class="form-control" placeholder="Password" >
+        <input name="Password" type="password" id="Password" class="form-control" placeholder="Password">
         <button name="test1pt1" value="test1pt1" type="submit">Add data</button>
         <button name="test1pt2" value="test1pt2" class="button" type="submit">Sign in</button>
         <button name="test1pt3" value="test1pt3" type="submit">Delete data</button>
     </form>
 
-<?php
-     echo "Login Credentials to Validate: <br>";
-     echo "email: test@test.com <br> ";
-     echo "password: PASSWORD <br>";
+    <?php
+    echo "Login Credentials to Validate: <br>";
+    echo "email: test@test.com <br> ";
+    echo "password: PASSWORD <br>";
 
 
-    if(isset($_POST['test1pt1'])) {
+    if (isset($_POST['test1pt1'])) {
         createLogin($connection);
     }
-    if(isset($_POST['test1pt2'])) {
+    if (isset($_POST['test1pt2'])) {
         userLogIn($connection, 1);
     }
-    if(isset($_POST['test1pt3'])) {
+    if (isset($_POST['test1pt3'])) {
         deleteLogin($connection);
     }
 }
+
 function roomAndRestaurantDateValidationTest($connection)
 {
     function dateTester($connection)
@@ -87,21 +89,17 @@ function roomAndRestaurantDateValidationTest($connection)
     function dateFormBuilder($testTitle, $formArray, $formDataArray, $formId, $connection)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if (isset($_POST['submit'. $formId])){
-                if((int)$formId == 1)
-                {
+            if (isset($_POST['submit' . $formId])) {
+                if ((int)$formId == 1) {
                     tempRoomReservation($connection, 1);
                 }
-                if((int)$formId == 2)
-                {
+                if ((int)$formId == 2) {
                     tempRoomReservation($connection, 1);
                 }
-                if ((int)$formId == 3)
-                {
+                if ((int)$formId == 3) {
                     tempTableReservation($connection, 1);
                 }
-                if ((int)$formId == 4)
-                {
+                if ((int)$formId == 4) {
                     tempTableReservation($connection, 1);
                 }
             }
@@ -110,47 +108,42 @@ function roomAndRestaurantDateValidationTest($connection)
         echo '<form method="post" action="" id="form' . $formId . '" name="form' . $formId . '">';
         $combinedArray = array_combine($formArray, $formDataArray);
         echo '<h1> ' . $testTitle . ' </h1> ';
-        foreach ($combinedArray as $key => $value)
-        {
-            if($key != "payment") {
+        foreach ($combinedArray as $key => $value) {
+            if ($key != "payment") {
                 echo '<label for="' . $key . '">' . $key . '</label> <br>';
                 if ($key == "employee_id" || $key == "customer_id") {
                     echo '<input type="text" name="';
-                }
-                else if ($key == "date" || $key == "check_in" || $key == "check_out") {
+                } else if ($key == "date" || $key == "check_in" || $key == "check_out") {
                     echo '<input type="date" name="';
-                }
-                else if ($key == "time")
-                {
+                } else if ($key == "time") {
                     echo '<input type="time" name="';
-                }
-                else if ($key == "num_guests"){
+                } else if ($key == "num_guests") {
                     echo '<input type="number" name="';
                 }
                 echo $key . '" id="' . $key . '" value=' . $value . '> <br>';
             }
-            if ($key == "payment")
-            {
+            if ($key == "payment") {
                 echo '<p1> payment </p1> <br> <select name="payment" id="payment" required>
                 <option value="card">Card</option>
                 <option value="cash">Cash</option>
             </select> <br> ';
             }
         }
-        echo '<input type="submit" name="submit' . $formId .'" value="Submit" form="form' . $formId . '">';
+        echo '<input type="submit" name="submit' . $formId . '" value="Submit" form="form' . $formId . '">';
         echo '</form>';
     }
+
     dateTester($connection);
 }
 
 function deleteTest()
 {
- if (isset($_POST['delete']))
- {
+    if (isset($_POST['delete'])) {
 
- }
+    }
 }
-    loginTestForm($connection);
-    roomAndRestaurantDateValidationTest($connection);
+
+loginTestForm($connection);
+roomAndRestaurantDateValidationTest($connection);
 ?>
 
