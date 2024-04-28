@@ -11,10 +11,10 @@ if(isset($_SESSION['temp_room_reservation'])){
 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
+            <h5>Classic Double</h5>
             <form action="signInPrompt.php <?php $_SESSION['guestRedirect'] = "bookRoom.php"; ?>" method="post">
                 <input type="image" src="../images/doubleBook.jpg" alt="Submit" style="grid" width=95%>
                 <input type="hidden" name="room_type" value="double">
-                <h5>Classic Double</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Aliquam eleifend mi in nulla posuere. </p>
             </form>
@@ -22,10 +22,10 @@ if(isset($_SESSION['temp_room_reservation'])){
 
 
         <div class="carousel-item">
+            <h5>Luxury Suite</h5>
             <form action="signInPrompt.php <?php $_SESSION['guestRedirect'] = "bookRoom.php"; ?>" method="post">
                 <input type="image" src="../images/suiteBook.jpg" alt="Submit" style="grid" width=95%>
                 <input type="hidden" name="room_type" value="double">
-                <h5>Luxury Suite</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Aliquam eleifend mi in nulla posuere.</p>
             </form>
@@ -33,11 +33,10 @@ if(isset($_SESSION['temp_room_reservation'])){
 
         </div>
         <div class="carousel-item">
-
+            <h5>Classic Twin</h5>
             <form action="signInPrompt.php<?php $_SESSION['guestRedirect'] = "bookRoom.php"; ?>" method="post">
                 <input type="image" src="../images/twinBook.jpg" alt="Submit" style="grid" width=95%>
                 <input type="hidden" name="room_type" value="twin">
-                <h5>Classic Twin</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Aliquam eleifend mi in nulla posuere.</p>
             </form>
@@ -46,11 +45,10 @@ if(isset($_SESSION['temp_room_reservation'])){
         </div>
 
         <div class="carousel-item">
-
+            <h5>Deluxe Family</h5>
             <form action="signInPrompt.php<?php $_SESSION['guestRedirect'] = "bookRoom.php"; ?>" method="post">
                 <input type="image" src="../images/familyBook.jpg" alt="Submit" style="grid" width=95%>
                 <input type="hidden" name="room_type" value="family">
-                <h5>Deluxe Family</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Aliquam eleifend mi in nulla posuere.</p>
             </form>
