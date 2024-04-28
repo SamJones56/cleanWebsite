@@ -17,11 +17,11 @@ else{
 
 
 <form action="userLogin.php" method="post">
-    <button class="btn btn-light btn-lg btn-block btn btn-outline-secondary" type="submit" name="submit-login" > Sign in</button>
+    <button class="btn  btn-lg btn-block btn btn-outline-success" type="submit" name="submit-login" > Sign in</button>
 </form>
 <br>
 <form action="createGuest.php" method="post">
-    <button class="btn btn-light btn-lg btn-block btn btn-outline-secondary" type="submit" name="submit-guest" > Continue as Guest</button>
+    <button class="btn btn-lg btn-block btn btn-success" type="submit" name="submit-guest" > Continue as Guest</button>
 </form>
 
 <?php };

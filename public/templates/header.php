@@ -19,7 +19,6 @@ else {
     $_SESSION['permissionlvl'] = 0;
 }
 
-var_dump(($_SESSION));
 ?>
 
 
@@ -41,33 +40,35 @@ css">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
             <svg class="bi me-2" width="20" height="32"><use xlink:href="index.php"></use></svg>
-            <span class="fs-4">Hotel Tallafornia</span>
+            <span class="fs-4" style="color: #5cb85c">Hotel Tallafornia</span>
         </a>
 
         <ul class="nav nav-pills">
-            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/index.php' || $_SERVER['REQUEST_URI'] == '/') ? 'active' : ''; ?>"><a href="index.php" class="nav-link" aria-current="page">Home</a></li>
-            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/stays.php') ? 'active' : ''; ?>"><a href="stays.php" class="nav-link">Stay</a></li>
-            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/dine.php') ? 'active' : ''; ?>"><a href="dine.php" class="nav-link">Dine</a></li>
-            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/gallery.php') ? 'active' : ''; ?>"><a href="gallery.php" class="nav-link">Gallery</a></li>
+            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/index.php' || $_SERVER['REQUEST_URI'] == '/') ? 'active' : ''; ?>"><a style="color: #13653f" href="index.php" class="nav-link" aria-current="page">Home</a></li>
+            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/stays.php') ? 'active' : ''; ?>"><a href="stays.php" class="nav-link" style="color: #13653f">Stay</a></li>
+            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/dine.php') ? 'active' : ''; ?>"><a href="dine.php" class="nav-link" style="color: #13653f">Dine</a></li>
+            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/gallery.php') ? 'active' : ''; ?>"><a href="gallery.php" class="nav-link" style="color: #13653f">Gallery</a></li>
             <?php if($_SESSION['permissionlvl'] > 1){?>
-                <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/admin.php') ? 'active' : ''; ?>"><a href="admin.php" class="nav-link">Staff</a></li>
+                <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] == '/admin.php') ? 'active' : ''; ?>"><a href="admin.php" class="nav-link" style="color: #13653f">Staff</a></li>
             <?php } ?>
         </ul>
 <!--        Begin checks for logged in                  -->
         <?php if($_SESSION['Active'] == false){ ?>
         <div class="col-md-3 text-end">
-            <a href="./userLogin.php" class="btn btn-outline-primary me-2">Login</a>
-            <a href="./memberSignUp.php"  class="btn btn-primary">Sign-up</a>
+            <a href="./userLogin.php" class="btn btn-outline-success me-2">Login</a>
+            <a href="./memberSignUp.php"  class="btn btn-success">Sign-up</a>
         </div>
         <?php }
         else if($_SESSION['Active'] == true){ ?>
         <div class="col-md-3 text-end">
-            <a href="./profile.php" class="btn btn-outline-primary me-2">Profile</a>
-            <a href="./userLogout.php"  class="btn btn-primary">Log-out</a>
+            <a href="./profile.php" class="btn btn-outline-success me-2">Profile</a>
+            <a href="./userLogout.php"  class="btn btn-success">Log-out</a>
         </div>
         <?php }?>
     </header>
 </div>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <body>
