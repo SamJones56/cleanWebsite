@@ -5,7 +5,7 @@ include_once "../src/functions/dataBaseFunctions.php";
 
 function tester($connection, $chk_in, $chk_out)
 {
-    $tempArray = roomPriceCalculator($connection, 120, $chk_in , $chk_out);
+    $tempArray = roomPriceCalculator($connection, 120, $chk_in, $chk_out);
     return $tempArray;
 }
 

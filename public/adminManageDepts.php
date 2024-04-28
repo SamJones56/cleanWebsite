@@ -6,29 +6,27 @@ include_once "../src/Functions/databasefunctions.php";
 require_once '../src/DBconnect.php';
 
 
-if($_SESSION['permissionlvl'] < 2 )
-{
+if ($_SESSION['permissionlvl'] < 2) {
     header("location:index.php");
 }
 $_SESSION['guestRedirect'] = "adminManageDepts.php";
 $keys = ['dept_id', 'dept_name', 'address'];
-$deptArray = buildTableList($connection, "departments","dept_id");
+$deptArray = buildTableList($connection, "departments", "dept_id");
 
-if(isset($_POST['submit_post']))
-{
+if (isset($_POST['submit_post'])) {
     $_SESSION['tempEdit'] = $_POST['item_id'];
     header("Location: updateDepartment.php");
 }
-if(isset($_POST['delete_post'])){
+if (isset($_POST['delete_post'])) {
     $temp_id = $_POST['item_id'];
-    deleteData($connection, "departments","dept_id",$temp_id);
+    deleteData($connection, "departments", "dept_id", $temp_id);
     header("refresh:0");
 }
 ?>
     <h2>Manage Departments</h2>
 
     <table class="table table-striped">
-        <thead >
+        <thead>
         <tr>
             <th scope="col">Dept id</th>
             <th scope="col">Dept Name</th>
@@ -36,9 +34,9 @@ if(isset($_POST['delete_post'])){
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($deptArray as $dept){
+        <?php foreach ($deptArray as $dept) {
             printData($dept, "dept_id");
-        }  ?>
+        } ?>
         </tbody>
     </table>
     <a href="createDepartment.php" class="btn btn-success"> Create a Department </a>

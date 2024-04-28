@@ -50,21 +50,17 @@ function dateTester()
 function dateFormBuilder($testTitle, $formArray, $formDataArray, $formId, $connection)
 {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if (isset($_POST['submit'. $formId])){
-            if((int)$formId == 1)
-            {
+        if (isset($_POST['submit' . $formId])) {
+            if ((int)$formId == 1) {
                 tempRoomReservation($connection, 1);
             }
-            if((int)$formId == 2)
-            {
+            if ((int)$formId == 2) {
                 tempRoomReservation($connection, 1);
             }
-            if ((int)$formId == 3)
-            {
+            if ((int)$formId == 3) {
                 tempTableReservation($connection, 1);
             }
-            if ((int)$formId == 4)
-            {
+            if ((int)$formId == 4) {
                 tempTableReservation($connection, 1);
             }
         }
@@ -73,33 +69,27 @@ function dateFormBuilder($testTitle, $formArray, $formDataArray, $formId, $conne
     echo '<form method="post" action="" id="form' . $formId . '" name="form' . $formId . '">';
     $combinedArray = array_combine($formArray, $formDataArray);
     echo '<h1> ' . $testTitle . ' </h1> ';
-    foreach ($combinedArray as $key => $value)
-    {
-        if($key != "payment") {
+    foreach ($combinedArray as $key => $value) {
+        if ($key != "payment") {
             echo '<label for="' . $key . '">' . $key . '</label> <br>';
             if ($key == "employee_id" || $key == "customer_id") {
                 echo '<input type="text" name="';
-            }
-            else if ($key == "date" || $key == "check_in" || $key == "check_out") {
+            } else if ($key == "date" || $key == "check_in" || $key == "check_out") {
                 echo '<input type="date" name="';
-            }
-            else if ($key == "time")
-            {
+            } else if ($key == "time") {
                 echo '<input type="time" name="';
-            }
-            else if ($key == "num_guests"){
+            } else if ($key == "num_guests") {
                 echo '<input type="number" name="';
             }
             echo $key . '" id="' . $key . '" value=' . $value . '> <br>';
         }
-        if ($key == "payment")
-        {
+        if ($key == "payment") {
             echo '<p1> payment </p1> <br> <select name="payment" id="payment" required>
                 <option value="card">Card</option>
                 <option value="cash">Cash</option>
             </select> <br> ';
         }
     }
-    echo '<input type="submit" name="submit' . $formId .'" value="Submit" form="form' . $formId . '">';
+    echo '<input type="submit" name="submit' . $formId . '" value="Submit" form="form' . $formId . '">';
     echo '</form>';
 }
