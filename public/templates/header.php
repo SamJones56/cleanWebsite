@@ -19,7 +19,7 @@ else {
     $_SESSION['permissionlvl'] = 0;
 }
 
-var_dump(($_SESSION));
+//var_dump(($_SESSION));
 ?>
 
 

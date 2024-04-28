@@ -11,20 +11,21 @@ makeDisount();
     <div id="dataForm">
         <form method="post">
             <label for="startDate">Start Date</label>
-            <input type="date" name="startDate" id="startDate">
-
+            <input type="date" name="startDate" id="startDate" class="form-control" required>
+            <br>
             <label for="endDate">End Date</label>
-            <input type="date" name="endDate" id="endDate">
-
+            <input type="date" name="endDate" id="endDate" class="form-control" required>
+            <br>
             <label for="amount">Amount</label>
-            <input type="text" name="amount" id="amount">
-
+            <input type="text" name="amount" id="amount" class="form-control" required>
+            <br>
             <label for="description">Description</label>
-            <input type="text" name="description" id="description">
-
-            <input type="submit" name="submit" value="Submit">
+            <input type="text" name="description" id="description" class="form-control" required>
+            <br>
+            <input type="submit" name="submit" value="Submit" class="btn btn-success">
+            <a href="adminManageDiscounts.php" class="btn btn-secondary">Back to Discounts</a>
         </form>
     </div>
-    <a href="adminManageDiscounts.php">Back to Discounts</a>
+
 
 <?php include "templates/footer.php"; ?>

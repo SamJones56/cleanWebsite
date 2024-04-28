@@ -33,57 +33,56 @@ $keys = array("employee_id", "customer_id", "date", "check_in", "check_out", "pa
 ?>
     <h2>Reserve A Room</h2>
 
-    <div id="dataForm">
+    <div id="dataForm" class="form-group">
     <form method="post">
 
 <?php if (!isset($_SESSION['temp_room_reservation'])) {
     if ($_SESSION['isEmployee']) {
         ?>
-        <label for="employee_id">Employee id</label>
-        <input type="text" name="employee_id" id="employee_id">
-        <span class="error">* <?php echo $empErr; ?></span>
+        <label for="employee_id" >Employee id</label>
+        <input type="text" name="employee_id" id="employee_id" class="form-control">
+        <span class="error"> <?php echo $empErr; ?></span>
         <br>
-
         <label for="customer_id">Customer id</label>
-        <input type="text" name="customer_id" id="customer_id" required>
-        <span class="error">* <?php echo $custErr; ?></span>
+        <input type="text" name="customer_id" id="customer_id" required class="form-control">
+        <span class="error"> <?php echo $custErr; ?></span>
         <br>
     <?php } ?>
 
     <?php if ($_SESSION['permissionlvl'] == 1) { ?>
-        <input type="text" name="employee_id" id="employee_id" readonly value="1" hidden>
+        <input type="text" name="employee_id" id="employee_id" readonly value="1" hidden class="form-control">
         <input type="text" name="customer_id" id="customer_id"
                value="<?php echo getAssociationKey($connection, "member", $_SESSION['login_id'], "login_id", "customer_id") ?>"
-               hidden>
+               hidden class="form-control">
         <br>
     <?php }
     if ($_SESSION['permissionlvl'] == 0) {
         ?>
-        <input type="text" name="employee_id" id="employee_id" readonly value="1" hidden>
+        <input type="text" name="employee_id" id="employee_id" readonly value="1" hidden class="form-control">
         <input type="text" name="customer_id" id="customer_id"
-               value="<?php echo $_SESSION['customer_id'] ?>" hidden>
+               value="<?php echo $_SESSION['customer_id'] ?>" hidden class="form-control">
     <?php } ?>
     <input type="date" name="date" id="date" value="<?php echo date('Y-m-d'); ?>" hidden>
 
     <label for="check_in">check_in</label>
-    <input type="date" name="check_in" id="check_in" value="<?php echo date('Y-m-d'); ?>" required>
-    <span class="error">* <?php echo $chk_inErr; ?></span>
+    <input type="date" name="check_in" id="check_in" value="<?php echo date('Y-m-d'); ?>" required class="form-control">
+    <span class="error"> <?php echo $chk_inErr; ?></span>
 
     <br>
     <label for="check_out">check_out</label>
-    <input type="date" name="check_out" id="check_out" required>
-    <span class="error">* <?php echo $chk_outErr; ?></span>
+    <input type="date" name="check_out" id="check_out" required class="form-control">
+    <span class="error"><?php echo $chk_outErr; ?></span>
     <br>
 
     <label for="payment">Payment</label>
-    <select name="payment" id="payment" required>
+    <select name="payment" id="payment" required class="form-control">
         <option value="card">Card</option>
         <option value="cash">Cash</option>
     </select> <br>
 
     <label for="num_guests">Number of Guests</label>
-    <input type="number" name="num_guests" id="num_guests" required>
-    <span class="error">* <?php echo $num_gErr; ?></span>
+    <input type="number" name="num_guests" id="num_guests" required class="form-control">
+    <span class="error"><?php echo $num_gErr; ?></span>
     <br>
 
 <?php } else {
@@ -92,9 +91,10 @@ $keys = array("employee_id", "customer_id", "date", "check_in", "check_out", "pa
     ?>
 
 
-    <input type="submit" name="submit" value="Submit">
+    <input type="submit" name="submit" value="Reserve a room" class="btn btn-success">
+        <a href="stays.php" class="btn btn-secondary">Back to Stays</a>
     </form>
     </div>
-    <a href="index.php">Back to home</a>
+
 
     <?php include "templates/footer.php"; ?>

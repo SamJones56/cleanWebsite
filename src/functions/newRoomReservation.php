@@ -241,7 +241,7 @@ function bookingRestore($formArray, $formDataArray)
             echo ' for="' . $key . '">' . $key . '</label>';
             if ($key == "employee_id" || $key == "customer_id") {
                 // Employee_id and customer_id input
-                echo '<input type="text" name="' . $key . '" id="' . $key . '" ';
+                echo '<input class="form-control" type="text" name="' . $key . '" id="' . $key . '" ';
                 // Check if employee
                 if (!$_SESSION['isEmployee']) {
                     // If not an employee, hide and set default values
@@ -261,22 +261,22 @@ function bookingRestore($formArray, $formDataArray)
             else if ($key == "date" || $key == "check_in" || $key == "check_out") {
                 if($key == "date")
                 {
-                    echo '<br> <input type="date" name="';
-                    echo $key . '" value ="' . date('Y-m-d') . ' " hidden > <br>' ;
+                    echo '<br> <input class="form-control" type="date" name="';
+                    echo $key . '" value ="' . date('Y-m-d') . ' " hidden > ' ;
                 }
                 else {
-                    echo '<br> <input type="date" name="';
-                    echo $key . '" id="' . $key . '" value=' . $value . '> <br>';
+                    echo '<br> <input class="form-control" type="date" name="';
+                    echo $key . '" id="' . $key . '" value=' . $value . '> ';
                 }
             }
             else if ($key == "num_guests"){
-                echo '<br> <input type="number" name="';
+                echo '<br> <input class="form-control" type="number" name="';
                 echo $key . '" id="' . $key . '" value=' . $value . '> <br>';
             }
         }
         if ($key == "payment")
         {
-            echo '<p1> payment </p1> <br> <select name="payment" id="payment" required>
+            echo '<p1> payment </p1> <br> <select class="form-control" name="payment" id="payment" required>
                 <option value="card">Card</option>
                 <option value="cash">Cash</option>
             </select> <br> ';

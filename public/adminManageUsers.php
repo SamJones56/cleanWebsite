@@ -12,18 +12,18 @@ $_SESSION['guestRedirect'] = "adminManageUsers.php";
 
 ?>
     <h2>Employees</h2>
-    <table>
+    <table class="table table-striped">
         <thead>
         <tr>
-            <th>Login id</th>
-            <th>User id</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Date of Birth</th>
-            <th>Department id</th>
-            <th>Job</th>
+            <th scope="col">Login id</th>
+            <th scope="col">User id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Department id</th>
+            <th scope="col">Job</th>
         </tr>
         </thead>
         <tbody>
@@ -32,22 +32,22 @@ $_SESSION['guestRedirect'] = "adminManageUsers.php";
     </table>
 
     <h2>Members</h2>
-    <table>
+    <table class="table table-striped">
         <thead>
         <tr>
-            <th>User id</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Date of Birth</th>
-            <th>Passport number</th>
+            <th scope="col">User id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Passport number</th>
         </tr>
         </thead>
         <tbody>
         <?php buildMemberList($connection); ?>
         </tbody>
     </table>
-    <a href="admin.php" > Back to admin </a>
+    <a href="admin.php" class="btn btn-secondary"> Back to admin </a>
 
 <?php  include "templates/footer.php"; ?>

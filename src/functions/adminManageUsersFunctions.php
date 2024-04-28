@@ -70,7 +70,7 @@ function buildEmployeeDisplay($userArray)
     // Declare a form, with a hidden value that links to the edit button
     echo '<td><form action="" method="post">';
     echo '<input type="hidden" name="user_id" value="' . ($userArray['Login_id']) . '">';
-    echo '<input type="submit" name="submit_employee" value="Edit">';
+    echo '<input type="submit" name="submit_employee" value="Edit" class="btn btn-warning">';
     echo '</form></td>';
     echo "</tr>";
 
@@ -102,7 +102,7 @@ function buildMemberDisplay($userArray)
     // Declare a form, with a hidden value that links to the edit button
     echo '<td><form action="" method="post">';
     echo '<input type="hidden" name="user_id" value="' . ($userArray['Login_id']) . '">';
-    echo '<input type="submit" name="submit_member" value="Edit">';
+    echo '<input type="submit" name="submit_member" value="Edit" class="btn btn-warning">';
     echo '</form></td>';
     echo "</tr>";
 }

@@ -8,18 +8,20 @@ if($_SESSION['permissionlvl'] < 2 )
 makeNewDepartment();
 ?>
 
-    <h2>Add a Department</h2>
-    <div id="dataForm">
+
+    <div id="dataForm" class="form-group">
+        <h2>Add a Department</h2>
         <form method="post">
             <label for="dept_name">Department Name</label>
-            <input type="text" name="dept_name" id="dept_name">
-
+            <input type="text" name="dept_name" id="dept_name" class="form-control" required>
+            <br>
             <label for="address">Department address</label>
-            <input type="text" name="address" id="address">
-
-            <input type="submit" name="submit" value="Submit">
+            <input type="text" name="address" id="address" class="form-control" required>
+            <br>
+            <input type="submit" name="submit" value="Submit" class="btn btn-success">
+            <a href="adminManageDepts.php" class="btn btn-secondary">Back to departments</a>
         </form>
     </div>
-    <a href="adminManageDepts.php">Back to departments</a>
+
 
 <?php include "templates/footer.php"; ?>

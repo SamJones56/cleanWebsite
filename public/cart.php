@@ -47,14 +47,14 @@ switch ($action) {
 ?>
 
 <h2> Booking Details </h2>
-<table>
+<table class="table table-striped">
     <thead>
     <tr>
-        <th>Room Type</th>
-        <th>Check in</th>
-        <th>Check out</th>
-        <th>Payment Type</th>
-        <th>Room Cost</th>
+        <th scope="col">Room Type</th>
+        <th scope="col">Check in</th>
+        <th scope="col">Check out</th>
+        <th scope="col">Payment Type</th>
+        <th scope="col">Room Cost</th>
     </tr>
     </thead>
     <tbody>
@@ -75,10 +75,16 @@ switch ($action) {
 <h2> Room Additions</h2>
 
 <div class="row">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+
     <?php
     foreach($products as $id => $product):
         $price = number_format($product['price'], 2);
         ?>
+
+
         <div class="product col-md-3 text-center">
             <img src= "<?= $product['image'] ?>" alt="<?=
             $product['image'] ?>" width="200px">
@@ -89,14 +95,18 @@ switch ($action) {
                 <form method="post" action="cart.php?action=addToCart&id=<?= $id
                 ?>" style="display: inline">
 
-                    <button class="btn btn-primary btn-sm">Add To
+                    <button class="btn btn-success">Add To
                         Cart</button>
                 </form>
             </div>
             <?= $product['description'] ?>
         </div>
 
+
     <?php endforeach; ?>
+        </tr>
+        </thead>
+    </table>
 </div>
 
 
@@ -193,9 +203,9 @@ foreach ($cartItems as $id => $quantity):
 </div>
 
 <form method="post">
-    <input type="submit" name="submit" value="Book">
-    <br>
-    <a href="bookroom.php">Back to room booking</a>
+    <input type="submit" name="submit" value="Book" class="btn btn-success">
+
+    <a href="bookroom.php" class="btn btn-secondary" >Back to room booking</a>
 </form>
 
 
