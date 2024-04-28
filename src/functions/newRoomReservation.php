@@ -222,3 +222,58 @@ function addExtras($cartItems, $connection)
         addToTable($connection, $tempArray, "roomExtras");
     }
 }
+// Build booking persistence
+function bookingRestore($formArray, $formDataArray)
+{
+    unset($formDataArray['room_id']);
+    unset($formDataArray['roomPrice']);
+    $combinedArray = array_combine($formArray, $formDataArray);
+    foreach ($combinedArray as $key => $value)
+    {
+        if($key != "payment") {
+            echo '<label ' ;
+            if(!$_SESSION['isEmployee'] && $key == "employee_id" || $key == "customer_id"){
+                echo ' hidden ';
+            }
+            echo ' for="' . $key . '">' . $key . '</label>';
+            if ($key == "employee_id" || $key == "customer_id") {
+                // Employee_id and customer_id input
+                echo '<input type="text" name="' . $key . '" id="' . $key . '" ';
+                // Check if employee
+                if (!$_SESSION['isEmployee']) {
+                    // If not an employee, hide and set default values
+                    echo 'value="';
+                    if ($key == 'employee_id') {
+                        echo '1';
+                    } else {
+                        echo $formDataArray['customer_id'];
+                    }
+                    echo '" readonly hidden> <br>';
+                } else {
+                    // For employees, show current value
+                    echo 'value="' . $value . '"> <br>';
+                }
+            }
+            // Rest of the form
+            else if ($key == "date" || $key == "check_in" || $key == "check_out") {
+                echo '<br> <input type="date" name="';
+                if($key == "date")
+                {
+                    echo ' value ="' . date('Y-m-d') . ' " hidden' ;
+                }
+                echo $key . '" id="' . $key . '" value=' . $value . '> <br>';
+            }
+            else if ($key == "num_guests"){
+                echo '<br> <input type="number" name="';
+                echo $key . '" id="' . $key . '" value=' . $value . '> <br>';
+            }
+        }
+        if ($key == "payment")
+        {
+            echo '<p1> payment </p1> <br> <select name="payment" id="payment" required>
+                <option value="card">Card</option>
+                <option value="cash">Cash</option>
+            </select> <br> ';
+        }
+    }
+}

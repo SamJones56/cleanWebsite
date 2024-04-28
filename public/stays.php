@@ -1,5 +1,8 @@
 <?php
 include "templates/header.php";
+if(isset($_SESSION['temp_room_reservation'])){
+    unset($_SESSION['temp_room_reservation']);
+}
 ?>
 
 <title>Stays</title>
