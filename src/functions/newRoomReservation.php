@@ -172,10 +172,9 @@ function roomPriceCalculator($connection, $initialRoomPrice, $checkIn, $checkOut
         $tempDiscount = searchDB($connection, "discounts", "discount_id", $i);
         if ($tempDiscount) {
             $discountArray[] = $tempDiscount;
-//            var_dump($discountArray);
         }
     }
-//  Get count : https://www.w3schools.com/sql/sql_count_avg_sum.asp
+//  Get count : https://www.w3schools.com/php/func_array_count.asp#:~:text=Definition%20and%20Usage,of%20elements%20in%20an%20array.
     // Apply discount
     $finalPrice = $initialRoomPrice * count($dateRange);
     foreach ($discountArray as $discount) {

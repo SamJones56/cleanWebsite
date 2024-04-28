@@ -6,9 +6,6 @@ https://www.w3schools.com/php/func_var_is_array.asp#:~:text=Definition%20and%20U
 w3schools : array key exists
 https://www.w3schools.com/php/func_array_key_exists.asp
 
-w3schools : get count
-https://www.w3schools.com/sql/sql_count_avg_sum.asp
-
 COMP H2029 : Shopping cart
 https://vle-bn.tudublin.ie/pluginfile.php/372186/mod_resource/content/0/PHP_17_shoppingCarts.pdf
 
@@ -18,8 +15,8 @@ https://www.w3schools.com/php/func_var_empty.asp
 Adding time
 https://stackoverflow.com/questions/11076334/php-strtotime-add-hours
 
-Getting a count with SQL
-https://www.w3schools.com/sql/sql_count_avg_sum.asp
+w3schools Getting a count() function
+https://www.w3schools.com/php/func_array_count.asp#:~:text=Definition%20and%20Usage,of%20elements%20in%20an%20array.
 
 PDO fetch statements:
 https://www.php.net/manual/en/pdostatement.fetchobject.php
