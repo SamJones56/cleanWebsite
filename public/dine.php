@@ -84,7 +84,7 @@
 
         <!-- Menu images with links to pdf of menu -->
         <div class="menu">
-            <h2 class="fw-light text-center text-lg-start mt-4 mb-0">Our Restaurants</h2>
+            <h2 class="fw-light text-center text-lg-start mt-4 mb-0">Our Menus</h2>
             <a href="../data/restaurant/breakfast.pdf" target="_blank"><img src="../images/png_menu/breakfast.png"
                                                                             alt="Breakfast Menu" width="300"></a>
             <a href="../data/restaurant/lunch.pdf" target="_blank"><img src="../images/png_menu/lunch.png"
